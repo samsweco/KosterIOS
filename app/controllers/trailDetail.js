@@ -219,7 +219,7 @@ function showIcons() {
 			var covericon = Ti.UI.createImageView({
 				height : '25dp',
 				width : '25dp',
-				left : '0dp',
+				left : '2dp',
 				top : '10dp',
 				image : '/images/' + selectedIcons[i].icon
 			});

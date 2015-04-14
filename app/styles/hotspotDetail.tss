@@ -43,7 +43,7 @@
 
 "#lblHotspotName": {
 	left: '15dp',
-	top: 10,
+	top: '10dp',
 	font: {
 		fontSize: 16,
 		fontFamily: 'Gotham Rounded'

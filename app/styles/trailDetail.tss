@@ -94,6 +94,8 @@
 
 "#lblTrailInfo": {
 	left: '15dp',
+	borderCollapse : 'seperate',
+	borderSpacing: '10dp',
 	font: {
 		fontSize: 12,
 		fontFamily: 'Gotham Rounded'
