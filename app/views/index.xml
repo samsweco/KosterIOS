@@ -5,6 +5,7 @@
 			<Window id="koster" class="container" backgroundImage="/pics/front.png" navBarHidden="true">
 				<View class="headView">
 					<ImageView class="imgKoster" image="/pics/kosterhavet_logga.png"></ImageView>
+					<Label id="lblFramText">-Här kan man se och uppleva koster</Label>
 				</View>
 			</Window>
 		</Tab>

@@ -20,4 +20,10 @@
 	height: '93%'
 }
 
-
+"#lblFramText" : {
+	color: "white",
+	right: 20,
+	font : {
+		fontSize: 10 
+	}
+}
