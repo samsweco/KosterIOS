@@ -5,7 +5,9 @@
 	<Collection src="jsonFilesModel" />
 	<Collection src="infospotModel"></Collection>
 	<View class="container">
+		
 		<View id="mapView"></View>
 		<Widget src="mapmenu" name="widget"></Widget>
+		
 	</View>
 </Alloy>
