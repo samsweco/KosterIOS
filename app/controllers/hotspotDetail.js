@@ -44,7 +44,7 @@ function selectHotspotPics() {
 				});
 
 			var lblImgTxt = Ti.UI.createLabel({
-				left : '5dp',
+				left : '3dp',
 				top : '0dp',
 				text : jsonMedia[i].img_txt,
 				color : 'white',

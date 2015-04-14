@@ -42,10 +42,23 @@
 }
 
 "#lblHotspotName": {
-	left: 10,
+	left: '15dp',
+	top: 10,
 	font: {
-		fontSize: 14,
+		fontSize: 16,
 		fontFamily: 'Gotham Rounded'
-	}
+	},
+	color: '#FF9966'
 }
+
+"#lblHotspotInfoTxt" : {
+	left : '15dp',
+	top: '5dp',
+	font: {
+		fontSize : '12dp',
+		fontFamily: 'Gotham Rounded'
+	},
+	top: '7dp'
+}
+
 
