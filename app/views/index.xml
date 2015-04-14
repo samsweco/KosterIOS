@@ -1,5 +1,24 @@
 <Alloy>
-	<Window class="container">
-		<Label id="label" onClick="doClick">Hello, World</Label>
-	</Window>
+	<Collection src="hotspotModel" />
+	<TabGroup id="tabs" backgroundColor="#fff" height="100%" tintColor="#FF9966">
+		<Tab id="koster" class="tabbar" title="Hem" icon="/images/kosterStarMenu.png" >
+			<Window id="koster" class="container" backgroundImage="/pics/front.png" navBarHidden="true">
+				<View class="headView">
+					<ImageView class="imgKoster" image="/pics/kosterhavet_logga.png"></ImageView>
+				</View>
+			</Window>
+		</Tab>
+		<Tab id="hikeTab" class="tabbar" title="Vandra" icon="/images/hikeMenu.png">
+			<Window id="hikeWin" title="Vandringsleder" onOpen="toTrails" />
+		</Tab>
+		<Tab id="maptab" class="tabbar" title="Karta" icon="/images/mapMenu.png">
+			<Window id="mapWin" onOpen="toMap" navBarHidden="true" />
+		</Tab>
+		<Tab id="quiz" class="tabbar" title="Quiz" icon="/images/quizMenu.png">
+			<Window id="quizWin" onOpen="toQuiz" />
+		</Tab>
+		<Tab id="info" class="tabbar" title="Info" icon="/images/infoMenu.png">
+			<Window id="infoWin" title="Information" onOpen="toInfo" />
+		</Tab>
+	</TabGroup>
 </Alloy>

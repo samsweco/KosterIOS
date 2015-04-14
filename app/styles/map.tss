@@ -1,0 +1,17 @@
+"font": {
+	fontFamily: 'Gotham Rounded'
+}
+
+".container": {
+	layout: 'vertical'
+}
+
+"#mapView": {
+	height: '90%',
+	width: '100%'
+}
+
+"#btnView": {
+	layout: 'horizontal'
+}
+

@@ -1,0 +1,20 @@
+<Alloy>
+	<Collection src="gameLetterModel"></Collection>
+	<Window id="quizQuestion">
+		<ScrollView class="headView" scrollType="vertical">
+			<View id="ViewClue">
+				<Label id="lblClue"></Label>
+				<Button id="btnNext" onClick="getClue">Nästa fråga</Button>
+			</View>
+			<View id="ViewChooseLetter" class="views">
+				<!-- <Label id="lblVisaFraga" text="Fyll i den bokstav du hittat: "></Label>
+				<TextField id="letter" borderColor="#000"></TextField>
+				<Button id="btnSaveLetter" onClick="saveLetter">OK</Button> -->
+				<Label id="lblInfo">Nedan kan du se de bokstäver du hittat än så länge:</Label>
+				<Label id="lblSavedLetters"></Label>
+				<TextField id="word" borderColor="#000"></TextField>
+				<Button id="btnCheckWord" onClick="showAlert">Rätta!</Button>
+			</View>
+		</ScrollView>
+	</Window>
+</Alloy>

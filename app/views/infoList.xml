@@ -1,0 +1,12 @@
+<Alloy>
+	<Collection src="infoModel" />
+	<View class="container">
+
+		<ScrollView class="headView" scrollType="vertical">
+			<TableView id="table" onClick="getInfoDetails">
+				<TableViewRow class="row" onClick="getInfoDetails" />
+			</TableView>
+		</ScrollView>
+
+	</View>
+</Alloy>

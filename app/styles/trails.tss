@@ -1,0 +1,12 @@
+"font": {
+	fontFamily: 'Gotham Rounded'
+}
+
+"Window": {
+	backgroundColor: 'white'
+}
+
+".container": {
+	layout: 'vertical',
+	top: 0
+}

@@ -1,0 +1,25 @@
+<!-- <Alloy>
+	<Toolbar platform="ios" id="menuios">
+		<Items>
+			<Button class="btniOS" onClick="toHome" backgroundImage="/images/kosterStarMenu.png" />
+			<FlexSpace/>
+			<Button class="btniOS" onClick="toTrails" backgroundImage="/images/hikeMenu.png" />
+			<FlexSpace/>
+			<Button class="btniOS" onClick="toMap" backgroundImage="/images/mapMenu.png" />
+			<FlexSpace/>
+			<Button class="btniOS" onClick="toQuiz" backgroundImage="/images/quizMenu.png" />
+			<FlexSpace/>
+			<Button class="btniOS" onClick="toInfo" backgroundImage="/images/infoMenu.png" />
+		</Items>
+	</Toolbar>
+	
+	<View id="menuandroid" platform="android">
+		<View class="btnView" >
+			<Button class="btnAndroid" backgroundImage="/images/kosterStarMenu.png" onClick="toHome" />
+			<Button class="btnAndroid" backgroundImage="/images/hikeMenu.png" onClick="toTrails" />
+			<Button class="btnAndroid" backgroundImage="/images/mapMenu.png" onClick="toMap" />
+			<Button class="btnAndroid" backgroundImage="/images/quizMenu.png" onClick="toQuiz" />
+			<Button class="btnAndroid" backgroundImage="/images/infoMenu.png" onClick="toInfo" />
+		</View>
+	</View>
+</Alloy> -->

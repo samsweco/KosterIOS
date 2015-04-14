@@ -1,0 +1,66 @@
+"font": {
+	fontFamily: 'Gotham Rounded'
+}
+
+"Window": {
+	backgroundColor: 'white',
+	layout: 'vertical'
+}
+
+".container": {
+	layout: 'vertical',
+	top: 0,
+	backgroundColor: 'white',
+	height: '100%'
+}
+
+"#infoImg": {
+	width: '300dp',
+	height: '200dp'
+}
+
+"#slideView": {
+	backgroundColor: '#000000',
+	height: '225dp',
+	width: '100%'
+}
+
+".headView": {
+	layout: 'vertical',
+	backgroundColor: 'white'
+}
+
+"Label": {
+	top: '5dp',
+	left: 10,
+	right: 10,
+	font: {
+		fontSize: 12,
+		fontFamily: 'Gotham Rounded'
+	}
+}
+
+"#lblInfoTitle": {
+	left: 10,
+	top: 10,
+	color: '#FF9966',
+	font: {
+		fontSize: 16,
+		fontFamily: 'Gotham Rounded'
+	}
+}
+
+"#lblInfoLink": {
+	left: '10dp',
+	top: '0dp',
+	font: {
+		fontFamily: 'Gotham Rounded'
+	}
+}
+
+"#slideView": {
+	backgroundColor: '#000000',
+	height: '225dp',
+	width: '100%'
+}
+

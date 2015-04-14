@@ -1,15 +1,23 @@
+"font": {
+	fontFamily: 'Gotham Rounded'
+}
+
 ".container": {
-	backgroundColor:"white"
+	layout: 'vertical',
+	height: '100%'
 }
 
-"Label": {
-	width: Ti.UI.SIZE,
-	height: Ti.UI.SIZE,
-	color: "#000"
+".imgKoster": {
+	top: '20dp',
+	center: '50%',
+	height: '90dp',
+	width: Titanium.UI.SIZE
 }
 
-"#label": {
-	font: {
-		fontSize: 12
-	}
+".headView": {
+	layout: 'vertical',
+	backgroundColor: 'transparent',
+	height: '93%'
 }
+
+

@@ -1,0 +1,25 @@
+"#mapmenu": {
+	layout: 'vertical',
+	height: '50dp'
+}
+
+"#maptypeView": {
+	layout: 'horizontal',
+	height: '25dp',
+	backgroundColor: 'white',
+}
+
+"#selectIconView": {
+	layout: 'horizontal',
+	backgroundColor: 'white'
+}
+
+".btnChange" : {
+		font : {
+		fontSize : 12
+	}
+}
+
+"#btnView": {
+	layout: 'horizontal'
+}

@@ -1,0 +1,51 @@
+"font": {
+	fontFamily: 'Gotham Rounded'
+}
+
+"Window": {
+	backgroundColor: 'white',
+	layout: 'vertical'
+}
+
+".container": {
+	layout: 'vertical',
+	top: 0,
+	backgroundColor: 'white',
+	height: '100%'
+}
+
+"#slideView": {
+	backgroundColor: '#000000',
+	height: Titanium.UI.SIZE,
+	width: '100%',
+	layout: 'vertical'
+}
+
+"#slideShowHotspotDetail": {
+	top: '10dp',
+	width: '300dp',
+	height: '235dp',
+	backgroundColor: 'black'
+}
+
+".headView": {
+	layout: 'vertical',
+	backgroundColor: 'white'
+}
+
+"Label": {
+	left: 10,
+	font: {
+		fontSize: 12,
+		fontFamily: 'Gotham Rounded'
+	}
+}
+
+"#lblHotspotName": {
+	left: 10,
+	font: {
+		fontSize: 14,
+		fontFamily: 'Gotham Rounded'
+	}
+}
+

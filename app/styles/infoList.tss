@@ -1,0 +1,28 @@
+"font": {
+	fontFamily: 'Gotham Rounded'
+}
+
+"Window": {
+	backgroundColor: 'white'
+}
+
+".container": {
+	layout: 'vertical',
+	top: 0
+}
+
+".headView": {
+	layout: 'vertical',
+	width: Titanium.UI.FILL,
+	top: 0
+}
+
+".row": {
+	layout: 'vertical',
+	backgroundColor: '#fff3e5',
+	height: '90dp',
+	width: Ti.UI.FILL,
+	right: 10
+}
+
+"#table": {}

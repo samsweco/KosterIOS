@@ -1,0 +1,16 @@
+<Alloy>
+	<Window id="infoDetail" class="container">
+
+		<ScrollView class="headView" scrollType="vertical" showVerticalScrollIndicator="true">
+			<View id="slideView">
+				<ImageView id="infoImg">
+					
+				</ImageView></View>
+			
+			<Label class="lblInfoDetail" id="lblInfoTitle"></Label>
+			<Label class="lblInfoDetail" id="lblInfoText"></Label>
+			<Label class="lbltxt" text="Gå till websida: "/>
+			<Label class="lblInfoDetail" id="lblInfoLink"></Label>
+		</ScrollView>
+	</Window>
+</Alloy>

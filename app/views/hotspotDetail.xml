@@ -1,0 +1,13 @@
+<Alloy>
+	<Collection src="mediaModel"></Collection>
+	<Window id="hotspotDetail" class="container">
+		<ScrollView class="headView" scrollType="vertical">
+			<View id="slideView">
+				<ScrollableView id="slideShowHotspotDetail" showPagingControl="true"/>	
+			</View>
+			<Label id="lblHotspotName" class="lblhotspotDetail"></Label>
+			<Label id="lblHotspotInfoTxt" class="lblhotspotDetail"></Label>
+			<Label id="lblTest"></Label>
+		</ScrollView>
+	</Window>
+</Alloy>

@@ -1,0 +1,134 @@
+"font": {
+	fontFamily: 'Gotham Rounded'
+}
+
+"Window": {
+	backgroundColor: 'white',
+	layout: 'vertical',
+	navBarHidden: "false"
+}
+
+"#slideShowTrails": {
+	top : '10dp',
+	width: '296dp',
+	height: '235dp',
+	backgroundColor : 'black'
+}
+
+"#horizontalView": {
+	layout : 'horizontal',
+	height : '40dp',
+	width : '100%'
+}
+
+"#btnView": {
+	width : '47%',
+	height : '40dp',
+	right : 0
+}
+
+"#slideView": {
+	backgroundColor: '#000000',
+	height: Titanium.UI.SIZE,
+	width: '100%',
+	layout: 'vertical'
+}
+
+"Label": {
+	left: '10dp',
+	font: {
+		fontSize: 12
+	}
+}
+
+".container": {
+	top: 0,
+	layout: 'vertical',
+	backgroundColor: 'white'
+}
+
+"#lblTrailName": {
+	left: '15dp',
+	font: {
+		fontSize: 16,
+		fontFamily: 'Gotham Rounded'
+		
+	},
+	color: '#FF9966'
+}
+
+"#lblTrailArea": {
+	left: '15dp',
+	font: {
+		fontSize: 12,
+		fontFamily: 'Gotham Rounded'
+	}
+}
+
+".lbls": {
+	layout: 'vertical',
+	right: '10dp',
+	top: '5dp',
+	height: Titanium.UI.SIZE,
+	fontFamily: 'Gotham Rounded'
+}
+
+"#trail_hotspotView": {
+	layout: 'vertical',
+	backgroundColor: "white",
+	borderColor: "#e8e8e8",
+	borderWidth: '1dp',
+	top: 0,
+	height: Titanium.UI.SIZE
+}
+
+"#hotspotTable": {
+	height: Titanium.UI.SIZE,
+	footerTitle: ''
+}
+
+".headView": {
+	layout: 'vertical',
+	backgroundColor: 'white'
+}
+
+"#lblTrailInfo": {
+	left: '15dp',
+	font: {
+		fontSize: 12,
+		fontFamily: 'Gotham Rounded'
+	},
+	top: '10dp'
+}
+
+"#lblLangsVagen": {
+	top: '20dp',
+	left: '10dp',
+	font: {
+		fontSize: 13,
+		fontFamily: 'Gotham Rounded'
+	},
+	top: '10dp'
+}
+
+"#iconrow": {
+	layout: 'horizontal',
+	height: '40dp',
+	left: '10dp',
+	width : '47%'
+}
+
+"#lblTrailLength": {
+	font : {
+		fontStyle: 'Italic',
+		fontFamily: 'Gotham Rounded'
+	},
+	top : '10dp',
+	left : '15dp'
+}
+
+"#btnTrailOnMap": {
+	right: 0,
+	width: Titanium.UI.SIZE
+}
+
