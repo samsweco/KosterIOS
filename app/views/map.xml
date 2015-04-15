@@ -8,6 +8,5 @@
 		
 		<View id="mapView"></View>
 		<Widget src="mapmenu" name="widget"></Widget>
-		
 	</View>
 </Alloy>

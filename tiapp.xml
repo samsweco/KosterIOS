@@ -5,7 +5,7 @@
     <version>1.0</version>
     <publisher>Madelenejohnsson</publisher>
     <url>http://</url>
-    <description/>
+    <description>undefined</description>
     <copyright>2015 by Madelenejohnsson</copyright>
     <icon>appicon.png</icon>
     <fullscreen>false</fullscreen>
@@ -13,7 +13,7 @@
     <analytics>true</analytics>
     <guid>e7466da0-e0d6-4cc3-848d-e4df7a8648b4</guid>
     <property name="ti.ui.defaultunit" type="string">dp</property>
-  <ios>
+    <ios>
         <plist>
             <dict>
                 <key>NSLocationAlwaysUsageDescription</key>
@@ -58,9 +58,8 @@
             <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
             <!-- Replace com.domain.appid with your application ID -->
             <uses-permission android:name="com.Kostervandring.permission.MAPS_RECEIVE"/>
-            
-            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
             <permission
                 android:name="com.Kostervandring.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
             <application>
