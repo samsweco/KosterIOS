@@ -29,7 +29,7 @@
 }
 
 ".btnChange": {
-	left: '1%',
+	left: '2.5%',
 	bottom: '10dp'
 }
 
