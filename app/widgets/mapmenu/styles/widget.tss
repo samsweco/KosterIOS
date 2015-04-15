@@ -1,25 +1,61 @@
 "#mapmenu": {
 	layout: 'vertical',
-	height: '50dp'
+	height: '150dp',
+	visible: false,
+	bottom: 0,
+	backgroundColor: 'white',
+	opacity: 0.8
 }
 
-"#maptypeView": {
+".mapHorizontalView": {
 	layout: 'horizontal',
-	height: '25dp',
-	backgroundColor: 'white',
+	height: '50dp',
+	backgroundColor: 'white'
 }
 
 "#selectIconView": {
 	layout: 'horizontal',
-	backgroundColor: 'white'
+	backgroundColor: 'white',
+	opacity: 1,
+	height: Titanium.UI.SIZE,
+	top: '15dp'
 }
 
-".btnChange" : {
-		font : {
-		fontSize : 12
-	}
+"#centerHorizontalView":{
+	left: '20%',
+	layout: 'horizontal',
+	backgroundColor: 'white',
+	height: '25dp'
+}
+
+".btnChange": {
+	height: '35dp',
+	width: '35dp',
+	left: '1%',
+	bottom: '10dp'
+}
+
+".lblChange": {
+	left: '7%',
+	font: {
+		fontSize: 15
+	},
+	color: "#FF9966",
+	top: '5dp'
 }
 
 "#btnView": {
-	layout: 'horizontal'
+	layout: 'horizontal',
+	opacity: 1,
+	height: '20dp'
+}
+
+"#btnClean": {
+	top: '10dp',
+	left: '37%',
+	font: {
+		fontSize: 15
+	},
+	color: "#FF9966",
+	opacity: 1
 }

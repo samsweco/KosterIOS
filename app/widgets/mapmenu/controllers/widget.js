@@ -7,11 +7,12 @@ var taltplats = true;
 var badplats = true;
 var information = true;
 var eldplats = true;
+var menuVisible = false;
 
 var infospotsNotVisible = true;
 var hotspotsNotVisible = true;
 
-var MapModule = require('ti.map');
+//var MapModule = require('ti.map');
 var trailsCollection = getTrailsCollection();
 var hotspotCollection = getHotspotCollection();
 
@@ -165,3 +166,16 @@ function showUtkiksplats() {
 function showTorrdass() {
 	baseMap.addAnnotations(displayInfoSpots("torrdass"));
 }
+
+function showMenuWidget(){
+	if(!menuVisible){
+		$.mapmenu.show();
+		menuVisible = true;
+	}
+	else{
+		$.mapmenu.hide();
+		menuVisible = false;
+	}
+};
+
+Alloy.Globals.showMenuWidget = showMenuWidget;

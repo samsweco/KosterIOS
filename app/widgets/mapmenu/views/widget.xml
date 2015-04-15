@@ -3,25 +3,26 @@
 	<Collection src="trailsModel" />
 	<Collection src="infospotModel"></Collection>
 	<View id="mapmenu">
-			<View id="maptypeView">
-				<Label id="btnNormal" class="btnChange" onClick="normalMap">Normal</Label>
-				<Label id="btnHybrid" class="btnChange" onClick="hybridMap">Hybrid</Label>
-				<Label id="btnSatellit" class="btnChange" onClick="satelliteMap">Satellit</Label>
-				<Label id="btnShowMarkers" class="btnChange" onClick="displayTrailMarkers">Visa leder</Label>
-				<Label id="btnShowHotspots" class="btnChange" onClick="displayMarkers">Visa Hotspots</Label>
-
+		<View class="mapHorizontalView">
+			<View id="centerHorizontalView" class="mapHorizontalView">
+				<Label id="btnNormal" class="lblChange" onClick="normalMap">Normal</Label>
+				<Label id="btnHybrid" class="lblChange" onClick="hybridMap">Hybrid</Label>
+				<Label id="btnSatellit" class="lblChange" onClick="satelliteMap">Satellit</Label>
 			</View>
-			<View id="selectIconView">
-				<Button id="btnShowWC" class="btnChange" backgroundImage="/images/wc.png" onClick="showWC"></Button>
-				<Button id="btnShowEldplats" class="btnChange" backgroundImage="/images/eldplats.png" onClick="showEldplats"></Button>
-				<Button id="btnShowSnorkelled" class="btnChange" backgroundImage="/images/snorkelled.png" onClick="showSnorkelled"></Button>
-				<Button id="btnShowInformation" class="btnChange" backgroundImage="/images/information.png" onClick="showInformation"></Button>
-				<Button id="btnShowBadplats" class="btnChange" backgroundImage="/images/badplats.png" onClick="showBadplats"></Button>
-				<Button id="btnShowRastplats" class="btnChange" backgroundImage="/images/rastplats.png" onClick="showRastplats"></Button>
-				<Button id="btnShowTaltplats" class="btnChange" backgroundImage="/images/taltplats.png" onClick="showTaltplats"></Button>
-				<Button id="btnShowUtsiktsplats" class="btnChange" backgroundImage="/images/utsiktsplats.png" onClick="showUtkiksplats"></Button>
-				<Button id="btnShowTorrdass" class="btnChange" backgroundImage="/images/torrdass.png" onClick="showTorrdass"></Button>
-				<Button id="btnClean" class="btnChange" onClick="removeAnnotations" >Rensa kartan</Button>
-			</View>
+			<Label id="btnShowMarkers" class="lblChange" onClick="displayTrailMarkers">Visa vandringslederna</Label>
+			<Label id="btnShowHotspots" class="lblChange" onClick="displayMarkers">Visa sevärdheterna</Label>
 		</View>
+		<View id="selectIconView">
+			<Button id="btnShowWC" class="btnChange" backgroundImage="/images/wc.png" onClick="showWC"></Button>
+			<Button id="btnShowEldplats" class="btnChange" backgroundImage="/images/eldplats.png" onClick="showEldplats"></Button>
+			<Button id="btnShowSnorkelled" class="btnChange" backgroundImage="/images/snorkelled.png" onClick="showSnorkelled"></Button>
+			<Button id="btnShowInformation" class="btnChange" backgroundImage="/images/information.png" onClick="showInformation"></Button>
+			<Button id="btnShowBadplats" class="btnChange" backgroundImage="/images/badplats.png" onClick="showBadplats"></Button>
+			<Button id="btnShowRastplats" class="btnChange" backgroundImage="/images/rastplats.png" onClick="showRastplats"></Button>
+			<Button id="btnShowTaltplats" class="btnChange" backgroundImage="/images/taltplats.png" onClick="showTaltplats"></Button>
+			<Button id="btnShowUtsiktsplats" class="btnChange" backgroundImage="/images/utsiktsplats.png" onClick="showUtkiksplats"></Button>
+			<Button id="btnShowTorrdass" class="btnChange" backgroundImage="/images/torrdass.png" onClick="showTorrdass"></Button>
+		</View>
+		<Label id="btnClean" onClick="removeAnnotations" >Rensa kartan</Label>
+	</View>
 </Alloy>

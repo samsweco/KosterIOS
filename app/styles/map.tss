@@ -2,12 +2,8 @@
 	fontFamily: 'Gotham Rounded'
 }
 
-".container": {
-	layout: 'vertical'
-}
-
 "#mapView": {
-	height: '90%',
+	height: '100%',
 	width: '100%'
 }
 
@@ -15,3 +11,14 @@
 	layout: 'horizontal'
 }
 
+"#btnMenu":{
+	top: '60dp',
+	right: '12dp',
+	height: '39dp',
+	width: '39dp',
+	backgroundColor: '#ebebeb',
+	opacity: 0.8,
+	visible: true,
+	borderRadius: 2,
+	borderWidth: 1
+}

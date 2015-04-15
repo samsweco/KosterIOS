@@ -228,7 +228,7 @@ function showMap() {
 				latitudeDelta : 0.08,
 				longitudeDelta : 0.08
 			},
-			height : '90%',
+			height : '100%',
 			width : Ti.UI.FILL
 		});
 
@@ -348,4 +348,9 @@ baseMap.addEventListener('click', function(evt) {
 	}
 
 });
+
+function showMapMenu(){
+	// $.menuwidget.show();
+	Alloy.Globals.showMenuWidget();
+}
 
