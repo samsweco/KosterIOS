@@ -3,14 +3,16 @@
 	<Collection src="trailsModel" />
 	<Collection src="infospotModel"></Collection>
 	<View id="mapmenu">
-		<View class="mapHorizontalView">
-			<View id="centerHorizontalView" class="mapHorizontalView">
+		<View class="optionsView">
+			<View id="mapTypeView" class="mapHorizontalView">
 				<Label id="btnNormal" class="lblChange" onClick="normalMap">Normal</Label>
 				<Label id="btnHybrid" class="lblChange" onClick="hybridMap">Hybrid</Label>
 				<Label id="btnSatellit" class="lblChange" onClick="satelliteMap">Satellit</Label>
 			</View>
-			<Label id="btnShowMarkers" class="lblChange" onClick="displayTrailMarkers">Visa vandringslederna</Label>
-			<Label id="btnShowHotspots" class="lblChange" onClick="displayMarkers">Visa sevärdheterna</Label>
+			<View id="markersView">
+			<Label id="btnShowMarkers" class="lblChange" onClick="displayTrailMarkers">Vandringsleder</Label>
+			<Label id="btnShowHotspots" class="lblChange" onClick="displayMarkers">Sevärdheter</Label>
+			</View>
 		</View>
 		<View id="selectIconView">
 			<Button id="btnShowWC" class="btnChange" backgroundImage="/images/wc.png" onClick="showWC"></Button>

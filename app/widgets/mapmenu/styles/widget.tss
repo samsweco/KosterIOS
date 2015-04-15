@@ -7,10 +7,12 @@
 	opacity: 0.8
 }
 
-".mapHorizontalView": {
-	layout: 'horizontal',
-	height: '50dp',
-	backgroundColor: 'white'
+"#mapTypeView": {
+	layout: 'horizontal'
+}
+
+"#markersView" : {
+	layout : 'horizontal'
 }
 
 "#selectIconView": {
@@ -21,25 +23,24 @@
 	top: '15dp'
 }
 
-"#centerHorizontalView":{
-	left: '20%',
-	layout: 'horizontal',
-	backgroundColor: 'white',
-	height: '25dp'
-}
 
 ".btnChange": {
-	left: '2.5%',
 	bottom: '10dp'
 }
 
 ".lblChange": {
-	left: '7%',
+	left: '5%',
+	right: '5%',
 	font: {
-		fontSize: 15
+		fontSize: 16
 	},
 	color: "#FF9966",
-	top: '5dp'
+	top: '5dp',
+	borderColor: "#00CCFF",
+	borderRadius: 2,
+	borderWidth: 0.5,
+	padding: 5,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
 }
 
 "#btnView": {
@@ -57,3 +58,4 @@
 	color: "#FF9966",
 	opacity: 1
 }
+
