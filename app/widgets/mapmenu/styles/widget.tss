@@ -29,8 +29,8 @@
 }
 
 ".btnChange": {
-	height: '35dp',
-	width: '35dp',
+	height: 35,
+	width: 35,
 	left: '1%',
 	bottom: '10dp'
 }
