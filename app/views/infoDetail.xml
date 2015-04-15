@@ -9,7 +9,7 @@
 			
 			<Label class="lblInfoDetail" id="lblInfoTitle"></Label>
 			<Label class="lblInfoDetail" id="lblInfoText"></Label>
-			<Label class="lbltxt" text="Gå till websida: "/>
+			<Label class="lbltxt" id="lblText" text="Klicka på länken nedan för att se mer information: "/>
 			<Label class="lblInfoDetail" id="lblInfoLink"></Label>
 			
 		</ScrollView>
