@@ -54,6 +54,7 @@
 	left: '15dp',
 	top: '0dp',
 	color : 'blue',
+	top: 5,
 	font: {
 		fontFamily: 'Gotham Rounded'
 	}
@@ -69,6 +70,6 @@
 	left: '15dp'
 }
 
-"#lblTxt" : {
+"#lblText" : {
 	left : '15dp'
 }
