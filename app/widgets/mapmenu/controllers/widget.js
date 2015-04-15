@@ -32,6 +32,7 @@ function displayTrailMarkers() {
 				longitude : jsonObj[i].pinLon,
 				title : jsonObj[i].name,
 				subtitle : 'Läs mer om ' + jsonObj[i].name + ' här!',
+				pincolor : MapModule.ANNOTATION_GREEN,
 				rightButton : '/images/arrow.png',
 				name : 'trail'
 			});
@@ -61,20 +62,7 @@ function displayMarkers() {
 					longitude : markersJSON[u].ykoord,
 					title : markersJSON[u].name,
 					subtitle : 'Läs mer om ' + markersJSON[u].name + ' här!',
-					pincolor : 'red',
-					rightButton : '/images/arrow.png',
-					name : 'hotspot'
-				});
-			}
-
-			if (OS_ANDROID) {
-				var marker = MapModule.createAnnotation({
-					id : markersJSON[u].name,
-					latitude : markersJSON[u].xkoord,
-					longitude : markersJSON[u].ykoord,
-					title : markersJSON[u].name,
-					subtitle : 'Läs mer om ' + markersJSON[u].name + ' här!',
-					pincolor : Titanium.Map.ANNOTATION_ORANGE,
+					pincolor : MapModule.ANNOTATION_PURPLE,
 					rightButton : '/images/arrow.png',
 					name : 'hotspot'
 				});

@@ -255,6 +255,7 @@ function displayTrailMarkers() {
 				latitude : jsonObj[i].pinLat,
 				longitude : jsonObj[i].pinLon,
 				title : jsonObj[i].name,
+				pincolor : MapModule.ANNOTATION_GREEN,
 				subtitle : 'Läs mer om ' + jsonObj[i].name + ' här!',
 				rightButton : '/pins/arrow.png',
 				name : 'trail',
