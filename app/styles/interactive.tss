@@ -9,7 +9,7 @@
 
 "#ViewChooseLetter": {
 	layout: 'vertical',
-	top: 200
+	top: 350
 }
 
 "#letter": {
@@ -34,10 +34,6 @@
 	layout: 'vetical'
 }
 
-"#ViewClue": {
-	layout: 'vertical'
-}
-
 "#lblClue": {
 	layout: 'vertical',
 	right: 20,
@@ -59,4 +55,11 @@
 	left: 20,
 	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
 	top: 25
+}
+
+"#ShowFamilyTrail": {
+	top: 0,
+	height: '300dp',
+	width: Titanium.UI.FILL,
+	backgroundColor: 'green'
 }

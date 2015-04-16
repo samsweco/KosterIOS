@@ -2,9 +2,8 @@
 	<Collection src="gameLetterModel"></Collection>
 	<Window id="quizQuestion">
 		<ScrollView class="headView" scrollType="vertical">
-			<View id="ViewClue">
-				<Label id="lblClue"></Label>
-				<Button id="btnNext" onClick="getClue">Nästa fråga</Button>
+			<View id="ShowFamilyTrail">
+				<Label> Karta här</Label>
 			</View>
 			<View id="ViewChooseLetter" class="views">
 				<!-- <Label id="lblVisaFraga" text="Fyll i den bokstav du hittat: "></Label>
