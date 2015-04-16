@@ -1,61 +1,64 @@
 "#mapmenu": {
-	layout: 'vertical',
-	height: '150dp',
+	layout: 'vertical',,
 	visible: false,
 	bottom: 0,
 	backgroundColor: 'white',
-	opacity: 0.8
+	opacity: 0.8,
+	height : Titanium.UI.SIZE,
+	width : Titanium.UI.FILL,
+	
 }
+
 
 "#mapTypeView": {
-	layout: 'horizontal'
+	layout: 'horizontal',
+	height : Titanium.UI.SIZE,
+	width : Titanium.UI.FILL,
+	opacity: 1,
+	left : '25%',
+	right : '5%'
 }
 
-"#markersView" : {
-	layout : 'horizontal'
+"#markersView": {
+	layout: 'horizontal',
+	height : Titanium.UI.SIZE,
+	width : Titanium.UI.FILL,
+	opacity: 1,
+	left : '20%',
+	right : '5%'
 }
 
 "#selectIconView": {
 	layout: 'horizontal',
 	backgroundColor: 'white',
+	height : Titanium.UI.SIZE,
+	width : Titanium.UI.FILL,
 	opacity: 1,
-	height: Titanium.UI.SIZE,
-	top: '15dp'
+	left : '5%'
 }
 
-
-".btnChange": {
-	bottom: '10dp'
+".btnChange":{
+	left : '2%'
 }
 
 ".lblChange": {
-	left: '5%',
-	right: '5%',
 	font: {
 		fontSize: 16
 	},
 	color: "#FF9966",
-	top: '5dp',
-	borderColor: "#00CCFF",
-	borderRadius: 2,
-	borderWidth: 0.5,
-	padding: 5,
-	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
-}
-
-"#btnView": {
-	layout: 'horizontal',
-	opacity: 1,
-	height: '20dp'
+	left : '2%'
+	// top: '5dp',
+	// borderColor: "#00CCFF",
+	// borderRadius: 2,
+	// borderWidth: 0.5,
+	// padding: 5,
+	// textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
 }
 
 "#btnClean": {
-	top: '10dp',
-	left: '37%',
 	font: {
 		fontSize: 15
 	},
 	color: "#FF9966",
-	opacity: 1
 }
 
