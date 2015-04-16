@@ -2,7 +2,6 @@ $.tabs.open();
 Alloy.CFG.tabs = $.tabs;
 exports.toQuiz = toQuiz;
 
-
 //-----------------------------------------------------------
 // Metoder för navigering
 //-----------------------------------------------------------
@@ -27,3 +26,27 @@ function toInfo() {
 	var info = Alloy.createController('infoList').getView();
 	$.infoWin.add(info);
 }
+
+//-----------------------------------------------------------
+// Null'ar varje fönster när man trycker på en annan tab.
+//-----------------------------------------------------------
+
+$.mapWin.addEventListener('blur', function(){
+	$.mapWin = null;
+});
+
+$.quizWin.addEventListener('blur', function(){
+	$.quizWin = null;
+});
+
+$.hikeWin.addEventListener('blur', function(){
+	$.hikeWin = null;
+});
+
+$.infoWin.addEventListener('blur', function(){
+	$.infoWin = null;
+});
+
+$.koster.addEventListener('blur', function(){
+	$.koster = null;
+});
