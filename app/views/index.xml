@@ -13,7 +13,14 @@
 			<Window id="hikeWin" title="Vandringsleder" onOpen="toTrails" />
 		</Tab>
 		<Tab id="maptab" class="tabbar" title="Karta" icon="/images/mapMenu.png">
-			<Window id="mapWin" onOpen="toMap" navBarHidden="true" />
+			<Window id="mapWin" onOpen="toMap">
+				<LeftNavButton>
+					<Button id="btnGetPosition" image="/images/locationarrow.png" onClick="getPos" /> 
+				</LeftNavButton>
+				<RightNavButton>
+					<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMenu" />
+				</RightNavButton>
+			</Window>
 		</Tab>
 		<Tab id="quiz" class="tabbar" title="Quiz" icon="/images/quizMenu.png">
 			<Window id="quizWin" onOpen="toQuiz" />

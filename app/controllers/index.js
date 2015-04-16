@@ -50,3 +50,12 @@ $.infoWin.addEventListener('blur', function(){
 $.koster.addEventListener('blur', function(){
 	$.koster = null;
 });
+
+
+function showMenu(){
+	Alloy.Globals.showMenuWidget();
+}
+
+function getPos(){
+	Alloy.Globals.setUserPosition();
+}
