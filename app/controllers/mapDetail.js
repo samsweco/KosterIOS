@@ -70,7 +70,7 @@ function calculateMapRegion(trailCoordinates) {
 			var deltaLon = maxLon - minLon;
 
 			delta = Math.max(deltaLat, deltaLon);
-			//Change multiplier if it's too close
+			// Ändra om det ska vara mer zoomat
 			delta = delta * 1.2;
 
 			poiCenter.lat = maxLat - parseFloat((maxLat - minLat) / 2);

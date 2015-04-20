@@ -1,7 +1,7 @@
 var args = arguments[0] || {};
 
 showMap();
-createMapRoutes();
+createMapRoute();
 var familyMap;
 
 //-----------------------------------------------------------
@@ -127,12 +127,6 @@ function showMap() {
 			userLocation : true,
 			mapType : MapModule.HYBRID_TYPE,
 			animate : true,
-			region : {
-				latitude : 58.893471,
-				longitude : 11.042395,
-				latitudeDelta : 0.01,
-				longitudeDelta : 0.01
-			},
 			height : '100%',
 			width : Ti.UI.FILL
 		});
@@ -166,7 +160,7 @@ function calculateMapRegion(trailCoordinates) {
 			var deltaLon = maxLon - minLon;
 
 			delta = Math.max(deltaLat, deltaLon);
-			//Change multiplier if it's too close
+			// Ändra om det ska vara mer zoomat
 			delta = delta * 0.4;
 
 			poiCenter.lat = maxLat - parseFloat((maxLat - minLat) / 2);
@@ -191,7 +185,7 @@ function calculateMapRegion(trailCoordinates) {
 //-----------------------------------------------------------
 // skapar vandringsleden och sätter den på kartan
 //-----------------------------------------------------------
-function createMapRoutes() {
+function createMapRoute() {
 	try {
 		var zoomedRoute = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory + "/routes/adventureroute.json").read().text;
 		var parsedRoute = JSON.parse(zoomedRoute);
