@@ -1,4 +1,5 @@
 var args = arguments[0] || {};
+showMap();
 //var id = 1;
 
 //-----------------------------------------------------------
@@ -114,4 +115,27 @@ function checkWord() {
 	} else {
 		alert("Nej du, nu blev det fel...");
 	}
+}
+
+function showMap() {
+	// try {
+		familyMap = MapModule.createView({
+			userLocation : true,
+			mapType : MapModule.SATELLITE_TYPE,
+			animate : true,
+			region : {
+				latitude : 58.893471,
+				longitude : 11.042395,
+				latitudeDelta : 0.01,
+				longitudeDelta : 0.01
+			},
+			height : '100%',
+			width : Ti.UI.FILL
+		});
+		//58.893471, 11.042395
+		$.showFamilyTrail.add(familyMap);
+
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - showMap");
+	// }
 }

@@ -81,9 +81,11 @@ function calculateMapRegion(trailCoordinates) {
 				longitude : poiCenter.lon,
 				latitudeDelta : delta,
 				longitudeDelta : delta
+				
 			};
 		}
 		return region;
+		
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapDetail - calculateMapRegion");
 	}

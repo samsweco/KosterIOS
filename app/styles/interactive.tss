@@ -57,9 +57,9 @@
 	top: 25
 }
 
-"#ShowFamilyTrail": {
+"#showFamilyTrail": {
 	top: 0,
 	height: '300dp',
 	width: Titanium.UI.FILL,
-	backgroundColor: 'green'
+	// backgroundColor: 'green'
 }

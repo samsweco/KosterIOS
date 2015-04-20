@@ -2,8 +2,8 @@
 	<Collection src="gameLetterModel"></Collection>
 	<View id="interactiveWin">
 		<ScrollView class="headView" scrollType="vertical">
-			<View id="ShowFamilyTrail">
-				<Label> Karta här</Label>
+			<View id="showFamilyTrail">
+				<!-- <Label> Karta här</Label> -->
 			</View>
 			<View id="ViewChooseLetter" class="views">
 				<!-- <Label id="lblVisaFraga" text="Fyll i den bokstav du hittat: "></Label>
