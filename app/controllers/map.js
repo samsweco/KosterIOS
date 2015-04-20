@@ -150,7 +150,8 @@ function getPosition(coordinatesObj) {
 
 		isNearPoint();
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - getPosition");
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "map - getPosition");
+		newError('error : ', e);
 	}
 }
 
@@ -185,6 +186,7 @@ function isInsideRadius(lat1, lon1, rad) {
 		if (distance <= rad) {
 			isInside = true;
 		}
+		
 		return isInside;
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - isInsideRadius");
@@ -196,37 +198,49 @@ function isInsideRadius(lat1, lon1, rad) {
 //-----------------------------------------------------------
 function isNearPoint() {
 	// try {
-		var coordCollection = Alloy.Collections.coordinates;
-		coordCollection.fetch();
+	var coordCollection = Alloy.Collections.coordinates;
+	coordCollection.fetch();
 
-		var jsonCollection = coordCollection.toJSON();
+	var jsonCollection = coordCollection.toJSON();
 
-		for (var i = 0; i < jsonCollection.length; i++) {
-			var lat = jsonCollection[i].latitude;
-			var lon = jsonCollection[i].longitude;
+	for (var i = 0; i < jsonCollection.length; i++) {
+		var lat = jsonCollection[i].latitude;
+		var lon = jsonCollection[i].longitude;
 
-			if (isInsideRadius(lat, lon, radius)) {
-				while (checkIfNotified(jsonCollection[i].id) == false) {
-					showDialog();
-				}
-			}
+		if (isInsideRadius(lat, lon, radius)) {
+			showDialog();
 		}
+	}
 	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "map - isNearPoint");
+	// newError("Något gick fel när sidan skulle laddas, prova igen!", "map - isNearPoint");
 	// }
 }
 
-function checkIfNotified(id) {
-	var clueCollection = Alloy.Collections.gameLetterModel;
-	clueCollection.fetch({
-		query : 'SELECT notified FROM gameLetterModel WHERE id ="' + id + '"'
-	});
-
-	var jsonObj = clueCollection.toJSON();
-	return jsonObj[0].notified;
-	
-	Ti.API.info('noti : ' + jsonObj[0].notified);
-}
+//-----------------------------------------------------------
+// Kollar om en punkt redan visat en dialog.
+//-----------------------------------------------------------
+// function checkIfNotified() {
+	// var db = Titanium.Database.open('/dbKostervandring.sqlite', 'dbKostervandring.sqlite');
+	// var coordArray = [];
+// 
+	// var clueCollection = Alloy.Collections.gameLetterModel;
+	// clueCollection.fetch({
+		// query : 'SELECT * FROM gameLetterModel'
+	// });
+// 
+	// var jsonObj = clueCollection.toJSON();
+// 
+	// for(var i = 0; i < jsonObj.length; i++) {
+		// if (jsonObj[i].notified == "false") {
+			// // return false;
+			// db.execute('UPDATE notified SET value="' + true + '" WHERE id="' + jsonCollection[i].id + '"');
+		// } else {
+// 			
+		// }
+	// }
+// 	
+	// db.close();
+// }
 
 //-----------------------------------------------------------
 // Läser in kartvyn

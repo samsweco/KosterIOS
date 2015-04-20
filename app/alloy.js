@@ -103,9 +103,6 @@ function showDialog() {
 		}
 	});
 	dialog.show();
-
-	var db = Ti.Database.install('dbKostervandring.sqlite', 'gameLetterModel');
-	db.execute('UPDATE notified SET value="' + true + ' WHERE id="' + jsonCollection[i].id + '"');
 };
 
 //-----------------------------------------------------------
