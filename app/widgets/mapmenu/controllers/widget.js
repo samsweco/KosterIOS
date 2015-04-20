@@ -99,6 +99,14 @@ function displayInfoSpots(type) {
 				image : '/images/map_' + infoJSON[u].icon
 			});
 
+			if (infoJSON[u].name == 'taltplats') {
+				marker.title = 'Tältplats';
+			} else if (infoJSON[u].name == 'wc') {
+				marker.title = 'WC';
+			} else {
+				marker.title = capitalizeFirstLetter(infoJSON[u].name);
+			}
+
 			markerArray.push(marker);
 		}
 
@@ -106,6 +114,10 @@ function displayInfoSpots(type) {
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - displayInfoSpots");
 	}
+}
+
+function capitalizeFirstLetter(string) {
+	return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 function removeAnnotations() {
@@ -167,20 +179,19 @@ function showTorrdass() {
 	baseMap.addAnnotations(displayInfoSpots("torrdass"));
 }
 
-function showMenuWidget(){
-	if(!menuVisible){
+function showMenuWidget() {
+	if (!menuVisible) {
 		$.mapmenu.show();
 		menuVisible = true;
-	}
-	else{
+	} else {
 		$.mapmenu.hide();
 		menuVisible = false;
 	}
 };
 
-function closeMapMenu(){
-		$.mapmenu.hide();
-		menuVisible = false;
+function closeMapMenu() {
+	$.mapmenu.hide();
+	menuVisible = false;
 }
 
 Alloy.Globals.showMenuWidget = showMenuWidget;
