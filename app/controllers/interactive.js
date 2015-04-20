@@ -1,6 +1,5 @@
 var args = arguments[0] || {};
 showMap();
-//var id = 1;
 
 //-----------------------------------------------------------
 // Öppnar vy och läser in nästa fråga
@@ -116,12 +115,14 @@ function checkWord() {
 		alert("Nej du, nu blev det fel...");
 	}
 }
-
+ //-----------------------------------------
+ // Zoomar in kartan på äventyrsleden
+ //-----------------------------------------
 function showMap() {
-	// try {
+	try {
 		familyMap = MapModule.createView({
 			userLocation : true,
-			mapType : MapModule.SATELLITE_TYPE,
+			mapType : MapModule.HYBRID_TYPE,
 			animate : true,
 			region : {
 				latitude : 58.893471,
@@ -132,10 +133,9 @@ function showMap() {
 			height : '100%',
 			width : Ti.UI.FILL
 		});
-		//58.893471, 11.042395
 		$.showFamilyTrail.add(familyMap);
 
-	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - showMap");
-	// }
+	 } catch(e) {
+		 newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - showMap");
+	 }
 }
