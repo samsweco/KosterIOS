@@ -24,35 +24,34 @@ var jsonFileCollection = getJSONfiles();
 // FUNGERAR MEN ÄR SJUKT STRÖRANDE
 //-----------------------------------------------------------
 
-	// try {
-// 
-		// Ti.Geolocation.getCurrentPosition(function(e) {
-			// if (e.error) {
-				// alert('Get current position' + e.error);
-			// } else {
-			// }
-		// });
-// 
-		// if (Ti.Geolocation.locationServicesEnabled) {
-			// Ti.Geolocation.accuracy = Ti.Geolocation.ACCURACY_BEST;
-			// Ti.Geolocation.distanceFilter = 10;
-			// Ti.Geolocation.preferredProvider = Ti.Geolocation.PROVIDER_GPS;
-// 
-			// Ti.Geolocation.addEventListener('location', function(e) {
-				// if (e.error) {
-					// alert('Add eventlistener!' + e.error);
-				// } else {
-					// getPosition(e.coords);
-				// }
-			// });
-		// } else {
-			// alert('Tillåt gpsen, tack');
-		// }
-	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - get current position GPS");
-	// }
+try {
 
-	
+	Ti.Geolocation.getCurrentPosition(function(e) {
+		if (e.error) {
+			alert('Get current position' + e.error);
+		} else {
+		}
+	});
+
+	if (Ti.Geolocation.locationServicesEnabled) {
+		Ti.Geolocation.accuracy = Ti.Geolocation.ACCURACY_BEST;
+		Ti.Geolocation.distanceFilter = 10;
+		Ti.Geolocation.preferredProvider = Ti.Geolocation.PROVIDER_GPS;
+
+		Ti.Geolocation.addEventListener('location', function(e) {
+			if (e.error) {
+				alert('Add eventlistener!' + e.error);
+			} else {
+				getPosition(e.coords);
+			}
+		});
+	} else {
+		alert('Tillåt gpsen, tack');
+	}
+} catch(e) {
+	newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - get current position GPS");
+}
+
 //-----------------------------------------------------------
 // Onload-funktioner för kartan
 //-----------------------------------------------------------
@@ -196,7 +195,7 @@ function isInsideRadius(lat1, lon1, rad) {
 // Kontrollerar om enheten är innanför en punkt, sänder ut dialog om true
 //-----------------------------------------------------------
 function isNearPoint() {
-	try {
+	// try {
 		var coordCollection = Alloy.Collections.coordinates;
 		coordCollection.fetch();
 
@@ -207,12 +206,26 @@ function isNearPoint() {
 			var lon = jsonCollection[i].longitude;
 
 			if (isInsideRadius(lat, lon, radius)) {
-				showDialog();
+				while (checkIfNotified(jsonCollection[i].id) == false) {
+					showDialog();
+				}
 			}
 		}
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - isNearPoint");
-	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "map - isNearPoint");
+	// }
+}
+
+function checkIfNotified(id) {
+	var clueCollection = Alloy.Collections.gameLetterModel;
+	clueCollection.fetch({
+		query : 'SELECT notified FROM gameLetterModel WHERE id ="' + id + '"'
+	});
+
+	var jsonObj = clueCollection.toJSON();
+	return jsonObj[0].notified;
+	
+	Ti.API.info('noti : ' + jsonObj[0].notified);
 }
 
 //-----------------------------------------------------------
@@ -346,8 +359,7 @@ baseMap.addEventListener('singletap', function() {
 });
 
 function setUserPosition() {
-	
-	
+
 	Ti.Geolocation.getCurrentPosition(function(e) {
 		if (e.error) {
 			alert('error : ' + e.error);
@@ -355,16 +367,13 @@ function setUserPosition() {
 		}
 
 		// var myPosition = MapModule.createAnnotation({
-			// latitude : e.coords.latitude,
-			// longitude : e.coords.longitude,
-			// image : '/images/currentposition.png'
+		// latitude : e.coords.latitude,
+		// longitude : e.coords.longitude,
+		// image : '/images/currentposition.png'
 		// });
-// 		
+		//
 		// baseMap.addAnnotation(myPosition);
 	});
-	
-	
-
 
 	// var myPosition = MapModule.createAnnotation({
 	// latitude : ,

@@ -25,7 +25,7 @@
 // Variabel för kartvyn
 //-----------------------------------------------------------
 
-var MapModule = require('ti.map'); 
+var MapModule = require('ti.map');
 var baseMap;
 
 //-----------------------------------------------------------
@@ -37,27 +37,27 @@ function getHotspotCollection() {
 	return hotspotCollection;
 }
 
-function getMediaCollection(){
-	var mediaCollection = Alloy.Collections.mediaModel;	
+function getMediaCollection() {
+	var mediaCollection = Alloy.Collections.mediaModel;
 	return mediaCollection;
 }
 
-function getTrailsCollection(){
-	var trailCollection = Alloy.Collections.trailsModel;	
+function getTrailsCollection() {
+	var trailCollection = Alloy.Collections.trailsModel;
 	return trailCollection;
 }
 
-function getInfoCollection(){
-	var infoCollection = Alloy.Collections.infoModel;	
+function getInfoCollection() {
+	var infoCollection = Alloy.Collections.infoModel;
 	return infoCollection;
 }
 
-function getJSONfiles(){
+function getJSONfiles() {
 	var jsonFileCollection = Alloy.Collections.jsonFilesModel;
 	return jsonFileCollection;
 }
 
-function getInfospotCollection(){
+function getInfospotCollection() {
 	var infospotCollection = Alloy.Collections.infospotModel;
 	return infospotCollection;
 }
@@ -86,7 +86,6 @@ var gLon = 0;
 // Alertbox som visas när man börjar närma sig en punkt.
 //-----------------------------------------------------------
 function showDialog() {
-
 	var dialog = Ti.UI.createAlertDialog({
 		cancel : 1,
 		buttonNames : ['OK', 'Cancel'],
@@ -101,10 +100,12 @@ function showDialog() {
 		} else {
 			var interactiveWin = Alloy.createController("interactive").getView();
 			Alloy.CFG.tabs.activeTab.open(interactiveWin);
-			//$.infoDetail.openInteractive();
 		}
 	});
 	dialog.show();
+
+	var db = Ti.Database.install('dbKostervandring.sqlite', 'gameLetterModel');
+	db.execute('UPDATE notified SET value="' + true + ' WHERE id="' + jsonCollection[i].id + '"');
 };
 
 //-----------------------------------------------------------
@@ -113,5 +114,4 @@ function showDialog() {
 var lettersArray = [];
 var word = 'KOSTERHAVET';
 var globalTrailID = 0;
-
 
