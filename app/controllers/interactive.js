@@ -167,7 +167,7 @@ function calculateMapRegion(trailCoordinates) {
 
 			delta = Math.max(deltaLat, deltaLon);
 			//Change multiplier if it's too close
-			delta = delta * 1.4;
+			delta = delta * 0.4;
 
 			poiCenter.lat = maxLat - parseFloat((maxLat - minLat) / 2);
 			poiCenter.lon = maxLon - parseFloat((maxLon - minLon) / 2);
@@ -228,5 +228,3 @@ function createMapRoutes() {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - createMapRoute");
 	}
 }
-
-

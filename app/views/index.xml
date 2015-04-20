@@ -23,7 +23,7 @@
 			</Window>
 		</Tab>
 		<Tab id="interactive" class="tabbar" title="Interactive" icon="/images/quizMenu.png">
-			<Window id="interactiveWin" onOpen="toInteractive" />
+			<Window id="interactiveWin" onOpen="toInteractive" navBarHidden="true" />
 		</Tab>
 		<Tab id="info" class="tabbar" title="Info" icon="/images/infoMenu.png">
 			<Window id="infoWin" title="Information" onOpen="toInfo" />
