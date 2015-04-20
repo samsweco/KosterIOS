@@ -1,6 +1,6 @@
 <Alloy>
 	<Collection src="gameLetterModel"></Collection>
-	<Window id="quizQuestion">
+	<View id="interactiveWin">
 		<ScrollView class="headView" scrollType="vertical">
 			<View id="ShowFamilyTrail">
 				<Label> Karta här</Label>
@@ -15,5 +15,5 @@
 				<Button id="btnCheckWord" onClick="showAlert">Rätta!</Button>
 			</View>
 		</ScrollView>
-	</Window>
+	</View>
 </Alloy>
