@@ -119,5 +119,13 @@ var globalTrailID = 0;
 
 var interactiveVisible = false;
 
-
-
+function validate(text){
+	var validated = false;
+	if(text.length ==1){
+		validated = true;
+	}
+	else {
+		alert("Vänligen kontrollera att en bokstav är ifylld!");
+	}
+	return validated;
+}
