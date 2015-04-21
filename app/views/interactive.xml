@@ -7,7 +7,7 @@
 				<Label>Välkommen till bokstavsjakten</Label>
 				<Label> . Det finns 8 gömda bokstäver efter slingan </Label>
 			</View>
-			<Label id="testKnapp" onClick="showInteractive"></Label>
+			<Label id="testKnapp" onClick="showInteractive">här är Annas knapp</Label>
 		</ScrollView>
 	</View>
 </Alloy>
