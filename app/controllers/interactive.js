@@ -29,7 +29,7 @@ function showMap() {
 			userLocation : true,
 			mapType : MapModule.HYBRID_TYPE,
 			animate : true,
-			height : '200dp',
+			height : '100%',
 			width : Ti.UI.FILL
 		});
 		$.showFamilyTrail.add(familyMap);
@@ -127,8 +127,8 @@ function createMapRoute() {
 
 function showClue()
 {
-	$.startView.hide();
-	$.interactiveView.show();
+	$.hideView.visible = false;
+	$.interView.visible = true;
 }
 
 var letterCollection = getLetterCollection();

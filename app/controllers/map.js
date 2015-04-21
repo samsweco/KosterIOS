@@ -218,32 +218,6 @@ function isNearPoint() {
 }
 
 //-----------------------------------------------------------
-// Kollar om en punkt redan visat en dialog.
-//-----------------------------------------------------------
-// function checkIfNotified() {
-	// var db = Titanium.Database.open('/dbKostervandring.sqlite', 'dbKostervandring.sqlite');
-	// var coordArray = [];
-// 
-	// var clueCollection = Alloy.Collections.gameLetterModel;
-	// clueCollection.fetch({
-		// query : 'SELECT * FROM gameLetterModel'
-	// });
-// 
-	// var jsonObj = clueCollection.toJSON();
-// 
-	// for(var i = 0; i < jsonObj.length; i++) {
-		// if (jsonObj[i].notified == "false") {
-			// // return false;
-			// db.execute('UPDATE notified SET value="' + true + '" WHERE id="' + jsonCollection[i].id + '"');
-		// } else {
-// 			
-		// }
-	// }
-// 	
-	// db.close();
-// }
-
-//-----------------------------------------------------------
 // Läser in kartvyn
 //-----------------------------------------------------------
 function showMap() {

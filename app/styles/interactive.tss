@@ -3,11 +3,20 @@
 	layout: 'vertical',
 	backgroundColor: 'white'
 }
+"#startView": {
+	layout: 'vertical',
+	backgroundColor : 'blue'
+}
 
-"#interactiveView": {
-		top : 0,
-	visible: true,
-	layout : 'vertical',
+"#interView" : {
+	layout: 'vertical',
+	backgroundColor : 'green',
+	visible : false
+}
+
+"#hideView" : {
+	layout: 'vertical',
+	backgroundColor : 'yellow',
 }
 
 "#lblInfoText": {
@@ -23,7 +32,7 @@
 
 "#showFamilyTrail": {
 	top: '0dp',
-	height: '200dp',
+	height: '40%',
 	width: Titanium.UI.FILL
 }
 
@@ -36,27 +45,14 @@
 	color: '#FF9966'
 }
 
-"#btnStartQuiz": {
-		top : 0,
-	backgroundColor: '#fff3e5',
-	borderRadius: '5dp',
-	width: '250dp'
-}
+// "#btnStartQuiz": {
+		// top : 0,
+	// backgroundColor: '#fff3e5',
+	// borderRadius: '5dp',
+	// width: '250dp'
+// }
 
-"#lblShowLetters": {
-		top : 0,
-	font: 'Gotham Rounded'
-}
 
-"#lblFoundLetters": {
-		top : 0,
-	font: 'Gotham Rounded'
-}
-
-"#startView": {
-		top : 0,
-	layout: 'vertical'
-}
 
 "#lblClueText": {
 		top : 0,
@@ -77,7 +73,8 @@
 "Label": {
 		top : 0,
 	font: {
-		fontSize: 10
+		fontSize: 10,
+		fontStyle: 'Gotham Rounded',
 	},
 	color: "#000000"
 }
