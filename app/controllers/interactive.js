@@ -125,22 +125,13 @@ function createMapRoute() {
 	}
 }
 
-// function changeView()
-// {
-	// $.startView.visible = true;
-	// $.clueView.visible = false;
-// }
-// 
-// function showClue()
-// {
-	// $.startView.hide();
-	// $.clueView.show();
-// }
-
+function showClue()
+{
+	$.startView.hide();
+	$.interactiveView.show();
+}
 
 var letterCollection = getLetterCollection();
-
-
 
 function sendLetter() {
 	checkLetter(getLetter());

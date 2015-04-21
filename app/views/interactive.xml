@@ -1,22 +1,19 @@
 <Alloy>
 	<Collection src="letterModel"/>
-		<ScrollView id="interactiveWin" scrollType="vertical">
-			<View id="showFamilyTrail"></View>
-			<View id="startView">
-				<Label id="lblWelcome">Välkommen till bokstavsjakten!</Label>
-				<Label id="lblInfoText">Vandra äventyrslingan och leta efter dem 8 bokstäverna som finns gömda längst leden, försök sedan klura ut det hemliga ordet. Längst vägen kommer du få ledtrådar var du kan finna bokstäverna och vi kommer även påminna dig när du börjar närma dig en bokstav.</Label>
-				<Button id="btnStartQuiz">Starta quizen</Button>			
-				<View id="interactiveView">
-				<Label id="lblClue">Ledtråd:</Label>
-				<Label id="lblClueText">Om du fortsätter på stigen så kommer du se en stor björk, kolla på andra sidan av björken och se om du kan finna din bokstav</Label>
-				<TextField id="txtLetter"></TextField>
-				<Label id="lblLetters" onClick="sendLetter">Skicka bokstav!</Label>
-				<Label id="lblShowLetters">Bokstäver du hittat:</Label>
-				<Label id="lblFoundLetters">S  T  K  O</Label>
-			</View>
-			</View>
-
-				
-
-		</ScrollView>
+	<ScrollView id="interactiveWin" scrollType="vertical">
+		<View id="showFamilyTrail"></View>
+		<View id="startView">
+			<Label id="lblWelcome">Välkommen till bokstavsjakten!</Label>
+			<Label id="lblInfoText">Vandra äventyrslingan och leta efter dem 8 bokstäverna som finns gömda längst leden, försök sedan klura ut det hemliga ordet. Längst vägen kommer du få ledtrådar var du kan finna bokstäverna och vi kommer även påminna dig när du börjar närma dig en bokstav.</Label>
+			<Button id="btnStartQuiz" onClick="showClue">Starta quizen</Button>
+		</View>
+		<View id="interactiveView">
+			<Label id="lblClue">Ledtråd:</Label>
+			<Label id="lblClueText" text="Om du fortsätter på stigen så kommer du se en stor björk, kolla på andra sidan av björken och se om du kan finna din bokstav"></Label>
+			<TextField id="txtLetter"></TextField>
+			<Label id="lblLetters" onClick="sendLetter">Skicka bokstav!</Label>
+			<Label id="lblShowLetters">Bokstäver du hittat:</Label>
+			<Label id="lblFoundLetters">S  T  K  O</Label>
+		</View>
+	</ScrollView>
 </Alloy>

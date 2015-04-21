@@ -1,17 +1,17 @@
 "#interactiveWin": {
+	top : 0,
 	layout: 'vertical',
 	backgroundColor: 'white'
 }
 
-
-
 "#interactiveView": {
-	top: '250dp',
-	color: 'green',
-	visible: true
+		top : 0,
+	visible: true,
+	layout : 'vertical',
 }
 
 "#lblInfoText": {
+		top : 0,
 	font: {
 		fontStyle: 'Gotham Rounded',
 		fontSize: '12dp'
@@ -22,12 +22,13 @@
 }
 
 "#showFamilyTrail": {
-	top: '20dp',
+	top: '0dp',
 	height: '200dp',
 	width: Titanium.UI.FILL
 }
 
 "#lblWelcome": {
+		top : 0,
 	font: {
 		fontStyle: 'Gotham Rounded',
 		fontSize: '20dp'
@@ -36,49 +37,45 @@
 }
 
 "#btnStartQuiz": {
+		top : 0,
 	backgroundColor: '#fff3e5',
 	borderRadius: '5dp',
 	width: '250dp'
 }
 
 "#lblShowLetters": {
+		top : 0,
 	font: 'Gotham Rounded'
 }
 
 "#lblFoundLetters": {
+		top : 0,
 	font: 'Gotham Rounded'
 }
 
 "#startView": {
-	layout: 'vertical',
-	height : Titanium.UI.SIZE
+		top : 0,
+	layout: 'vertical'
 }
 
 "#lblClueText": {
+		top : 0,
 	font: 'Gotham Rounded',
-	top: '35dp',
 	right: '20dp',
 	left: '20dp'
 }
 
 "#lblClue": {
+		top : 0,
 	font: {
 		fontStyle: 'Gotham Rounded',
 		fontSize: '20dp'
 	},
-	top: '10dp',
 	color: '#FF9966'
 }
 
-
-"#horizontalView":{
-	layout: 'vertical',
-	backgroundColor: 'white',
-	height: '70dp',
-	width: Titanium.UI.FILL
-}
-
 "Label": {
+		top : 0,
 	font: {
 		fontSize: 10
 	},
@@ -86,6 +83,7 @@
 }
 
 "#lblClue": {
+		top : 0,
 	left: '5dp',
 	font: {
 		fontSize: 15,
@@ -94,8 +92,8 @@
 	color: "#000000"
 }
 
-
 "#txtLetter": {
+		top : 0,
 	height: '35dp',
 	width: '70dp',
 	tintColor: 'blue',
