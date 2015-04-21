@@ -85,31 +85,31 @@ function newError(errorMsg, pageName) {
 // Globala variabler för geofencing.
 //-----------------------------------------------------------
 var gLat = 0;
-var gLon = 0;s
+var gLon = 0;
 var foundId = null;
 
 //-----------------------------------------------------------
 // Alertbox som visas när man börjar närma sig en punkt.
 //-----------------------------------------------------------
-function showDialog() {
-	var dialog = Ti.UI.createAlertDialog({
-		cancel : 1,
-		buttonNames : ['OK', 'Cancel'],
-		message : 'Gå till nästa fråga?',
-		title : 'Bokstav i närheten!'
-	});
-
-	dialog.addEventListener('click', function(e) {
-
-		if (e.index === e.source.cancel) {
-			// closeDialog();
-		} else {
-			var interactiveWin = Alloy.createController("interactive").getView();
-			Alloy.CFG.tabs.activeTab.open(interactiveWin);
-		}
-	});
-	dialog.show();
-};
+// function showDialog() {
+	// var dialog = Ti.UI.createAlertDialog({
+		// cancel : 1,
+		// buttonNames : ['OK', 'Cancel'],
+		// message : 'Gå till nästa fråga?',
+		// title : 'Bokstav i närheten!'
+	// });
+// 
+	// dialog.addEventListener('click', function(e) {
+// 
+		// if (e.index === e.source.cancel) {
+			// // closeDialog();
+		// } else {
+			// var interactiveWin = Alloy.createController("interactive").getView();
+			// Alloy.CFG.tabs.activeTab.open(interactiveWin);
+		// }
+	// });
+	// dialog.show();
+// };
 
 //-----------------------------------------------------------
 // Array som håller bokstäverna från bokstavsjakten.
