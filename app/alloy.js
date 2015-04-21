@@ -85,7 +85,8 @@ function newError(errorMsg, pageName) {
 // Globala variabler för geofencing.
 //-----------------------------------------------------------
 var gLat = 0;
-var gLon = 0;
+var gLon = 0;s
+var foundId = null;
 
 //-----------------------------------------------------------
 // Alertbox som visas när man börjar närma sig en punkt.
@@ -121,7 +122,7 @@ var interactiveVisible = false;
 
 function validate(text){
 	var validated = false;
-	if(text.length ==1){
+	if(text.length ==1 && text.match(![0-9])){
 		validated = true;
 	}
 	else {

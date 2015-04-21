@@ -1,5 +1,5 @@
 var letterCollection = getLetterCollection();
-var foundId = null;
+
 
 
 function sendLetter() {
