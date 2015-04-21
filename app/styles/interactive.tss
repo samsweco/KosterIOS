@@ -6,18 +6,13 @@
 	right: '20dp',
 	left: '20dp',
 	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-	top: '25dp'
+	top: '50dp'
 }
 
 "#showFamilyTrail": {
 	top: '0dp',
 	height: '200dp',
 	width: Titanium.UI.FILL,
-}
-
-"#infoView" : {
-	layout : 'vertical',
-	top: '200dp'
 }
 
 "#lblWelcome" : {
@@ -31,17 +26,30 @@
 
 "#btnStartQuiz" : {
 	backgroundColor : '#fff3e5',
-	top: '20dp',
+	top: '150dp',
 	borderRadius : '5dp',
 	width : '250dp'
 }
 
 "#lblShowLetters" : {
 	font : 'Gotham Rounded',
-	top : '10dp'
+	top : '100dp'
 }
 
 "#lblFoundLetters" : {
 	font : 'Gotham Rounded',
-	top : '10dp'
+	top : '250dp'
+}
+
+"#startView" : {
+	top: '200dp',
+}
+
+"#clueView" : {
+	top: '200dp',
+	visible:false,
+	backgroundColor : 'white'
+}
+"#lblClue" : {
+ color: 'blue'
 }

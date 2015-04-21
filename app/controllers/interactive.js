@@ -3,6 +3,7 @@ var args = arguments[0] || {};
 showMap();
 createMapRoute();
 var familyMap;
+changeView();
 
 //-----------------------------------------------------------
 // Öppnar vy och läser in nästa fråga
@@ -221,4 +222,16 @@ function createMapRoute() {
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - createMapRoute");
 	}
+}
+
+function changeView()
+{
+	$.startView.visible = true;
+	$.clueView.visible = false;
+}
+
+function showClue()
+{
+	$.startView.visible = false;
+	$.clueView.visible = true;
 }

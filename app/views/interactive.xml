@@ -3,13 +3,20 @@
 	<View id="interactiveWin">
 		<ScrollView class="headView" scrollType="vertical">
 			<View id="showFamilyTrail"></View>
-			<View id="infoView">
+			<View id="startView">
 				<Label id="lblWelcome">Välkommen till bokstavsjakten</Label>
 				<Label id="lblInfoText">Vandra äventyrslingan och leta efter dem 8 bokstäverna som finns gömda längst leden, försök sedan klura ut det hemliga ordet. Längst vägen kommer du få ledtrådar var du kan finna bokstäverna och vi kommer även påminna dig när du börjar närma dig en bokstav.</Label>
-				<Button id="btnStartQuiz">Starta quizen</Button>
-				<Label id="lblShowLetters">Hittade bokstäver</Label>
-				<Label id="lblFoundLetters"></Label>
-			</View>
+				<Button id="btnStartQuiz" onClick="showClue">Starta quizen</Button>
+				</View>
+				<View id="clueView">
+					<Label id="lblClue">här får man e massa ledtrådar
+						bvnm,
+						nm,.
+						bnm,
+						</Label>
+				<Label id="lblShowLetters">Hittade bokstäver:</Label>
+				<Label id="lblFoundLetters">K O S T</Label>
+				</View>
 		</ScrollView>
 	</View>
 </Alloy>
