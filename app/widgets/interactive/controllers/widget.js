@@ -22,7 +22,7 @@ function checkLetter(letterToCheck) {
 		if (letterJSON[i].letter == letterToCheck) {
 			//Save letter
 			lettersArray.push(letterJSON[i].letter);
-			$.lblLetters.text += letterJSON[i].letter;
+			$.lblFoundLetters.text += letterJSON[i].letter;
 			alert(letterJSON[i].letter);
 		}
 	}
