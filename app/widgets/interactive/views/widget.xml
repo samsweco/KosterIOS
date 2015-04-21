@@ -8,6 +8,6 @@
 		<TextField id="txtLetter"></TextField>
 		<Label>Fyll i bokstaven du hittat i fältet ovan.</Label>
 		<Label id="lblLetters" onClick="sendLetter">Skicka bokstav!</Label>
-		<Label id="hideWidget" onClick="closeInteractive"></Label>
+		<Label id="hideWidget" onClick="closeInteractive">Stäng interactive</Label>
 	</View>
 </Alloy>

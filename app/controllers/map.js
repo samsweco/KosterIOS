@@ -369,7 +369,6 @@ baseMap.addEventListener('click', function(evt) {
 
 baseMap.addEventListener('singletap', function() {
 	Alloy.Globals.closeMapMenu();
-	Ti.API.info("close map menu clicked");
 });
 
 function setUserPosition() {

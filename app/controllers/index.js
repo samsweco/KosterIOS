@@ -58,3 +58,7 @@ function showMenu(){
 function getPos(){
 	Alloy.Globals.setUserPosition();
 }
+
+$.lblInteractive.addEventListener('click', function() {
+	Alloy.Globals.showInteractive();
+});

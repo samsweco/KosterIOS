@@ -1,5 +1,4 @@
-showInteractive();
-	
+
 function sendLetter() {
 	checkLetter(getLetter());
 }

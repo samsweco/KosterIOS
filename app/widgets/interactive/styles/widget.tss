@@ -1,7 +1,7 @@
 "#interactiveView": {
 	layout: 'vertical',
-	height: '160dp',
-	visible: true,
+	height: '180dp',
+	visible: false,
 	backgroundColor: 'white',
 	opacity: 0.8
 }
