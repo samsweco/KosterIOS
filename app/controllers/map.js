@@ -198,18 +198,17 @@ function isInsideRadius(lat1, lon1, rad) {
 //-----------------------------------------------------------
 function isNearPoint() {
 	// try {
-	var coordCollection = Alloy.Collections.coordinates;
-	coordCollection.fetch();
+	var letterCollection = Alloy.Collections.letterModel;
+	letterCollection.fetch();
 
-	var jsonCollection = coordCollection.toJSON();
+	var jsonCollection = letterCollection.toJSON();
 
 	for (var i = 0; i < jsonCollection.length; i++) {
 		var lat = jsonCollection[i].latitude;
 		var lon = jsonCollection[i].longitude;
-
+		
 		if (isInsideRadius(lat, lon, radius)) {
-			// showDialog();
-			Alloy.Globals.showInteractive();
+			Alloy.Globals.showInteractive(jsonCollection[i].id);
 		}
 	}
 	// } catch(e) {

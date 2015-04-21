@@ -1,4 +1,5 @@
 var letterCollection = getLetterCollection();
+var foundId = null;
 
 
 function sendLetter() {
@@ -16,21 +17,19 @@ function checkLetter(letterToCheck) {
 	var correctLetter = false;
 	
 	letterCollection.fetch({
-			query : 'SELECT letter FROM letterModel'
+			query : 'SELECT * FROM letterModel where id = "' + foundId + '"'
 		});
 	
 	var letterJSON = letterCollection.toJSON();
 	//Skriv om denna loop så att den kollar id't på bokstaven, alltså platsen i arrayen och kollar om den stämmer...
 	
-	for (var i = 0; i < letterJSON.length; i++) {
-		if (letterJSON[i].letter == letterToCheck) {
-			lettersArray.push(letterJSON[i].letter);
+		if (letterJSON[0].letter == letterToCheck) {
+			lettersArray.push(letterJSON[0].letter);
 			Ti.API.info(JSON.stringify(lettersArray));
 		}
-	}
 }
 
-function showInteractive() {
+function showInteractive(id) {
 	if (!interactiveVisible) {
 		$.interactiveView.show();
 		interactiveVisible = true;
@@ -38,6 +37,8 @@ function showInteractive() {
 		$.interactiveView.hide();
 		interactiveVisible = false;
 	}
+	foundId = id;
+	
 }
 
 function closeInteractive() {
