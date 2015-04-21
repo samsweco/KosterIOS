@@ -1,5 +1,6 @@
 <Alloy>
 	<Collection src="hotspotModel" />
+	<Collection src="letterModel"></Collection>
 	<TabGroup id="tabs" backgroundColor="#fff" height="100%" tintColor="#FF9966">
 		<Tab id="koster" class="tabbar" title="Hem" icon="/images/kosterStarMenu.png" >
 			<Window id="koster" class="container" backgroundImage="/pics/front.png" navBarHidden="true">

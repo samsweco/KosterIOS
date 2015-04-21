@@ -13,9 +13,19 @@
 	width : Titanium.UI.FILL
 }
 
-"#lblClue": {
+"Label": {
 	font: {
-		fontSize: 15
+		fontSize: 10,
+		
+	},
+	color: "#000000"
+}
+
+"#lblClue": {
+	left : '5dp',
+	font: {
+		fontSize: 15,
+		fontStyle : 'italic'
 	},
 	color: "#000000"
 }
@@ -27,7 +37,8 @@
 
 "#txtLetter" : {
 	height : '35dp',
-	width : '50dp',
+	width : '70dp',
 	tintColor : 'blue',
-	text : 'Fyll i din bokstav här!'
+	borderWidth : '1dp',
+	borderRadius : '5dp'
 }

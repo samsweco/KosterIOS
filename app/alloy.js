@@ -62,6 +62,11 @@ function getInfospotCollection() {
 	return infospotCollection;
 }
 
+function getLetterCollection() {
+	var letterCollection = Alloy.Collections.letterModel;
+	return letterCollection;
+}
+
 //-----------------------------------------------------------
 // Felhantering
 //-----------------------------------------------------------

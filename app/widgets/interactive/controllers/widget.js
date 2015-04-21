@@ -1,3 +1,5 @@
+var letterCollection = getLetterCollection();
+
 
 function sendLetter() {
 	checkLetter(getLetter());
@@ -5,16 +7,16 @@ function sendLetter() {
 
 function getLetter() {
 	var letter = $.txtLetter.value;
-	alert(letter);
 	return letter.toUpperCase();
 }
 
 function checkLetter(letterToCheck) {
+	letterCollection.fetch({
+			query : 'SELECT letter FROM letterModel'
+		});
 	
-var letters = Alloy.Collections.letterModel;
-letters.fetch();
-	
-	var letterJSON = letters.toJSON();
+	var letterJSON = letterCollection.toJSON();
+	Ti.API.info(JSON.stringify(letterJSON));
 	
 	for (var i = 0; i < letterJSON.length; i++) {
 		if (letterJSON[i].letter == letterToCheck) {

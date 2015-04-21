@@ -1,12 +1,12 @@
 <Alloy>
-	<Collection src="letterModel" />
+	<Collection src="letterModel"></Collection>
 	<View id="interactiveView">
 		<View id="horizontalView">
 			<ImageView id="imgABC" image="/pics/abc.png"></ImageView>
-			<Label id="lblClue">(Ledtråd här)</Label>
+			<Label id="lblClue">Leta runt den stora eken, kanske finns en bokstav där!</Label>
 		</View>
 		<TextField id="txtLetter"></TextField>
-		<Label>Fyll i bokstaven du hittat i fältet ovan.</Label>
+
 		<Label id="lblLetters" onClick="sendLetter">Skicka bokstav!</Label>
 		<Label id="hideWidget" onClick="closeInteractive">Stäng interactive</Label>
 	</View>
