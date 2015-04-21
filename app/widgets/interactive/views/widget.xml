@@ -2,12 +2,7 @@
 	<Collection src="letterModel"></Collection>
 	<View id="interactiveView">
 		<View id="horizontalView">
-			<ImageView id="imgABC" image="/pics/abc.png"></ImageView>
-			<Label id="lblClue">Leta runt den stora eken, kanske finns en bokstav där!</Label>
+			<Label id="lblClue">Nu börjar du närma dig en bokstav, gå till bokstavsjakten för att läsa ledtråden!</Label>
 		</View>
-		<TextField id="txtLetter"></TextField>
-
-		<Label id="lblLetters" onClick="sendLetter">Skicka bokstav!</Label>
-		<Label id="hideWidget" onClick="closeInteractive">Stäng interactive</Label>
 	</View>
 </Alloy>

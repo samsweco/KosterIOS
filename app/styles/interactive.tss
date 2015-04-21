@@ -1,67 +1,105 @@
+"#interactiveWin": {
+	layout: 'vertical',
+	backgroundColor: 'white'
+}
+
+
+
+"#interactiveView": {
+	top: '250dp',
+	color: 'green',
+	visible: true
+}
+
 "#lblInfoText": {
 	font: {
-		fontStyle : 'Gotham Rounded',
+		fontStyle: 'Gotham Rounded',
 		fontSize: '12dp'
-				} ,
+	} ,
 	right: '20dp',
 	left: '20dp',
-	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-	top: '50dp'
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
 }
 
 "#showFamilyTrail": {
 	top: '20dp',
 	height: '200dp',
-	width: Titanium.UI.FILL,
+	width: Titanium.UI.FILL
 }
 
-"#lblWelcome" : {
-	font : {
-		fontStyle : 'Gotham Rounded',
-		fontSize : '20dp'
+"#lblWelcome": {
+	font: {
+		fontStyle: 'Gotham Rounded',
+		fontSize: '20dp'
 	},
-	top : '10dp',
-	color : '#FF9966'
+	color: '#FF9966'
 }
 
-"#btnStartQuiz" : {
-	backgroundColor : '#fff3e5',
-	top: '150dp',
-	borderRadius : '5dp',
-	width : '250dp'
+"#btnStartQuiz": {
+	backgroundColor: '#fff3e5',
+	borderRadius: '5dp',
+	width: '250dp'
 }
 
-"#lblShowLetters" : {
-	font : 'Gotham Rounded',
-	top : '200dp'
+"#lblShowLetters": {
+	font: 'Gotham Rounded'
 }
 
-"#lblFoundLetters" : {
-	font : 'Gotham Rounded',
-	top : '220dp'
+"#lblFoundLetters": {
+	font: 'Gotham Rounded'
 }
 
-"#startView" : {
-	top: '220dp',
+"#startView": {
+	layout: 'vertical',
+	height : Titanium.UI.SIZE
 }
 
-"#clueView" : {
-	top: '220dp'
+"#lblClueText": {
+	font: 'Gotham Rounded',
+	top: '35dp',
+	right: '20dp',
+	left: '20dp'
 }
 
-"#lblClueText" : {
-font: 'Gotham Rounded',
-top : '35dp',
-right : '20dp',
-left : '20dp'
-}
-
-"#lblClue" : {
-	font : {
-		fontStyle : 'Gotham Rounded',
-		fontSize : '20dp'
+"#lblClue": {
+	font: {
+		fontStyle: 'Gotham Rounded',
+		fontSize: '20dp'
 	},
 	top: '10dp',
 	color: '#FF9966'
+}
+
+
+"#horizontalView":{
+	layout: 'vertical',
+	backgroundColor: 'white',
+	height: '70dp',
+	width: Titanium.UI.FILL
+}
+
+"Label": {
+	font: {
+		fontSize: 10
+	},
+	color: "#000000"
+}
+
+"#lblClue": {
+	left: '5dp',
+	font: {
+		fontSize: 15,
+		fontStyle: 'italic'
+	},
+	color: "#000000"
+}
+
+
+"#txtLetter": {
+	height: '35dp',
+	width: '70dp',
+	tintColor: 'blue',
+	borderWidth: '1dp',
+	borderRadius: '5dp'
 }
 

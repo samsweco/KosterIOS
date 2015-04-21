@@ -204,11 +204,12 @@ function isNearPoint() {
 	var jsonCollection = letterCollection.toJSON();
 
 	for (var i = 0; i < jsonCollection.length; i++) {
-		var lat = jsonCollection[i].latitude;
-		var lon = jsonCollection[i].longitude;
+		var lat = jsonCollection[i].xkoord;
+		var lon = jsonCollection[i].ykoord;
 		
 		if (isInsideRadius(lat, lon, radius)) {
-			Alloy.Globals.showInteractive(jsonCollection[i].id);
+			Alloy.Globals.showInteractive();
+			foundId = jsonCollection[i].id;
 		}
 	}
 	// } catch(e) {
