@@ -1,0 +1,33 @@
+"#interactiveView": {
+	layout: 'vertical',
+	height: '160dp',
+	visible: true,
+	backgroundColor: 'white',
+	opacity: 0.8
+}
+
+"#horizontalView":{
+	layout: 'horizontal',
+	backgroundColor: 'white',
+	height : '70dp',
+	width : Titanium.UI.FILL
+}
+
+"#lblClue": {
+	font: {
+		fontSize: 15
+	},
+	color: "#000000"
+}
+
+"#imgABC" : {
+	height : '70dp',
+	width : '110dp'
+}
+
+"#txtLetter" : {
+	height : '35dp',
+	width : '50dp',
+	tintColor : 'blue',
+	text : 'Fyll i din bokstav här!'
+}
