@@ -208,7 +208,8 @@ function isNearPoint() {
 		var lon = jsonCollection[i].longitude;
 
 		if (isInsideRadius(lat, lon, radius)) {
-			showDialog();
+			// showDialog();
+			Alloy.Globals.showInteractive();
 		}
 	}
 	// } catch(e) {

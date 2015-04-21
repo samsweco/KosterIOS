@@ -28,7 +28,6 @@ function checkLetter(letterToCheck) {
 			Ti.API.info(JSON.stringify(lettersArray));
 		}
 	}
-	
 }
 
 function showInteractive() {
