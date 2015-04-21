@@ -10,7 +10,7 @@
 }
 
 "#showFamilyTrail": {
-	top: '0dp',
+	top: '20dp',
 	height: '200dp',
 	width: Titanium.UI.FILL,
 }
@@ -33,23 +33,35 @@
 
 "#lblShowLetters" : {
 	font : 'Gotham Rounded',
-	top : '100dp'
+	top : '200dp'
 }
 
 "#lblFoundLetters" : {
 	font : 'Gotham Rounded',
-	top : '250dp'
+	top : '220dp'
 }
 
 "#startView" : {
-	top: '200dp',
+	top: '220dp',
 }
 
 "#clueView" : {
-	top: '200dp',
-	visible:false,
-	backgroundColor : 'white'
+	top: '220dp'
 }
+
+"#lblClueText" : {
+font: 'Gotham Rounded',
+top : '35dp',
+right : '20dp',
+left : '20dp'
+}
+
 "#lblClue" : {
- color: 'blue'
+	font : {
+		fontStyle : 'Gotham Rounded',
+		fontSize : '20dp'
+	},
+	top: '10dp',
+	color: '#FF9966'
 }
+

@@ -9,13 +9,10 @@
 				<Button id="btnStartQuiz" onClick="showClue">Starta quizen</Button>
 				</View>
 				<View id="clueView">
-					<Label id="lblClue">här får man e massa ledtrådar
-						bvnm,
-						nm,.
-						bnm,
-						</Label>
-				<Label id="lblShowLetters">Hittade bokstäver:</Label>
-				<Label id="lblFoundLetters">K O S T</Label>
+					<Label id="lblClue">Ledtråd</Label>
+					<Label id="lblClueText">Om du fortsätter på stigen så kommer du se en stor björk, kolla på andra sidan av björken och se om du kan finna din bokstav</Label>
+				<Label id="lblShowLetters">Bokstäver du hittat:</Label>
+				<Label id="lblFoundLetters">S  T  K  O</Label>
 				</View>
 		</ScrollView>
 	</View>
