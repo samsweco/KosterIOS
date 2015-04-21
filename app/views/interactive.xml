@@ -4,10 +4,10 @@
 			<View id="showFamilyTrail">
 			</View>
 			<View id="infoView">
-				<Label>Välkommen till bokstavsjakten</Label>
-				<Label> . Det finns 8 gömda bokstäver efter slingan </Label>
-			</View>
+				<Label id="lblWelcome">Välkommen till bokstavsjakten</Label>
+				<Label id="lblInfoText"> Vandra äventyrslingan och leta efter dem 8 bokstäverna som finns gömda längst leden och försök sedan klura ut det hemliga ordet. Längst vägen kommer du får nya ledtrådar var nästa bokstav finns och vi kommer även påminna dig när du börjar närma dig en bokstav.  </Label>
 			<Label id="testKnapp" onClick="showInteractive">här är Annas knapp</Label>
+			</View>
 		</ScrollView>
 	</View>
 </Alloy>

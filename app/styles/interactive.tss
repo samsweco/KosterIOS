@@ -67,3 +67,11 @@
 	layout : 'vertical',
 	top: 200
 }
+
+"#lblWelcome" : {
+	fontFamily : 'Gotham Rounded'
+}
+
+"#lblInfoText" : {
+	fontFamily : 'Gotham Rounded'
+}
