@@ -1,77 +1,46 @@
-"font": {
-	fontFamily: 'Gotham Rounded'
-}
-
-"#quizQuestion": {
-	backgroundColor: '#fff3e5',
-	layout: 'vertical'
-}
-
-"#ViewChooseLetter": {
-	layout: 'vertical',
-	top: 350
-}
-
-"#letter": {
-	borderColor: '#CCCCCC',
-	width: 40,
-	height: 60
-}
-
-"#word": {
-	borderColor: '#CCCCCC',
-	width: 100,
-	height: 60
-}
-
-"#btnSaveLetter": {
-	height: 30,
-	width: 100,
-	backgroundColor: '#FFD6AD',
-	top: 20,
-	radius: 30,
-	borderRadius: 7.5,
-	layout: 'vetical'
-}
-
-"#lblClue": {
-	layout: 'vertical',
-	right: 20,
-	left: 20,
-	top: 30,
-	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
-}
-
-"#lblVisaFraga": {
-	color: '#FF9966'
-}
-
-"#lblInfo": {
+"#lblInfoText": {
 	font: {
-		fontSize: 12,
-		fontStyle: 'italic'
-	},
-	right: 20,
-	left: 20,
+		fontStyle : 'Gotham Rounded',
+		fontSize: '12dp'
+				} ,
+	right: '20dp',
+	left: '20dp',
 	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-	top: 25
+	top: '25dp'
 }
 
 "#showFamilyTrail": {
-	top: 0,
+	top: '0dp',
 	height: '200dp',
 	width: Titanium.UI.FILL,
 }
 
 "#infoView" : {
 	layout : 'vertical',
-	top: 200
+	top: '200dp'
 }
 
 "#lblWelcome" : {
-	fontFamily : 'Gotham Rounded'
+	font : {
+		fontStyle : 'Gotham Rounded',
+		fontSize : '20dp'
+	},
+	top : '10dp',
+	color : '#FF9966'
 }
 
-"#lblInfoText" : {
-	fontFamily : 'Gotham Rounded'
+"#btnStartQuiz" : {
+	backgroundColor : '#fff3e5',
+	top: '20dp',
+	borderRadius : '5dp'
+}
+
+"#lblShowLetters" : {
+	font : 'Gotham Rounded',
+	top : '10dp'
+}
+
+"#lblFoundLetters" : {
+	font : 'Gotham Rounded',
+	top : '10dp'
 }
