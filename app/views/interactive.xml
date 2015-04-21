@@ -8,7 +8,7 @@
 				<Label id="lblInfoText">Vandra äventyrslingan och leta efter dem 8 bokstäverna som finns gömda längst leden, försök sedan klura ut det hemliga ordet. Längst vägen kommer du få ledtrådar var du kan finna bokstäverna och vi kommer även påminna dig när du börjar närma dig en bokstav.</Label>
 				<Button id="btnStartQuiz">Starta quizen</Button>
 				<Label id="lblShowLetters">Hittade bokstäver</Label>
-				<Label id="lblFoundLetters">S K H</Label>
+				<Label id="lblFoundLetters"></Label>
 			</View>
 		</ScrollView>
 	</View>

@@ -33,7 +33,7 @@
 	backgroundColor : '#fff3e5',
 	top: '20dp',
 	borderRadius : '5dp',
-	width : '100dp'
+	width : '250dp'
 }
 
 "#lblShowLetters" : {
