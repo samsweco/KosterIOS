@@ -114,13 +114,5 @@ var globalTrailID = 0;
 
 var interactiveVisible = false;
 
-function showInteractive() {
-	if (!interactiveVisible) {
-		$.interactive.show();
-		interactiveVisible = true;
-	} else {
-		$.interactive.hide();
-		interactiveVisible = false;
-	}
-}
+
 

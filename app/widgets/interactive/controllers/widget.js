@@ -1,4 +1,4 @@
-
+showInteractive();
 	
 function sendLetter() {
 	checkLetter(getLetter());
@@ -27,15 +27,15 @@ letters.fetch();
 	}
 }
 
-// function showInteractive() {
-	// if (!interactiveVisible) {
-		// $.interactiveView.show();
-		// interactiveVisible = true;
-	// } else {
-		// $.interactiveView.hide();
-		// interactiveVisible = false;
-	// }
-// }
+function showInteractive() {
+	if (!interactiveVisible) {
+		$.interactiveView.show();
+		interactiveVisible = true;
+	} else {
+		$.interactiveView.hide();
+		interactiveVisible = false;
+	}
+}
 
 function closeInteractive() {
 	$.interactiveView.hide();
