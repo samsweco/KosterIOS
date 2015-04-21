@@ -4,10 +4,10 @@
 			<View id="showFamilyTrail">
 			</View>
 			<View id="infoView">
-				<Label>Hej och välkommen till bokstavsjakten</Label>
-				<Label> Information kommer här</Label>
+				<Label>Välkommen till bokstavsjakten</Label>
+				<Label> . Det finns 8 gömda bokstäver efter slingan </Label>
 			</View>
-			
+			<Label id="testKnapp" onClick="showInteractive"></Label>
 		</ScrollView>
 	</View>
 </Alloy>
