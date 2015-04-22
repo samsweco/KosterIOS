@@ -152,28 +152,33 @@ function displayTrailMarkers() {
 }
 
 function addClueZone() {
-	var clueCollection = getLetterCollection();
-	clueCollection.fetch({
-		query : 'SELECT * FROM letterModel'
-	});
-	
-	var jsonObjLetter = clueCollection.toJSON();
-
-	for (var c = 0; c < jsonObjLetter.length; c++) {
-		var markerAnnotation = MapModule.createAnnotation({
-			id : 1,
-			latitude : jsonObjLetter[c].latitude,
-			longitude : jsonObjLetter[c].longitude
+	try {
+		var clueCollection = Alloy.Collections.letterModel;
+		clueCollection.fetch({
+			query : 'SELECT latitude, longitude, found FROM letterModel'
 		});
 
-		if (jsonObjLetter[c].found == 0) {
-			markerAnnotation.image = '/images/red.png';
-		} else {
-			markerAnnotation.image = '/images/green.png';
-		}
+		var jsonObjLetter = clueCollection.toJSON();
 
-		familyMap.addAnnotation(markerAnnotation);
+		for (var c = 0; c < jsonObjLetter.length; c++) {
+			var markerAnnotation = MapModule.createAnnotation({
+				id : 1,
+				latitude : jsonObjLetter[c].latitude,
+				longitude : jsonObjLetter[c].longitude
+			});
+
+			if (jsonObjLetter[c].found == 0) {
+				markerAnnotation.image = '/images/red.png';
+			} else {
+				markerAnnotation.image = '/images/green.png';
+			}
+
+			familyMap.addAnnotation(markerAnnotation);
+		}
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - addClueZone");
 	}
+
 }
 
 //Ändra till rätt id som kommer in vid anrop.

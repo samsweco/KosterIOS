@@ -24,7 +24,6 @@ var jsonFileCollection = getJSONfiles();
 // FUNGERAR MEN ÄR SJUKT STRÖRANDE
 //-----------------------------------------------------------
 try {
-
 	Ti.Geolocation.getCurrentPosition(function(e) {
 		if (e.error) {
 			alert('Get current position' + e.error);
@@ -42,6 +41,8 @@ try {
 				alert('Add eventlistener!' + e.error);
 			} else {
 				getPosition(e.coords);
+				
+				Ti.API.info('e : ' + JSON.stringify(e.coords));
 			}
 		});
 	} else {
