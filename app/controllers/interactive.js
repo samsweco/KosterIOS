@@ -1,5 +1,8 @@
 var args = arguments[0] || {};
 
+fillFoundArray();
+var foundArray = [];
+
 showMap();
 createMapRoute();
 var familyMap;
@@ -7,7 +10,6 @@ displayTrailMarkers();
 addClueZone();
 
 var letterCollection = getLetterCollection();
-var foundArray = [];
 var letterId = foundId;
 
 //-----------------------------------------------------------
@@ -165,35 +167,32 @@ function fillFoundArray() {
 				id : jsonObjFound[f].id,
 				found : jsonObjFound[f].found,
 			});
-		};
+		}
+		
+		Ti.API.info('Array : ' + foundArray);
 
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - addClueZone");
 	}
 }
 
-function updateFoundArray(id) {
-	Ti.API.info('id : ' + id-1);
-	
-	foundArray[id-1].found = 1;
-}
-
 function addClueZone() {
-	// try {
-		letterCollection.fetch({
+	try {
+		var clueCollection = Alloy.Collections.letterModel;
+		clueCollection.fetch({
 			query : 'SELECT latitude, longitude, found FROM letterModel'
 		});
 
-		var jsonObjLetter = clueCollection.toJSON();
+		var jsonObjClue = clueCollection.toJSON();
+		Ti.API.info('clue : ' + JSON.stringify(jsonObjClue));
 
-		for (var c = 0; c < jsonObjLetter.length; c++) {
+		for (var c = 0; c < jsonObjClue.length; c++) {
 			var markerAnnotation = MapModule.createAnnotation({
-				id : 1,
-				latitude : jsonObjLetter[c].latitude,
-				longitude : jsonObjLetter[c].longitude
+				latitude : jsonObjClue[c].latitude,
+				longitude : jsonObjClue[c].longitude
 			});
 
-			if (jsonObjLetter[c].found == 0) {
+			if (jsonObjClue[c].found == 0) {
 				markerAnnotation.image = '/images/red.png';
 			} else {
 				markerAnnotation.image = '/images/green.png';
@@ -201,9 +200,9 @@ function addClueZone() {
 
 			familyMap.addAnnotation(markerAnnotation);
 		}
-	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - addClueZone");
-	// }
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - addClueZone");
+	}
 
 }
 
@@ -222,11 +221,17 @@ function loadClue() {
 	$.txtLetter.show();
 	$.lblLetters.show();
 	$.lblCollectedLetters.show();
-
 }
+
+// function updateFoundArray(id) {
+	// var arrayIndex = id-1;
+// 	
+	// // foundArray[arrayIndex][1] = 1;
+// }
 
 function sendLetter() {
 	checkLetter(getLetter());
+	// updateFoundArray(2);
 }
 
 function getLetter() {
@@ -249,7 +254,5 @@ function checkLetter(letterToCheck) {
 	if (letterJSON[0].letter == letterToCheck) {
 		lettersArray.push(letterJSON[0].letter);
 		$.lblCollectedLetters.text += letterArray;
-		
-		updateFoundArray(2);
 	}
 }
