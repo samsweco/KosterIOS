@@ -7,6 +7,7 @@ displayTrailMarkers();
 addClueZone();
 
 var letterCollection = getLetterCollection();
+var foundArray = [];
 var letterId = foundId;
 
 //-----------------------------------------------------------
@@ -151,10 +152,35 @@ function displayTrailMarkers() {
 	}
 }
 
+function fillFoundArray() {
+	try {
+		letterCollection.fetch({
+			query : 'SELECT id, found FROM letterModel'
+		});
+
+		var jsonObjFound = clueCollection.toJSON();
+
+		for (var f = 0; f < jsonObjFound.length; f++) {
+			foundArray.push({
+				id : jsonObjFound[f].id,
+				found : jsonObjFound[f].found,
+			});
+		};
+
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - addClueZone");
+	}
+}
+
+function updateFoundArray(id) {
+	Ti.API.info('id : ' + id-1);
+	
+	foundArray[id-1].found = 1;
+}
+
 function addClueZone() {
 	try {
-		var clueCollection = Alloy.Collections.letterModel;
-		clueCollection.fetch({
+		letterCollection.fetch({
 			query : 'SELECT latitude, longitude, found FROM letterModel'
 		});
 
@@ -184,7 +210,7 @@ function addClueZone() {
 //Ändra till rätt id som kommer in vid anrop.
 function loadClue() {
 	letterCollection.fetch({
-		query : 'SELECT * FROM letterModel where id = "' + letterId + '"'
+		query : 'SELECT * FROM letterModel where id = "' + 2 + '"'
 	});
 
 	var letterJSON = letterCollection.toJSON();
@@ -214,7 +240,7 @@ function checkLetter(letterToCheck) {
 	var correctLetter = false;
 
 	letterCollection.fetch({
-		query : 'SELECT * FROM letterModel where id = "' + foundId + '"'
+		query : 'SELECT * FROM letterModel where id = "' + 2 + '"'
 	});
 
 	var letterJSON = letterCollection.toJSON();
@@ -222,7 +248,8 @@ function checkLetter(letterToCheck) {
 
 	if (letterJSON[0].letter == letterToCheck) {
 		lettersArray.push(letterJSON[0].letter);
-		Ti.API.info(JSON.stringify(lettersArray));
 		$.lblCollectedLetters.text += letterArray;
+		
+		updateFoundArray(2);
 	}
 }
