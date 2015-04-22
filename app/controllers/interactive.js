@@ -1,6 +1,6 @@
 var args = arguments[0] || {};
 
-fillFoundArray();
+// fillFoundArray();
 var foundArray = [];
 
 showMap();
@@ -154,27 +154,27 @@ function displayTrailMarkers() {
 	}
 }
 
-function fillFoundArray() {
-	try {
-		letterCollection.fetch({
-			query : 'SELECT id, found FROM letterModel'
-		});
-
-		var jsonObjFound = clueCollection.toJSON();
-
-		for (var f = 0; f < jsonObjFound.length; f++) {
-			foundArray.push({
-				id : jsonObjFound[f].id,
-				found : jsonObjFound[f].found,
-			});
-		}
-		
-		Ti.API.info('Array : ' + foundArray);
-
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - addClueZone");
-	}
-}
+// function fillFoundArray() {
+	// // try {
+		// var foundCollection = Alloy.Collections.letterModel;
+		// foundCollection.fetch({
+			// query : 'SELECT id, found FROM letterModel'
+		// });
+// 
+		// var jsonObjFound = foundCollection.toJSON();
+// 
+		// for (var f = 0; f < jsonObjFound.length; f++) {
+			// foundArray.push({
+				// id : jsonObjFound[f].id,
+				// found : jsonObjFound[f].found,
+			// });
+		// }
+		// Ti.API.info('Array : ' + foundArray);
+// 		
+	// // } catch(e) {
+		// // newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - fillFoundArray");
+	// // }
+// }
 
 function addClueZone() {
 	try {
@@ -203,7 +203,6 @@ function addClueZone() {
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - addClueZone");
 	}
-
 }
 
 //Ändra till rätt id som kommer in vid anrop.
@@ -226,7 +225,7 @@ function loadClue() {
 // function updateFoundArray(id) {
 	// var arrayIndex = id-1;
 // 	
-	// // foundArray[arrayIndex][1] = 1;
+	// foundArray[arrayIndex][1] = 1;
 // }
 
 function sendLetter() {
