@@ -195,8 +195,6 @@ function loadClue(){
 	
 }
 
-
-
 function sendLetter() {
 	checkLetter(getLetter());
 }
