@@ -1,5 +1,5 @@
 "#interactiveWin": {
-	top : 0,
+	top: 0,
 	layout: 'vertical',
 	backgroundColor: 'white'
 }
@@ -7,12 +7,12 @@
 	layout: 'vertical'
 }
 
-"#hideView" : {
-	layout: 'vertical',
+"#hideView": {
+	layout: 'vertical'
 }
 
 "#lblInfoText": {
-		top : 0,
+	top: 0,
 	font: {
 		fontStyle: 'Gotham Rounded',
 		fontSize: '12dp'
@@ -24,12 +24,12 @@
 
 "#showFamilyTrail": {
 	top: '0dp',
-	height: '40%',
+	height: '45%',
 	width: Titanium.UI.FILL
 }
 
 "#lblWelcome": {
-		top : 0,
+	top: 0,
 	font: {
 		fontStyle: 'Gotham Rounded',
 		fontSize: '20dp'
@@ -38,7 +38,7 @@
 }
 
 "#lblClue": {
-		top : 0,
+	top: 0,
 	font: {
 		fontStyle: 'Gotham Rounded',
 		fontSize: '20dp'
@@ -47,16 +47,16 @@
 }
 
 "Label": {
-		top : 0,
+	top: 0,
 	font: {
 		fontSize: 10,
-		fontStyle: 'Gotham Rounded',
+		fontStyle: 'Gotham Rounded'
 	},
 	color: "#000000"
 }
 
 "#lblClue": {
-		top : 0,
+	top: 0,
 	left: '5dp',
 	font: {
 		fontSize: 15,
@@ -66,25 +66,25 @@
 }
 
 "#lblLetters": {
-		top : 0,
+	top: 0,
 	font: {
-		fontSize: 12,
+		fontSize: 12
 	},
 	color: "#000000",
-	visible : false
+	visible: false
 }
 
 "#txtLetter": {
-	top : 0,
+	top: 0,
 	height: '35dp',
 	width: '70dp',
 	tintColor: 'blue',
 	borderWidth: '1dp',
 	borderRadius: '5dp',
-	visible : false
+	visible: false
 }
 
-"#lblCollectedLetters" : {
-	visible : false
+"#lblCollectedLetters": {
+	visible: false
 }
 

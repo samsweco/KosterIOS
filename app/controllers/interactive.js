@@ -3,20 +3,11 @@ var args = arguments[0] || {};
 showMap();
 createMapRoute();
 var familyMap;
+displayTrailMarkers();
+addClueZone();
 
 var letterCollection = getLetterCollection();
 var letterId = foundId;
-
-
-
-var clueCollection = getLetterCollection();
-clueCollection.fetch({
-	query : 'SELECT * FROM letterModel'
-});
-
-var jsonObjLetter = clueCollection.toJSON();
-
-
 
 //-----------------------------------------------------------
 // Kontrollerar det inskickade ordet mot "facit"
@@ -31,9 +22,10 @@ function checkWord() {
 		alert("Nej du, nu blev det fel...");
 	}
 }
- //-----------------------------------------
- // Zoomar in kartan på äventyrsleden
- //-----------------------------------------
+
+//-----------------------------------------
+// Zoomar in kartan på äventyrsleden
+//-----------------------------------------
 function showMap() {
 	try {
 		familyMap = MapModule.createView({
@@ -45,9 +37,9 @@ function showMap() {
 		});
 		$.showFamilyTrail.add(familyMap);
 
-	 } catch(e) {
-		 newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - showMap");
-	 }
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - showMap");
+	}
 }
 
 //-----------------------------------------------------------
@@ -84,11 +76,11 @@ function calculateMapRegion(trailCoordinates) {
 				longitude : poiCenter.lon,
 				latitudeDelta : delta,
 				longitudeDelta : delta
-				
+
 			};
 		}
 		return region;
-		
+
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapDetail - calculateMapRegion");
 	}
@@ -126,7 +118,7 @@ function createMapRoute() {
 				color : 'purple',
 				width : 3.0
 			};
-			
+
 			familyMap.addRoute(MapModule.createRoute(route));
 		}
 
@@ -160,6 +152,13 @@ function displayTrailMarkers() {
 }
 
 function addClueZone() {
+	var clueCollection = getLetterCollection();
+	clueCollection.fetch({
+		query : 'SELECT * FROM letterModel'
+	});
+	
+	var jsonObjLetter = clueCollection.toJSON();
+
 	for (var c = 0; c < jsonObjLetter.length; c++) {
 		var markerAnnotation = MapModule.createAnnotation({
 			id : 1,
@@ -178,21 +177,21 @@ function addClueZone() {
 }
 
 //Ändra till rätt id som kommer in vid anrop.
-function loadClue(){
-		letterCollection.fetch({
-			query : 'SELECT * FROM letterModel where id = "' + letterId + '"'
-		});
-	
+function loadClue() {
+	letterCollection.fetch({
+		query : 'SELECT * FROM letterModel where id = "' + letterId + '"'
+	});
+
 	var letterJSON = letterCollection.toJSON();
-	
+
 	$.lblWelcome.text = "Nästa ledtråd: ";
 	$.lblInfoText.text = letterJSON[0].clue;
-	
+
 	$.btnStartQuiz.hide();
 	$.txtLetter.show();
 	$.lblLetters.show();
 	$.lblCollectedLetters.show();
-	
+
 }
 
 function sendLetter() {
@@ -202,23 +201,23 @@ function sendLetter() {
 function getLetter() {
 	var letter = $.txtLetter.value;
 	//if (validate(letter)) {
-		return letter.toUpperCase();
+	return letter.toUpperCase();
 	//};
 }
 
 function checkLetter(letterToCheck) {
 	var correctLetter = false;
-	
+
 	letterCollection.fetch({
-			query : 'SELECT * FROM letterModel where id = "' + foundId + '"'
-		});
-	
+		query : 'SELECT * FROM letterModel where id = "' + foundId + '"'
+	});
+
 	var letterJSON = letterCollection.toJSON();
 	//Skriv om denna loop så att den kollar id't på bokstaven, alltså platsen i arrayen och kollar om den stämmer...
-	
-		if (letterJSON[0].letter == letterToCheck) {
-			lettersArray.push(letterJSON[0].letter);
-			Ti.API.info(JSON.stringify(lettersArray));
-			$.lblCollectedLetters.text += letterArray;
-		}
+
+	if (letterJSON[0].letter == letterToCheck) {
+		lettersArray.push(letterJSON[0].letter);
+		Ti.API.info(JSON.stringify(lettersArray));
+		$.lblCollectedLetters.text += letterArray;
+	}
 }
