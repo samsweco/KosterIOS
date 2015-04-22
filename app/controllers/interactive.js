@@ -5,7 +5,7 @@ createMapRoute();
 var familyMap;
 
 var letterCollection = getLetterCollection();
-
+var letterId = foundId;
 
 //-----------------------------------------------------------
 // Kontrollerar det inskickade ordet mot "facit"
@@ -128,7 +128,7 @@ function createMapRoute() {
 //Ändra till rätt id som kommer in vid anrop.
 function loadClue(){
 		letterCollection.fetch({
-			query : 'SELECT * FROM letterModel where id = "' + 1 + '"'
+			query : 'SELECT * FROM letterModel where id = "' + letterId + '"'
 		});
 	
 	var letterJSON = letterCollection.toJSON();
@@ -137,7 +137,10 @@ function loadClue(){
 	$.lblInfoText.text = letterJSON[0].clue;
 	
 	$.btnStartQuiz.hide();
+	$.txtLetter.show();
 	$.lblLetters.show();
+	$.lblCollectedLetters.show();
+	
 }
 
 
@@ -148,9 +151,9 @@ function sendLetter() {
 
 function getLetter() {
 	var letter = $.txtLetter.value;
-	if (validate(letter)) {
+	//if (validate(letter)) {
 		return letter.toUpperCase();
-	};
+	//};
 }
 
 function checkLetter(letterToCheck) {
@@ -166,5 +169,6 @@ function checkLetter(letterToCheck) {
 		if (letterJSON[0].letter == letterToCheck) {
 			lettersArray.push(letterJSON[0].letter);
 			Ti.API.info(JSON.stringify(lettersArray));
+			$.lblCollectedLetters.text += letterArray;
 		}
 }

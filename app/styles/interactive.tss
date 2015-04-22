@@ -7,11 +7,6 @@
 	layout: 'vertical'
 }
 
-"#interView" : {
-	layout: 'vertical',
-	visible : false
-}
-
 "#hideView" : {
 	layout: 'vertical',
 }
@@ -40,22 +35,6 @@
 		fontSize: '20dp'
 	},
 	color: '#FF9966'
-}
-
-// "#btnStartQuiz": {
-		// top : 0,
-	// backgroundColor: '#fff3e5',
-	// borderRadius: '5dp',
-	// width: '250dp'
-// }
-
-
-
-"#lblClueText": {
-		top : 0,
-	font: 'Gotham Rounded',
-	right: '20dp',
-	left: '20dp'
 }
 
 "#lblClue": {
@@ -88,7 +67,6 @@
 
 "#lblLetters": {
 		top : 0,
-	left: '5dp',
 	font: {
 		fontSize: 12,
 	},
@@ -97,11 +75,16 @@
 }
 
 "#txtLetter": {
-		top : 0,
+	top : 0,
 	height: '35dp',
 	width: '70dp',
 	tintColor: 'blue',
 	borderWidth: '1dp',
-	borderRadius: '5dp'
+	borderRadius: '5dp',
+	visible : false
+}
+
+"#lblCollectedLetters" : {
+	visible : false
 }
 

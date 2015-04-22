@@ -8,14 +8,11 @@
 			<Label id="lblInfoText" text="Vandra äventyrslingan och leta efter de 8 bokstäverna! som finns gömda längs leden, försök sedan klura ut det hemliga ordet. Längs vägen kommer du få ledtrådar var du kan finna bokstäverna och vi kommer även påminna dig när du börjar närma dig en bokstav."></Label>
 
 			<Button id="btnStartQuiz" onClick="loadClue">Starta quizen</Button>			
-			<!-- <Label id="lblClue">Ledtråd:</Label>
-			<Label id="lblClueText" text="Om du fortsätter på stigen så kommer du se en stor björk..."></Label> -->
-			<Label id="lblLetters" onClick="sendLetter">Skicka bokstav!</Label>
-			</View>
-			<!-- <View id="interView">
 			<TextField id="txtLetter"></TextField>
-			
-		</View> -->
+			<Label id="lblLetters" onClick="sendLetter">Skicka bokstav!</Label>
+			<Label id="lblCollectedLetters"></Label>
+			</View>
+
 		</View>
 
 	</View>
