@@ -4,7 +4,7 @@ showMap();
 createMapRoute();
 var familyMap;
 
-
+var letterCollection = getLetterCollection();
 
 
 //-----------------------------------------------------------
@@ -125,13 +125,28 @@ function createMapRoute() {
 	}
 }
 
-function showClue()
-{
-	$.hideView.visible = false;
-	$.interView.visible = true;
+//Ändra till rätt id som kommer in vid anrop.
+function loadClue(){
+		letterCollection.fetch({
+			query : 'SELECT * FROM letterModel where id = "' + 1 + '"'
+		});
+	
+	var letterJSON = letterCollection.toJSON();
+	
+	$.lblWelcome.text = "Nästa ledtråd: ";
+	$.lblInfoText.text = letterJSON[0].clue;
+	
+	$.btnStartQuiz.hide();
+	$.lblLetters.show();
 }
+// 
+// function showClue()
+// {
+	// $.hideView.visible = false;
+	// $.interView.visible = true;
+// }
 
-var letterCollection = getLetterCollection();
+
 
 function sendLetter() {
 	checkLetter(getLetter());
