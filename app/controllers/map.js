@@ -161,7 +161,7 @@ function getPosition(coordinatesObj) {
 function distanceInM(lat1, lon1, GLat, GLon) {
 	try {
 		if (lat1 == null || lon1 == null || GLat == null || GLat == null) {
-			alert("Det finns inga koordinater att titta efter");
+			Ti.API.info("Det finns inga koordinater att titta efter");
 		}
 
 		var R = 6371;
