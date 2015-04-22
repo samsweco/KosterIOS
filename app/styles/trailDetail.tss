@@ -22,8 +22,16 @@
 }
 
 "#btnView": {
-	width : '47%',
+	width : '57%',
 	height : '40dp',
+	right : 0,
+	layout : 'horizontal',
+	top : '10dp'
+}
+
+"#imgArrow": {
+	height : '12dp',
+	width : '12dp',
 	right : 0
 }
 
@@ -116,7 +124,7 @@
 	layout: 'horizontal',
 	height: '40dp',
 	left: '10dp',
-	width : '47%'
+	width : '40%'
 }
 
 "#lblTrailLength": {
@@ -129,7 +137,12 @@
 }
 
 "#btnTrailOnMap": {
-	right: 0,
-	width: Titanium.UI.SIZE
+	width: Titanium.UI.SIZE,
+	font: {
+		fontSize: 16,
+		fontFamily: 'Gotham Rounded'
+		
+	},
+	color: '#FF9966'
 }
 
