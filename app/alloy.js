@@ -94,7 +94,6 @@ var foundId = null;
 var lettersArray = [];
 var word = 'KOSTERHAVET';
 var globalTrailID = 0;
-var foundId = null;
 
 var interactiveVisible = false;
 
