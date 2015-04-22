@@ -141,18 +141,12 @@ function createMapRoute() {
 //-----------------------------------------------------------
 function displayTrailMarkers() {
 	try {
-		var trailsCollection = Alloy.Collections.trailsModel;
-		trailsCollection.fetch({
-			query : 'SELECT name, pinLon, pinLat FROM trailsModel WHERE name ="' + 'Äventyrsleden' + '"'
-		});
-
-		var jsonObj = trailsCollection.toJSON();
 		var markerAnnotation = MapModule.createAnnotation({
 			latitude : 58.893198,
 			longitude : 11.047852,
-			title : jsonObj[0].name,
+			title : 'Äventyrsleden',
 			pincolor : MapModule.ANNOTATION_PURPLE,
-			subtitle : jsonObj[0].name + ' startar här!',
+			subtitle : 'Vandringsleden startar här!',
 			font : {
 				fontFamily : 'Gotham Rounded'
 			}
