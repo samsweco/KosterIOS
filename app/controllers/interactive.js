@@ -139,12 +139,6 @@ function loadClue(){
 	$.btnStartQuiz.hide();
 	$.lblLetters.show();
 }
-// 
-// function showClue()
-// {
-	// $.hideView.visible = false;
-	// $.interView.visible = true;
-// }
 
 
 
