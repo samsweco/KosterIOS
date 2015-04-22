@@ -179,7 +179,7 @@ function updateFoundArray(id) {
 }
 
 function addClueZone() {
-	try {
+	// try {
 		letterCollection.fetch({
 			query : 'SELECT latitude, longitude, found FROM letterModel'
 		});
@@ -201,9 +201,9 @@ function addClueZone() {
 
 			familyMap.addAnnotation(markerAnnotation);
 		}
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - addClueZone");
-	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - addClueZone");
+	// }
 
 }
 
