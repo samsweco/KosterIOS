@@ -7,6 +7,17 @@ var familyMap;
 var letterCollection = getLetterCollection();
 var letterId = foundId;
 
+
+
+var clueCollection = getLetterCollection();
+clueCollection.fetch({
+	query : 'SELECT * FROM letterModel'
+});
+
+var jsonObjLetter = clueCollection.toJSON();
+
+
+
 //-----------------------------------------------------------
 // Kontrollerar det inskickade ordet mot "facit"
 //-----------------------------------------------------------
@@ -113,7 +124,7 @@ function createMapRoute() {
 				name : 'Äventyrsleden',
 				points : coordArray,
 				color : 'purple',
-				width : 2.0
+				width : 4.0
 			};
 			
 			familyMap.addRoute(MapModule.createRoute(route));
@@ -122,6 +133,53 @@ function createMapRoute() {
 		familyMap.region = calculateMapRegion(coordArray);
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - createMapRoute");
+	}
+}
+
+//-----------------------------------------------------------
+// Visar marker för vandringsleden
+//-----------------------------------------------------------
+function displayTrailMarkers() {
+	try {
+		var trailsCollection = Alloy.Collections.trailsModel;
+		trailsCollection.fetch({
+			query : 'SELECT name, pinLon, pinLat FROM trailsModel WHERE name ="' + 'Äventyrsleden' + '"'
+		});
+
+		var jsonObj = trailsCollection.toJSON();
+		var markerAnnotation = MapModule.createAnnotation({
+			latitude : 58.893198,
+			longitude : 11.047852,
+			title : jsonObj[0].name,
+			pincolor : MapModule.ANNOTATION_PURPLE,
+			subtitle : jsonObj[0].name + ' startar här!',
+			font : {
+				fontFamily : 'Gotham Rounded'
+			}
+		});
+
+		familyMap.addAnnotation(markerAnnotation);
+
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - displayTrailMarkers");
+	}
+}
+
+function addClueZone() {
+	for (var c = 0; c < jsonObjLetter.length; c++) {
+		var markerAnnotation = MapModule.createAnnotation({
+			id : 1,
+			latitude : jsonObjLetter[c].latitude,
+			longitude : jsonObjLetter[c].longitude
+		});
+
+		if (jsonObjLetter[c].found == 0) {
+			markerAnnotation.image = '/images/red.png';
+		} else {
+			markerAnnotation.image = '/images/green.png';
+		}
+
+		familyMap.addAnnotation(markerAnnotation);
 	}
 }
 
