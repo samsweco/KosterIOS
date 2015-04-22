@@ -23,7 +23,6 @@ var jsonFileCollection = getJSONfiles();
 // Hämtar enhetens senaste GPS-position
 // FUNGERAR MEN ÄR SJUKT STRÖRANDE
 //-----------------------------------------------------------
-
 try {
 
 	Ti.Geolocation.getCurrentPosition(function(e) {
@@ -204,8 +203,8 @@ function isNearPoint() {
 	var jsonCollection = letterCollection.toJSON();
 
 	for (var i = 0; i < jsonCollection.length; i++) {
-		var lat = jsonCollection[i].xkoord;
-		var lon = jsonCollection[i].ykoord;
+		var lat = jsonCollection[i].latitude;
+		var lon = jsonCollection[i].longitude;
 		
 		if (isInsideRadius(lat, lon, radius)) {
 			Alloy.Globals.showInteractive();
