@@ -1,7 +1,3 @@
-"font": {
-	fontFamily: 'Gotham Rounded'
-}
-
 "Window": {
 	backgroundColor: 'white'
 }
@@ -24,5 +20,3 @@
 	width: Ti.UI.FILL,
 	right: 10
 }
-
-"#table": {}

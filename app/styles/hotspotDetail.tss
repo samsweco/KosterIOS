@@ -1,5 +1,10 @@
-"font": {
-	fontFamily: 'Gotham Rounded'
+"Label": {
+	left: 15,
+	right: 15,
+	font: {
+		fontSize: 12,
+		fontFamily: 'Raleway-Light'
+	}
 }
 
 "Window": {
@@ -33,20 +38,12 @@
 	backgroundColor: 'white'
 }
 
-"Label": {
-	left: 10,
-	font: {
-		fontSize: 12,
-		fontFamily: 'Gotham Rounded'
-	}
-}
-
 "#lblHotspotName": {
 	left: '15dp',
 	top: '10dp',
 	font: {
 		fontSize: 16,
-		fontFamily: 'Quicksand'
+		fontFamily: 'Raleway-Medium'
 	},
 	color: '#FF9966'
 }
@@ -54,11 +51,10 @@
 "#lblHotspotInfoTxt" : {
 	left : '15dp',
 	top: '5dp',
+	right: '15dp',
 	font: {
-		fontSize : '12dp',
-		//fontFamily: 'Gotham Rounded'
-	},
-	top: '7dp'
+		fontSize : '12dp'
+	}
 }
 
 

@@ -1,3 +1,14 @@
+"Label": {
+	top: '5dp',
+	left: 15,
+	right: 15,
+	font: {
+		fontSize: 12,
+		fontFamily: 'Raleway-Light'
+	}
+}
+
+
 "#interactiveWin": {
 	top: 0,
 	layout: 'vertical',
@@ -12,10 +23,9 @@
 }
 
 "#lblInfoText": {
-	top: 0,
+	top: 10,
 	font: {
-		fontStyle: 'Gotham Rounded',
-		fontSize: '12dp'
+		fontSize: '12dp',
 	} ,
 	right: '20dp',
 	left: '20dp',
@@ -31,7 +41,7 @@
 "#lblWelcome": {
 	top: 0,
 	font: {
-		fontStyle: 'Gotham Rounded',
+		fontStyle: 'Raleway-Medium',
 		fontSize: '20dp'
 	},
 	color: '#FF9966'
@@ -40,19 +50,9 @@
 "#lblClue": {
 	top: 0,
 	font: {
-		fontStyle: 'Gotham Rounded',
 		fontSize: '20dp'
 	},
 	color: '#FF9966'
-}
-
-"Label": {
-	top: 0,
-	font: {
-		fontSize: 10,
-		fontStyle: 'Gotham Rounded'
-	},
-	color: "#000000"
 }
 
 "#lblClue": {

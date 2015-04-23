@@ -264,7 +264,7 @@ function displayTrailMarkers() {
 				rightButton : '/pins/arrow.png',
 				name : 'trail',
 				font : {
-					fontFamily : 'Gotham Rounded'
+					fontFamily : 'Raleway-Light'
 				}
 			});
 

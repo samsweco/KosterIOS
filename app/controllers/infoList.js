@@ -68,23 +68,22 @@ function setRowData() {
 			});
 
 			var lblName = Ti.UI.createLabel({
-				left : 10,
+				left : 5,
 				top : '2dp',
 				color : '#FF9966',
 				font : {
-					fontSize : 13,
-					fontWeight : 'bold',
-					fontFamily: 'Gotham Rounded'
+					fontSize : 14,
+					fontFamily: 'Raleway-Medium'
 				},
 				text : rows[i].name
 			});
 
 			var lblDesc = Ti.UI.createLabel({
-				left : '10dp',
+				left : '5dp',
 				top : '2dp',
 				font : {
-					fontSize : 10,
-					fontFamily: 'Gotham Rounded'
+					fontSize : 12,
+					fontFamily: 'Raleway-Light'
 				},
 				text : rows[i].desc
 			});

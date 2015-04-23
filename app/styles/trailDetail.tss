@@ -1,38 +1,43 @@
-"font": {
-	fontFamily: 'Gotham Rounded'
+"Label": {
+	left: '15dp',
+	right: '15dp',
+	font: {
+		fontSize: 12,
+		fontFamily: 'Raleway-Light'
+	}
 }
 
 "Window": {
 	backgroundColor: 'white',
 	layout: 'vertical',
-	navBarHidden: "false"
+	navBarHidden: 'false'
 }
 
 "#slideShowTrails": {
-	top : '10dp',
+	top: '10dp',
 	width: '296dp',
 	height: '235dp',
-	backgroundColor : 'black'
+	backgroundColor: 'black'
 }
 
 "#horizontalView": {
-	layout : 'horizontal',
-	height : '40dp',
-	width : '100%'
+	layout: 'horizontal',
+	height: '40dp',
+	width: '100%'
 }
 
 "#btnView": {
-	width : '57%',
-	height : '40dp',
-	right : 0,
-	layout : 'horizontal',
-	top : '10dp'
+	width: '57%',
+	height: '40dp',
+	right: 0,
+	layout: 'horizontal',
+	top: '10dp'
 }
 
 "#imgArrow": {
-	height : '12dp',
-	width : '12dp',
-	right : 0
+	height: '12dp',
+	width: '12dp',
+	right: '0dp'
 }
 
 "#slideView": {
@@ -42,15 +47,8 @@
 	layout: 'vertical'
 }
 
-"Label": {
-	left: '10dp',
-	font: {
-		fontSize: 12
-	}
-}
-
 ".container": {
-	top: 0,
+	top: '0dp',
 	layout: 'vertical',
 	backgroundColor: 'white'
 }
@@ -58,9 +56,8 @@
 "#lblTrailName": {
 	left: '15dp',
 	font: {
-		fontSize: 16,
-		fontFamily: 'Gotham Rounded'
-		
+		fontSize: '16dp',
+		fontFamily: 'Raleway-Medium'
 	},
 	color: '#FF9966'
 }
@@ -68,8 +65,7 @@
 "#lblTrailArea": {
 	left: '15dp',
 	font: {
-		fontSize: 12,
-		fontFamily: 'Gotham Rounded'
+		fontSize: '12dp'
 	}
 }
 
@@ -77,8 +73,7 @@
 	layout: 'vertical',
 	right: '10dp',
 	top: '5dp',
-	height: Titanium.UI.SIZE,
-	fontFamily: 'Gotham Rounded'
+	height: Titanium.UI.SIZE
 }
 
 "#trail_hotspotView": {
@@ -86,7 +81,7 @@
 	backgroundColor: "white",
 	borderColor: "#e8e8e8",
 	borderWidth: '1dp',
-	top: 0,
+	top: '0dp',
 	height: Titanium.UI.SIZE
 }
 
@@ -102,10 +97,9 @@
 
 "#lblTrailInfo": {
 	left: '15dp',
-	padding : '5dp',
+	padding: '5dp',
 	font: {
-		fontSize: 12,
-		fontFamily: 'Gotham Rounded'
+		fontSize: 12
 	},
 	top: '10dp'
 }
@@ -114,8 +108,7 @@
 	top: '20dp',
 	left: '10dp',
 	font: {
-		fontSize: 13,
-		fontFamily: 'Gotham Rounded'
+		fontSize: 13
 	},
 	top: '10dp'
 }
@@ -124,24 +117,21 @@
 	layout: 'horizontal',
 	height: '40dp',
 	left: '10dp',
-	width : '40%'
+	width: '40%'
 }
 
 "#lblTrailLength": {
-	font : {
-		fontStyle: 'Italic',
-		fontFamily: 'Gotham Rounded'
+	font: {
+		fontStyle: 'Italic'
 	},
-	top : '10dp',
-	left : '15dp'
+	top: '10dp',
+	left: '15dp'
 }
 
 "#btnTrailOnMap": {
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: 16,
-		fontFamily: 'Gotham Rounded'
-		
+		fontSize: 16
 	},
 	color: '#FF9966'
 }

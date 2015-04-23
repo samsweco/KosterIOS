@@ -1,5 +1,11 @@
-"font": {
-	fontFamily: 'Gotham Rounded'
+"Label": {
+	top: '5dp',
+	left: 15,
+	right: 15,
+	font: {
+		fontSize: 12,
+		fontFamily: 'Raleway-Light'
+	}
 }
 
 "Window": {
@@ -30,33 +36,21 @@
 	backgroundColor: 'white'
 }
 
-"Label": {
-	top: '5dp',
-	left: 10,
-	right: 10,
-	font: {
-		fontSize: 12,
-		fontFamily: 'Gotham Rounded'
-	}
-}
-
 "#lblInfoTitle": {
 	left: '15dp',
 	top: '10dp',
 	color: '#FF9966',
+	right: '15dp',
 	font: {
 		fontSize: 16,
-		fontFamily: 'Gotham Rounded'
+		fontFamily: 'Raleway-Medium'
 	}
 }
 
 "#lblInfoLink": {
 	left: '15dp',
 	color : 'blue',
-	top: '5dp',
-	font: {
-		fontFamily: 'Gotham Rounded'
-	}
+	top: '5dp'
 }
 
 "#slideView": {
@@ -71,5 +65,8 @@
 
 "#lblText" : {
 	left : '15dp',
-	color : '#FF9966'
+	color : '#FF9966',
+	font  :{
+		fontFamily : 'Raleway-Medium'
+	}
 }

@@ -25,7 +25,7 @@ function setRowData() {
 				var row = Ti.UI.createTableViewRow({
 				layout : 'horizontal',
 				id : i + 1,
-				height : '80dp',
+				height : '85dp',
 				top : '0dp',
 				hasChild : true
 			});
@@ -56,8 +56,7 @@ function setRowData() {
 				color : '#FF9966',
 				left : '5dp',
 				font : {
-					fontSize : 13,
-					fontWeight : 'bold',
+					fontSize : '14dp',
 					fontFamily: 'Raleway-Medium'
 				},
 				text : rows[i].name
@@ -67,7 +66,7 @@ function setRowData() {
 				left : '5dp',
 				top : '0dp',
 				font : {
-					fontSize : 10,
+					fontSize : '12dp',
 					fontFamily: 'Raleway-Light'
 				},
 				text : 'Sträcka : ' + rows[i].length + " km"
@@ -77,7 +76,7 @@ function setRowData() {
 				left : '5dp',
 				top : '0dp',
 				font : {
-					fontSize : 10,
+					fontSize : '12dp',
 					fontFamily: 'Raleway-Light'
 				},
 				text : rows[i].area

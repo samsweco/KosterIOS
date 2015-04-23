@@ -1,6 +1,3 @@
-"font": {
-	fontFamily: 'Gotham Rounded'
-}
 ".container": {
 	layout: 'vertical'
 }

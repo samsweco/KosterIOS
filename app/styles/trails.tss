@@ -1,7 +1,3 @@
-"font": {
-	fontFamily: 'Gotham Rounded'
-}
-
 "Window": {
 	backgroundColor: 'white'
 }
