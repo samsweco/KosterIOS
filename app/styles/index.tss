@@ -18,9 +18,10 @@
 
 "#lblFrontText" : {
 	color: "white",
-	right: 20,
+	right: '20dp',
+	left : '20dp',
 	font : {
-		fontSize: 10,
+		fontSize: '10dp',
 		fontFamily: 'Raleway-Light'
 	}
 }
