@@ -7,9 +7,9 @@
 				<View class="headView">
 					<ImageView class="imgKoster" image="/pics/kosterhavet_logga.png"></ImageView>
 					<Label id="lblFramText">-Här kan man se och uppleva Koster</Label>
-					
-					<Widget src="interactive" name="widget"></Widget>
 					<Label id="lblInteractive" >Visa interactive</Label>
+					<Widget src="interactive" name="widget"></Widget>
+					
 				</View>
 			</Window>
 		</Tab>

@@ -1,6 +1,6 @@
 "#interactiveView": {
 	layout: 'vertical',
-	height: '180dp',
+	height: '100dp',
 	visible: false,
 	backgroundColor: 'white',
 	opacity: 0.8
@@ -14,6 +14,8 @@
 }
 
 "Label": {
+	left : 20,
+	top : 20,
 	font: {
 		fontSize: 10,
 		
@@ -28,11 +30,6 @@
 		fontStyle : 'italic'
 	},
 	color: "#000000"
-}
-
-"#imgABC" : {
-	height : '70dp',
-	width : '110dp'
 }
 
 "#txtLetter" : {
