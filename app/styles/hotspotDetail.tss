@@ -46,7 +46,7 @@
 	top: '10dp',
 	font: {
 		fontSize: 16,
-		fontFamily: 'Gotham Rounded'
+		fontFamily: 'Quicksand'
 	},
 	color: '#FF9966'
 }
@@ -56,7 +56,7 @@
 	top: '5dp',
 	font: {
 		fontSize : '12dp',
-		fontFamily: 'Gotham Rounded'
+		//fontFamily: 'Gotham Rounded'
 	},
 	top: '7dp'
 }

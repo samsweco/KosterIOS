@@ -58,7 +58,7 @@ function setRowData() {
 				font : {
 					fontSize : 13,
 					fontWeight : 'bold',
-					fontFamily: 'Gotham Rounded'
+					fontFamily: 'Raleway-Medium'
 				},
 				text : rows[i].name
 			});
@@ -68,7 +68,7 @@ function setRowData() {
 				top : '0dp',
 				font : {
 					fontSize : 10,
-					fontFamily: 'Gotham Rounded'
+					fontFamily: 'Raleway-Light'
 				},
 				text : 'Sträcka : ' + rows[i].length + " km"
 			});
@@ -78,7 +78,7 @@ function setRowData() {
 				top : '0dp',
 				font : {
 					fontSize : 10,
-					fontFamily: 'Gotham Rounded'
+					fontFamily: 'Raleway-Light'
 				},
 				text : rows[i].area
 			});
