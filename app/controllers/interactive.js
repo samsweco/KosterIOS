@@ -53,7 +53,7 @@ function checkLetter(letterToCheck) {
 		Alloy.Globals.jsonCollection[foundId-1].found = 1;
 
 	} else {
-		alert("Är du säker på att det var rätt bokstav?");
+		alert("Är du säker på att "+letterToCheck+ " är rätt bokstav?");
 	}
 }
 
@@ -327,10 +327,10 @@ function isNearPoint() {
 				var lon = Alloy.Globals.jsonCollection[i].longitude;
 
 				if (isInsideRadius(lat, lon, radius)) {
-					alert("Du är i punkt : " + Alloy.Globals.jsonCollection[i].id + " och bokstaven är: " + Alloy.Globals.jsonCollection[i].letter);
+					alert("Du börjar närma dig en bokstav! För test:  " + Alloy.Globals.jsonCollection[i].letter);
 					foundId = Alloy.Globals.jsonCollection[i].id;
-
 					$.lblInfoText.text = Alloy.Globals.jsonCollection[i].clue;
+					Alloy.Globals.jsonCollection[i].found == 1;
 				}
 			}
 		}
