@@ -139,12 +139,12 @@ function setNoti() {
 	Ti.API.info('notify : ' + notify);
 	
 	if (notify) {
-		$.btnSetNotification.text = 'Inaktivera notifikationer';
-		$.btnSetNotification.color = '#00a9f0';
-		notify = false;
-	} else {
 		$.btnSetNotification.text = 'Aktivera notifikationer';
 		$.btnSetNotification.color = 'gray';
+		notify = false;
+	} else {
+		$.btnSetNotification.text = 'Inaktivera notifikationer';
+		$.btnSetNotification.color = '#00a9f0';
 		notify = true;
 	}
 }
