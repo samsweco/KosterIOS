@@ -4,40 +4,45 @@
 	bottom: 0,
 	backgroundColor: 'white',
 	opacity: 0.8,
-	height : Titanium.UI.SIZE,
-	width : Titanium.UI.FILL,
-	
+	height: '150dp',
+	width: Titanium.UI.FILL
 }
 
 "#mapTypeView": {
 	layout: 'horizontal',
-	height : Titanium.UI.SIZE,
-	width : Titanium.UI.FILL,
+	height: Titanium.UI.SIZE,
+	width: Titanium.UI.FILL,
 	opacity: 1,
-	left : '25%',
-	right : '5%'
+	left: '25%',
+	right: '5%',
+	top: '5dp'
 }
 
 "#markersView": {
 	layout: 'horizontal',
-	height : Titanium.UI.SIZE,
-	width : Titanium.UI.FILL,
+	height: Titanium.UI.SIZE,
+	width: Titanium.UI.FILL,
 	opacity: 1,
-	left : '20%',
-	right : '5%'
+	left: '20%',
+	right: '5%'
 }
 
 "#selectIconView": {
 	layout: 'horizontal',
 	backgroundColor: 'white',
-	height : Titanium.UI.SIZE,
-	width : Titanium.UI.FILL,
+	height: Titanium.UI.SIZE,
+	width: Titanium.UI.FILL,
 	opacity: 1,
-	left : '5%'
+	left: '5%',
+	top: '5dp'
+}
+
+"#settingsView": {
+	layout: 'horizontal'
 }
 
 ".btnChange":{
-	left : '2%'
+	left: '2%'
 }
 
 ".lblChange": {
@@ -45,13 +50,17 @@
 		fontSize: 16
 	},
 	color: "#FF9966",
-	left : '2%'
+	left: '2%'
 }
 
-"#btnClean": {
+".btnSetStuff": {
 	font: {
 		fontSize: 15
 	},
 	color: "#FF9966",
+	top: '5dp'
 }
 
+"#btnSetNotification": {
+	left : '10dp'
+}

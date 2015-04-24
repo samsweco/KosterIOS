@@ -87,6 +87,7 @@ function newError(errorMsg, pageName) {
 var gLat = 0;
 var gLon = 0;
 var foundId = 1;
+var notify = true;
 
 //-----------------------------------------------------------
 // Array som håller bokstäverna från bokstavsjakten.

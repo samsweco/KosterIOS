@@ -4,25 +4,31 @@
 	<Collection src="infospotModel"></Collection>
 	<View id="mapmenu">
 		<View id="mapTypeView">
-			<Label id="btnNormal" class="lblChange" onClick="normalMap">Normal</Label>
-			<Label id="btnHybrid" class="lblChange" onClick="hybridMap">Hybrid</Label>
-			<Label id="btnSatellit" class="lblChange" onClick="satelliteMap">Satellit</Label>
+			<Button id="btnNormal" class="lblChange" onClick="normalMap">Normal</Button>
+			<Button id="btnHybrid" class="lblChange" onClick="hybridMap">Hybrid</Button>
+			<Button id="btnSatellit" class="lblChange" onClick="satelliteMap">Satellit</Button>
 		</View>
 		<View id="markersView">
 			<Label id="btnShowMarkers" class="lblChange" onClick="displayTrailMarkers">Vandringsleder</Label>
 			<Label id="btnShowHotspots" class="lblChange" onClick="displayMarkers">Sevärdheter</Label>
 		</View>
+		
 		<View id="selectIconView">
-			<Button id="btnShowWC" class="btnChange" backgroundImage="/images/graywc.png" onClick="showWC"></Button>
-			<Button id="btnShowEldplats" class="btnChange" backgroundImage="/images/grayeldplats.png" onClick="showEldplats"></Button>
-			<Button id="btnShowSnorkelled" class="btnChange" backgroundImage="/images/graysnorkelled.png" onClick="showSnorkelled"></Button>
-			<Button id="btnShowInformation" class="btnChange" backgroundImage="/images/grayinformation.png" onClick="showInformation"></Button>
-			<Button id="btnShowBadplats" class="btnChange" backgroundImage="/images/graybadplats.png" onClick="showBadplats"></Button>
-			<Button id="btnShowRastplats" class="btnChange" backgroundImage="/images/grayrastplats.png" onClick="showRastplats"></Button>
-			<Button id="btnShowTaltplats" class="btnChange" backgroundImage="/images/graytaltplats.png" onClick="showTaltplats"></Button>
-			<Button id="btnShowUtsiktsplats" class="btnChange" backgroundImage="/images/grayutsiktsplats.png" onClick="showUtkiksplats"></Button>
-			<Button id="btnShowTorrdass" class="btnChange" backgroundImage="/images/graytorrdass.png" onClick="showTorrdass"></Button>
+			<Button id="btnShowWC" class="btnChange" backgroundImage="/images/wc.png" onClick="showWC"></Button>
+			<Button id="btnShowEldplats" class="btnChange" backgroundImage="/images/eldplats.png" onClick="showEldplats"></Button>
+			<Button id="btnShowSnorkelled" class="btnChange" backgroundImage="/images/snorkelled.png" onClick="showSnorkelled"></Button>
+			<Button id="btnShowInformation" class="btnChange" backgroundImage="/images/information.png" onClick="showInformation"></Button>
+			<Button id="btnShowBadplats" class="btnChange" backgroundImage="/images/badplats.png" onClick="showBadplats"></Button>
+			<Button id="btnShowRastplats" class="btnChange" backgroundImage="/images/rastplats.png" onClick="showRastplats"></Button>
+			<Button id="btnShowTaltplats" class="btnChange" backgroundImage="/images/taltplats.png" onClick="showTaltplats"></Button>
+			<Button id="btnShowUtsiktsplats" class="btnChange" backgroundImage="/images/utsiktsplats.png" onClick="showUtkiksplats"></Button>
+			<Button id="btnShowTorrdass" class="btnChange" backgroundImage="/images/torrdass.png" onClick="showTorrdass"></Button>
 		</View>
-		<Label id="btnClean" onClick="removeAnnotations" >Rensa kartan</Label>
+		<View id="settingsView">
+			<Label id="btnClean" class="btnSetStuff" onClick="removeAnnotations">Rensa kartan</Label>
+			<Label id="btnSetNotification" class="btnSetStuff" text="Inaktivera notifikationer" color="#00a9f0" onClick="setNoti"></Label>
+		</View>
+		
+		
 	</View>
 </Alloy>
