@@ -120,7 +120,7 @@ function calculateMapRegion(trailCoordinates) {
 
 			delta = Math.max(deltaLat, deltaLon);
 			// Ändra om det ska vara mer zoomat
-			delta = delta * 0.6;
+			delta = delta * 1.2;
 
 			poiCenter.lat = maxLat - parseFloat((maxLat - minLat) / 2);
 			poiCenter.lon = maxLon - parseFloat((maxLon - minLon) / 2);
@@ -170,7 +170,7 @@ function createMapRoute() {
 				name : 'Äventyrsleden',
 				points : coordArray,
 				color : 'purple',
-				width : 4.0
+				width : 3.0
 			};
 
 			familyMap.addRoute(MapModule.createRoute(route));
