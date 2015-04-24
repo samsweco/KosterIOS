@@ -5,9 +5,9 @@
 	<Collection src="jsonFilesModel" />
 	<Collection src="hotspot_trailsModel" />
 	<Window class="container">
-		<LeftNavButton>
+		<!-- <LeftNavButton>
 			<Button id="btnGetPosition" image="/images/locationarrow.png" onClick="getPos" />
-		</LeftNavButton>
+		</LeftNavButton> -->
 		<RightNavButton>
 			<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMenu" />
 		</RightNavButton>
