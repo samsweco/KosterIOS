@@ -328,7 +328,7 @@ function isNearPoint() {
 				var lon = Alloy.Globals.jsonCollection[i].longitude;
 
 				if (isInsideRadius(lat, lon, radius)) {
-					Alloy.Globals.showInteractive();
+					Alloy.Globals.showInteractive(JSON.stringify(Alloy.Globals.jsonCollection[i].clue));
 					alert("Du börjar närma dig en bokstav! För test:  " + Alloy.Globals.jsonCollection[i].letter);
 					foundId = Alloy.Globals.jsonCollection[i].id;
 					$.lblInfoText.text = Alloy.Globals.jsonCollection[i].clue;
