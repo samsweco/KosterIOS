@@ -5,6 +5,12 @@
 	<Collection src="jsonFilesModel" />
 	<Collection src="hotspot_trailsModel" />
 	<Window class="container">
+		<LeftNavButton>
+			<Button id="btnGetPosition" image="/images/locationarrow.png" onClick="getPos" />
+		</LeftNavButton>
+		<RightNavButton>
+			<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMenu" />
+		</RightNavButton>
 		<View id="mapDetailView"></View>
 		<Widget src="mapmenu" name="widget"></Widget>
 	</Window>

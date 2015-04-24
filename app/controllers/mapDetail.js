@@ -36,7 +36,7 @@ function showMap() {
 				latitudeDelta : 0.03,
 				longitudeDelta : 0.03
 			},
-			height : '90%',
+			height : '100%',
 			width : Ti.UI.FILL
 		});
 
