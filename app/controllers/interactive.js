@@ -236,7 +236,8 @@ function getGPSpos() {
 
 		Ti.Geolocation.getCurrentPosition(function(e) {
 			if (e.error) {
-				alert('Get current position' + e.error);
+				// alert('Get current position' + e.error);
+				getGPSpos();
 			} else {
 			}
 		});
