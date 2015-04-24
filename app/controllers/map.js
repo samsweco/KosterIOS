@@ -227,8 +227,8 @@ function showMap() {
 			mapType : MapModule.HYBRID_TYPE,
 			animate : true,
 			region : {
-				latitude : 58.893539,
-				longitude : 11.012579,
+				latitude : 58.886154,
+				longitude : 11.024307,
 				latitudeDelta : 0.08,
 				longitudeDelta : 0.08
 			},
