@@ -97,13 +97,4 @@ var globalTrailID = 0;
 
 var interactiveVisible = false;
 
-function validate(text){
-	var validated = false;
-	if(text.length ==1 && text.match(![0-9])){
-		validated = true;
-	}
-	else {
-		alert("Vänligen kontrollera att en bokstav är ifylld!");
-	}
-	return validated;
-}
+
