@@ -1,7 +1,10 @@
 var args = arguments[0] || {};
+var radius = 20;
 
-// fillFoundArray();
-var foundArray = [];
+var letterCollection = getLetterCollection();
+letterCollection.fetch();
+var jsonCollection = letterCollection.toJSON();
+Alloy.Globals.jsonCollection = jsonCollection;
 
 showMap();
 createMapRoute();
@@ -9,8 +12,50 @@ var familyMap;
 displayTrailMarkers();
 addClueZone();
 
-var letterCollection = getLetterCollection();
-var letterId = foundId;
+function startInteractive() {
+	getGPSpos();
+	loadClue();
+}
+
+function loadClue() {
+	$.btnStartQuiz.hide();
+	$.txtLetter.show();
+	$.lblLetters.show();
+	$.lblCollectedLetters.show();
+
+	if (foundId == !null) {
+
+		$.lblWelcome.text = "Nästa ledtråd: ";
+		$.lblInfoText.text = jsonCollection[foundId-1].clue;
+
+	} else {
+		Ti.API.info("foundId är null");
+	}
+}
+
+function sendLetter() {
+	checkLetter(getLetter());
+	familyMap.removeAllAnnotations();
+	addClueZone();
+}
+
+function getLetter() {
+	var letter = $.txtLetter.value;
+	return letter.toUpperCase();
+	//};
+}
+
+function checkLetter(letterToCheck) {
+
+	if (Alloy.Globals.jsonCollection[foundId-1].letter == letterToCheck) {
+		lettersArray.push(Alloy.Globals.jsonCollection[foundId-1].letter);
+		$.lblCollectedLetters.text += letterToCheck;
+		Alloy.Globals.jsonCollection[foundId-1].found = 1;
+
+	} else {
+		alert("Är du säker på att det var rätt bokstav?");
+	}
+}
 
 //-----------------------------------------------------------
 // Kontrollerar det inskickade ordet mot "facit"
@@ -22,9 +67,15 @@ function checkWord() {
 	if (check == word) {
 		alert("Bra jobbat!");
 	} else {
-		alert("Nej du, nu blev det fel...");
+		alert("Försök igen!");
 	}
 }
+
+//MAP STUFF
+//-----------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
 
 //-----------------------------------------
 // Zoomar in kartan på äventyrsleden
@@ -41,7 +92,7 @@ function showMap() {
 		$.showFamilyTrail.add(familyMap);
 
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - showMap");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - showMap");
 	}
 }
 
@@ -69,7 +120,7 @@ function calculateMapRegion(trailCoordinates) {
 
 			delta = Math.max(deltaLat, deltaLon);
 			// Ändra om det ska vara mer zoomat
-			delta = delta * 1.2;
+			delta = delta * 0.6;
 
 			poiCenter.lat = maxLat - parseFloat((maxLat - minLat) / 2);
 			poiCenter.lon = maxLon - parseFloat((maxLon - minLon) / 2);
@@ -85,7 +136,7 @@ function calculateMapRegion(trailCoordinates) {
 		return region;
 
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapDetail - calculateMapRegion");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - calculateMapRegion");
 	}
 
 }
@@ -119,7 +170,7 @@ function createMapRoute() {
 				name : 'Äventyrsleden',
 				points : coordArray,
 				color : 'purple',
-				width : 3.0
+				width : 4.0
 			};
 
 			familyMap.addRoute(MapModule.createRoute(route));
@@ -127,7 +178,7 @@ function createMapRoute() {
 
 		familyMap.region = calculateMapRegion(coordArray);
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - createMapRoute");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - createMapRoute");
 	}
 }
 
@@ -143,7 +194,7 @@ function displayTrailMarkers() {
 			pincolor : MapModule.ANNOTATION_PURPLE,
 			subtitle : 'Vandringsleden startar här!',
 			font : {
-				fontFamily : 'Gotham Rounded'
+				fontFamily : 'Raleway-Light'
 			}
 		});
 
@@ -154,104 +205,136 @@ function displayTrailMarkers() {
 	}
 }
 
-// function fillFoundArray() {
-	// // try {
-		// var foundCollection = Alloy.Collections.letterModel;
-		// foundCollection.fetch({
-			// query : 'SELECT id, found FROM letterModel'
-		// });
-// 
-		// var jsonObjFound = foundCollection.toJSON();
-// 
-		// for (var f = 0; f < jsonObjFound.length; f++) {
-			// foundArray.push({
-				// id : jsonObjFound[f].id,
-				// found : jsonObjFound[f].found,
-			// });
-		// }
-		// Ti.API.info('Array : ' + foundArray);
-// 		
-	// // } catch(e) {
-		// // newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - fillFoundArray");
-	// // }
-// }
-
 function addClueZone() {
-	try {
-		var clueCollection = Alloy.Collections.letterModel;
-		clueCollection.fetch({
-			query : 'SELECT latitude, longitude, found FROM letterModel'
+
+	for (var c = 0; c < Alloy.Globals.jsonCollection.length; c++) {
+		var markerAnnotation = MapModule.createAnnotation({
+			latitude : Alloy.Globals.jsonCollection[c].latitude,
+			longitude : Alloy.Globals.jsonCollection[c].longitude,
+			title : Alloy.Globals.jsonCollection[c].id,
+			subtitle : Alloy.Globals.jsonCollection[c].letter
 		});
 
-		var jsonObjClue = clueCollection.toJSON();
-		Ti.API.info('clue : ' + JSON.stringify(jsonObjClue));
-
-		for (var c = 0; c < jsonObjClue.length; c++) {
-			var markerAnnotation = MapModule.createAnnotation({
-				latitude : jsonObjClue[c].latitude,
-				longitude : jsonObjClue[c].longitude
-			});
-
-			if (jsonObjClue[c].found == 0) {
-				markerAnnotation.image = '/images/red.png';
-			} else {
-				markerAnnotation.image = '/images/green.png';
-			}
-
-			familyMap.addAnnotation(markerAnnotation);
+		if (Alloy.Globals.jsonCollection[c].found == 0) {
+			markerAnnotation.image = '/images/red.png';
+		} else {
+			markerAnnotation.image = '/images/green.png';
 		}
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - addClueZone");
+
+		familyMap.addAnnotation(markerAnnotation);
 	}
 }
 
-//Ändra till rätt id som kommer in vid anrop.
-function loadClue() {
-	letterCollection.fetch({
-		query : 'SELECT * FROM letterModel where id = "' + 2 + '"'
-	});
+//GEO STUFF
+//-----------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
 
-	var letterJSON = letterCollection.toJSON();
+function getGPSpos() {
+	try {
 
-	$.lblWelcome.text = "Nästa ledtråd: ";
-	$.lblInfoText.text = letterJSON[0].clue;
+		Ti.Geolocation.getCurrentPosition(function(e) {
+			if (e.error) {
+				alert('Get current position' + e.error);
+			} else {
+			}
+		});
 
-	$.btnStartQuiz.hide();
-	$.txtLetter.show();
-	$.lblLetters.show();
-	$.lblCollectedLetters.show();
+		if (Ti.Geolocation.locationServicesEnabled) {
+			Titanium.Geolocation.preferredProvider = Titanium.Geolocation.PROVIDER_GPS;
+			Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_BEST;
+			Titanium.Geolocation.distanceFilter = 10;
+			
+			Ti.Geolocation.addEventListener('location', function(e) {
+				if (e.error) {
+					Ti.API.info('Kan inte sätta eventListener ' + e.error);
+				} else {
+					getPosition(e.coords);
+				}
+			});
+			
+		} else {
+			alert('Tillåt gpsen, tack');
+		}
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - get current position GPS");
+	}
+
 }
 
-// function updateFoundArray(id) {
-	// var arrayIndex = id-1;
-// 	
-	// foundArray[arrayIndex][1] = 1;
-// }
+//-----------------------------------------------------------
+// Hämtar enhetens position och kontrollerar mot punkter
+//-----------------------------------------------------------
+function getPosition(coordinatesObj) {
+	try {
+		gLat = coordinatesObj.latitude;
+		gLon = coordinatesObj.longitude;
 
-function sendLetter() {
-	checkLetter(getLetter());
-	// updateFoundArray(2);
+		isNearPoint();
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - getPosition");
+	}
 }
 
-function getLetter() {
-	var letter = $.txtLetter.value;
-	//if (validate(letter)) {
-	return letter.toUpperCase();
-	//};
+//-----------------------------------------------------------
+// Beräknar avståndet mellan enhetens koordinater och de punkter som håller info
+//-----------------------------------------------------------
+function distanceInM(lat1, lon1, GLat, GLon) {
+	try {
+		if (lat1 == null || lon1 == null || GLat == null || GLat == null) {
+			alert("Det finns inga koordinater att titta efter");
+		}
+
+		var R = 6371;
+		var a = 0.5 - Math.cos((GLat - lat1) * Math.PI / 180) / 2 + Math.cos(lat1 * Math.PI / 180) * Math.cos(GLat * Math.PI / 180) * (1 - Math.cos((GLon - lon1) * Math.PI / 180)) / 2;
+		var distance = (R * 2 * Math.asin(Math.sqrt(a))) * 1000;
+
+		return distance;
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - distanceInM");
+	}
 }
 
-function checkLetter(letterToCheck) {
-	var correctLetter = false;
+//-----------------------------------------------------------
+// Kontrollerar om enhetens position är inom radien för en utsatt punkt
+//-----------------------------------------------------------
+function isInsideRadius(lat1, lon1, rad) {
+	try {
 
-	letterCollection.fetch({
-		query : 'SELECT * FROM letterModel where id = "' + 2 + '"'
-	});
+		var isInside = false;
+		var distance = distanceInM(lat1, lon1, gLat, gLon);
 
-	var letterJSON = letterCollection.toJSON();
-	//Skriv om denna loop så att den kollar id't på bokstaven, alltså platsen i arrayen och kollar om den stämmer...
+		if (distance <= rad) {
+			isInside = true;
+		}
+		return isInside;
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - isInsideRadius");
+	}
+}
 
-	if (letterJSON[0].letter == letterToCheck) {
-		lettersArray.push(letterJSON[0].letter);
-		$.lblCollectedLetters.text += letterArray;
+//-----------------------------------------------------------
+// Kontrollerar om enheten är innanför en punkt, sänder ut dialog om true
+//-----------------------------------------------------------
+function isNearPoint() {
+	try {
+
+		for (var i = 0; i < Alloy.Globals.jsonCollection.length; i++) {
+
+			if (Alloy.Globals.jsonCollection[i].found == 0) {
+				var lat = Alloy.Globals.jsonCollection[i].latitude;
+				var lon = Alloy.Globals.jsonCollection[i].longitude;
+
+				if (isInsideRadius(lat, lon, radius)) {
+					alert("Du är i punkt : " + Alloy.Globals.jsonCollection[i].id + " och bokstaven är: " + Alloy.Globals.jsonCollection[i].letter);
+					foundId = Alloy.Globals.jsonCollection[i].id;
+
+					$.lblInfoText.text = Alloy.Globals.jsonCollection[i].clue;
+				}
+			}
+		}
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - isNearPoint");
 	}
 }
