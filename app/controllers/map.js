@@ -23,34 +23,34 @@ var jsonFileCollection = getJSONfiles();
 // Hämtar enhetens senaste GPS-position
 // FUNGERAR MEN ÄR SJUKT STRÖRANDE
 //-----------------------------------------------------------
-try {
-	Ti.Geolocation.getCurrentPosition(function(e) {
-		if (e.error) {
-			alert('Get current position' + e.error);
-		} else {
-		}
-	});
-
-	if (Ti.Geolocation.locationServicesEnabled) {
-		Ti.Geolocation.accuracy = Ti.Geolocation.ACCURACY_BEST;
-		Ti.Geolocation.distanceFilter = 10;
-		Ti.Geolocation.preferredProvider = Ti.Geolocation.PROVIDER_GPS;
-
-		Ti.Geolocation.addEventListener('location', function(e) {
-			if (e.error) {
-				alert('Add eventlistener!' + e.error);
-			} else {
-				getPosition(e.coords);
-				
-				Ti.API.info('e : ' + JSON.stringify(e.coords));
-			}
-		});
-	} else {
-		alert('Tillåt gpsen, tack');
-	}
-} catch(e) {
-	newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - get current position GPS");
-}
+// try {
+	// Ti.Geolocation.getCurrentPosition(function(e) {
+		// if (e.error) {
+			// alert('Get current position' + e.error);
+		// } else {
+		// }
+	// });
+// 
+	// if (Ti.Geolocation.locationServicesEnabled) {
+		// Ti.Geolocation.accuracy = Ti.Geolocation.ACCURACY_BEST;
+		// Ti.Geolocation.distanceFilter = 10;
+		// Ti.Geolocation.preferredProvider = Ti.Geolocation.PROVIDER_GPS;
+// 
+		// Ti.Geolocation.addEventListener('location', function(e) {
+			// if (e.error) {
+				// alert('Add eventlistener!' + e.error);
+			// } else {
+				// getPosition(e.coords);
+// 				
+				// Ti.API.info('e : ' + JSON.stringify(e.coords));
+			// }
+		// });
+	// } else {
+		// alert('Tillåt gpsen, tack');
+	// }
+// } catch(e) {
+	// newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - get current position GPS");
+// }
 
 //-----------------------------------------------------------
 // Onload-funktioner för kartan
@@ -155,67 +155,67 @@ function getPosition(coordinatesObj) {
 	}
 }
 
-//-----------------------------------------------------------
-// Beräknar avståndet mellan enhetens koordinater och de punkter som håller info
-//-----------------------------------------------------------
-function distanceInM(lat1, lon1, GLat, GLon) {
-	try {
-		if (lat1 == null || lon1 == null || GLat == null || GLat == null) {
-			Ti.API.info("Det finns inga koordinater att titta efter");
-		}
-
-		var R = 6371;
-		var a = 0.5 - Math.cos((GLat - lat1) * Math.PI / 180) / 2 + Math.cos(lat1 * Math.PI / 180) * Math.cos(GLat * Math.PI / 180) * (1 - Math.cos((GLon - lon1) * Math.PI / 180)) / 2;
-		var distance = (R * 2 * Math.asin(Math.sqrt(a))) * 1000;
-
-		return distance;
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - distanceInM");
-	}
-}
-
-//-----------------------------------------------------------
-// Kontrollerar om enhetens position är inom radien för en utsatt punkt
-//-----------------------------------------------------------
-function isInsideRadius(lat1, lon1, rad) {
-	try {
-
-		var isInside = false;
-		var distance = distanceInM(lat1, lon1, gLat, gLon);
-
-		if (distance <= rad) {
-			isInside = true;
-		}
-		
-		return isInside;
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - isInsideRadius");
-	}
-}
-
-//-----------------------------------------------------------
-// Kontrollerar om enheten är innanför en punkt, sänder ut dialog om true
-//-----------------------------------------------------------
-function isNearPoint() {
+// //-----------------------------------------------------------
+// // Beräknar avståndet mellan enhetens koordinater och de punkter som håller info
+// //-----------------------------------------------------------
+// function distanceInM(lat1, lon1, GLat, GLon) {
 	// try {
-	var letterCollection = Alloy.Collections.letterModel;
-	letterCollection.fetch();
-
-	var jsonCollection = letterCollection.toJSON();
-
-	for (var i = 0; i < jsonCollection.length; i++) {
-		var lat = jsonCollection[i].latitude;
-		var lon = jsonCollection[i].longitude;
-		
-		if (isInsideRadius(lat, lon, radius)) {
-			Alloy.Globals.showInteractive();
-			foundId = jsonCollection[i].id;
-		}
-	}
+		// if (lat1 == null || lon1 == null || GLat == null || GLat == null) {
+			// Ti.API.info("Det finns inga koordinater att titta efter");
+		// }
+// 
+		// var R = 6371;
+		// var a = 0.5 - Math.cos((GLat - lat1) * Math.PI / 180) / 2 + Math.cos(lat1 * Math.PI / 180) * Math.cos(GLat * Math.PI / 180) * (1 - Math.cos((GLon - lon1) * Math.PI / 180)) / 2;
+		// var distance = (R * 2 * Math.asin(Math.sqrt(a))) * 1000;
+// 
+		// return distance;
 	// } catch(e) {
-	// newError("Något gick fel när sidan skulle laddas, prova igen!", "map - isNearPoint");
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "map - distanceInM");
 	// }
-}
+// }
+// 
+// //-----------------------------------------------------------
+// // Kontrollerar om enhetens position är inom radien för en utsatt punkt
+// //-----------------------------------------------------------
+// function isInsideRadius(lat1, lon1, rad) {
+	// try {
+// 
+		// var isInside = false;
+		// var distance = distanceInM(lat1, lon1, gLat, gLon);
+// 
+		// if (distance <= rad) {
+			// isInside = true;
+		// }
+// 		
+		// return isInside;
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "map - isInsideRadius");
+	// }
+// }
+// 
+// //-----------------------------------------------------------
+// // Kontrollerar om enheten är innanför en punkt, sänder ut dialog om true
+// //-----------------------------------------------------------
+// function isNearPoint() {
+	// // try {
+	// var letterCollection = Alloy.Collections.letterModel;
+	// letterCollection.fetch();
+// 
+	// var jsonCollection = letterCollection.toJSON();
+// 
+	// for (var i = 0; i < jsonCollection.length; i++) {
+		// var lat = jsonCollection[i].latitude;
+		// var lon = jsonCollection[i].longitude;
+// 		
+		// if (isInsideRadius(lat, lon, radius)) {
+			// Alloy.Globals.showInteractive();
+			// foundId = jsonCollection[i].id;
+		// }
+	// }
+	// // } catch(e) {
+	// // newError("Något gick fel när sidan skulle laddas, prova igen!", "map - isNearPoint");
+	// // }
+// }
 
 //-----------------------------------------------------------
 // Läser in kartvyn
