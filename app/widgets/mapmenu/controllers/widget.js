@@ -122,6 +122,16 @@ function capitalizeFirstLetter(string) {
 
 function removeAnnotations() {
 	baseMap.removeAllAnnotations();
+	
+	$.btnShowWC.backgroundImage = '/images/graywc.png';
+	$.btnShowEldplats.backgroundImage = '/images/grayeldplats.png';
+	$.btnShowSnorkelled.backgroundImage = '/images/graysnorkelled.png';
+	$.btnShowInformation.backgroundImage = '/images/grayinformation.png';
+	$.btnShowBadplats.backgroundImage = '/images/graybadplats.png';
+	$.btnShowRastplats.backgroundImage = '/images/grayrastplats.png';
+	$.btnShowTaltplats.backgroundImage = '/images/graytaltplats.png';
+	$.btnShowUtsiktsplats.backgroundImage = '/images/grayutsiktsplats.png';
+	$.btnShowTorrdass.backgroundImage = '/images/graytorrdass.png';
 }
 
 function normalMap() {
@@ -145,38 +155,47 @@ function showHotspots() {
 
 function showWC() {
 	baseMap.addAnnotations(displayInfoSpots("wc"));
+	$.btnShowWC.backgroundImage = '/images/wc.png';
 }
 
 function showEldplats() {
 	baseMap.addAnnotations(displayInfoSpots("eldplats"));
+	$.btnShowEldplats.backgroundImage = '/images/eldplats.png';
 }
 
 function showSnorkelled() {
 	baseMap.addAnnotations(displayInfoSpots("snorkelled"));
+	$.btnShowSnorkelled.backgroundImage = '/images/snorkelled.png';
 }
 
 function showInformation() {
 	baseMap.addAnnotations(displayInfoSpots("information"));
+	$.btnShowInformation.backgroundImage = '/images/information.png';
 }
 
 function showBadplats() {
 	baseMap.addAnnotations(displayInfoSpots("badplats"));
+	$.btnShowBadplats.backgroundImage = '/images/badplats.png';
 }
 
 function showRastplats() {
 	baseMap.addAnnotations(displayInfoSpots("rastplats"));
+	$.btnShowRastplats.backgroundImage = '/images/rastplats.png';
 }
 
 function showTaltplats() {
 	baseMap.addAnnotations(displayInfoSpots("taltplats"));
+	$.btnShowTaltplats.backgroundImage = '/images/taltplats.png';
 }
 
 function showUtkiksplats() {
 	baseMap.addAnnotations(displayInfoSpots("utsiktsplats"));
+	$.btnShowUtsiktsplats.backgroundImage = '/images/utsiktsplats.png';
 }
 
 function showTorrdass() {
 	baseMap.addAnnotations(displayInfoSpots("torrdass"));
+	$.btnShowTorrdass.backgroundImage = '/images/torrdass.png';
 }
 
 function showMenuWidget() {
