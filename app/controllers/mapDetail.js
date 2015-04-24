@@ -192,3 +192,11 @@ try {
 } catch(e) {
 	newError("Något gick fel när sidan skulle laddas, prova igen!", "MapDetail - addEventListener");
 }
+
+function showMenu(){
+	Alloy.Globals.showMenuWidget();
+}
+
+function getPos(){
+	Alloy.Globals.setUserPosition();
+}

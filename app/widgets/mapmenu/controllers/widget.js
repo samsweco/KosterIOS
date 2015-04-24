@@ -206,7 +206,7 @@ function showMenuWidget() {
 		$.mapmenu.hide();
 		menuVisible = false;
 	}
-};
+}
 
 function closeMapMenu() {
 	$.mapmenu.hide();
