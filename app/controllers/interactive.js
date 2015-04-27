@@ -329,10 +329,10 @@ function isNearPoint() {
 
 				if (isInsideRadius(lat, lon, radius)) {
 					Alloy.Globals.showInteractive(JSON.stringify(Alloy.Globals.jsonCollection[i].clue));
-					alert("Du börjar närma dig en bokstav! För test:  " + Alloy.Globals.jsonCollection[i].letter);
+					//alert("Du är i punkt : " + Alloy.Globals.jsonCollection[i].id + " och bokstaven är: " + Alloy.Globals.jsonCollection[i].letter);
 					foundId = Alloy.Globals.jsonCollection[i].id;
+
 					$.lblInfoText.text = Alloy.Globals.jsonCollection[i].clue;
-					Alloy.Globals.jsonCollection[i].found == 1;
 				}
 			}
 		}
