@@ -31,19 +31,22 @@
 
 function showInteractive(clueTxt) {
 	if (!interactiveVisible) {
-		$.interactiveView.show();
+		$.interactive.height = '100dp';
+		$.interactive.visible = true;
 		$.lblClue.text = clueTxt;
 		interactiveVisible = true;
+		alert("hej");
 	} else {
-		$.interactiveView.hide();
+		$.interactive.visible = false;
 		interactiveVisible = false;
 	}	
 }
 
+Alloy.Globals.showInteractive = showInteractive;
+
 function closeInteractive() {
-	$.interactiveView.hide();
+	$.interactive.hide();
 	interactiveVisible = false;
 }
 
-Alloy.Globals.showInteractive = showInteractive;
 Alloy.Globals.closeInteractive = closeInteractive;

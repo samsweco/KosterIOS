@@ -10,6 +10,7 @@
 			<View id="slideView">
 				<ScrollableView id="slideShowTrails" scrollType="horizontal" showPagingControl="true" />
 			</View>
+			<Widget src="interactive" name="widget"></Widget>
 			<View id="horizontalView">
 				<View id="iconrow"></View>
 				<View id="btnView">
@@ -23,7 +24,7 @@
 				<Label id="lblTrailLength" class="lbltrailDetail"></Label>
 				<Label id="lblTrailInfo" class="lbltrailDetail"></Label>
 			</View>
-			<Widget src="interactive" name="widget"></Widget>
+			
 			<Label id="lblLangsVagen">Det här kan du se längs vägen:</Label>
 			<View id="trail_hotspotView">
 				<TableView id="hotspotTable" onClick="showHotspot" />

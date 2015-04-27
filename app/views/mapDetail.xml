@@ -12,8 +12,10 @@
 			<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMenu" />
 		</RightNavButton>
 		
-		<View id="mapDetailView"></View>
-		<Widget src="interactive" name="widget"></Widget>
+		<View id="mapDetailView">
+			<Widget src="interactive" name="widget"></Widget>
+		</View>
+		
 		<Widget src="mapmenu" name="widget"></Widget>
 	</Window>
 </Alloy>

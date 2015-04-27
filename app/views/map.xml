@@ -7,8 +7,10 @@
 	<Collection src="letterModel"></Collection>
 	<View class="container">
 		
-		<View id="mapView"></View>
-		<Widget src="interactive" name="widget"></Widget>
+		<View id="mapView">
+			<Widget src="interactive" name="widget"></Widget>
+		</View>
+		
 		<Widget src="mapmenu" name="widget"></Widget>
 		<!-- <Button id="btnMenu" backgroundImage="/images/hamburger.png" onClick="showMapMenu" /> -->
 		

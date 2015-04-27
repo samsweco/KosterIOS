@@ -60,5 +60,5 @@ function getPos(){
 }
 
 $.lblInteractive.addEventListener('click', function() {
-	Alloy.Globals.showInteractive();
+	Alloy.Globals.showInteractive("Detta är ledtråden!");
 });
