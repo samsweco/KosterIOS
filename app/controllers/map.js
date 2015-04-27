@@ -259,7 +259,6 @@ function displayTrailMarkers() {
 				latitude : jsonObj[i].pinLat,
 				longitude : jsonObj[i].pinLon,
 				title : jsonObj[i].name,
-				pincolor : MapModule.ANNOTATION_GREEN,
 				subtitle : 'Läs mer om ' + jsonObj[i].name + ' här!',
 				rightButton : '/pins/arrow.png',
 				name : 'trail',
@@ -267,6 +266,12 @@ function displayTrailMarkers() {
 					fontFamily : 'Raleway-Light'
 				}
 			});
+			
+			if(jsonObj[i].color == 'red'){
+				markerAnnotation.image = '/images/pin-red.png';
+			}else{
+				markerAnnotation.pincolor = MapModule.ANNOTATION_GREEN;
+			}
 
 			baseMap.addAnnotation(markerAnnotation);
 		}
