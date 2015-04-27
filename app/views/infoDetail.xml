@@ -1,5 +1,5 @@
 <Alloy>
-	<Window id="infoDetail" class="container">
+	<Window id="infoDetail" backButtonTitle="Tillbaka" class="container">
 
 		<ScrollView class="headView" scrollType="vertical" showVerticalScrollIndicator="true">
 			<View id="slideView">

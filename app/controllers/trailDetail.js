@@ -4,7 +4,6 @@ var args = arguments[0] || {};
 // Args från trails - klick på item i listan
 //-----------------------------------------------------------
 try {
-	$.hikeDetailWin.title = args.title;
 	$.lblTrailName.text = args.title || 'Default Name';
 	$.lblTrailLength.text = args.length + " kilometer" || 'Default Length';
 	$.lblTrailArea.text = args.area || 'Default Color';

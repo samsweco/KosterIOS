@@ -2,20 +2,21 @@
 	<Collection src="mediaModel"></Collection>
 	<Collection src="hotspotModel"></Collection>
 	<Collection src="infospotModel"></Collection>
-	<Window id="hikeDetailWin" class="container">
+	<Window id="hikeDetailWin" backButtonTitle="Tillbaka" class="container">
+		<RightNavButton>
+			<Button id="btnShowOnMap" onClick="zoomMapTrail">Visa karta</Button> /><!-- image="/images/mapMenu.png" -->
+		</RightNavButton>
 		<ScrollView class="headView" scrollType="vertical">
 			<View id="slideView">
 				<ScrollableView id="slideShowTrails" scrollType="horizontal" showPagingControl="true" />
 			</View>
-			
 			<View id="horizontalView">
 				<View id="iconrow"></View>
 				<View id="btnView">
-					<Label id="btnTrailOnMap" onClick="zoomMapTrail">Visa på karta</Label>
-					<ImageView id="imgArrow" image="/images/arrow.png"></ImageView>
+					<!-- <Label id="btnTrailOnMap" onClick="zoomMapTrail">Visa på karta</Label> -->
+					<!-- <ImageView id="imgArrow" image="/images/arrow.png"></ImageView> -->
 				</View>
 			</View>
-			
 			<View class="lbls">
 				<Label id="lblTrailName" class="lbltrailDetail"></Label>
 				<Label id="lblTrailArea" class="lbltrailDetail"></Label>
@@ -23,7 +24,6 @@
 				<Label id="lblTrailInfo" class="lbltrailDetail"></Label>
 			</View>
 			<Widget src="interactive" name="widget"></Widget>
-			
 			<Label id="lblLangsVagen">Det här kan du se längs vägen:</Label>
 			<View id="trail_hotspotView">
 				<TableView id="hotspotTable" onClick="showHotspot" />
