@@ -88,7 +88,7 @@ function displayInfoSpots(type) {
 		var markerArray = [];
 		var infospotCollection = getInfospotCollection();
 		infospotCollection.fetch({
-			query : 'select * from infospotCoordinatesModel join infospotModel on infospotCoordinatesModel.infospotID = infospotModel.id WHERE infospotModel.name ="' + type + '"'
+			query : 'select * from infospotCoordinatesModel WHERE name ="' + type + '"'
 		});
 
 		var infoJSON = infospotCollection.toJSON();
@@ -96,7 +96,7 @@ function displayInfoSpots(type) {
 			var marker = MapModule.createAnnotation({
 				latitude : infoJSON[u].latitude,
 				longitude : infoJSON[u].longitude,
-				image : '/images/map_' + infoJSON[u].icon
+				image : '/images/map_' + infoJSON[u].name + '.png'
 			});
 
 			if (infoJSON[u].name == 'taltplats') {
