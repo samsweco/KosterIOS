@@ -59,6 +59,10 @@ function getPos(){
 	Alloy.Globals.setUserPosition();
 }
 
-$.lblInteractive.addEventListener('click', function() {
+function showInteractive(){
 	Alloy.Globals.showInteractive("Detta är ledtråden!");
-});
+}
+
+// $.lblInteractive.addEventListener('click', function() {
+	// Alloy.Globals.showInteractive("Detta är ledtråden!");
+// });

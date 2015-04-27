@@ -1,6 +1,6 @@
 "#interactive": {
 	layout: 'vertical',
-	height: '0dp',
+	height: '100dp',
 	backgroundColor: 'yellow',
 	opacity: 0.8
 }

@@ -1,15 +1,14 @@
 <Alloy>
 	<Collection src="hotspotModel" />
-	<Collection src="letterModel"></Collection>
+	<Collection src="letterModel" />
 	<TabGroup id="tabs" backgroundColor="#fff" height="100%" tintColor="#FF9966">
 		<Tab id="koster" class="tabbar" title="Hem" icon="/images/kosterStarMenu.png" >
 			<Window id="koster" class="container" backgroundImage="/pics/front.png" navBarHidden="true">
 				<View class="headView">
 					<ImageView class="imgKoster" image="/pics/kosterhavet_logga.png"></ImageView>
-					<Label id="lblFrontText">-Välkommen till Kosterhavet! Upptäck den vackra naturen i Kosterhavet och ta en promenad bland klapperstensfält och strandängar.</Label>
+					<Label id="lblFrontText">Välkommen till Kosterhavet! Upptäck den vackra naturen i Kosterhavet och ta en promenad bland klapperstensfält och strandängar.</Label>
 					<Widget src="interactive" name="widget"></Widget>
-					<Label id="lblInteractive" >Visa interactive</Label>
-					
+					<Label id="lblInteractive" onClick="showInteractive"> Visa interactive</Label>
 				</View>
 			</Window>
 		</Tab>
