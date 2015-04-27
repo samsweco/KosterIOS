@@ -3,11 +3,7 @@
 	<Collection src="trailsModel" />
 	<Collection src="infospotModel"></Collection>
 	<View id="mapmenu">
-		<View id="mapTypeView">
-			<Button id="btnNormal" class="lblChange" onClick="normalMap">Normal</Button>
-			<Button id="btnHybrid" class="lblChange" onClick="hybridMap">Hybrid</Button>
-			<Button id="btnSatellit" class="lblChange" onClick="satelliteMap">Satellit</Button>
-		</View>
+
 		<View id="markersView">
 			<Label id="btnShowMarkers" class="lblChange" onClick="displayTrailMarkers">Vandringsleder</Label>
 			<Label id="btnShowHotspots" class="lblChange" onClick="displayMarkers">Sevärdheter</Label>

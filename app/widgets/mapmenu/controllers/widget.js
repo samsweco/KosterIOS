@@ -151,18 +151,6 @@ function setNoti() {
 	}
 }
 
-function normalMap() {
-	baseMap.mapType = MapModule.NORMAL_TYPE;
-}
-
-function hybridMap() {
-	baseMap.mapType = MapModule.HYBRID_TYPE;
-}
-
-function satelliteMap() {
-	baseMap.mapType = MapModule.SATELLITE_TYPE;
-}
-
 function showHotspots() {
 	if (hotspotsNotVisible) {
 		displayMarkers();

@@ -15,6 +15,7 @@ createMapRoute();
 var familyMap;
 displayMarkers();
 addClueZone();
+//getGPSpos();
 
 function startInteractive() {
 	getGPSpos();
@@ -276,7 +277,7 @@ function getGPSpos() {
 		Ti.Geolocation.getCurrentPosition(function(e) {
 			if (e.error) {
 				Ti.API.info('Get current position' + e.error);
-				//getGPSpos();
+				getGPSpos();
 			} 
 		});
 
@@ -291,7 +292,7 @@ function getGPSpos() {
 					Ti.API.info('Kan inte sätta eventListener ' + e.error);
 				} else {
 					getPosition(e.coords);
-					$.coords.text = 'Coords: '+e.coords;
+					$.coords.text = 'Lat: '+JSON.stringify(e.coords.latitude + 'Lon: '+JSON.stringify(e.coords.longitude));
 					
 				}
 			});
@@ -373,6 +374,7 @@ function isNearPoint() {
 					Alloy.Globals.showInteractive(JSON.stringify(Alloy.Globals.jsonCollection[i].clue));
 					alert("Du är i punkt : " + Alloy.Globals.jsonCollection[i].id + " och bokstaven är: " + Alloy.Globals.jsonCollection[i].letter);
 					foundId = Alloy.Globals.jsonCollection[i].id;
+					Alloy.Globals.jsonCollection[i].found = 1;
 
 					$.lblInfoText.text = Alloy.Globals.jsonCollection[i].clue;
 				}
