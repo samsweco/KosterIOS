@@ -291,6 +291,8 @@ function getGPSpos() {
 					Ti.API.info('Kan inte sätta eventListener ' + e.error);
 				} else {
 					getPosition(e.coords);
+					$.coords.text = 'Coords: '+e.coords;
+					
 				}
 			});
 			
@@ -308,10 +310,9 @@ function getGPSpos() {
 //-----------------------------------------------------------
 function getPosition(coordinatesObj) {
 	try {
-		Alloy.Globals.gLat = coordinatesObj.latitude;
-		Alloy.Globals.gLon = coordinatesObj.longitude;
+		gLat = coordinatesObj.latitude;
+		gLon = coordinatesObj.longitude;
 		
-		$.coords.text = 'Lat: '+Alloy.Globals.gLat +'Lon: '+ Alloy.Globals.gLon;
 
 		isNearPoint();
 	} catch(e) {
