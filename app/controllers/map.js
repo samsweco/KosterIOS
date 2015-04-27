@@ -262,6 +262,7 @@ function displayTrailMarkers() {
 				subtitle : 'Läs mer om ' + jsonObj[i].name + ' här!',
 				rightButton : '/pins/arrow.png',
 				image : '/images/pin-' + jsonObj[i].color + '.png',
+				centerOffset : {x:0,y:-25},
 				name : 'trail',
 				font : {
 					fontFamily : 'Raleway-Light'
