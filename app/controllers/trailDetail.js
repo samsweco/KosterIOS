@@ -220,7 +220,7 @@ function showIcons() {
 				width : '25dp',
 				left : '2dp',
 				top : '10dp',
-				image : '/images/' + selectedIcons[i].icon
+				image : '/images/' + selectedIcons[i].name +'.png'
 			});
 
 			$.iconrow.add(covericon);
@@ -240,7 +240,7 @@ function getIcons() {
 
 		var infotrailCollection = Alloy.Collections.infospotModel;
 		infotrailCollection.fetch({
-			query : 'SELECT icon from infospotModel join infospot_trailsModel on infospot_trailsModel.infospotID = infospotModel.id where trailsID ="' + id + '"'
+			query : 'SELECT DISTINCT name from infospotCoordinatesModel join infospot_trailsModel on infospot_trailsModel.infospotID = infospotCoordinatesModel.infospotID where trailsID ="' + id + '"'
 		});
 
 		var infoTrails = infotrailCollection.toJSON();
