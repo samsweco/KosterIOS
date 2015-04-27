@@ -261,12 +261,13 @@ function displayTrailMarkers() {
 				title : jsonObj[i].name,
 				subtitle : 'Läs mer om ' + jsonObj[i].name + ' här!',
 				rightButton : '/pins/arrow.png',
+				image : '/images/pin-' + jsonObj[i].color + '.png',
 				name : 'trail',
 				font : {
 					fontFamily : 'Raleway-Light'
 				}
 			});
-
+			
 			baseMap.addAnnotation(markerAnnotation);
 		}
 	} catch(e) {
