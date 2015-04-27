@@ -11,6 +11,7 @@
 			<Label class="lblInfoDetail" id="lblInfoText"></Label>
 			<Label class="lbltxt" id="lblText" text="Klicka på länken nedan för att se mer information: "/>
 			<Label class="lblInfoDetail" id="lblInfoLink"></Label>
+			<Widget src="interactive" name="widget"></Widget>
 			
 		</ScrollView>
 	</Window>

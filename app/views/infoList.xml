@@ -3,6 +3,7 @@
 	<View class="container">
 
 		<ScrollView class="headView" scrollType="vertical">
+			<Widget src="interactive" name="widget"></Widget>
 			<TableView id="table" onClick="getInfoDetails">
 				<TableViewRow class="row" onClick="getInfoDetails" />
 			</TableView>

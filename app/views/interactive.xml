@@ -12,7 +12,7 @@
 			<Label id="lblLetters" onClick="sendLetter">Skicka bokstav!</Label>
 			<Label id="lblCollectedLetters"></Label>
 			</View>
-
+			<Widget src="interactive" name="widget"></Widget>
 		</View>
 
 	</View>

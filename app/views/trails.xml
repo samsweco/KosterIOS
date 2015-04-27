@@ -4,6 +4,7 @@
 	<Collection src="infospot_trailsModel"></Collection>
 	<View class="container" onClose="destroyModel">
 		<ScrollView class="headView" scrollType="vertical">
+			<Widget src="interactive" name="widget"></Widget>
 			<TableView id="table" onClick="showTrailDetails">
 				<TableViewRow class="row">
 				</TableViewRow>

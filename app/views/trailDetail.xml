@@ -22,6 +22,7 @@
 				<Label id="lblTrailLength" class="lbltrailDetail"></Label>
 				<Label id="lblTrailInfo" class="lbltrailDetail"></Label>
 			</View>
+			<Widget src="interactive" name="widget"></Widget>
 			
 			<Label id="lblLangsVagen">Det här kan du se längs vägen:</Label>
 			<View id="trail_hotspotView">
