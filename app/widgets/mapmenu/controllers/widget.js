@@ -88,7 +88,7 @@ function displayInfoSpots(type) {
 		var markerArray = [];
 		var infospotCollection = getInfospotCollection();
 		infospotCollection.fetch({
-			query : 'select infospotModel.name, infospotModel.icon, infospotCoordinatesModel.latitude, infospotCoordinatesModel.longitude from infospotCoordinatesModel join infospotModel on infospotCoordinatesModel.infospotID = infospotModel.id WHERE infospotModel.name ="' + type + '"'
+			query : 'select * from infospotCoordinatesModel join infospotModel on infospotCoordinatesModel.infospotID = infospotModel.id WHERE infospotModel.name ="' + type + '"'
 		});
 
 		var infoJSON = infospotCollection.toJSON();
