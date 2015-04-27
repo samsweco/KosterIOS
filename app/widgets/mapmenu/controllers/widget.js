@@ -33,7 +33,8 @@ function displayTrailMarkers() {
 				longitude : jsonObj[i].pinLon,
 				title : jsonObj[i].name,
 				subtitle : 'Läs mer om ' + jsonObj[i].name + ' här!',
-				pincolor : MapModule.ANNOTATION_GREEN,
+				image : '/images/pin-' + jsonObj[i].color + '.png',
+				centerOffset : {x:0,y:-25},
 				rightButton : '/images/arrow.png',
 				name : 'trail'
 			});
@@ -63,7 +64,8 @@ function displayMarkers() {
 					longitude : markersJSON[u].ykoord,
 					title : markersJSON[u].name,
 					subtitle : 'Läs mer om ' + markersJSON[u].name + ' här!',
-					pincolor : MapModule.ANNOTATION_PURPLE,
+					image : '/images/hot-icon-azure.png',
+					// pincolor : MapModule.ANNOTATION_PURPLE,
 					rightButton : '/images/arrow.png',
 					name : 'hotspot'
 				});
