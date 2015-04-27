@@ -275,10 +275,9 @@ function getGPSpos() {
 
 		Ti.Geolocation.getCurrentPosition(function(e) {
 			if (e.error) {
-				// alert('Get current position' + e.error);
-				getGPSpos();
-			} else {
-			}
+				Ti.API.info('Get current position' + e.error);
+				//getGPSpos();
+			} 
 		});
 
 		if (Ti.Geolocation.locationServicesEnabled) {
@@ -309,8 +308,10 @@ function getGPSpos() {
 //-----------------------------------------------------------
 function getPosition(coordinatesObj) {
 	try {
-		gLat = coordinatesObj.latitude;
-		gLon = coordinatesObj.longitude;
+		Alloy.Globals.gLat = coordinatesObj.latitude;
+		Alloy.Globals.gLon = coordinatesObj.longitude;
+		
+		$.coords.text = 'Lat: '+Alloy.Globals.gLat +'Lon: '+ Alloy.Globals.gLon;
 
 		isNearPoint();
 	} catch(e) {

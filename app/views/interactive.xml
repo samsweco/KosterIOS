@@ -12,6 +12,7 @@
 			<TextField id="txtLetter"></TextField>
 			<Label id="lblLetters" onClick="sendLetter">Skicka bokstav!</Label>
 			<Label id="lblCollectedLetters"></Label>
+			<Label id="coords" text="coords"></Label>
 			</View>
 			<Widget src="interactive" name="widget"></Widget>
 		</View>
