@@ -25,7 +25,7 @@ function setRowData() {
 				var row = Ti.UI.createTableViewRow({
 				layout : 'horizontal',
 				id : i + 1,
-				height : '85dp',
+				height : '90dp',
 				top : '0dp',
 				hasChild : true
 			});
@@ -37,8 +37,8 @@ function setRowData() {
 			});
 			
 			var img = Ti.UI.createImageView({
-				height : '70dp',
-				width : '110dp',
+				height : '75dp',
+				width : '115dp',
 				image : "/pics/" + rows[i].cover_img,
 				left : '5dp',
 				top : '5dp'

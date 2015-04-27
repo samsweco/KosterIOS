@@ -131,7 +131,7 @@ function createMapRoutes(file, name, color) {
 				name : name,
 				points : points,
 				color : color,
-				width : 2.0
+				width : 1.7
 			};
 			baseMap.addRoute(MapModule.createRoute(route));
 		}

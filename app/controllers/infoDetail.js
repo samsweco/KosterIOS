@@ -30,6 +30,8 @@ function openLink(link) {
 			url : link
 		});
 		var window = Titanium.UI.createWindow();
+		window.backButtonTitle = "Tillbaka";
+		
 		window.add(webview);
 		Alloy.CFG.tabs.activeTab.open(window);
 		
