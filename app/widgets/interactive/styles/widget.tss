@@ -2,8 +2,7 @@
 	layout: 'vertical',
 	height: '0dp',
 	backgroundColor: 'yellow',
-	opacity: 0.8,
-	top : '50%'
+	opacity: 0.8
 }
 
 "#horizontalView":{
