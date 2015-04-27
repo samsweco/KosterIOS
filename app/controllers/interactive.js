@@ -3,13 +3,17 @@ var radius = 20;
 
 var letterCollection = getLetterCollection();
 letterCollection.fetch();
+
 var jsonCollection = letterCollection.toJSON();
 Alloy.Globals.jsonCollection = jsonCollection;
+
+var hotspotCollection = getHotspotCollection();
+
 
 showMap();
 createMapRoute();
 var familyMap;
-displayTrailMarkers();
+displayMarkers();
 addClueZone();
 
 function startInteractive() {
@@ -76,6 +80,41 @@ function checkWord() {
 //-----------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------
+
+
+//-----------------------------------------------------------
+// Visar markers för hotspots
+//-----------------------------------------------------------
+function displayMarkers() {
+	try {
+		var markerArray = [];
+		hotspotCollection.fetch();
+
+		var markersJSON = hotspotCollection.toJSON();
+		for (var u = 0; u < markersJSON.length; u++) {
+
+			if (OS_IOS) {
+				var marker = MapModule.createAnnotation({
+					id : markersJSON[u].name,
+					latitude : markersJSON[u].xkoord,
+					longitude : markersJSON[u].ykoord,
+					title : markersJSON[u].name,
+					subtitle : 'Läs mer om ' + markersJSON[u].name + ' här!',
+					pincolor : MapModule.ANNOTATION_PURPLE,
+					rightButton : '/images/arrow.png',
+					name : 'hotspot'
+				});
+			}
+
+			markerArray.push(marker);
+		}
+
+		familyMap.addAnnotations(markerArray);
+
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - displayMarkers");
+	}
+}
 
 //-----------------------------------------
 // Zoomar in kartan på äventyrsleden
