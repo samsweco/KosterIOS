@@ -1,18 +1,14 @@
 <Alloy>
-	<Window id="infoDetail" backButtonTitle="Tillbaka" class="container">
-
+	<Window id="infoDetail" backButtonTitle="Tillbaka">
 		<ScrollView class="headView" scrollType="vertical" showVerticalScrollIndicator="true">
 			<View id="slideView">
-				<ImageView id="infoImg">
-					
-				</ImageView></View>
-			
+				<ImageView id="infoImg"></ImageView>
+			</View>
 			<Label class="lblInfoDetail" id="lblInfoTitle"></Label>
 			<Label class="lblInfoDetail" id="lblInfoText"></Label>
 			<Label class="lbltxt" id="lblText" text="Klicka på länken nedan för att se mer information: "/>
 			<Label class="lblInfoDetail" id="lblInfoLink"></Label>
-			<Widget src="interactive" name="widget"></Widget>
-			
 		</ScrollView>
+		<Widget src="interactive" name="widget"></Widget>
 	</Window>
 </Alloy>

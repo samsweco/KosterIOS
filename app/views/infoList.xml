@@ -1,13 +1,11 @@
 <Alloy>
 	<Collection src="infoModel" />
-	<View class="container">
-
+	<View>
 		<ScrollView class="headView" scrollType="vertical">
-			<Widget src="interactive" name="widget"></Widget>
 			<TableView id="table" onClick="getInfoDetails">
 				<TableViewRow class="row" onClick="getInfoDetails" />
 			</TableView>
 		</ScrollView>
-
+		<Widget src="interactive" name="widget"></Widget>
 	</View>
 </Alloy>

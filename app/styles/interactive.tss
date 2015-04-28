@@ -11,7 +11,6 @@
 
 "#interactiveWin": {
 	top: 0,
-	layout: 'vertical',
 	backgroundColor: 'white'
 }
 "#startView": {

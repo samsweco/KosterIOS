@@ -2,7 +2,8 @@
 	<Collection src="mediaModel"></Collection>
 	<Collection src="hotspotModel"></Collection>
 	<Collection src="infospotModel"></Collection>
-	<Window id="hikeDetailWin" backButtonTitle="Tillbaka" class="container">
+	<Collection src="letterModel"></Collection>
+	<Window id="hikeDetailWin" backButtonTitle="Tillbaka">
 		<RightNavButton>
 			<Button id="btnShowOnMap" onClick="zoomMapTrail">Visa karta</Button> /><!-- image="/images/mapMenu.png" -->
 		</RightNavButton>
@@ -10,7 +11,6 @@
 			<View id="slideView">
 				<ScrollableView id="slideShowTrails" scrollType="horizontal" showPagingControl="true" />
 			</View>
-			<Widget src="interactive" name="widget"></Widget>
 			<View id="horizontalView">
 				<View id="iconrow"></View>
 				<View id="btnView">
@@ -30,5 +30,6 @@
 				<TableView id="hotspotTable" onClick="showHotspot" />
 			</View>
 		</ScrollView>
+		<Widget src="interactive" name="widget"></Widget>
 	</Window>
 </Alloy>

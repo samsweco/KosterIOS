@@ -4,7 +4,8 @@
 	<Collection src="trailsModel" />
 	<Collection src="jsonFilesModel" />
 	<Collection src="hotspot_trailsModel" />
-	<Window class="container" backButtonTitle="Tillbaka">
+	<Collection src="letterModel"></Collection>
+	<Window backButtonTitle="Tillbaka">
 		<!-- <LeftNavButton>
 			<Button id="btnGetPosition" image="/images/locationarrow.png" onClick="getPos" />
 		</LeftNavButton> -->
@@ -13,9 +14,9 @@
 		</RightNavButton>
 		
 		<View id="mapDetailView">
-			<Widget src="interactive" name="widget"></Widget>
+			
 		</View>
-		
+		<Widget src="interactive" name="widget"></Widget>
 		<Widget src="mapmenu" name="widget"></Widget>
 	</Window>
 </Alloy>
