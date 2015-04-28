@@ -375,3 +375,54 @@ function setUserPosition() {
 
 Alloy.Globals.setUserPosition = setUserPosition;
 
+
+//-----------------------------------------------------------
+// Visar ikoner för alla informationsobjekt
+//-----------------------------------------------------------
+function displayInfoSpots(type) {
+	try {
+		var markerArray = [];
+		var infospotCollection = getInfospotCollection();
+		infospotCollection.fetch({
+			query : 'select * from infospotCoordinatesModel WHERE name ="' + type + '"'
+		});
+
+		var infoJSON = infospotCollection.toJSON();
+		for (var u = 0; u < infoJSON.length; u++) {
+			var marker = MapModule.createAnnotation({
+				latitude : infoJSON[u].latitude,
+				longitude : infoJSON[u].longitude,
+				image : '/images/map_' + infoJSON[u].name + '.png'
+			});
+
+			if (infoJSON[u].name == 'taltplats') {
+				marker.title = 'Tältplats';
+			} else if (infoJSON[u].name == 'wc') {
+				marker.title = 'WC';
+			} else {
+				marker.title = capitalizeFirstLetter(infoJSON[u].name);
+			}
+
+			markerArray.push(marker);
+		}
+
+		return markerArray;
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - displayInfoSpots");
+	}
+}
+
+function removeInfoSpot(infotype) {
+	var arrayInfo = displayInfoSpots(infotype);
+	// Ti.API.info('array : ' + JSON.stringify(arrayInfo[0].id));
+	// baseMap.removeAnnotations(arrayInfo);
+
+	for (var o = 0; o < arrayInfo.length; o++) {
+		// Ti.API.info('arrayTitle : ' + JSON.stringify(arrayInfo[info].title));
+		baseMap.removeAnnotation(arrayInfo[o].title);
+	}
+}
+
+Alloy.Globals.displayInfoSpots = displayInfoSpots;
+Alloy.Globals.removeInfoSpot = removeInfoSpot;
+

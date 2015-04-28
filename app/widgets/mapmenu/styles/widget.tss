@@ -24,7 +24,8 @@
 	width: Titanium.UI.FILL,
 	opacity: 1,
 	left: '20%',
-	right: '5%'
+	right: '5%',
+	top : '10dp'
 }
 
 "#selectIconView": {
