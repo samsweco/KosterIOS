@@ -56,7 +56,7 @@
 "#lblTrailName": {
 	left: '15dp',
 	font: {
-		fontSize: '16dp',
+		fontSize: '20dp',
 		fontFamily: 'Raleway-Medium'
 	},
 	color: '#FF9966'
@@ -99,7 +99,7 @@
 	left: '15dp',
 	padding: '5dp',
 	font: {
-		fontSize: 12
+		fontSize: '14dp'
 	},
 	top: '10dp'
 }
