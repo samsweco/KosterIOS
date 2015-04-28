@@ -1,9 +1,9 @@
 "Label": {
 	top: '5dp',
-	left: 15,
-	right: 15,
+	left: '15dp',
+	right: '15dp',
 	font: {
-		fontSize: 12,
+		fontSize: '14dp',
 		fontFamily: 'Raleway-Light'
 	}
 }
@@ -42,14 +42,14 @@
 	color: '#FF9966',
 	right: '15dp',
 	font: {
-		fontSize: 16,
+		fontSize: '20dp',
 		fontFamily: 'Raleway-Medium'
 	}
 }
 
 "#lblInfoLink": {
 	left: '15dp',
-	color : 'blue',
+	color: 'blue',
 	top: '5dp'
 }
 
@@ -59,14 +59,14 @@
 	width: '100%'
 }
 
-"#lblInfoText" : {
+"#lblInfoText": {
 	left: '15dp'
 }
 
-"#lblText" : {
-	left : '15dp',
-	color : '#FF9966',
-	font  :{
-		fontFamily : 'Raleway-Medium'
+"#lblText": {
+	left: '15dp',
+	color: '#FF9966',
+	font:{
+		fontFamily: 'Raleway-Medium'
 	}
 }

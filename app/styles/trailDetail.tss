@@ -2,7 +2,7 @@
 	left: '15dp',
 	right: '15dp',
 	font: {
-		fontSize: 12,
+		fontSize: '14dp',
 		fontFamily: 'Raleway-Light'
 	}
 }
@@ -29,7 +29,7 @@
 "#btnView": {
 	width: '57%',
 	height: '40dp',
-	right: 0,
+	right: '0dp',
 	layout: 'horizontal',
 	top: '10dp'
 }
@@ -65,7 +65,7 @@
 "#lblTrailArea": {
 	left: '15dp',
 	font: {
-		fontSize: '12dp'
+		fontSize: '14dp'
 	}
 }
 
@@ -108,7 +108,7 @@
 	top: '20dp',
 	left: '10dp',
 	font: {
-		fontSize: 13
+		fontSize: '16dp'
 	},
 	top: '10dp'
 }
@@ -131,7 +131,7 @@
 "#btnTrailOnMap": {
 	width: Titanium.UI.SIZE,
 	font: {
-		fontSize: 16
+		fontSize: '16dp'
 	},
 	color: '#FF9966'
 }

@@ -1,15 +1,15 @@
 "Label": {
 	top: '5dp',
-	left: 15,
-	right: 15,
+	left: '15dp',
+	right: '15dp',
 	font: {
-		fontSize: 12,
+		fontSize: '14dp',
 		fontFamily: 'Raleway-Light'
 	}
 }
 
 "#interactiveWin": {
-	top: 20,
+	top: '20dp',
 	backgroundColor: 'white',
 	layout : 'vertical'
 }
@@ -23,9 +23,9 @@
 }
 
 "#lblInfoText": {
-	top: 10,
+	top: '10dp',
 	font: {
-		fontSize: '12dp',
+		fontSize: '14dp',
 	} ,
 	right: '20dp',
 	left: '20dp',
@@ -39,7 +39,7 @@
 }
 
 "#lblWelcome": {
-	top: 0,
+	top: '0dp',
 	font: {
 		fontStyle: 'Raleway-Medium',
 		fontSize: '20dp'
@@ -48,26 +48,26 @@
 }
 
 "#lblClue": {
-	top: 0,
+	top: '0dp',
 	left: '5dp',
 	font: {
-		fontSize: 15,
+		fontSize: '16dp',
 		fontStyle: 'italic'
 	},
 	color: "#000000"
 }
 
 "#lblLetters": {
-	top: 0,
+	top: '0dp',
 	font: {
-		fontSize: 12
+		fontSize: '12dp'
 	},
 	color: "#000000",
 	visible: false
 }
 
 "#txtLetter": {
-	top: 0,
+	top: '0dp',
 	height: '35dp',
 	width: '70dp',
 	tintColor: 'blue',

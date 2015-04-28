@@ -2,7 +2,7 @@
 	left: 15,
 	right: 15,
 	font: {
-		fontSize: 12,
+		fontSize: '12dp',
 		fontFamily: 'Raleway-Light'
 	}
 }
@@ -42,7 +42,7 @@
 	left: '15dp',
 	top: '10dp',
 	font: {
-		fontSize: 16,
+		fontSize: '20dp',
 		fontFamily: 'Raleway-Medium'
 	},
 	color: '#FF9966'
@@ -53,7 +53,7 @@
 	top: '5dp',
 	right: '15dp',
 	font: {
-		fontSize : '12dp'
+		fontSize : '14dp'
 	}
 }
 

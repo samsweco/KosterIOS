@@ -4,13 +4,13 @@
 
 ".container": {
 	layout: 'vertical',
-	top: 0
+	top: '0dp'
 }
 
 ".headView": {
 	layout: 'vertical',
 	width: Titanium.UI.FILL,
-	top: 0
+	top: '0dp'
 }
 
 ".row": {
@@ -18,5 +18,5 @@
 	backgroundColor: '#fff3e5',
 	height: '90dp',
 	width: Ti.UI.FILL,
-	right: 10
+	right: '15dp'
 }
