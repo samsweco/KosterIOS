@@ -3,8 +3,8 @@
 	<Collection src="coordinates" />
 	<Collection src="trailsModel" />
 	<Collection src="jsonFilesModel" />
-	<Collection src="infospotModel"></Collection>
-	<Collection src="letterModel"></Collection>
+	<Collection src="infospotCoordinatesModel" />
+	<Collection src="letterModel" />
 	<View class="container">
 		
 		<View id="mapView">
@@ -12,7 +12,6 @@
 		</View>
 		
 		<View id="selectIconView">
-			<Button id="btnShowWC" class="btnChange" backgroundImage="/images/wc.png" onClick="showWC"></Button>
 			<Button id="btnShowEldplats" class="btnChange" backgroundImage="/images/eldplats.png" onClick="showEldplats"></Button>
 			<Button id="btnShowSnorkelled" class="btnChange" backgroundImage="/images/snorkelled.png" onClick="showSnorkelled"></Button>
 			<Button id="btnShowInformation" class="btnChange" backgroundImage="/images/information.png" onClick="showInformation"></Button>

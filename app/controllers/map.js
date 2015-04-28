@@ -17,6 +17,11 @@ var hotspotAnnotation;
 var trailsCollection = getTrailsCollection();
 var hotspotCollection = getHotspotCollection();
 var jsonFileCollection = getJSONfiles();
+
+var infospotCollection = Alloy.Collections.infospotCoordinatesModel;
+
+
+
 // var infospotCollection = getInfospotCollection();
 
 //-----------------------------------------------------------
@@ -24,32 +29,32 @@ var jsonFileCollection = getJSONfiles();
 // FUNGERAR MEN ÄR SJUKT STRÖRANDE
 //-----------------------------------------------------------
 // try {
-	// Ti.Geolocation.getCurrentPosition(function(e) {
-		// if (e.error) {
-			// alert('Get current position' + e.error);
-		// } else {
-		// }
-	// });
-// 
-	// if (Ti.Geolocation.locationServicesEnabled) {
-		// Ti.Geolocation.accuracy = Ti.Geolocation.ACCURACY_BEST;
-		// Ti.Geolocation.distanceFilter = 10;
-		// Ti.Geolocation.preferredProvider = Ti.Geolocation.PROVIDER_GPS;
-// 
-		// Ti.Geolocation.addEventListener('location', function(e) {
-			// if (e.error) {
-				// alert('Add eventlistener!' + e.error);
-			// } else {
-				// getPosition(e.coords);
-// 				
-				// Ti.API.info('e : ' + JSON.stringify(e.coords));
-			// }
-		// });
-	// } else {
-		// alert('Tillåt gpsen, tack');
-	// }
+// Ti.Geolocation.getCurrentPosition(function(e) {
+// if (e.error) {
+// alert('Get current position' + e.error);
+// } else {
+// }
+// });
+//
+// if (Ti.Geolocation.locationServicesEnabled) {
+// Ti.Geolocation.accuracy = Ti.Geolocation.ACCURACY_BEST;
+// Ti.Geolocation.distanceFilter = 10;
+// Ti.Geolocation.preferredProvider = Ti.Geolocation.PROVIDER_GPS;
+//
+// Ti.Geolocation.addEventListener('location', function(e) {
+// if (e.error) {
+// alert('Add eventlistener!' + e.error);
+// } else {
+// getPosition(e.coords);
+//
+// Ti.API.info('e : ' + JSON.stringify(e.coords));
+// }
+// });
+// } else {
+// alert('Tillåt gpsen, tack');
+// }
 // } catch(e) {
-	// newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - get current position GPS");
+// newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - get current position GPS");
 // }
 
 //-----------------------------------------------------------
@@ -159,62 +164,62 @@ function getPosition(coordinatesObj) {
 // // Beräknar avståndet mellan enhetens koordinater och de punkter som håller info
 // //-----------------------------------------------------------
 // function distanceInM(lat1, lon1, GLat, GLon) {
-	// try {
-		// if (lat1 == null || lon1 == null || GLat == null || GLat == null) {
-			// Ti.API.info("Det finns inga koordinater att titta efter");
-		// }
-// 
-		// var R = 6371;
-		// var a = 0.5 - Math.cos((GLat - lat1) * Math.PI / 180) / 2 + Math.cos(lat1 * Math.PI / 180) * Math.cos(GLat * Math.PI / 180) * (1 - Math.cos((GLon - lon1) * Math.PI / 180)) / 2;
-		// var distance = (R * 2 * Math.asin(Math.sqrt(a))) * 1000;
-// 
-		// return distance;
-	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "map - distanceInM");
-	// }
+// try {
+// if (lat1 == null || lon1 == null || GLat == null || GLat == null) {
+// Ti.API.info("Det finns inga koordinater att titta efter");
 // }
-// 
+//
+// var R = 6371;
+// var a = 0.5 - Math.cos((GLat - lat1) * Math.PI / 180) / 2 + Math.cos(lat1 * Math.PI / 180) * Math.cos(GLat * Math.PI / 180) * (1 - Math.cos((GLon - lon1) * Math.PI / 180)) / 2;
+// var distance = (R * 2 * Math.asin(Math.sqrt(a))) * 1000;
+//
+// return distance;
+// } catch(e) {
+// newError("Något gick fel när sidan skulle laddas, prova igen!", "map - distanceInM");
+// }
+// }
+//
 // //-----------------------------------------------------------
 // // Kontrollerar om enhetens position är inom radien för en utsatt punkt
 // //-----------------------------------------------------------
 // function isInsideRadius(lat1, lon1, rad) {
-	// try {
-// 
-		// var isInside = false;
-		// var distance = distanceInM(lat1, lon1, gLat, gLon);
-// 
-		// if (distance <= rad) {
-			// isInside = true;
-		// }
-// 		
-		// return isInside;
-	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "map - isInsideRadius");
-	// }
+// try {
+//
+// var isInside = false;
+// var distance = distanceInM(lat1, lon1, gLat, gLon);
+//
+// if (distance <= rad) {
+// isInside = true;
 // }
-// 
+//
+// return isInside;
+// } catch(e) {
+// newError("Något gick fel när sidan skulle laddas, prova igen!", "map - isInsideRadius");
+// }
+// }
+//
 // //-----------------------------------------------------------
 // // Kontrollerar om enheten är innanför en punkt, sänder ut dialog om true
 // //-----------------------------------------------------------
 // function isNearPoint() {
-	// // try {
-	// var letterCollection = Alloy.Collections.letterModel;
-	// letterCollection.fetch();
-// 
-	// var jsonCollection = letterCollection.toJSON();
-// 
-	// for (var i = 0; i < jsonCollection.length; i++) {
-		// var lat = jsonCollection[i].latitude;
-		// var lon = jsonCollection[i].longitude;
-// 		
-		// if (isInsideRadius(lat, lon, radius)) {
-			// Alloy.Globals.showInteractive();
-			// foundId = jsonCollection[i].id;
-		// }
-	// }
-	// // } catch(e) {
-	// // newError("Något gick fel när sidan skulle laddas, prova igen!", "map - isNearPoint");
-	// // }
+// // try {
+// var letterCollection = Alloy.Collections.letterModel;
+// letterCollection.fetch();
+//
+// var jsonCollection = letterCollection.toJSON();
+//
+// for (var i = 0; i < jsonCollection.length; i++) {
+// var lat = jsonCollection[i].latitude;
+// var lon = jsonCollection[i].longitude;
+//
+// if (isInsideRadius(lat, lon, radius)) {
+// Alloy.Globals.showInteractive();
+// foundId = jsonCollection[i].id;
+// }
+// }
+// // } catch(e) {
+// // newError("Något gick fel när sidan skulle laddas, prova igen!", "map - isNearPoint");
+// // }
 // }
 
 //-----------------------------------------------------------
@@ -262,13 +267,16 @@ function displayTrailMarkers() {
 				subtitle : 'Läs mer om ' + jsonObj[i].name + ' här!',
 				rightButton : '/pins/arrow.png',
 				image : '/images/pin-' + jsonObj[i].color + '.png',
-				centerOffset : {x:0,y:-25},
+				centerOffset : {
+					x : 0,
+					y : -25
+				},
 				name : 'trail',
 				font : {
 					fontFamily : 'Raleway-Light'
 				}
 			});
-			
+
 			baseMap.addAnnotation(markerAnnotation);
 		}
 	} catch(e) {
@@ -375,19 +383,19 @@ function setUserPosition() {
 
 Alloy.Globals.setUserPosition = setUserPosition;
 
-
 //-----------------------------------------------------------
 // Visar ikoner för alla informationsobjekt
 //-----------------------------------------------------------
 function displayInfoSpots(type) {
 	try {
-		var markerArray = [];
-		var infospotCollection = getInfospotCollection();
 		infospotCollection.fetch({
 			query : 'select * from infospotCoordinatesModel WHERE name ="' + type + '"'
 		});
+		var markerArray = [];
 
 		var infoJSON = infospotCollection.toJSON();
+		Ti.API.info('infoJSON : ' + JSON.stringify(infoJSON));
+
 		for (var u = 0; u < infoJSON.length; u++) {
 			var marker = MapModule.createAnnotation({
 				latitude : infoJSON[u].latitude,
@@ -395,22 +403,25 @@ function displayInfoSpots(type) {
 				image : '/images/map_' + infoJSON[u].name + '.png'
 			});
 
-			if (infoJSON[u].name == 'taltplats') {
+			if (type == 'taltplats') {
 				marker.title = 'Tältplats';
-			} else if (infoJSON[u].name == 'wc') {
-				marker.title = 'WC';
 			} else {
-				marker.title = capitalizeFirstLetter(infoJSON[u].name);
+				marker.title = capitalizeFirstLetter(type);
 			}
 
+			Ti.API.info('marker : ' + JSON.stringify(marker));
 			markerArray.push(marker);
 		}
-		
+
 		return markerArray;
-		
+
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - displayInfoSpots");
 	}
+}
+
+function capitalizeFirstLetter(string) {
+	return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 function removeInfoSpot(infotype) {
@@ -427,69 +438,35 @@ function removeInfoSpot(infotype) {
 Alloy.Globals.displayInfoSpots = displayInfoSpots;
 Alloy.Globals.removeInfoSpot = removeInfoSpot;
 
-
-
-
-
-
-
-
 // FRÅN WIDGETEN
 
+function removeInfoSpot(array) {
 
-var snorkel = false;
-var torrdass = false;
-var utsiktsplats = false;
-var wc = false;
-var rastplats = false;
-var taltplats = false;
-var badplats = false;
-var information = false;
-var eldplats = false;
-
-function removeInfoSpot(infotype) {
-	var arrayInfo = displayInfoSpots(infotype);
-	// Ti.API.info('array : ' + JSON.stringify(arrayInfo[0].id));
-	// baseMap.removeAnnotations(arrayInfo);
-
-	for (var o = 0; o < arrayInfo.length; o++) {
+	for (var o = 0; o < array.length; o++) {
 		// Ti.API.info('arrayTitle : ' + JSON.stringify(arrayInfo[info].title));
-		baseMap.removeAnnotation(arrayInfo[o].title);
-	}
-}
-
-function showWC() {
-	if (wc == false) {
-	baseMap.addAnnotations(displayInfoSpots('wc'));
-	$.btnShowWC.backgroundImage = '/images/graywc.png';
-	wc = true;
-	} else {
-	// $.each(displayInfoSpots('wc'), function() {
-	// baseMap.removeAnnotation('wc');
-	// });
-	$.btnShowWC.backgroundImage = '/images/wc.png';
-	wc = false;
+		baseMap.removeAnnotation(array[o].title);
 	}
 }
 
 function showEldplats() {
-	if (eldplats == false) {
-		baseMap.addAnnotations(displayInfoSpots("eldplats"));
+	var array = displayInfoSpots("eldplats");
+	if(eldplats == false) {
+		baseMap.addAnnotations(array);
 		$.btnShowEldplats.backgroundImage = '/images/grayeldplats.png';
 		eldplats = true;
-	}else{
-		removeInfoSpot("eldplats");
+	} else {
+		removeInfoSpot(array);
 		$.btnShowEldplats.backgroundImage = '/images/eldplats.png';
 		eldplats = false;
 	}
 }
 
 function showSnorkelled() {
-	if(snorkel == false){
+	if (snorkel == false) {
 		baseMap.addAnnotations(displayInfoSpots("snorkelled"));
 		$.btnShowSnorkelled.backgroundImage = '/images/graysnorkelled.png';
 		snorkel = true;
-	}else{
+	} else {
 		removeInfoSpot("snorkelled");
 		$.btnShowSnorkelled.backgroundImage = '/images/snorkelled.png';
 		snorkel = false;
@@ -497,11 +474,11 @@ function showSnorkelled() {
 }
 
 function showInformation() {
-	if(information == false){
+	if (information == false) {
 		baseMap.addAnnotations(displayInfoSpots("information"));
-		$.btnShowInformation.backgroundImage = '/images/grayinformation.png'; 
+		$.btnShowInformation.backgroundImage = '/images/grayinformation.png';
 		information = true;
-	}else{
+	} else {
 		removeInfoSpot("information");
 		$.btnShowInformation.backgroundImage = '/images/information.png';
 		information = false;

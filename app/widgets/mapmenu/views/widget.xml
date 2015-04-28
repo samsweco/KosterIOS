@@ -1,9 +1,9 @@
-<Alloy>
+ <Alloy>
 	<Collection src="hotspotModel" />
 	<Collection src="trailsModel" />
 	<Collection src="infospotModel"></Collection>
 	<View id="mapmenu">
-
+<!--
 		<View id="markersView">
 			<Label id="btnShowMarkers" class="lblChange" onClick="displayTrailMarkers">Vandringsleder</Label>
 			<Label id="btnShowHotspots" class="lblChange" onClick="displayMarkers">Sevärdheter</Label>
@@ -24,7 +24,7 @@
 			<Label id="btnClean" class="btnSetStuff" onClick="removeAnnotations">Rensa kartan</Label>
 			<Label id="btnSetNotification" class="btnSetStuff" text="Inaktivera notifikationer" color="#00a9f0" onClick="setNoti"></Label>
 		</View>
-		
+		-->
 		
 	</View>
-</Alloy>
+</Alloy> 
