@@ -64,8 +64,9 @@
 
 "#lblTrailArea": {
 	left: '15dp',
+	top: '10dp',
 	font: {
-		fontSize: '14dp'
+		fontSize: '12dp'
 	}
 }
 
@@ -108,10 +109,23 @@
 	top: '20dp',
 	left: '10dp',
 	font: {
-		fontSize: '16dp'
+		fontSize: '14dp',
+		fontFamily : 'Raleway-Medium'
 	},
 	top: '10dp'
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 "#iconrow": {
 	layout: 'horizontal',
@@ -122,9 +136,9 @@
 
 "#lblTrailLength": {
 	font: {
-		fontStyle: 'Italic'
+		fontStyle: 'Italic',
+		fontSize: '12dp',
 	},
-	top: '10dp',
 	left: '15dp'
 }
 
