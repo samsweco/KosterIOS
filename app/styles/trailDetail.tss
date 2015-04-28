@@ -110,22 +110,10 @@
 	left: '10dp',
 	font: {
 		fontSize: '14dp',
-		fontFamily : 'Raleway-Medium'
+		fontFamily: 'Raleway-Medium'
 	},
 	top: '10dp'
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 "#iconrow": {
 	layout: 'horizontal',
@@ -137,7 +125,7 @@
 "#lblTrailLength": {
 	font: {
 		fontStyle: 'Italic',
-		fontSize: '12dp',
+		fontSize: '12dp'
 	},
 	left: '15dp'
 }
