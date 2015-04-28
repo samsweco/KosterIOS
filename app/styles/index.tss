@@ -16,12 +16,13 @@
 	height: '93%'
 }
 
-"#lblFrontText" : {
+"#lblFrontText": {
 	color: "white",
 	right: '20dp',
 	left : '20dp',
+	top : '10dp',
 	font : {
-		fontSize: '10dp',
+		fontSize: '13dp',
 		fontFamily: 'Raleway-Light'
 	}
 }
