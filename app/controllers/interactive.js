@@ -101,7 +101,8 @@ function displayMarkers() {
 					longitude : markersJSON[u].ykoord,
 					title : markersJSON[u].name,
 					subtitle : 'Läs mer om ' + markersJSON[u].name + ' här!',
-					pincolor : MapModule.ANNOTATION_PURPLE,
+					image : '/images/hot-icon-azure.png',
+					// pincolor : MapModule.ANNOTATION_PURPLE,
 					rightButton : '/images/arrow.png',
 					name : 'hotspot'
 				});
@@ -116,6 +117,39 @@ function displayMarkers() {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - displayMarkers");
 	}
 }
+
+//-----------------------------------------------------------
+// Öppnar hotspotDetail med info om vald hotspot
+//-----------------------------------------------------------
+function showHotspot(myId) {
+	try {
+		hotspotCollection.fetch({
+			query : 'SELECT id, infoTxt FROM hotspotModel where name = "' + myId + '"'
+		});
+
+		var jsonObjHot = hotspotCollection.toJSON();
+
+		var hotspotTxt = {
+			title : myId,
+			infoTxt : jsonObjHot[0].infoTxt,
+			id : jsonObjHot[0].id
+		};
+
+		var hotspotDetail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
+		Alloy.CFG.tabs.activeTab.open(hotspotDetail);
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - showHotspot");
+	}
+}
+
+//-----------------------------------------------------------
+// Eventlistener för klick på trail eller hotspot
+//-----------------------------------------------------------
+familyMap.addEventListener('click', function(evt) {
+	if (evt.clicksource == 'rightButton') {
+		showHotspot(evt.annotation.id);
+	}
+});
 
 //-----------------------------------------
 // Zoomar in kartan på äventyrsleden
@@ -160,7 +194,7 @@ function calculateMapRegion(trailCoordinates) {
 
 			delta = Math.max(deltaLat, deltaLon);
 			// Ändra om det ska vara mer zoomat
-			delta = delta * 1.2;
+			delta = delta * 1.5;
 
 			poiCenter.lat = maxLat - parseFloat((maxLat - minLat) / 2);
 			poiCenter.lon = maxLon - parseFloat((maxLon - minLon) / 2);
@@ -210,7 +244,7 @@ function createMapRoute() {
 				name : 'Äventyrsleden',
 				points : coordArray,
 				color : 'purple',
-				width : 3.0
+				width : 2.0
 			};
 
 			familyMap.addRoute(MapModule.createRoute(route));

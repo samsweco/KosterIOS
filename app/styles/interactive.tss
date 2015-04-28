@@ -9,13 +9,13 @@
 }
 
 "#interactiveWin": {
-	top: 0,
+	top: 20,
 	backgroundColor: 'white',
 	layout : 'vertical'
 }
 "#startView": {
 	layout: 'vertical',
-	top : '50dp'
+	top : '55dp'
 }
 
 "#hideView": {
@@ -34,7 +34,7 @@
 
 "#showFamilyTrail": {
 	top: '0dp',
-	height: '45%',
+	height: '50%',
 	width: Titanium.UI.FILL
 }
 
