@@ -438,8 +438,8 @@ function removeInfoSpot(infotype) {
 Alloy.Globals.displayInfoSpots = displayInfoSpots;
 Alloy.Globals.removeInfoSpot = removeInfoSpot;
 
-// FRÅN WIDGETEN
 
+// FRÅN WIDGETEN
 function removeInfoSpot(array) {
 
 	for (var o = 0; o < array.length; o++) {
