@@ -87,8 +87,7 @@
 }
 
 "#hotspotTable": {
-	height: Titanium.UI.SIZE,
-	footerTitle: ''
+	height: Titanium.UI.SIZE
 }
 
 ".headView": {

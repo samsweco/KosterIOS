@@ -14,7 +14,7 @@
 
 ".container": {
 	layout: 'vertical',
-	top: 0,
+	top: '0dp',
 	backgroundColor: 'white',
 	height: '100%'
 }
@@ -56,5 +56,3 @@
 		fontSize : '14dp'
 	}
 }
-
-
