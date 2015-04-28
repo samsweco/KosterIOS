@@ -48,7 +48,7 @@ function setRowData() {
 				id : i + 1,
 				layout : 'horizontal',
 				height : '80dp',
-				top : 0,
+				top : '0dp',
 				hasChild : true
 			});
 
@@ -72,7 +72,7 @@ function setRowData() {
 				top : '2dp',
 				color : '#FF9966',
 				font : {
-					fontSize : 14,
+					fontSize : '16dp',
 					fontFamily: 'Raleway-Medium'
 				},
 				text : rows[i].name
@@ -82,7 +82,7 @@ function setRowData() {
 				left : '5dp',
 				top : '2dp',
 				font : {
-					fontSize : 12,
+					fontSize : '14dp',
 					fontFamily: 'Raleway-Light'
 				},
 				text : rows[i].desc

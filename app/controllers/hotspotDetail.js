@@ -49,7 +49,7 @@ function selectHotspotPics() {
 				text : jsonMedia[i].img_txt,
 				color : 'white',
 				font : {
-					fontSize : 12,
+					fontSize : '12dp',
 					fontStyle : 'italic',
 					textAlign : Ti.UI.TEXT_ALIGNMENT_CENTER,
 					fontFamily: 'Raleway-Medium'
