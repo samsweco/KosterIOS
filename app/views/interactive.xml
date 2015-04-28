@@ -1,5 +1,6 @@
 <Alloy>
 	<Collection src="letterModel"/>
+	<View>
 	<View id="interactiveWin">
 		<View id="showFamilyTrail"></View>
 		<View id="startView">
@@ -14,6 +15,7 @@
 			<Label id="lblCollectedLetters"></Label>
 			<Label id="coords" text="coords"></Label>
 			</View>
+		</View>
 		</View>
 		<Widget src="interactive" name="widget"></Widget>
 	</View>

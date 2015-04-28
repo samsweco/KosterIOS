@@ -8,13 +8,14 @@
 	}
 }
 
-
 "#interactiveWin": {
 	top: 0,
-	backgroundColor: 'white'
+	backgroundColor: 'white',
+	layout : 'vertical'
 }
 "#startView": {
-	layout: 'vertical'
+	layout: 'vertical',
+	top : '50dp'
 }
 
 "#hideView": {
@@ -41,14 +42,6 @@
 	top: 0,
 	font: {
 		fontStyle: 'Raleway-Medium',
-		fontSize: '20dp'
-	},
-	color: '#FF9966'
-}
-
-"#lblClue": {
-	top: 0,
-	font: {
 		fontSize: '20dp'
 	},
 	color: '#FF9966'
