@@ -361,6 +361,7 @@ function getPosition(coordinatesObj) {
 		gLon = coordinatesObj.longitude;
 
 		isNearPoint();
+
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - getPosition");
 	}
@@ -403,50 +404,29 @@ function isInsideRadius(lat1, lon1, rad) {
 	}
 }
 
-function showMessage(msg, alerted) {
-	var message = Ti.UI.createAlertDialog({
-		message : msg,
-		title : 'Ny bokstav i närgheten!'
-	});
-	message.show();
-	
-	if (alerted) {
-		message.hide();
-	};
-}
-
-function stopAlert(alerted){
-	if(alerted){
-		
-	}
-}
-
 //-----------------------------------------------------------
-// Kontrollerar om enheten är innanför en punkt, sänder ut dialog om true
+// Sätter ut punkterna som ska kontrolleras, loopar
 //-----------------------------------------------------------
 function isNearPoint() {
 	try {
-		var alerted = false;
-
 		for (var i = 0; i < Alloy.Globals.jsonCollection.length; i++) {
 
-			if (Alloy.Globals.jsonCollection[i].found == 0 && alerted ==false) {
+			if (Alloy.Globals.jsonCollection[i].found == 0) {
 				var lat = Alloy.Globals.jsonCollection[i].latitude;
 				var lon = Alloy.Globals.jsonCollection[i].longitude;
+				foundId = Alloy.Globals.jsonCollection[i].id;
+				$.lblInfoText.text = Alloy.Globals.jsonCollection[i].clue;
 
-				if (isInsideRadius(lat, lon, radius)) {
-					showMessage(Alloy.Globals.jsonCollection[i].clue);
-					alerted = true;
-					
-					
-					//alert('Du är nära en bokstav! Nästa ledtråd: '+Alloy.Globals.jsonCollection[i].clue);
-					foundId = Alloy.Globals.jsonCollection[i].id;
+				var message = Ti.UI.createAlertDialog({
+					message : Alloy.Globals.jsonCollection[i].clue,
+					title : 'Ny bokstav i närheten!'
+				});
+				message.show();
 
-					$.lblInfoText.text = Alloy.Globals.jsonCollection[i].clue;
-				}
+				Alloy.Globals.jsonCollection[i].found = 1;
 			}
 		}
-		
+
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - isNearPoint");
 	}
