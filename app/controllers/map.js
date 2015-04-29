@@ -386,126 +386,126 @@ Alloy.Globals.setUserPosition = setUserPosition;
 //-----------------------------------------------------------
 // Visar ikoner för alla informationsobjekt
 //-----------------------------------------------------------
-function displayInfoSpots(type) {
-	try {
-		infospotCollection.fetch({
-			query : 'select * from infospotCoordinatesModel WHERE name ="' + type + '"'
-		});
-		var markerArray = [];
+// function displayInfoSpots(type) {
+	// try {
+		// infospotCollection.fetch({
+			// query : 'select * from infospotCoordinatesModel WHERE name ="' + type + '"'
+		// });
+		// var markerArray = [];
+// 
+		// var infoJSON = infospotCollection.toJSON();
+		// Ti.API.info('infoJSON : ' + JSON.stringify(infoJSON));
+// 
+		// for (var u = 0; u < infoJSON.length; u++) {
+			// var marker = MapModule.createAnnotation({
+				// latitude : infoJSON[u].latitude,
+				// longitude : infoJSON[u].longitude,
+				// image : '/images/map_' + infoJSON[u].name + '.png'
+			// });
+// 
+			// if (type == 'taltplats') {
+				// marker.title = 'Tältplats';
+			// } else {
+				// marker.title = capitalizeFirstLetter(type);
+			// }
+// 
+			// Ti.API.info('marker : ' + JSON.stringify(marker));
+			// markerArray.push(marker);
+		// }
+// 
+		// return markerArray;
+// 
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "map - displayInfoSpots");
+	// }
+// }
+// 
+// function capitalizeFirstLetter(string) {
+	// return string.charAt(0).toUpperCase() + string.slice(1);
+// }
 
-		var infoJSON = infospotCollection.toJSON();
-		Ti.API.info('infoJSON : ' + JSON.stringify(infoJSON));
-
-		for (var u = 0; u < infoJSON.length; u++) {
-			var marker = MapModule.createAnnotation({
-				latitude : infoJSON[u].latitude,
-				longitude : infoJSON[u].longitude,
-				image : '/images/map_' + infoJSON[u].name + '.png'
-			});
-
-			if (type == 'taltplats') {
-				marker.title = 'Tältplats';
-			} else {
-				marker.title = capitalizeFirstLetter(type);
-			}
-
-			Ti.API.info('marker : ' + JSON.stringify(marker));
-			markerArray.push(marker);
-		}
-
-		return markerArray;
-
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - displayInfoSpots");
-	}
-}
-
-function capitalizeFirstLetter(string) {
-	return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-function removeInfoSpot(infotype) {
-	var arrayInfo = displayInfoSpots(infotype);
-	// Ti.API.info('array : ' + JSON.stringify(arrayInfo[0].id));
-	// baseMap.removeAnnotations(arrayInfo);
-
-	for (var o = 0; o < arrayInfo.length; o++) {
-		// Ti.API.info('arrayTitle : ' + JSON.stringify(arrayInfo[info].title));
-		baseMap.removeAnnotation(arrayInfo[o].title);
-	}
-}
+// function removeInfoSpot(infotype) {
+	// var arrayInfo = displayInfoSpots(infotype);
+	// // Ti.API.info('array : ' + JSON.stringify(arrayInfo[0].id));
+	// // baseMap.removeAnnotations(arrayInfo);
+// 
+	// for (var o = 0; o < arrayInfo.length; o++) {
+		// // Ti.API.info('arrayTitle : ' + JSON.stringify(arrayInfo[info].title));
+		// baseMap.removeAnnotation(arrayInfo[o].title);
+	// }
+// }
 
 Alloy.Globals.displayInfoSpots = displayInfoSpots;
 Alloy.Globals.removeInfoSpot = removeInfoSpot;
 
 
-// FRÅN WIDGETEN
-function removeInfoSpot(array) {
-
-	for (var o = 0; o < array.length; o++) {
-		// Ti.API.info('arrayTitle : ' + JSON.stringify(arrayInfo[info].title));
-		baseMap.removeAnnotation(array[o].title);
-	}
-}
-
-function showEldplats() {
-	var array = displayInfoSpots("eldplats");
-	if(eldplats == false) {
-		baseMap.addAnnotations(array);
-		$.btnShowEldplats.backgroundImage = '/images/grayeldplats.png';
-		eldplats = true;
-	} else {
-		removeInfoSpot(array);
-		$.btnShowEldplats.backgroundImage = '/images/eldplats.png';
-		eldplats = false;
-	}
-}
-
-function showSnorkelled() {
-	if (snorkel == false) {
-		baseMap.addAnnotations(displayInfoSpots("snorkelled"));
-		$.btnShowSnorkelled.backgroundImage = '/images/graysnorkelled.png';
-		snorkel = true;
-	} else {
-		removeInfoSpot("snorkelled");
-		$.btnShowSnorkelled.backgroundImage = '/images/snorkelled.png';
-		snorkel = false;
-	}
-}
-
-function showInformation() {
-	if (information == false) {
-		baseMap.addAnnotations(displayInfoSpots("information"));
-		$.btnShowInformation.backgroundImage = '/images/grayinformation.png';
-		information = true;
-	} else {
-		removeInfoSpot("information");
-		$.btnShowInformation.backgroundImage = '/images/information.png';
-		information = false;
-	}
-}
-
-function showBadplats() {
-	baseMap.addAnnotations(displayInfoSpots("badplats"));
-	$.btnShowBadplats.backgroundImage = '/images/graybadplats.png';
-}
-
-function showRastplats() {
-	baseMap.addAnnotations(displayInfoSpots("rastplats"));
-	$.btnShowRastplats.backgroundImage = '/images/grayrastplats.png';
-}
-
-function showTaltplats() {
-	baseMap.addAnnotations(displayInfoSpots("taltplats"));
-	$.btnShowTaltplats.backgroundImage = '/images/graytaltplats.png';
-}
-
-function showUtkiksplats() {
-	baseMap.addAnnotations(displayInfoSpots("utsiktsplats"));
-	$.btnShowUtsiktsplats.backgroundImage = '/images/grayutsiktsplats.png';
-}
-
-function showTorrdass() {
-	baseMap.addAnnotations(displayInfoSpots("torrdass"));
-	$.btnShowTorrdass.backgroundImage = '/images/graytorrdass.png';
-}
+// // FRÅN WIDGETEN
+// function removeInfoSpot(array) {
+// 
+	// for (var o = 0; o < array.length; o++) {
+		// // Ti.API.info('arrayTitle : ' + JSON.stringify(arrayInfo[info].title));
+		// baseMap.removeAnnotation(array[o].title);
+	// }
+// }
+// 
+// function showEldplats() {
+	// var array = displayInfoSpots("eldplats");
+	// if(eldplats == false) {
+		// baseMap.addAnnotations(array);
+		// $.btnShowEldplats.backgroundImage = '/images/grayeldplats.png';
+		// eldplats = true;
+	// } else {
+		// removeInfoSpot(array);
+		// $.btnShowEldplats.backgroundImage = '/images/eldplats.png';
+		// eldplats = false;
+	// }
+// }
+// 
+// function showSnorkelled() {
+	// if (snorkel == false) {
+		// baseMap.addAnnotations(displayInfoSpots("snorkelled"));
+		// $.btnShowSnorkelled.backgroundImage = '/images/graysnorkelled.png';
+		// snorkel = true;
+	// } else {
+		// removeInfoSpot("snorkelled");
+		// $.btnShowSnorkelled.backgroundImage = '/images/snorkelled.png';
+		// snorkel = false;
+	// }
+// }
+// 
+// function showInformation() {
+	// if (information == false) {
+		// baseMap.addAnnotations(displayInfoSpots("information"));
+		// $.btnShowInformation.backgroundImage = '/images/grayinformation.png';
+		// information = true;
+	// } else {
+		// removeInfoSpot("information");
+		// $.btnShowInformation.backgroundImage = '/images/information.png';
+		// information = false;
+	// }
+// }
+// 
+// function showBadplats() {
+	// baseMap.addAnnotations(displayInfoSpots("badplats"));
+	// $.btnShowBadplats.backgroundImage = '/images/graybadplats.png';
+// }
+// 
+// function showRastplats() {
+	// baseMap.addAnnotations(displayInfoSpots("rastplats"));
+	// $.btnShowRastplats.backgroundImage = '/images/grayrastplats.png';
+// }
+// 
+// function showTaltplats() {
+	// baseMap.addAnnotations(displayInfoSpots("taltplats"));
+	// $.btnShowTaltplats.backgroundImage = '/images/graytaltplats.png';
+// }
+// 
+// function showUtkiksplats() {
+	// baseMap.addAnnotations(displayInfoSpots("utsiktsplats"));
+	// $.btnShowUtsiktsplats.backgroundImage = '/images/grayutsiktsplats.png';
+// }
+// 
+// function showTorrdass() {
+	// baseMap.addAnnotations(displayInfoSpots("torrdass"));
+	// $.btnShowTorrdass.backgroundImage = '/images/graytorrdass.png';
+// }

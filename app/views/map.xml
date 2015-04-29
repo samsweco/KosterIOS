@@ -11,7 +11,7 @@
 			
 		</View>
 		
-		<View id="selectIconView">
+		<!-- <View id="selectIconView">
 			<Button id="btnShowEldplats" class="btnChange" backgroundImage="/images/eldplats.png" onClick="showEldplats"></Button>
 			<Button id="btnShowSnorkelled" class="btnChange" backgroundImage="/images/snorkelled.png" onClick="showSnorkelled"></Button>
 			<Button id="btnShowInformation" class="btnChange" backgroundImage="/images/information.png" onClick="showInformation"></Button>
@@ -20,7 +20,7 @@
 			<Button id="btnShowTaltplats" class="btnChange" backgroundImage="/images/taltplats.png" onClick="showTaltplats"></Button>
 			<Button id="btnShowUtsiktsplats" class="btnChange" backgroundImage="/images/utsiktsplats.png" onClick="showUtkiksplats"></Button>
 			<Button id="btnShowTorrdass" class="btnChange" backgroundImage="/images/torrdass.png" onClick="showTorrdass"></Button>
-		</View>
+		</View> -->
 		
 		
 		

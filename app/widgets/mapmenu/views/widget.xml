@@ -3,7 +3,7 @@
 	<Collection src="trailsModel" />
 	<Collection src="infospotModel"></Collection>
 	<View id="mapmenu">
-<!--
+
 		<View id="markersView">
 			<Label id="btnShowMarkers" class="lblChange" onClick="displayTrailMarkers">Vandringsleder</Label>
 			<Label id="btnShowHotspots" class="lblChange" onClick="displayMarkers">Sevärdheter</Label>
@@ -21,10 +21,14 @@
 			<Button id="btnShowTorrdass" class="btnChange" backgroundImage="/images/torrdass.png" onClick="showTorrdass"></Button>
 		</View>
 		<View id="settingsView">
-			<Label id="btnClean" class="btnSetStuff" onClick="removeAnnotations">Rensa kartan</Label>
-			<Label id="btnSetNotification" class="btnSetStuff" text="Inaktivera notifikationer" color="#00a9f0" onClick="setNoti"></Label>
+			<!-- <Label id="btnClean" class="btnSetStuff" onClick="removeAnnotations">Rensa kartan</Label> -->
+			
+			<Label id="lblSetGPS" text="Avaktivera GPS-funktioner"></Label>
+			<Switch id="geoSwitch" value="true" titleOn="På" titleOff="Av" left="7dp"></Switch>
+			
+			<!-- <Label id="btnSetNotification" class="btnSetStuff" text="Inaktivera notifikationer" color="#00a9f0" onClick="setNoti"></Label> -->
 		</View>
-		-->
+		
 		
 	</View>
 </Alloy> 

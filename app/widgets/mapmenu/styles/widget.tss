@@ -66,3 +66,11 @@
 "#btnSetNotification": {
 	left : '10dp'
 }
+
+"#lblSetGPS": {
+	font: {
+		fontSize: 15,
+		fontFamily: 'Raleway-Light'
+	},
+	top: '5dp'
+}
