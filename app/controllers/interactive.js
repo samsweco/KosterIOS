@@ -54,11 +54,13 @@ function checkLetter(letterToCheck) {
 
 	if (Alloy.Globals.jsonCollection[foundId-1].letter == letterToCheck) {
 		lettersArray.push(Alloy.Globals.jsonCollection[foundId-1].letter);
-		$.lblCollectedLetters.text += letterToCheck;
+		$.lblCollectedLetters.text += JSON.stringify(letterToCheck);
 		Alloy.Globals.jsonCollection[foundId-1].found = 1;
+		$.txtLetter.value = '';
 
 	} else {
 		alert("Är du säker på att "+letterToCheck+ " är rätt bokstav?");
+		$.txtLetter.value = '';
 	}
 }
 
@@ -409,7 +411,7 @@ function isNearPoint() {
 					foundId = Alloy.Globals.jsonCollection[i].id;
 					Alloy.Globals.jsonCollection[i].found = 1;
 
-					$.lblInfoText.text = 'Nästa bokstav är: '+Alloy.Globals.jsonCollection[i].clue;
+					$.lblInfoText.text = Alloy.Globals.jsonCollection[i].clue;
 				}
 			}
 		}
