@@ -1,9 +1,6 @@
 var args = arguments[0] || {};
 var radius = 20;
 
-var letterCollection = getLetterCollection();
-letterCollection.fetch();
-
 var jsonCollection = letterCollection.toJSON();
 Alloy.Globals.jsonCollection = jsonCollection;
 
