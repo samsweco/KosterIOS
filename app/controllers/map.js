@@ -435,8 +435,8 @@ Alloy.Globals.setUserPosition = setUserPosition;
 	// }
 // }
 
-Alloy.Globals.displayInfoSpots = displayInfoSpots;
-Alloy.Globals.removeInfoSpot = removeInfoSpot;
+// Alloy.Globals.displayInfoSpots = displayInfoSpots;
+// Alloy.Globals.removeInfoSpot = removeInfoSpot;
 
 
 // // FRÅN WIDGETEN
