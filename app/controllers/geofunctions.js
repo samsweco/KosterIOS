@@ -1,19 +1,15 @@
-
-
 //GEO STUFF
 //-----------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------
-
 function getGPSpos() {
 	try {
-
 		Ti.Geolocation.getCurrentPosition(function(e) {
 			if (e.error) {
 				Ti.API.info('Get current position' + e.error);
 				getGPSpos();
-			} 
+			}
 		});
 
 		if (Ti.Geolocation.locationServicesEnabled) {
@@ -21,25 +17,24 @@ function getGPSpos() {
 			Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_NEAREST_TEN_METERS;
 			Titanium.Geolocation.pauseLocationUpdateAutomatically = true;
 			Titanium.Geolocation.distanceFilter = 3;
-			
+
 			Ti.Geolocation.addEventListener('location', function(e) {
 				if (e.error) {
 					Ti.API.info('Kan inte sätta eventListener ' + e.error);
 				} else {
 					getPosition(e.coords);
-					$.coords.text = 'Lat: '+JSON.stringify(e.coords.latitude + 'Lon: '+JSON.stringify(e.coords.longitude));
-					
+					$.coords.text = 'Lat: ' + JSON.stringify(e.coords.latitude + 'Lon: ' + JSON.stringify(e.coords.longitude));
 				}
 			});
-			
+
 		} else {
 			alert('Tillåt gpsen, tack');
 		}
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - get current position GPS");
 	}
-
 }
+Alloy.Globals.getGPSpos = getGPSpos;
 
 //-----------------------------------------------------------
 // Hämtar enhetens position och kontrollerar mot punkter
@@ -48,7 +43,6 @@ function getPosition(coordinatesObj) {
 	try {
 		gLat = coordinatesObj.latitude;
 		gLon = coordinatesObj.longitude;
-		
 
 		isNearPoint();
 	} catch(e) {
@@ -96,25 +90,37 @@ function isInsideRadius(lat1, lon1, rad) {
 //-----------------------------------------------------------
 // Kontrollerar om enheten är innanför en punkt, sänder ut dialog om true
 //-----------------------------------------------------------
-function isNearPoint() {
+function isNearPoint() {//type
 	try {
 
-		for (var i = 0; i < Alloy.Globals.jsonCollection.length; i++) {
+		var dialog = Ti.UI.createAlertDialog();
 
-			if (Alloy.Globals.jsonCollection[i].found == 0) {
-				var lat = Alloy.Globals.jsonCollection[i].latitude;
-				var lon = Alloy.Globals.jsonCollection[i].longitude;
+		//if (type == 'hotspot') {
+			var hotspotColl = Alloy.Collections.hotspotModel;
+			hotspotColl.fetch();
+
+			var jsonHotspot = hotspotColl.toJSON();
+
+			for (var h = 0; h < jsonHotspot.length; h++) {
+
+				var lat = jsonHotspot[h].latitude;
+				var lon = jsonHotspot[h].longitude;
+				var name = jsonHotspot[h].name;
+
+				var radius = 10;
 
 				if (isInsideRadius(lat, lon, radius)) {
-					alert('Du är nära en bokstav! Nästa ledtråd: '+Alloy.Globals.jsonCollection[i].clue);
-					foundId = Alloy.Globals.jsonCollection[i].id;
-					Alloy.Globals.jsonCollection[i].found = 1;
-
-					$.lblInfoText.text = Alloy.Globals.jsonCollection[i].clue;
+					dialog.message = 'Nu börjar du närma dig ' + name + '!';
+					dialog.ok = 'Läs mer';
+					dialog.cancel = 'Stäng';
+					dialog.title = '';
+						
+					dialog.show();
 				}
 			}
-		}
+		//}
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - isNearPoint");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - isNearPoint");
 	}
 }
+

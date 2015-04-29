@@ -156,35 +156,20 @@ function showHotspots() {
 
 $.geoSwitch.addEventListener('change', function(e) {
 	if($.geoSwitch.value == true){
-		$.lblSetGPS.text = "Avaktivera GPS-funktioner";
+		$.lblSetGPS.text = "GPS-funktioner aktiverade";
+		Alloy.Globals.getGPSpos();
 	}else{
-		$.lblSetGPS.text = "Aktivera GPS-funktioner";
+		$.lblSetGPS.text = "GPS-funktioner avaktiverade";
 	}
 	
 });
 
 function removeInfoSpot(infotype) {
 	var arrayInfo = displayInfoSpots(infotype);
-	// Ti.API.info('array : ' + JSON.stringify(arrayInfo[0].id));
-	// baseMap.removeAnnotations(arrayInfo);
 
 	for (var o = 0; o < arrayInfo.length; o++) {
 		// Ti.API.info('arrayTitle : ' + JSON.stringify(arrayInfo[info].title));
 		baseMap.removeAnnotation(arrayInfo[o].title);
-	}
-}
-
-function showWC() {
-	if (wc == false) {
-		baseMap.addAnnotations(displayInfoSpots('wc'));
-		$.btnShowWC.backgroundImage = '/images/graywc.png';
-		wc = true;
-	} else {
-		// $.each(displayInfoSpots('wc'), function() {
-		// baseMap.removeAnnotation('wc');
-		// });
-		$.btnShowWC.backgroundImage = '/images/wc.png';
-		wc = false;
 	}
 }
 

@@ -26,7 +26,7 @@
 				</RightNavButton>
 			</Window>
 		</Tab>
-		<Tab id="interactive" class="tabbar" title="Interactive" icon="/images/quizMenu.png">
+		<Tab id="interactive" class="tabbar" title="Spela" icon="/images/quizMenu.png">
 			<Window id="interactiveWin" onOpen="toInteractive" navBarHidden="true" />
 		</Tab>
 		<Tab id="info" class="tabbar" title="Info" icon="/images/infoMenu.png">

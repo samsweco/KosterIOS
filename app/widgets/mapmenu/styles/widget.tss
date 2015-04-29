@@ -23,7 +23,7 @@
 	height: Titanium.UI.SIZE,
 	width: Titanium.UI.FILL,
 	opacity: 1,
-	left: '17%',
+	left: '16%',
 	// right: '5%',
 	top : '10dp'
 }
@@ -60,7 +60,7 @@
 ".lblChange": {
 	font: {
 		fontSize: 16,
-		fontFamily: 'Raleway-Light'
+		fontFamily: 'Raleway-Medium'
 	},
 	color: "#FF9966",
 	left: '2%'
@@ -82,7 +82,7 @@
 "#lblSetGPS": {
 	font: {
 		fontSize: 15,
-		fontFamily: 'Raleway-Light'
+		fontFamily: 'Raleway-Medium'
 	},
 	top: '5dp'
 }
