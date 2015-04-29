@@ -9,8 +9,8 @@
 			<Label id="btnShowHotspots" class="lblChange" onClick="displayMarkers">Sevärdheter</Label>
 		</View>
 		
+		<Label id="lblChoosePikto">Välj vilka informationspunkter du vill se:</Label>
 		<View id="selectIconView">
-			<Button id="btnShowWC" class="btnChange" backgroundImage="/images/wc.png" onClick="showWC"></Button>
 			<Button id="btnShowEldplats" class="btnChange" backgroundImage="/images/eldplats.png" onClick="showEldplats"></Button>
 			<Button id="btnShowSnorkelled" class="btnChange" backgroundImage="/images/snorkelled.png" onClick="showSnorkelled"></Button>
 			<Button id="btnShowInformation" class="btnChange" backgroundImage="/images/information.png" onClick="showInformation"></Button>

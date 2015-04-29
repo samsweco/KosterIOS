@@ -4,7 +4,7 @@
 	bottom: 0,
 	backgroundColor: 'white',
 	opacity: 0.8,
-	height: '100dp',
+	height: '120dp',
 	width: Titanium.UI.FILL
 }
 
@@ -23,8 +23,8 @@
 	height: Titanium.UI.SIZE,
 	width: Titanium.UI.FILL,
 	opacity: 1,
-	left: '20%',
-	right: '5%',
+	left: '17%',
+	// right: '5%',
 	top : '10dp'
 }
 
@@ -34,13 +34,23 @@
 	height: Titanium.UI.SIZE,
 	width: Titanium.UI.FILL,
 	opacity: 1,
-	left: '5%',
-	top: '5dp'
+	left: '10%',
+	top: '2dp'
+}
+
+"#lblChoosePikto": {
+	top: '5dp',
+	// left: '13%',
+	font: {
+		fontSize: 12,
+		fontFamily: 'Raleway-Light'
+	},
 }
 
 "#settingsView": {
 	left: '12%',
-	layout: 'horizontal'
+	layout: 'horizontal',
+	top: '10dp'
 }
 
 ".btnChange":{
@@ -49,7 +59,8 @@
 
 ".lblChange": {
 	font: {
-		fontSize: 16
+		fontSize: 16,
+		fontFamily: 'Raleway-Light'
 	},
 	color: "#FF9966",
 	left: '2%'
@@ -57,7 +68,8 @@
 
 ".btnSetStuff": {
 	font: {
-		fontSize: 15
+		fontSize: 15,
+		fontFamily: 'Raleway-Light'
 	},
 	color: "#FF9966",
 	top: '5dp'
