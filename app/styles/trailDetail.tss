@@ -118,7 +118,7 @@
 	layout: 'horizontal',
 	height: '40dp',
 	left: '10dp',
-	width: '40%'
+	width: Titanium.UI.SIZE
 }
 
 "#lblTrailLength": {

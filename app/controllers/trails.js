@@ -142,7 +142,7 @@ function showIcons(id) {
 	var iconView = Ti.UI.createView({
 		layout : 'horizontal',
 		height : '25dp',
-		width : '125dp',
+		width : Ti.UI.FILL,
 		backgroundColor : 'white',
 		left : '5dp',
 		top : '5dp'
@@ -152,8 +152,8 @@ function showIcons(id) {
 	for (var i = 0; i < selectedIcons.length; i++) {
 
 		var iconImgView = Ti.UI.createImageView({
-			height : '25dp',
-			width : '25dp',
+			height : '20dp',
+			width : '20dp',
 			left : '0dp'
 		});
 
