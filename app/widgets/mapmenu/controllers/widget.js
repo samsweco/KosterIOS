@@ -97,6 +97,8 @@ function displayInfoSpots(type) {
 		});
 
 		var infoJSON = infospotCollection.toJSON();
+		Ti.API.info('infoJSON : ' + JSON.stringify(infoJSON));
+		
 		for (var u = 0; u < infoJSON.length; u++) {
 			var marker = MapModule.createAnnotation({
 				latitude : infoJSON[u].latitude,
@@ -104,12 +106,10 @@ function displayInfoSpots(type) {
 				image : '/images/map_' + infoJSON[u].name + '.png'
 			});
 
-			if (infoJSON[u].name == 'taltplats') {
+			if (type == 'taltplats') {
 				marker.title = 'Tältplats';
-			} else if (infoJSON[u].name == 'wc') {
-				marker.title = 'WC';
-			} else {
-				marker.title = capitalizeFirstLetter(infoJSON[u].name);
+			}  else {
+				marker.title = capitalizeFirstLetter(type);
 			}
 
 			markerArray.push(marker);

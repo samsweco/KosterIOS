@@ -21,6 +21,8 @@
 //
 // Alloy.Globals.someGlobalFunction = function(){};
 
+var alerted = false;
+
 //-----------------------------------------------------------
 // Variabel för kartvyn
 //-----------------------------------------------------------
@@ -55,11 +57,6 @@ function getInfoCollection() {
 function getJSONfiles() {
 	var jsonFileCollection = Alloy.Collections.jsonFilesModel;
 	return jsonFileCollection;
-}
-
-function getInfospotCollection() {
-	var infospotCollection = Alloy.Collections.infospotModel;
-	return infospotCollection;
 }
 
 function getLetterCollection() {
@@ -294,8 +291,34 @@ function isNearPoint(type) {
 				dialog.show();
 			}
 		}
-	}else {
+	} else if (type == 'interactive') {
+		// var letterColl = Alloy.Collections.letterModel;
+		// letterColl.fetch({
+			// query : 'SELECT DISTINCT id, latitude, longitude, clue, found, radie FROM letterModel'
+		// });
+
+		// var jsonLetters = letterColl.toJSON();
 		
+		Ti.API.info('jsonLetters : ' + JSON.stringify(Alloy.Globals.jsonCollection));
+
+		for (var l = 0; l < Alloy.Globals.jsonCollection[0]; l++) {
+
+			var letterlati = Alloy.Globals.jsonCollection[l].latitude;
+			var letterlongi = Alloy.Globals.jsonCollection[l].longitude;
+			var letterradie = Alloy.Globals.jsonCollection[l].radie;
+
+			if (isInsideRadius(letterlati, letterlongi, letterradie)) {
+				if (Alloy.Globals.jsonCollection[l].found == 0 && alerted == false) {
+					dialog.message = 'Nu börjar du närma dig en ny bokstav! Gå tillbaka till spelet för att se den.';
+					dialog.buttonNames = ['Stäng'];
+					dialog.show();
+
+					Alloy.Globals.jsonCollection[l].found = 1;
+					alerted = true;
+				}
+			}
+
+		}
 	}
 	// } catch(e) {
 	// newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - isNearPoint");
