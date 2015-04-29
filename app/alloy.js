@@ -162,7 +162,7 @@ function removeInfoSpot(infotype) {
 //-----------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------
-function getGPSpos() {
+function getGPSpos(type) {
 	try {
 		Ti.Geolocation.getCurrentPosition(function(e) {
 			if (e.error) {
@@ -181,7 +181,7 @@ function getGPSpos() {
 				if (e.error) {
 					Ti.API.info('Kan inte sätta eventListener ' + e.error);
 				} else {
-					getPosition(e.coords);
+					getPosition(e.coords, type);
 					// $.coords.text = 'Lat: ' + JSON.stringify(e.coords.latitude + 'Lon: ' + JSON.stringify(e.coords.longitude));
 				}
 			});
@@ -199,14 +199,14 @@ Alloy.Globals.getGPSpos = getGPSpos;
 //-----------------------------------------------------------
 // Hämtar enhetens position och kontrollerar mot punkter
 //-----------------------------------------------------------
-function getPosition(coordinatesObj) {
+function getPosition(coordinatesObj, type) {
 	// try {
-		gLat = coordinatesObj.latitude;
-		gLon = coordinatesObj.longitude;
+	gLat = coordinatesObj.latitude;
+	gLon = coordinatesObj.longitude;
 
-		isNearPoint();
+	isNearPoint(type);
 	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - getPosition");
+	// newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - getPosition");
 	// }
 }
 
@@ -250,12 +250,12 @@ function isInsideRadius(lat1, lon1, rad) {
 //-----------------------------------------------------------
 // Kontrollerar om enheten är innanför en punkt, sänder ut dialog om true
 //-----------------------------------------------------------
-function isNearPoint() {//type
+function isNearPoint(type) {
 	// try {
 
-		var dialog = Ti.UI.createAlertDialog();
+	var dialog = Ti.UI.createAlertDialog();
 
-		//if (type == 'hotspot') {
+	if (type == 'hotspot') {
 		var hotspotColl = Alloy.Collections.hotspotModel;
 		hotspotColl.fetch({
 			query : 'SELECT DISTINCT id, name, infoTxt, xkoord, ykoord FROM hotspotModel'
@@ -288,15 +288,17 @@ function isNearPoint() {//type
 
 						var hotspotDetail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
 						Alloy.CFG.tabs.activeTab.open(hotspotDetail);
-					} 
+					}
 				});
 
 				dialog.show();
 			}
 		}
-		//}
+	}else {
+		
+	}
 	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - isNearPoint");
+	// newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - isNearPoint");
 	// }
 }
 

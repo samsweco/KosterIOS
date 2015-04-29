@@ -246,7 +246,7 @@ Alloy.Globals.closeMapMenu = closeMapMenu;
 $.geoSwitch.addEventListener('change', function(e) {
 	if($.geoSwitch.value == true){
 		$.lblSetGPS.text = "GPS-funktioner aktiverade";
-		Alloy.Globals.getGPSpos();
+		Alloy.Globals.getGPSpos('hotspot');
 	}else{
 		$.lblSetGPS.text = "GPS-funktioner avaktiverade";
 	}
