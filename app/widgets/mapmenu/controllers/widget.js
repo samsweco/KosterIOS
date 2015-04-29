@@ -1,4 +1,3 @@
-
 var menuVisible = false;
 
 var infospotsNotVisible = true;
@@ -24,8 +23,8 @@ function displayTrailMarkers() {
 				longitude : jsonObj[i].pinLon,
 				title : jsonObj[i].name,
 				subtitle : 'Läs mer om ' + jsonObj[i].name + ' här!',
-				rightButton : '/pins/androidarrow2.png',
-				pincolor : MapModule.ANNOTATION_AZURE,
+				rightButton : '/images/arrow.png',
+				image : '/images/pin-' + jsonObj[i].color + '.png',
 				name : 'trail'
 			});
 
@@ -53,8 +52,8 @@ function displayMarkers() {
 				longitude : markersJSON[u].ykoord,
 				title : markersJSON[u].name,
 				subtitle : 'Läs mer om ' + markersJSON[u].name + ' här!',
-				pincolor : MapModule.ANNOTATION_ROSE,
-				rightButton : '/pins/androidarrow2.png',
+				image : '/images/hot-icon-azure.png',
+				rightButton : '/images/arrow.png',
 				name : 'hotspot'
 			});
 
@@ -75,31 +74,31 @@ function displayMarkers() {
 function displayInfoSpots(type) {
 	try {
 		var markerArray = [];
-		var infospotCollection = getInfospotCollection();
+		var infospotCollection = getInfoSpotCoordinatesCollection();
 		infospotCollection.fetch({
-			query : 'select * from infospotCoordinatesModel WHERE name ="' + type + '"'
+			query : 'SELECT latitude, longitude FROM infospotCoordinatesModel WHERE name ="' + type + '"'
 		});
-
-		var infoJSON = infospotCollection.toJSON();
-		for (var u = 0; u < infoJSON.length; u++) {
+		
+		var infospotJSON = infospotCollection.toJSON();
+		
+		for (var u = 0; u < infospotJSON.length; u++) {
 			var marker = MapModule.createAnnotation({
-				latitude : infoJSON[u].latitude,
-				longitude : infoJSON[u].longitude,
-				image : '/images/map_' + infoJSON[u].name + '.png'
+				latitude : infospotJSON[u].latitude,
+				longitude : infospotJSON[u].longitude,
+				image : '/images/map_' + type + '.png'
 			});
 
-			if (infoJSON[u].name == 'taltplats') {
+			if (type == 'taltplats') {
 				marker.title = 'Tältplats';
-			} else if (infoJSON[u].name == 'wc') {
-				marker.title = 'WC';
 			} else {
-				marker.title = capitalizeFirstLetter(infoJSON[u].name);
+				marker.title = capitalizeFirstLetter(type);
 			}
 
 			markerArray.push(marker);
 		}
 
 		return markerArray;
+		
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - displayInfoSpots");
 	}
@@ -112,27 +111,14 @@ function capitalizeFirstLetter(string) {
 function removeAnnotations() {
 	baseMap.removeAllAnnotations();
 	
-	$.btnShowWC.backgroundImage = '/images/graywc.png';
-	$.btnShowEldplats.backgroundImage = '/images/grayeldplats.png';
-	$.btnShowSnorkelled.backgroundImage = '/images/graysnorkelled.png';
-	$.btnShowInformation.backgroundImage = '/images/grayinformation.png';
-	$.btnShowBadplats.backgroundImage = '/images/graybadplats.png';
-	$.btnShowRastplats.backgroundImage = '/images/grayrastplats.png';
-	$.btnShowTaltplats.backgroundImage = '/images/graytaltplats.png';
-	$.btnShowUtsiktsplats.backgroundImage = '/images/grayutsiktsplats.png';
-	$.btnShowTorrdass.backgroundImage = '/images/graytorrdass.png';
-}
-
-function normalMap() {
-	baseMap.mapType = MapModule.NORMAL_TYPE;
-}
-
-function hybridMap() {
-	baseMap.mapType = MapModule.HYBRID_TYPE;
-}
-
-function satelliteMap() {
-	baseMap.mapType = MapModule.SATELLITE_TYPE;
+	$.btnShowEldplats.backgroundImage = '/images/eldplats.png';
+	$.btnShowSnorkelled.backgroundImage = '/images/snorkelled.png';
+	$.btnShowInformation.backgroundImage = '/images/information.png';
+	$.btnShowBadplats.backgroundImage = '/images/badplats.png';
+	$.btnShowRastplats.backgroundImage = '/images/rastplats.png';
+	$.btnShowTaltplats.backgroundImage = '/images/taltplats.png';
+	$.btnShowUtsiktsplats.backgroundImage = '/images/utsiktsplats.png';
+	$.btnShowTorrdass.backgroundImage = '/images/torrdass.png';
 }
 
 function showHotspots() {
@@ -142,49 +128,60 @@ function showHotspots() {
 	}
 }
 
-function showWC() {
-	baseMap.addAnnotations(displayInfoSpots("wc"));
-	$.btnShowWC.backgroundImage = '/images/wc.png';
+function removeInfoSpot(infotype) {
+	var arrayInfo = displayInfoSpots(infotype);
+
+	for (var o = 0; o < arrayInfo.length; o++) {
+		Ti.API.info('arrayTitle : ' + JSON.stringify(arrayInfo[o].title));
+		baseMap.removeAnnotation(arrayInfo[o].title);
+	}
 }
 
 function showEldplats() {
-	baseMap.addAnnotations(displayInfoSpots("eldplats"));
-	$.btnShowEldplats.backgroundImage = '/images/eldplats.png';
+	if (eldplats == false) {
+		baseMap.addAnnotations(displayInfoSpots("eldplats"));
+		$.btnShowEldplats.backgroundImage = '/images/grayeldplats.png';
+		eldplats = true;
+	} else {
+		removeInfoSpot("eldplats");
+		$.btnShowEldplats.backgroundImage = '/images/eldplats.png';
+		eldplats = false;
+	}
 }
 
 function showSnorkelled() {
 	baseMap.addAnnotations(displayInfoSpots("snorkelled"));
-	$.btnShowSnorkelled.backgroundImage = '/images/snorkelled.png';
+	$.btnShowSnorkelled.backgroundImage = '/images/graysnorkelled.png';
 }
 
 function showInformation() {
 	baseMap.addAnnotations(displayInfoSpots("information"));
-	$.btnShowInformation.backgroundImage = '/images/information.png';
+	$.btnShowInformation.backgroundImage = '/images/grayinformation.png';
 }
 
 function showBadplats() {
 	baseMap.addAnnotations(displayInfoSpots("badplats"));
-	$.btnShowBadplats.backgroundImage = '/images/badplats.png';
+	$.btnShowBadplats.backgroundImage = '/images/graybadplats.png';
 }
 
 function showRastplats() {
 	baseMap.addAnnotations(displayInfoSpots("rastplats"));
-	$.btnShowRastplats.backgroundImage = '/images/rastplats.png';
+	$.btnShowRastplats.backgroundImage = '/images/grayrastplats.png';
 }
 
 function showTaltplats() {
 	baseMap.addAnnotations(displayInfoSpots("taltplats"));
-	$.btnShowTaltplats.backgroundImage = '/images/taltplats.png';
+	$.btnShowTaltplats.backgroundImage = '/images/graytaltplats.png';
 }
 
 function showUtkiksplats() {
 	baseMap.addAnnotations(displayInfoSpots("utsiktsplats"));
-	$.btnShowUtsiktsplats.backgroundImage = '/images/utsiktsplats.png';
+	$.btnShowUtsiktsplats.backgroundImage = '/images/grayutsiktsplats.png';
 }
 
 function showTorrdass() {
 	baseMap.addAnnotations(displayInfoSpots("torrdass"));
-	$.btnShowTorrdass.backgroundImage = '/images/torrdass.png';
+	$.btnShowTorrdass.backgroundImage = '/images/graytorrdass.png';
 }
 
 function showMenuWidget() {
@@ -202,9 +199,9 @@ function closeMapMenu(){
 		menuVisible = false;
 }
 
-$.mapmenu.addEventListener('swipe', function() {
+$.mapmenu.addEventListener('singleTap', function() {
 	closeMapMenu();
 });
 
 Alloy.Globals.showMenuWidget = showMenuWidget;
-Alloy.Globals.closeMapManu = closeMapMenu;
+Alloy.Globals.closeMapMenu = closeMapMenu;
