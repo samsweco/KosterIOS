@@ -154,16 +154,6 @@ function showHotspots() {
 	}
 }
 
-$.geoSwitch.addEventListener('change', function(e) {
-	if($.geoSwitch.value == true){
-		$.lblSetGPS.text = "GPS-funktioner aktiverade";
-		Alloy.Globals.getGPSpos();
-	}else{
-		$.lblSetGPS.text = "GPS-funktioner avaktiverade";
-	}
-	
-});
-
 function removeInfoSpot(infotype) {
 	var arrayInfo = displayInfoSpots(infotype);
 
@@ -251,3 +241,14 @@ function closeMapMenu() {
 
 Alloy.Globals.showMenuWidget = showMenuWidget;
 Alloy.Globals.closeMapMenu = closeMapMenu;
+
+
+$.geoSwitch.addEventListener('change', function(e) {
+	if($.geoSwitch.value == true){
+		$.lblSetGPS.text = "GPS-funktioner aktiverade";
+		Alloy.Globals.getGPSpos();
+	}else{
+		$.lblSetGPS.text = "GPS-funktioner avaktiverade";
+	}
+});
+
