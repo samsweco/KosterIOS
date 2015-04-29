@@ -200,14 +200,14 @@ Alloy.Globals.getGPSpos = getGPSpos;
 // Hämtar enhetens position och kontrollerar mot punkter
 //-----------------------------------------------------------
 function getPosition(coordinatesObj) {
-	try {
+	// try {
 		gLat = coordinatesObj.latitude;
 		gLon = coordinatesObj.longitude;
 
 		isNearPoint();
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - getPosition");
-	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - getPosition");
+	// }
 }
 
 //-----------------------------------------------------------
@@ -251,13 +251,15 @@ function isInsideRadius(lat1, lon1, rad) {
 // Kontrollerar om enheten är innanför en punkt, sänder ut dialog om true
 //-----------------------------------------------------------
 function isNearPoint() {//type
-	try {
+	// try {
 
 		var dialog = Ti.UI.createAlertDialog();
 
 		//if (type == 'hotspot') {
 		var hotspotColl = Alloy.Collections.hotspotModel;
-		hotspotColl.fetch();
+		hotspotColl.fetch({
+			query : 'SELECT DISTINCT id, name, infoTxt, xkoord, ykoord FROM hotspotModel'
+		});
 
 		var jsonHotspot = hotspotColl.toJSON();
 		Ti.API.info('jsonhot : ' + JSON.stringify(jsonHotspot));
@@ -266,22 +268,22 @@ function isNearPoint() {//type
 
 			var lat = jsonHotspot[h].xkoord;
 			var lon = jsonHotspot[h].ykoord;
-			var name = jsonHotspot[h].name;
-			var txt = jsonHotspot[h].infoTxt;
-			var hotid = jsonHotspot[h].id;
+			// var name = jsonHotspot[h].name;
+			// var txt = jsonHotspot[h].infoTxt;
+			// var hotid = jsonHotspot[h].id;
 
 			var radius = 10;
 
 			if (isInsideRadius(lat, lon, radius)) {
-				dialog.message = 'Nu börjar du närma dig ' + name + '!';
+				dialog.message = 'Nu börjar du närma dig ' + jsonHotspot[h].name + '!';
 				dialog.buttonNames = ['Läs mer', 'Stäng'];
 
 				dialog.addEventListener('click', function(e) {
 					if (e.index == 0) {
 						var hotspotTxt = {
-							title : name,
-							infoTxt : txt,
-							id : hotid
+							title : jsonHotspot[h].name,
+							infoTxt : jsonHotspot[h].infoTxt,
+							id : jsonHotspot[h].id
 						};
 
 						var hotspotDetail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
@@ -293,8 +295,8 @@ function isNearPoint() {//type
 			}
 		}
 		//}
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - isNearPoint");
-	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - isNearPoint");
+	// }
 }
 
