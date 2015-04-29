@@ -137,7 +137,8 @@ function showHotspots() {
 					fontSize : 12,
 					fontFamily: 'Raleway-light'
 				},
-				text : 'Läs mer om ' + rows[i].name + " här!"
+				text: 'Läs mer...'
+				//text : 'Läs mer om ' + rows[i].name + " här!"
 			});
 
 			labelView.add(lblName);
