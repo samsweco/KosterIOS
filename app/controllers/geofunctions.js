@@ -23,7 +23,7 @@ function getGPSpos() {
 					Ti.API.info('Kan inte sätta eventListener ' + e.error);
 				} else {
 					getPosition(e.coords);
-					$.coords.text = 'Lat: ' + JSON.stringify(e.coords.latitude + 'Lon: ' + JSON.stringify(e.coords.longitude));
+					// $.coords.text = 'Lat: ' + JSON.stringify(e.coords.latitude + 'Lon: ' + JSON.stringify(e.coords.longitude));
 				}
 			});
 
@@ -31,9 +31,10 @@ function getGPSpos() {
 			alert('Tillåt gpsen, tack');
 		}
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - get current position GPS");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - get current position GPS");
 	}
 }
+
 Alloy.Globals.getGPSpos = getGPSpos;
 
 //-----------------------------------------------------------
@@ -46,7 +47,7 @@ function getPosition(coordinatesObj) {
 
 		isNearPoint();
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - getPosition");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - getPosition");
 	}
 }
 
@@ -65,7 +66,7 @@ function distanceInM(lat1, lon1, GLat, GLon) {
 
 		return distance;
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - distanceInM");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - distanceInM");
 	}
 }
 
@@ -83,7 +84,7 @@ function isInsideRadius(lat1, lon1, rad) {
 		}
 		return isInside;
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - isInsideRadius");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - isInsideRadius");
 	}
 }
 
