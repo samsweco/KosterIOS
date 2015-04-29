@@ -50,11 +50,13 @@ function getLetter() {
 	//};
 }
 
+//Sätta alert title
+
 function checkLetter(letterToCheck) {
 
 	if (Alloy.Globals.jsonCollection[foundId-1].letter == letterToCheck) {
 		lettersArray.push(Alloy.Globals.jsonCollection[foundId-1].letter);
-		$.lblCollectedLetters.text += JSON.stringify(letterToCheck);
+		$.lblCollectedLetters.text = $.lblCollectedLetters.text+letterToCheck;
 		Alloy.Globals.jsonCollection[foundId-1].found = 1;
 		$.txtLetter.value = '';
 
@@ -407,9 +409,14 @@ function isNearPoint() {
 				var lon = Alloy.Globals.jsonCollection[i].longitude;
 
 				if (isInsideRadius(lat, lon, radius)) {
-					alert('Du är nära en bokstav! Nästa ledtråd: '+Alloy.Globals.jsonCollection[i].clue);
+					
+					var clue = Ti.UI.createNotification({
+    				message:"Ledtråd : " + Alloy.Globals.jsonCollection[i].clue,
+    				duration: Ti.UI.NOTIFICATION_DURATION_LONG
+					});
+					toast.show();
+					//alert('Du är nära en bokstav! Nästa ledtråd: '+Alloy.Globals.jsonCollection[i].clue);
 					foundId = Alloy.Globals.jsonCollection[i].id;
-					Alloy.Globals.jsonCollection[i].found = 1;
 
 					$.lblInfoText.text = Alloy.Globals.jsonCollection[i].clue;
 				}
