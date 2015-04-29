@@ -11,9 +11,10 @@
 			</Label>
 			<Button id="btnStartQuiz" onClick="startInteractive">Starta quizen</Button>			
 			<TextField id="txtLetter"></TextField>
-			<Label id="lblLetters" onClick="sendLetter">Skicka bokstav!</Label>
+			<Label id="lblLetters" onClick="sendLetter" text="Skicka bokstav!"></Label>
 			<Label id="lblCollectedLetters"></Label>
 			<Label id="coords" text="coords"></Label>
+			<TextField id="txtWord"></TextField>
 			
 			</View>
 		</View>

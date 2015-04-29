@@ -11,11 +11,11 @@
 "#interactiveWin": {
 	top: '20dp',
 	backgroundColor: 'white',
-	layout : 'vertical'
+	layout: 'vertical'
 }
 "#startView": {
 	layout: 'vertical',
-	top : '55dp'
+	top: '55dp'
 }
 
 "#hideView": {
@@ -25,7 +25,7 @@
 "#lblInfoText": {
 	top: '10dp',
 	font: {
-		fontSize: '14dp',
+		fontSize: '14dp'
 	} ,
 	right: '20dp',
 	left: '20dp',
@@ -77,5 +77,9 @@
 }
 
 "#lblCollectedLetters": {
+	visible: false
+}
+
+"#txtWord":{
 	visible: false
 }

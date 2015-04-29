@@ -93,7 +93,7 @@ var notify = true;
 // Array som håller bokstäverna från bokstavsjakten.
 //-----------------------------------------------------------
 var lettersArray = [];
-var word = 'KOSTERHAVET';
+var word = 'sam';
 var globalTrailID = 0;
 
 var interactiveVisible = false;
