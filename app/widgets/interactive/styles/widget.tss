@@ -1,6 +1,6 @@
-"#interactive": {
+"#interactiveView": {
 	layout: 'vertical',
-	height: '100dp',
+	height: '0dp',
 	backgroundColor: 'yellow',
 	opacity: 0.8,
 	visible : false

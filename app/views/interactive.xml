@@ -14,9 +14,9 @@
 			<Label id="lblLetters" onClick="sendLetter">Skicka bokstav!</Label>
 			<Label id="lblCollectedLetters"></Label>
 			<Label id="coords" text="coords"></Label>
+			
 			</View>
 		</View>
 		</View>
-		<Widget src="interactive" name="widget"></Widget>
 	</View>
 </Alloy>

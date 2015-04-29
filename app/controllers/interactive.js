@@ -405,12 +405,11 @@ function isNearPoint() {
 				var lon = Alloy.Globals.jsonCollection[i].longitude;
 
 				if (isInsideRadius(lat, lon, radius)) {
-					Alloy.Globals.showInteractive(JSON.stringify(Alloy.Globals.jsonCollection[i].clue));
-//					alert("Du är i punkt : " + Alloy.Globals.jsonCollection[i].id + " och bokstaven är: " + Alloy.Globals.jsonCollection[i].letter);
+					alert('Du är nära en bokstav! Nästa ledtråd: '+Alloy.Globals.jsonCollection[i].clue);
 					foundId = Alloy.Globals.jsonCollection[i].id;
 					Alloy.Globals.jsonCollection[i].found = 1;
 
-					$.lblInfoText.text = Alloy.Globals.jsonCollection[i].clue;
+					$.lblInfoText.text = 'Nästa bokstav är: '+Alloy.Globals.jsonCollection[i].clue;
 				}
 			}
 		}

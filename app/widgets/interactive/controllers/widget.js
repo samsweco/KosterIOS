@@ -2,12 +2,12 @@
 
 function showInteractive(clueTxt) {
 	if (!interactiveVisible) {
-		$.interactive.height = '100dp';
-		$.interactive.visible = true;
+		$.interactiveView.height = '100dp';
+		$.interactiveView.visible = true;
 		$.lblClue.text = clueTxt;
 		interactiveVisible = true;
 	} else {
-		$.interactive.visible = false;
+		$.interactiveView.visible = false;
 		interactiveVisible = false;
 	}	
 }
@@ -15,7 +15,7 @@ function showInteractive(clueTxt) {
 Alloy.Globals.showInteractive = showInteractive;
 
 function closeInteractive() {
-	$.interactive.hide();
+	$.interactiveView.hide();
 	interactiveVisible = false;
 }
 
