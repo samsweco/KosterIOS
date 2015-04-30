@@ -1,10 +1,9 @@
 var menuVisible = false;
-
-var infospotsNotVisible = true;
 var hotspotsNotVisible = true;
-
 var trailsCollection = getTrailsCollection();
 var hotspotCollection = getHotspotCollection();
+
+$.geoSwitch.value = true;
 
 //-----------------------------------------------------------
 // Visar markers för hotspots
@@ -91,22 +90,37 @@ function removeAnnoSpot(annoType, infotype) {
 	}
 
 	for (var o = 0; o < arrayAnno.length; o++) {
-		Ti.API.info('arrayTitle : ' + JSON.stringify(arrayAnno[o].title));
 		baseMap.removeAnnotation(arrayAnno[o].title);
 	}
 }
 
-function showHotspots() {
-	var arrayHot = displayMarkers();
+$.geoSwitch.addEventListener('change', function(e) {
+	if($.geoSwitch.value == true){
+		$.lblSetGPS.text = "GPS-funktioner aktiverade";
+		$.lblSetGPS.color = 'black';
+		Alloy.Globals.getGPSpos('hotspot');
+	}else{
+		$.lblSetGPS.text = "GPS-funktioner avaktiverade";
+		$.lblSetGPS.color = 'gray';
+	}
+});
 
-	if (hotspotsNotVisible) {
+$.hotspotSwitch.addEventListener('change', function(e) {
+	if($.hotspotSwitch.value == true){
+		var arrayHot = displayMarkers();
 		baseMap.addAnnotations(arrayHot);
 		hotspotsNotVisible = false;
-	} else {
+		$.btnShowHotspots.text = 'Ta bort sevärdheter';
+		$.btnShowHotspots.color = 'gray';
+		
+		// Alloy.Globals.getGPSpos('hotspot');
+	}else{
 		removeAnnoSpot('hotspot', 'hot');
 		hotspotsNotVisible = true;
+		$.btnShowHotspots.text = 'Visa sevärdheter';
+		$.btnShowHotspots.color = 'black';
 	}
-}
+});
 
 function showEldplats() {
 	if (eldplats == false) {

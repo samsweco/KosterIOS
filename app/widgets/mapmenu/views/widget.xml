@@ -4,10 +4,6 @@
 	<Collection src="infospotModel"></Collection>
 	<Collection src="infospotCoordinatesModel"></Collection>
 	<View id="mapmenu">
-		<View id="markersView">
-			<!-- <Label id="btnShowMarkers" class="lblChange" onClick="displayTrailMarkers">Vandringsleder</Label> -->
-			<Label id="btnShowHotspots" class="lblChange" onClick="showHotspots">Sevärdheter</Label>
-		</View>
 		<Label id="lblChoosePikto">Välj vilka informationspunkter du vill se:</Label>
 		<View id="selectIconView">
 			<Button id="btnShowEldplats" class="btnChange" backgroundImage="/images/eldplats.png" onClick="showEldplats"></Button>
@@ -19,11 +15,17 @@
 			<Button id="btnShowUtsiktsplats" class="btnChange" backgroundImage="/images/utsiktsplats.png" onClick="showUtkiksplats"></Button>
 			<Button id="btnShowTorrdass" class="btnChange" backgroundImage="/images/torrdass.png" onClick="showTorrdass"></Button>
 		</View>
+		<View id="lineView"></View>
 		<View id="settingsView">
-			<Label id="lblSetGPS" text="Avaktivera GPS-funktioner"></Label>
-			<Switch id="geoSwitch" value="true" titleOn="På" titleOff="Av" left="7dp"></Switch>
-
-			<!-- <Label id="btnSetNotification" class="btnSetStuff" text="Inaktivera notifikationer" color="#00a9f0" onClick="setNoti"></Label> -->
+			<View id="hotSwitchView" class="settingsHorizontalView">
+				<Label id="btnShowHotspots" class="lblChange" text="Visa sevärdheter"></Label>
+				<Switch id="hotspotSwitch" class="switch" value="false" left="5dp"></Switch>
+			</View>
+			<View id="gpsSwitchView" class="settingsHorizontalView">
+				<Label id="lblSetGPS" class="lblChange" text="Avaktivera GPS-funktioner"></Label>
+				<Switch id="geoSwitch" class="switch" titleOn="På" titleOff="Av" left="5dp"></Switch>
+			</View>
+			<!-- <Label id="btnSetNotification" class="btnSetStuff" text="Inaktivera notifikationer" color="#00a9f0"></Label> -->
 		</View>
 
 	</View>

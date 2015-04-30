@@ -4,28 +4,30 @@
 	bottom: 0,
 	backgroundColor: 'white',
 	opacity: 0.8,
-	height: '130dp',
+	height: '150dp',
 	width: Titanium.UI.FILL
 }
 
-"#mapTypeView": {
-	layout: 'horizontal',
-	height: Titanium.UI.SIZE,
+"#lineView": {
+	top: '10dp',
 	width: Titanium.UI.FILL,
-	opacity: 1,
-	left: '25%',
-	right: '5%',
-	top: '5dp'
+	height: '1dp',
+	backgroundColor: "#c4c4c4"
 }
 
-"#markersView": {
+".settingsHorizontalView": {
 	layout: 'horizontal',
 	height: Titanium.UI.SIZE,
 	width: Titanium.UI.FILL,
-	opacity: 1,
-	left: '16%',
-	// right: '5%',
-	top : '10dp'
+	opacity: 1
+}
+
+"#gpsSwitchView":{
+	top: '40dp'
+}
+
+"#hotSwitchView": {
+	top: '5dp'
 }
 
 "#selectIconView": {
@@ -40,21 +42,25 @@
 
 "#lblChoosePikto": {
 	top: '5dp',
-	// left: '13%',
 	font: {
-		fontSize: 12,
+		fontSize: 13,
 		fontFamily: 'Raleway-Light'
 	},
 }
 
 "#settingsView": {
 	left: '12%',
-	layout: 'horizontal',
-	top: '10dp'
+	top: '5dp',
+	height: Titanium.UI.SIZE,
+	width: Titanium.UI.SIZE
 }
 
 ".btnChange":{
 	left: '2%'
+}
+
+"#btnSetNotification": {
+	left : '10dp'
 }
 
 ".lblChange": {
@@ -62,27 +68,5 @@
 		fontSize: 16,
 		fontFamily: 'Raleway-Medium'
 	},
-	color: "#FF9966",
-	left: '2%'
-}
-
-".btnSetStuff": {
-	font: {
-		fontSize: 15,
-		fontFamily: 'Raleway-Light'
-	},
-	color: "#FF9966",
-	top: '5dp'
-}
-
-"#btnSetNotification": {
-	left : '10dp'
-}
-
-"#lblSetGPS": {
-	font: {
-		fontSize: 15,
-		fontFamily: 'Raleway-Medium'
-	},
-	top: '5dp'
+	top: '6dp'
 }
