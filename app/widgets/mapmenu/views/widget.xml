@@ -6,7 +6,7 @@
 	<View id="mapmenu">
 		<View id="markersView">
 			<!-- <Label id="btnShowMarkers" class="lblChange" onClick="displayTrailMarkers">Vandringsleder</Label> -->
-			<Label id="btnShowHotspots" class="lblChange" onClick="displayMarkers">Sevärdheter</Label>
+			<Label id="btnShowHotspots" class="lblChange" onClick="showHotspots">Sevärdheter</Label>
 		</View>
 		<Label id="lblChoosePikto">Välj vilka informationspunkter du vill se:</Label>
 		<View id="selectIconView">
@@ -20,8 +20,6 @@
 			<Button id="btnShowTorrdass" class="btnChange" backgroundImage="/images/torrdass.png" onClick="showTorrdass"></Button>
 		</View>
 		<View id="settingsView">
-			<!-- <Label id="btnClean" class="btnSetStuff" onClick="removeAnnotations">Rensa kartan</Label> -->
-
 			<Label id="lblSetGPS" text="Avaktivera GPS-funktioner"></Label>
 			<Switch id="geoSwitch" value="true" titleOn="På" titleOff="Av" left="7dp"></Switch>
 
