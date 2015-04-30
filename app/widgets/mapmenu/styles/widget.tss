@@ -8,11 +8,13 @@
 	width: Titanium.UI.FILL
 }
 
-"#lineView": {
-	top: '10dp',
+".lineView": {
 	width: Titanium.UI.FILL,
-	height: '1dp',
+	height: '1.5dp',
 	backgroundColor: "#c4c4c4"
+}
+"#lineTwo": {
+	top: '10dp'
 }
 
 ".settingsHorizontalView": {
@@ -25,7 +27,6 @@
 "#gpsSwitchView":{
 	top: '40dp'
 }
-
 "#hotSwitchView": {
 	top: '5dp'
 }
@@ -44,8 +45,8 @@
 	top: '5dp',
 	font: {
 		fontSize: 13,
-		fontFamily: 'Raleway-Light'
-	},
+		fontFamily: 'Raleway-Medium'
+	}
 }
 
 "#settingsView": {
@@ -57,10 +58,6 @@
 
 ".btnChange":{
 	left: '2%'
-}
-
-"#btnSetNotification": {
-	left : '10dp'
 }
 
 ".lblChange": {
