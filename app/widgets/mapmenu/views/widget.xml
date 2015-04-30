@@ -5,7 +5,7 @@
 	<Collection src="infospotCoordinatesModel"></Collection>
 	<View id="mapmenu">
 		<View id="markersView">
-			<Label id="btnShowMarkers" class="lblChange" onClick="displayTrailMarkers">Vandringsleder</Label>
+			<!-- <Label id="btnShowMarkers" class="lblChange" onClick="displayTrailMarkers">Vandringsleder</Label> -->
 			<Label id="btnShowHotspots" class="lblChange" onClick="displayMarkers">Sevärdheter</Label>
 		</View>
 		<Label id="lblChoosePikto">Välj vilka informationspunkter du vill se:</Label>

@@ -9,31 +9,31 @@ var hotspotCollection = getHotspotCollection();
 //-----------------------------------------------------------
 // Visar markers för vandringslederna
 //-----------------------------------------------------------
-function displayTrailMarkers() {
-	try {
-		trailsCollection.fetch({
-			query : 'SELECT name, pinLon, pinLat, color FROM trailsModel'
-		});
-
-		var jsonObj = trailsCollection.toJSON();
-		for (var i = 0; i < jsonObj.length; i++) {
-			var markerAnnotation = MapModule.createAnnotation({
-				id : jsonObj[i].name,
-				latitude : jsonObj[i].pinLat,
-				longitude : jsonObj[i].pinLon,
-				title : jsonObj[i].name,
-				subtitle : 'Läs mer om ' + jsonObj[i].name + ' här!',
-				rightButton : '/images/arrow.png',
-				image : '/images/pin-' + jsonObj[i].color + '.png',
-				name : 'trail'
-			});
-
-			baseMap.addAnnotation(markerAnnotation);
-		}
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - displayTrailMarkers");
-	}
-}
+// function displayTrailMarkers() {
+	// try {
+		// trailsCollection.fetch({
+			// query : 'SELECT name, pinLon, pinLat, color FROM trailsModel'
+		// });
+// 
+		// var jsonObj = trailsCollection.toJSON();
+		// for (var i = 0; i < jsonObj.length; i++) {
+			// var markerAnnotation = MapModule.createAnnotation({
+				// id : jsonObj[i].name,
+				// latitude : jsonObj[i].pinLat,
+				// longitude : jsonObj[i].pinLon,
+				// title : jsonObj[i].name,
+				// subtitle : 'Läs mer om ' + jsonObj[i].name + ' här!',
+				// rightButton : '/images/arrow.png',
+				// image : '/images/pin-' + jsonObj[i].color + '.png',
+				// name : 'trail'
+			// });
+// 
+			// baseMap.addAnnotation(markerAnnotation);
+		// }
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "map - displayTrailMarkers");
+	// }
+// }
 
 //-----------------------------------------------------------
 // Visar markers för hotspots
@@ -53,6 +53,10 @@ function displayMarkers() {
 				title : markersJSON[u].name,
 				subtitle : 'Läs mer om ' + markersJSON[u].name + ' här!',
 				image : '/images/hot-icon-azure.png',
+				centerOffset : {
+					x : -3,
+					y : -16
+				},
 				rightButton : '/images/arrow.png',
 				name : 'hotspot'
 			});
