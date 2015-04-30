@@ -150,7 +150,7 @@ function getGPSpos(type) {
 	}
 }
 
-Alloy.Globals.getGPSpos = getGPSpos;
+// Alloy.Globals.getGPSpos = getGPSpos;
 
 //-----------------------------------------------------------
 // Hämtar enhetens position och kontrollerar mot punkter
