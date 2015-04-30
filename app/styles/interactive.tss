@@ -23,7 +23,7 @@
 }
 
 "#lblInfoText": {
-	top: '10dp',
+	top: '5dp',
 	font: {
 		fontSize: '14dp'
 	} ,
@@ -34,17 +34,18 @@
 
 "#showFamilyTrail": {
 	top: '0dp',
-	height: '50%',
+	height: '40%',
 	width: Titanium.UI.FILL
 }
 
 "#lblWelcome": {
 	top: '0dp',
 	font: {
-		fontStyle: 'Raleway-Medium',
-		fontSize: '20dp'
+		fontFamily: 'Raleway-Medium',
+		fontSize: '17dp'
 	},
-	color: '#FF9966'
+	color: '#FF9966',
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
 }
 
 "#lblClue": {
@@ -82,4 +83,13 @@
 
 "#txtWord":{
 	visible: false
+}
+
+
+"#btnStartQuiz" : {
+	height : 30,
+	width: 100,
+	backgroundColor : '#FF9966',
+	borderRadius : '4dp',
+	color : 'black'
 }

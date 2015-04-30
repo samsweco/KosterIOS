@@ -264,7 +264,8 @@ function displayTrailMarkers() {
 				latitude : jsonObj[i].pinLat,
 				longitude : jsonObj[i].pinLon,
 				title : jsonObj[i].name,
-				subtitle : 'Läs mer om ' + jsonObj[i].name + ' här!',
+				subtitle : 'Läs mer',
+				// om ' + jsonObj[i].name + ' här!',
 				rightButton : '/pins/arrow.png',
 				image : '/images/pin-' + jsonObj[i].color + '.png',
 				centerOffset : {
