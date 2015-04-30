@@ -76,17 +76,17 @@ function displayInfoSpots(type) {
 
 		var infospotJSON = infospotCollection.toJSON();
 
-		for (var u = 0; u < infospotJSON.length; u++) {
+		for (var i = 0; i < infospotJSON.length; i++) {
 			var marker = MapModule.createAnnotation({
-				latitude : infospotJSON[u].latitude,
-				longitude : infospotJSON[u].longitude,
-				image : '/images/map_' + infospotJSON[u].name + '.png'
+				latitude : infospotJSON[i].latitude,
+				longitude : infospotJSON[i].longitude,
+				image : '/images/map_' + infospotJSON[i].name + '.png'
 			});
 
-			if (infospotJSON[u].name == 'taltplats') {
+			if (infospotJSON[i].name == 'taltplats') {
 				marker.title = 'Tältplats';
 			} else {
-				marker.title = capitalizeFirstLetter(infospotJSON[u].name);
+				marker.title = capitalizeFirstLetter(infospotJSON[i].name);
 			}
 
 			markerArray.push(marker);
