@@ -119,12 +119,7 @@ function removeAnnoSpot(annoType, infotype) {
 
 $.geoSwitch.addEventListener('change', function(e) {
 	if ($.geoSwitch.value == true) {
-		$.lblSetGPS.text = "GPS-funktioner aktiverade";
-		$.lblSetGPS.color = 'black';
 		Alloy.Globals.getGPSpos('hotspot');
-	} else {
-		$.lblSetGPS.text = "GPS-funktioner avaktiverade";
-		$.lblSetGPS.color = 'gray';
 	}
 });
 
@@ -133,15 +128,11 @@ $.hotspotSwitch.addEventListener('change', function(e) {
 		var arrayHot = displayMarkers();
 		baseMap.addAnnotations(arrayHot);
 		hotspotsNotVisible = false;
-		$.btnShowHotspots.text = 'Ta bort sevärdheter';
-		$.btnShowHotspots.color = 'gray';
 
 		// Alloy.Globals.getGPSpos('hotspot');
 	} else {
 		removeAnnoSpot('hotspot', 'hot');
 		hotspotsNotVisible = true;
-		$.btnShowHotspots.text = 'Visa sevärdheter';
-		$.btnShowHotspots.color = 'black';
 	}
 });
 

@@ -23,7 +23,7 @@
 				<Switch id="hotspotSwitch" class="switch" value="false" left="5dp"></Switch>
 			</View>
 			<View id="gpsSwitchView" class="settingsHorizontalView">
-				<Label id="lblSetGPS" class="lblChange" text="Avaktivera GPS-funktioner"></Label>
+				<Label id="lblSetGPS" class="lblChange" text="GPS-funktioner"></Label>
 				<Switch id="geoSwitch" class="switch" titleOn="På" titleOff="Av" left="5dp"></Switch>
 			</View>
 			<!-- <Label id="btnSetNotification" class="btnSetStuff" text="Inaktivera notifikationer" color="#00a9f0"></Label> -->
