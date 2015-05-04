@@ -14,8 +14,8 @@
 	layout: 'vertical'
 }
 // "#startView": {
-	// layout: 'vertical',
-	// top: '55dp'
+// layout: 'vertical',
+// top: '55dp'
 // }
 
 "#hideView": {
@@ -29,7 +29,7 @@
 	} ,
 	right: '20dp',
 	left: '20dp',
-	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+	// textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
 }
 
 "#showFamilyTrail": {
@@ -39,10 +39,10 @@
 }
 
 "#lblWelcome": {
-	top: '10dp',
+	top: '15dp',
 	font: {
 		fontFamily: 'Raleway-Medium',
-		fontSize: '17dp'
+		fontSize: '20dp'
 	},
 	color: '#FF9966',
 	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
@@ -85,12 +85,12 @@
 	visible: false
 }
 
-"#btnStartQuiz" : {
-	height : '30dp',
+"#btnStartQuiz": {
+	height: '30dp',
 	width: '200dp',
-	backgroundColor : '#FFCC99',
-	borderRadius : '4dp',
-	color : 'black',
-	top : '30dp'
+	backgroundColor: '#FFCC99',
+	borderRadius: '4dp',
+	color: 'black',
+	top: '30dp'
 }
 
