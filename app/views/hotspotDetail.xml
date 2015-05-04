@@ -1,6 +1,6 @@
 <Alloy>
 	<Collection src="mediaModel"></Collection>
-	<Window id="hotspotDetail">
+	<Window id="hotspotDetail" backButtonTitle="Tillbaka">
 		<ScrollView class="headView" scrollType="vertical">
 			<View id="slideView">
 				<ScrollableView id="slideShowHotspotDetail" showPagingControl="true"/>
