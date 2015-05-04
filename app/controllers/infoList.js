@@ -72,24 +72,13 @@ function setRowData() {
 				top : '2dp',
 				color : '#FF9966',
 				font : {
-					fontSize : '16dp',
+					fontSize : '14dp',
 					fontFamily: 'Raleway-Medium'
 				},
 				text : rows[i].name
 			});
 
-			var lblDesc = Ti.UI.createLabel({
-				left : '5dp',
-				top : '2dp',
-				font : {
-					fontSize : '14dp',
-					fontFamily: 'Raleway-Light'
-				},
-				text : rows[i].desc
-			});
-
 			labelView.add(lblName);
-			labelView.add(lblDesc);
 
 			row.add(coverimg);
 			row.add(labelView);

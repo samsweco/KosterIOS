@@ -66,7 +66,8 @@
 	left: '15dp',
 	top: '10dp',
 	font: {
-		fontSize: '14dp'
+		fontSize: '14dp',
+		fontFamily: 'Raleway-Medium'
 	}
 }
 
@@ -123,8 +124,8 @@
 
 "#lblTrailLength": {
 	font: {
-		fontStyle: 'Italic',
-		fontSize: '14dp'
+		fontSize: '14dp',
+		fontFamily: 'Raleway-Medium'
 	},
 	left: '15dp'
 }

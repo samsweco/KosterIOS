@@ -7,15 +7,15 @@
 		<View class="lineView"></View>
 		<Label id="lblChoosePikto">Välj vilka informationspunkter du vill se:</Label>
 		<View id="selectIconView">
-			<Button id="btnShowFarglage" class="btnChange" backgroundImage="/images/farglage.png" onClick="showFarglage"></Button>
-			<Button id="btnShowEldplats" class="btnChange" backgroundImage="/images/eldplats.png" onClick="showEldplats"></Button>
-			<Button id="btnShowSnorkelled" class="btnChange" backgroundImage="/images/snorkelled.png" onClick="showSnorkelled"></Button>
-			<Button id="btnShowInformation" class="btnChange" backgroundImage="/images/information.png" onClick="showInformation"></Button>
-			<Button id="btnShowBadplats" class="btnChange" backgroundImage="/images/badplats.png" onClick="showBadplats"></Button>
-			<Button id="btnShowRastplats" class="btnChange" backgroundImage="/images/rastplats.png" onClick="showRastplats"></Button>
-			<Button id="btnShowTaltplats" class="btnChange" backgroundImage="/images/taltplats.png" onClick="showTaltplats"></Button>
-			<Button id="btnShowUtsiktsplats" class="btnChange" backgroundImage="/images/utsiktsplats.png" onClick="showUtkiksplats"></Button>
-			<Button id="btnShowTorrdass" class="btnChange" backgroundImage="/images/torrdass.png" onClick="showTorrdass"></Button>
+			<Button id="btnShowFarglage" class="btnChange" backgroundImage="/images/grayfarglage.png" onClick="showFarglage"></Button>
+			<Button id="btnShowEldplats" class="btnChange" backgroundImage="/images/grayeldplats.png" onClick="showEldplats"></Button>
+			<Button id="btnShowSnorkelled" class="btnChange" backgroundImage="/images/graysnorkelled.png" onClick="showSnorkelled"></Button>
+			<Button id="btnShowInformation" class="btnChange" backgroundImage="/images/grayinformation.png" onClick="showInformation"></Button>
+			<Button id="btnShowBadplats" class="btnChange" backgroundImage="/images/graybadplats.png" onClick="showBadplats"></Button>
+			<Button id="btnShowRastplats" class="btnChange" backgroundImage="/images/grayrastplats.png" onClick="showRastplats"></Button>
+			<Button id="btnShowTaltplats" class="btnChange" backgroundImage="/images/graytaltplats.png" onClick="showTaltplats"></Button>
+			<Button id="btnShowUtsiktsplats" class="btnChange" backgroundImage="/images/grayutsiktsplats.png" onClick="showUtkiksplats"></Button>
+			<Button id="btnShowTorrdass" class="btnChange" backgroundImage="/images/graytorrdass.png" onClick="showTorrdass"></Button>
 		</View>
 		<View id="lineTwo" class="lineView"></View>
 		<View id="settingsView">
@@ -24,7 +24,7 @@
 				<Switch id="hotspotSwitch" class="switch" value="false" left="5dp"></Switch>
 			</View>
 			<View id="gpsSwitchView" class="settingsHorizontalView">
-				<Label id="lblSetGPS" class="lblChange" text="GPS-funktioner"></Label>
+				<Label id="lblSetGPS" class="lblChange" text="Plinga i närheten av sevärdhet"></Label>
 				<Switch id="geoSwitch" class="switch" titleOn="På" titleOff="Av" left="5dp"></Switch>
 			</View>
 			<!-- <Label id="btnSetNotification" class="btnSetStuff" text="Inaktivera notifikationer" color="#00a9f0"></Label> -->

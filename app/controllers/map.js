@@ -254,7 +254,7 @@ function showMap() {
 function displayTrailMarkers() {
 	try {
 		trailsCollection.fetch({
-			query : 'SELECT name, pinLon, pinLat, color FROM trailsModel'
+			query : 'SELECT name, pinLon, pinLat, color, area, length FROM trailsModel'
 		});
 
 		var jsonObj = trailsCollection.toJSON();
@@ -264,7 +264,7 @@ function displayTrailMarkers() {
 				latitude : jsonObj[i].pinLat,
 				longitude : jsonObj[i].pinLon,
 				title : jsonObj[i].name,
-				subtitle : 'Läs mer',
+				subtitle : jsonObj[i].area + ', ' + jsonObj[i].length + ' km',
 				// om ' + jsonObj[i].name + ' här!',
 				rightButton : '/pins/arrow.png',
 				image : '/images/pin-' + jsonObj[i].color + '.png',
@@ -274,7 +274,7 @@ function displayTrailMarkers() {
 				},
 				name : 'trail',
 				font : {
-					fontFamily : 'Raleway-Light'
+					fontStyle : 'Raleway-Light'
 				}
 			});
 

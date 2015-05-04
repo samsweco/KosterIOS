@@ -27,7 +27,11 @@
 			</Window>
 		</Tab>
 		<Tab id="interactive" class="tabbar" title="Spela" icon="/images/quizMenu.png">
-			<Window id="interactiveWin" onOpen="toInteractive" navBarHidden="true" />
+			<Window id="interactiveWin" title="Bokstavsjakt" onOpen="toInteractive">
+				<LeftNavButton>
+					<Button id="btnGetPosition" image="/images/locationarrow.png" />
+				</LeftNavButton>
+			</Window> />
 		</Tab>
 		<Tab id="info" class="tabbar" title="Info" icon="/images/infoMenu.png">
 			<Window id="infoWin" title="Information" onOpen="toInfo" />

@@ -14,7 +14,13 @@ function displayMarkers() {
 	try {
 		var markerArray = [];
 		hotspotCollection.fetch();
-
+		
+		// if(Alloy.CFG.tabs.activeTab == 'hikeTab'){
+// 			
+		// } else {
+			// hotspotCollection.fetch();
+		// }
+		
 		var markersJSON = hotspotCollection.toJSON();
 		for (var u = 0; u < markersJSON.length; u++) {
 
@@ -42,28 +48,27 @@ function displayMarkers() {
 	}
 }
 
-// function selectAll(typeAll) {
-	// var infospotAllCollection = getInfoSpotCoordinatesCollection();
-	// infospotAllCollection.fetch({
-		// query : 'SELECT name, latitude, longitude FROM infospotCoordinatesModel WHERE name ="' + typeAll + '"'
-	// });
-// 	
-	// var infospotAllJSON = infospotAllCollection.toJSON();
-	// // displayInfoSpots(infospotAllJSON, typeAll);
-	// return infospotAllJSON;
-// }
+//-----------------------------------------------------------
+// Hämtar data för hotspots som hör till den valda vandringsleden
+//-----------------------------------------------------------
+// function getHotspotData() {
+	// try {
+		// var id = trailId;
 // 
-// function selectDistinct(typeDistinct){
-	// var infospotDistinctCollection = getInfoSpotCoordinatesCollection();
-	// infospotDistinctCollection.fetch({
-		// query : 'SELECT DISTINCT name, latitude, longitude FROM infospotCoordinatesModel WHERE name ="' + typeDistinct + '"'
-	// });
-// 	
-	// var infospotDistinctJSON = infospotDistinctCollection.toJSON();
-// 	
-	// Ti.API.info('selectD : ' + JSON.stringify(infospotDistinctJSON));
-	// return infospotDistinctJSON;
+		// var hotstrailCollection = Alloy.Collections.hotspotModel;
+		// hotstrailCollection.fetch({
+			// query : 'SELECT hotspotModel.name, hotspotModel.cover_pic from hotspotModel join hotspot_trailsModel on hotspotModel.id = hotspot_trailsModel.hotspotID where trailsID ="' + id + '"'
+		// });
+// 
+		// var jsonObj = hotstrailCollection.toJSON();
+		// return jsonObj;
+// 
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "trailDetail - getHotspotData");
+	// }
 // }
+
+
 
 //-----------------------------------------------------------
 // Visar ikoner för alla informationsobjekt
@@ -127,27 +132,6 @@ function removeAnnoSpot(anno, infotype) {
 	}
 }
 
-// function removeAnnoInfospot(infotype) {
-	// var addedToMap = [];
-	// var arrayAnno = [];
-// 
-	// arrayAnno = displayInfoSpots(infotype);
-	// addedToMap[infotype] = arrayAnno;
-// 
-	// for (var ia = 0; ia < addedToMap.length; ia++) {
-		// baseMap.removeAnnotation(addedToMap[ia].id);
-	// }
-// }
-// 
-// function reoveAnnoHotspot(){
-	// var arrayAnno = [];
-	// arrayAnno = displayMarkers();
-// 
-	// for (var ih = 0; ih < arrayAnno.length; ih++) {
-		// baseMap.removeAnnotation(arrayAnno[ih].title);
-	// }
-// }
-
 $.geoSwitch.addEventListener('change', function(e) {
 	if ($.geoSwitch.value == true) {
 		Alloy.Globals.getGPSpos('hotspot');
@@ -174,11 +158,11 @@ function showFarglage() {
 	if (farglage == false) {
 		baseMap.addAnnotations(annos);
 		
-		$.btnShowFarglage.backgroundImage = '/images/grayfarglage.png';
+		$.btnShowFarglage.backgroundImage = '/images/farglage.png';
 		farglage = true;
 	} else {
 		removeAnnoSpot(annos, 'farglage');
-		$.btnShowFarglage.backgroundImage = '/images/farglage.png';
+		$.btnShowFarglage.backgroundImage = '/images/grayfarglage.png';
 		farglage = false;
 	}
 }
@@ -186,11 +170,11 @@ function showFarglage() {
 function showEldplats() {
 	if (eldplats == false) {
 		baseMap.addAnnotations(displayInfoSpots("eldplats"));
-		$.btnShowEldplats.backgroundImage = '/images/grayeldplats.png';
+		$.btnShowEldplats.backgroundImage = '/images/eldplats.png';
 		eldplats = true;
 	} else {
 		removeAnnoSpot('info', 'eldplats');
-		$.btnShowEldplats.backgroundImage = '/images/eldplats.png';
+		$.btnShowEldplats.backgroundImage = '/images/grayeldplats.png';
 		eldplats = false;
 	}
 }
@@ -198,11 +182,11 @@ function showEldplats() {
 function showSnorkelled() {
 	if (snorkel == false) {
 		baseMap.addAnnotations(displayInfoSpots("snorkelled"));
-		$.btnShowSnorkelled.backgroundImage = '/images/graysnorkelled.png';
+		$.btnShowSnorkelled.backgroundImage = '/images/snorkelled.png';
 		snorkel = true;
 	} else {
 		removeAnnoSpot('info', 'snorkelled');
-		$.btnShowSnorkelled.backgroundImage = '/images/snorkelled.png';
+		$.btnShowSnorkelled.backgroundImage = '/images/graysnorkelled.png';
 		snorkel = false;
 	}
 }
@@ -210,11 +194,11 @@ function showSnorkelled() {
 function showInformation() {
 	if (information == false) {
 		baseMap.addAnnotations(displayInfoSpots("information"));
-		$.btnShowInformation.backgroundImage = '/images/grayinformation.png';
+		$.btnShowInformation.backgroundImage = '/images/information.png';
 		information = true;
 	} else {
 		removeAnnoSpot('info', 'information');
-		$.btnShowInformation.backgroundImage = '/images/information.png';
+		$.btnShowInformation.backgroundImage = '/images/grayinformation.png';
 		information = false;
 	}
 }
@@ -222,11 +206,11 @@ function showInformation() {
 function showBadplats() {
 	if (badplats == false) {
 		baseMap.addAnnotations(displayInfoSpots("badplats"));
-		$.btnShowBadplats.backgroundImage = '/images/graybadplats.png';
+		$.btnShowBadplats.backgroundImage = '/images/badplats.png';
 		badplats = true;
 	} else {
 		removeAnnoSpot('info', 'badplats');
-		$.btnShowBadplats.backgroundImage = '/images/badplats.png';
+		$.btnShowBadplats.backgroundImage = '/images/graybadplats.png';
 		badplats = false;
 	}
 }
@@ -234,11 +218,11 @@ function showBadplats() {
 function showRastplats() {
 	if (rastplats == false) {
 		baseMap.addAnnotations(displayInfoSpots("rastplats"));
-		$.btnShowRastplats.backgroundImage = '/images/grayrastplats.png';
+		$.btnShowRastplats.backgroundImage = '/images/rastplats.png';
 		rastplats = true;
 	} else {
 		removeAnnoSpot('info', 'rastplats');
-		$.btnShowRastplats.backgroundImage = '/images/rastplats.png';
+		$.btnShowRastplats.backgroundImage = '/images/grayrastplats.png';
 		rastplats = false;
 	}
 }
@@ -246,11 +230,11 @@ function showRastplats() {
 function showTaltplats() {
 	if (taltplats == false) {
 		baseMap.addAnnotations(displayInfoSpots("taltplats"));
-		$.btnShowTaltplats.backgroundImage = '/images/graytaltplats.png';
+		$.btnShowTaltplats.backgroundImage = '/images/taltplats.png';
 		taltplats = true;
 	} else {
 		removeAnnoSpot('info', 'taltplats');
-		$.btnShowTaltplats.backgroundImage = '/images/taltplats.png';
+		$.btnShowTaltplats.backgroundImage = '/images/graytaltplats.png';
 		taltplats = false;
 	}
 }
@@ -258,11 +242,11 @@ function showTaltplats() {
 function showUtkiksplats() {
 	if (utsiktsplats == false) {
 		baseMap.addAnnotations(displayInfoSpots("utsiktsplats"));
-		$.btnShowUtsiktsplats.backgroundImage = '/images/grayutsiktsplats.png';
+		$.btnShowUtsiktsplats.backgroundImage = '/images/utsiktsplats.png';
 		utsiktsplats = true;
 	} else {
 		removeAnnoSpot('info', 'utsiktsplats');
-		$.btnShowUtsiktsplats.backgroundImage = '/images/utsiktsplats.png';
+		$.btnShowUtsiktsplats.backgroundImage = '/images/grayutsiktsplats.png';
 		utsiktsplats = false;
 	}
 }
@@ -270,11 +254,11 @@ function showUtkiksplats() {
 function showTorrdass() {
 	if (torrdass == false) {
 		baseMap.addAnnotations(displayInfoSpots("torrdass"));
-		$.btnShowTorrdass.backgroundImage = '/images/graytorrdass.png';
+		$.btnShowTorrdass.backgroundImage = '/images/torrdass.png';
 		torrdass = true;
 	} else {
 		removeAnnoSpot('info', 'torrdass');
-		$.btnShowTorrdass.backgroundImage = '/images/torrdass.png';
+		$.btnShowTorrdass.backgroundImage = '/images/graytorrdass.png';
 		torrdass = false;
 	}
 }

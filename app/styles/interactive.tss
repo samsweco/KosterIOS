@@ -9,7 +9,6 @@
 }
 
 "#interactiveWin": {
-	top: '20dp',
 	backgroundColor: 'white',
 	layout: 'vertical'
 }
@@ -34,7 +33,7 @@
 
 "#showFamilyTrail": {
 	top: '0dp',
-	height: '40%',
+	height: '45%',
 	width: Titanium.UI.FILL
 }
 
@@ -45,7 +44,7 @@
 		fontSize: '20dp'
 	},
 	color: '#FF9966',
-	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+	left : '19dp'
 }
 
 "#lblClue": {
@@ -59,12 +58,15 @@
 }
 
 "#lblLetters": {
-	top: '0dp',
+	top: '5dp',
 	font: {
-		fontSize: '12dp'
+		fontSize: '15dp',
+		fontFamily: 'Raleway-Medium'
 	},
-	color: "#000000",
-	visible: false
+	color: "#000",
+	visible: false,
+	color : '#FFCC99',
+	left : '32%'
 }
 
 "#txtLetter": {
@@ -91,6 +93,6 @@
 	backgroundColor: '#FFCC99',
 	borderRadius: '4dp',
 	color: 'black',
-	top: '30dp'
+	top: '17dp'
 }
 

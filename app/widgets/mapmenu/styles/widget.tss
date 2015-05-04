@@ -50,7 +50,7 @@
 }
 
 "#settingsView": {
-	left: '12%',
+	left: '6%',
 	top: '5dp',
 	height: Titanium.UI.SIZE,
 	width: Titanium.UI.SIZE
@@ -62,8 +62,8 @@
 
 ".lblChange": {
 	font: {
-		fontSize: 16,
+		fontSize: 15,
 		fontFamily: 'Raleway-Medium'
 	},
-	top: '6dp'
+	top: '7dp'
 }

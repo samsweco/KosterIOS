@@ -5,7 +5,7 @@
 	<Collection src="letterModel"></Collection>
 	<Window id="hikeDetailWin" backButtonTitle="Tillbaka">
 		<RightNavButton>
-			<Button id="btnShowOnMap" onClick="zoomMapTrail">Visa karta</Button> /><!-- image="/images/mapMenu.png" -->
+			<Button id="btnShowOnMap" onClick="zoomMapTrail">Visa leden på karta</Button> /><!-- image="/images/mapMenu.png" -->
 		</RightNavButton>
 		<ScrollView class="headView" scrollType="vertical">
 			<View id="slideView">

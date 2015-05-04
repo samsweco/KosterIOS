@@ -114,7 +114,6 @@ function displayMarkers() {
 					title : markersJSON[u].name,
 					subtitle : 'Läs mer om ' + markersJSON[u].name + ' här!',
 					image : '/images/hot-icon-azure.png',
-					// pincolor : MapModule.ANNOTATION_PURPLE,
 					rightButton : '/images/arrow.png',
 					name : 'hotspot'
 				});

@@ -109,7 +109,7 @@ function showHotspots() {
 				height : '70dp',
 				width : '110dp',
 				image : '/pics/' + rows[i].cover_pic,
-				left : '5dp',
+				left : '15dp',
 				top : '5dp'
 			});
 
@@ -130,19 +130,7 @@ function showHotspots() {
 				text : rows[i].name
 			});
 
-			var lblDesc = Ti.UI.createLabel({
-				left : '5dp',
-				top : '0dp',
-				font : {
-					fontSize : 12,
-					fontFamily: 'Raleway-light'
-				},
-				text: 'Läs mer...'
-				//text : 'Läs mer om ' + rows[i].name + " här!"
-			});
-
 			labelView.add(lblName);
-			labelView.add(lblDesc);
 
 			row.add(img);
 			row.add(labelView);

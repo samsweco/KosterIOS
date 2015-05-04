@@ -9,11 +9,32 @@ exports.toInteractive = toInteractive;
 function toMap() {
 	var mapWind = Alloy.createController('map').getView();
 	$.mapWin.add(mapWind);
+	
+	var mapwinTitle = Ti.UI.createLabel({
+		font : {
+			fontSize : '15dp',
+			fontFamily : 'Raleway-Medium'
+		},
+		
+		text : 'Karta'
+	});
+
+	$.mapWin.titleControl = mapwinTitle;
 }
 
 function toInteractive() {
 	var interactive = Alloy.createController('interactive').getView();
 	$.interactiveWin.add(interactive);
+	
+	var interacwinTitle = Ti.UI.createLabel({
+		font : {
+			fontSize : '15dp',
+			fontFamily : 'Raleway-Medium'
+		},
+		text : 'Bokstavsjakt'
+	});
+
+	$.interactiveWin.titleControl = interacwinTitle;
 }
 
 function toTrails() {
@@ -43,7 +64,7 @@ function toInfo() {
 		text : 'Information'
 	});
 
-	$.hikeWin.titleControl = infowinTitle;
+	$.infoWin.titleControl = infowinTitle;
 }
 
 //-----------------------------------------------------------

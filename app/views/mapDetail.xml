@@ -7,7 +7,7 @@
 	<Collection src="letterModel"></Collection>
 	<Window backButtonTitle="Tillbaka">
 		<!-- <LeftNavButton>
-			<Button id="btnGetPosition" image="/images/locationarrow.png" onClick="getPos" />
+			<Button id="btnGetPosition" image="/images/locationarrow.png" />
 		</LeftNavButton> -->
 		<RightNavButton>
 			<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMenu" />
