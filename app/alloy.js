@@ -100,6 +100,7 @@ var globalTrailID = 0;
 
 var interactiveVisible = false;
 
+var farglage = false;
 var snorkel = false;
 var torrdass = false;
 var utsiktsplats = false;
@@ -109,7 +110,6 @@ var taltplats = false;
 var badplats = false;
 var information = false;
 var eldplats = false;
-
 
 //SANDRA TA BORT SEN, BARA TEST
 

@@ -37,7 +37,7 @@
 	height: Titanium.UI.SIZE,
 	width: Titanium.UI.FILL,
 	opacity: 1,
-	left: '10%',
+	left: '5%',
 	top: '2dp'
 }
 

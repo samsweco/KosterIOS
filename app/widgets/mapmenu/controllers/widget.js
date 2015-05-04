@@ -104,6 +104,7 @@ function capitalizeFirstLetter(string) {
 }
 
 function removeAnnoSpot(annoType, infotype) {
+	var addedToMap = [];
 	var arrayAnno = [];
 
 	if (annoType == 'info') {
@@ -135,6 +136,18 @@ $.hotspotSwitch.addEventListener('change', function(e) {
 		hotspotsNotVisible = true;
 	}
 });
+
+function showFarglage() {
+	if (farglage == false) {
+		baseMap.addAnnotations(displayInfoSpots("farglage"));
+		$.btnShowFarglage.backgroundImage = '/images/grayfarglage.png';
+		farglage = true;
+	} else {
+		removeAnnoSpot('info', 'farglage');
+		$.btnShowFarglage.backgroundImage = '/images/farglage.png';
+		farglage = false;
+	}
+}
 
 function showEldplats() {
 	if (eldplats == false) {

@@ -7,6 +7,7 @@
 		<View class="lineView"></View>
 		<Label id="lblChoosePikto">Välj vilka informationspunkter du vill se:</Label>
 		<View id="selectIconView">
+			<Button id="btnShowFarglage" class="btnChange" backgroundImage="/images/farglage.png" onClick="showFarglage"></Button>
 			<Button id="btnShowEldplats" class="btnChange" backgroundImage="/images/eldplats.png" onClick="showEldplats"></Button>
 			<Button id="btnShowSnorkelled" class="btnChange" backgroundImage="/images/snorkelled.png" onClick="showSnorkelled"></Button>
 			<Button id="btnShowInformation" class="btnChange" backgroundImage="/images/information.png" onClick="showInformation"></Button>

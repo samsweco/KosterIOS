@@ -27,3 +27,26 @@ if (!e.rowData.active) {
                          }
                          return j;
             }
+
+
+
+function removeAnnoInfospot(infotype) {
+	var addedToMap = [];
+	var arrayAnno = [];
+
+	arrayAnno = displayInfoSpots(infotype);
+	addedToMap[infotype] = arrayAnno;
+
+	for (var ia = 0; ia < addedToMap.length; ia++) {
+		baseMap.removeAnnotation(addedToMap[ia].id);
+	}
+}
+
+function reoveAnnoHotspot(){
+	var arrayAnno = [];
+	arrayAnno = displayMarkers();
+
+	for (var ih = 0; ih < arrayAnno.length; ih++) {
+		baseMap.removeAnnotation(arrayAnno[ih].title);
+	}
+}
