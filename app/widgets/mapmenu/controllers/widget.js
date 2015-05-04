@@ -3,6 +3,8 @@ var hotspotsNotVisible = true;
 var trailsCollection = getTrailsCollection();
 var hotspotCollection = getHotspotCollection();
 
+var addedToMap = {};
+
 $.geoSwitch.value = true;
 
 //-----------------------------------------------------------
@@ -85,6 +87,8 @@ function displayInfoSpots(type) {
 
 			if (infospotJSON[i].name == 'taltplats') {
 				marker.title = 'Tältplats';
+			} else if (infospotJSON[i].name == 'farglage') {
+				marker.title = 'Färgläge';
 			} else {
 				marker.title = capitalizeFirstLetter(infospotJSON[i].name);
 			}
@@ -103,20 +107,46 @@ function capitalizeFirstLetter(string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function removeAnnoSpot(annoType, infotype) {
-	var addedToMap = [];
-	var arrayAnno = [];
-
-	if (annoType == 'info') {
-		arrayAnno = displayInfoSpots(infotype);
-	} else if (annoType == 'hotspot') {
-		arrayAnno = displayMarkers();
-	}
-
-	for (var o = 0; o < arrayAnno.length; o++) {
-		baseMap.removeAnnotation(arrayAnno[o].title);
+function removeAnnoSpot(anno, infotype) {
+	// var arrayAnno = [];
+	// var anno;
+// 
+	// if (annoType == 'info') {
+		// anno = displayInfoSpots(infotype);
+	// } else if (annoType == 'hotspot') {
+		// anno = displayMarkers();
+	// }
+// 	
+	addedToMap[infotype] = anno;
+	
+	var annoArray = addedToMap[infotype];
+	Ti.API.info('addedToMap : ' + JSON.stringify(annoArray));
+	
+	for (var o = 0; o < annoArray.length; o++) {
+		baseMap.removeAnnotation(annoArray[o].title);
 	}
 }
+
+// function removeAnnoInfospot(infotype) {
+	// var addedToMap = [];
+	// var arrayAnno = [];
+// 
+	// arrayAnno = displayInfoSpots(infotype);
+	// addedToMap[infotype] = arrayAnno;
+// 
+	// for (var ia = 0; ia < addedToMap.length; ia++) {
+		// baseMap.removeAnnotation(addedToMap[ia].id);
+	// }
+// }
+// 
+// function reoveAnnoHotspot(){
+	// var arrayAnno = [];
+	// arrayAnno = displayMarkers();
+// 
+	// for (var ih = 0; ih < arrayAnno.length; ih++) {
+		// baseMap.removeAnnotation(arrayAnno[ih].title);
+	// }
+// }
 
 $.geoSwitch.addEventListener('change', function(e) {
 	if ($.geoSwitch.value == true) {
@@ -137,13 +167,17 @@ $.hotspotSwitch.addEventListener('change', function(e) {
 	}
 });
 
-function showFarglage() {
+function showFarglage() {	
+	var annos = displayInfoSpots('farglage');
+	addedToMap['farglage'] = annos;
+	
 	if (farglage == false) {
-		baseMap.addAnnotations(displayInfoSpots("farglage"));
+		baseMap.addAnnotations(annos);
+		
 		$.btnShowFarglage.backgroundImage = '/images/grayfarglage.png';
 		farglage = true;
 	} else {
-		removeAnnoSpot('info', 'farglage');
+		removeAnnoSpot(annos, 'farglage');
 		$.btnShowFarglage.backgroundImage = '/images/farglage.png';
 		farglage = false;
 	}

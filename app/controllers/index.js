@@ -19,50 +19,65 @@ function toInteractive() {
 function toTrails() {
 	var trails = Alloy.createController('trails').getView();
 	$.hikeWin.add(trails);
+
+	var hikewinTitle = Ti.UI.createLabel({
+		font : {
+			fontSize : '15dp',
+			fontFamily : 'Raleway-Medium'
+		},
+		text : 'Vandringsleder'
+	});
+
+	$.hikeWin.titleControl = hikewinTitle;
 }
 
 function toInfo() {
 	var info = Alloy.createController('infoList').getView();
 	$.infoWin.add(info);
+	
+	var infowinTitle = Ti.UI.createLabel({
+		font : {
+			fontSize : '15dp',
+			fontFamily : 'Raleway-Medium'
+		},
+		text : 'Information'
+	});
+
+	$.hikeWin.titleControl = infowinTitle;
 }
 
 //-----------------------------------------------------------
 // Null'ar varje fönster när man trycker på en annan tab.
 //-----------------------------------------------------------
 
-$.mapWin.addEventListener('blur', function(){
+$.mapWin.addEventListener('blur', function() {
 	$.mapWin = null;
 });
 
-$.interactiveWin.addEventListener('blur', function(){
+$.interactiveWin.addEventListener('blur', function() {
 	$.interactiveWin = null;
 });
 
-$.hikeWin.addEventListener('blur', function(){
+$.hikeWin.addEventListener('blur', function() {
 	$.hikeWin = null;
 });
 
-$.infoWin.addEventListener('blur', function(){
+$.infoWin.addEventListener('blur', function() {
 	$.infoWin = null;
 });
 
-$.koster.addEventListener('blur', function(){
+$.koster.addEventListener('blur', function() {
 	$.koster = null;
 });
 
-
-function showMenu(){
+function showMenu() {
 	Alloy.Globals.showMenuWidget();
 }
 
-function getPos(){
+function getPos() {
 	Alloy.Globals.setUserPosition();
 }
 
-function showInteractive(){
+function showInteractive() {
 	Alloy.Globals.showInteractive("Detta är ledtråden!");
 }
-
-// $.lblInteractive.addEventListener('click', function() {
-	// Alloy.Globals.showInteractive("Detta är ledtråden!");
-// });

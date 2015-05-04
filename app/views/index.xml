@@ -14,7 +14,7 @@
 			</Window>
 		</Tab>
 		<Tab id="hikeTab" class="tabbar" title="Vandra" icon="/images/hikeMenu.png">
-			<Window id="hikeWin" title="Vandringsleder" onOpen="toTrails" />
+			<Window id="hikeWin" onOpen="toTrails" />
 		</Tab>
 		<Tab id="maptab" class="tabbar" title="Karta" icon="/images/mapMenu.png">
 			<Window id="mapWin" onOpen="toMap">
