@@ -17,16 +17,17 @@ addClueZone();
 
 function startInteractive() {
 	$.btnStartQuiz.hide();
+	$.btnStartQuiz.height = 0;
 	$.txtLetter.show();
 	$.lblLetters.show();
 	$.lblCollectedLetters.show();
 	getGPSpos('interactive');
-	loadClue();
+	loadClue(1);
 }
 
-function loadClue() {
+function loadClue(id) {
 		$.lblWelcome.text = "Ledtråd: ";
-		$.lblInfoText.text = jsonCollection[foundId-1].clue;
+		$.lblInfoText.text = jsonCollection[id-1].clue;
 }
 
 function addClueZone() {
@@ -53,6 +54,7 @@ function sendLetter() {
 	checkLetter(getLetter());
 	familyMap.removeAllAnnotations();
 	addClueZone();
+	allLetters();
 }
 
 function getLetter() {
@@ -71,7 +73,7 @@ function checkLetter(letterToCheck) {
 		
 		$.lblCollectedLetters.text = $.lblCollectedLetters.text + letterToCheck;
 		$.txtLetter.value = '';
-		loadClue();
+		loadClue(Alloy.Globals.jsonCollection[foundId-1].id+1);
 		
 	} else {
 		alert("Är du säker på att " + letterToCheck + " är rätt bokstav?");
@@ -81,11 +83,15 @@ function checkLetter(letterToCheck) {
 
 function allLetters() {
 
-	if (word.length == letterArray.length) {
+	if (word.length == lettersArray.length) {
 		$.txtLetter.hide();
+		$.txtLetter.height = 0;
+		$.lblLetters.hide();
+		$.lblLetters.height = 0;
+		$.btnStartQuiz.height = 0;
 		$.txtWord.show();
-		$.lblLetters.text = "Skicka ord!";
-		$.lblLetters.onClick = checkWord;
+		$.lblWord.show();
+
 	}
 }
 
@@ -94,7 +100,7 @@ function allLetters() {
 //-----------------------------------------------------------
 function checkWord() {
 	var check = $.txtWord.value;
-	check.toLowerCase();
+//	check.toLowerCase();
 
 	if (check == word) {
 		alert("Bra jobbat!");

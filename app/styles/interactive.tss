@@ -48,7 +48,7 @@
 }
 
 "#lblClue": {
-	top: '10dp',
+	top: '5dp',
 	left: '5dp',
 	font: {
 		fontSize: '16dp',
@@ -85,6 +85,16 @@
 
 "#txtWord":{
 	visible: false
+}
+
+"#lblWord":{
+	visible : false,
+	top: '30dp',
+	height: '35dp',
+	width: '70dp',
+	tintColor: 'blue',
+	borderWidth: '1dp',
+	borderRadius: '5dp',
 }
 
 "#btnStartQuiz": {
