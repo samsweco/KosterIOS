@@ -7,7 +7,7 @@
 		<View class="lineView"></View>
 		<Label id="lblChoosePikto">Välj vilka informationspunkter du vill se:</Label>
 		<View id="selectIconView">
-			<Button id="btnShowFarglage" class="btnChange" backgroundImage="/images/grayfarglage.png" onClick="showFarglage"></Button>
+			<Button id="btnShowFarjelage" class="btnChange" backgroundImage="/images/grayfarjelage.png" onClick="showFarglage"></Button>
 			<Button id="btnShowEldplats" class="btnChange" backgroundImage="/images/grayeldplats.png" onClick="showEldplats"></Button>
 			<Button id="btnShowSnorkelled" class="btnChange" backgroundImage="/images/graysnorkelled.png" onClick="showSnorkelled"></Button>
 			<Button id="btnShowInformation" class="btnChange" backgroundImage="/images/grayinformation.png" onClick="showInformation"></Button>
@@ -25,7 +25,7 @@
 			</View>
 			<View id="gpsSwitchView" class="settingsHorizontalView">
 				<Label id="lblSetGPS" class="lblChange" text="Plinga i närheten av sevärdhet"></Label>
-				<Switch id="geoSwitch" class="switch" titleOn="På" titleOff="Av" left="5dp"></Switch>
+				<Switch id="geoSwitch" class="switch" value="false" titleOn="På" titleOff="Av" left="5dp"></Switch>
 			</View>
 			<!-- <Label id="btnSetNotification" class="btnSetStuff" text="Inaktivera notifikationer" color="#00a9f0"></Label> -->
 		</View>

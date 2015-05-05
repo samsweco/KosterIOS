@@ -90,7 +90,7 @@ function displayInfoSpots(type) {
 
 			if (infospotJSON[i].name == 'taltplats') {
 				marker.title = 'Tältplats';
-			} else if (infospotJSON[i].name == 'farglage') {
+			} else if (infospotJSON[i].name == 'farjelage') {
 				marker.title = 'Färgläge';
 			} else {
 				marker.title = capitalizeFirstLetter(infospotJSON[i].name);
@@ -160,18 +160,18 @@ $.hotspotSwitch.addEventListener('change', function(e) {
 });
 
 function showFarglage() {
-	var annos = displayInfoSpots('farglage');
-	addedToMap['farglage'] = annos;
+	var annos = displayInfoSpots('farjelage');
+	addedToMap['farjelage'] = annos;
 
-	if (farglage == false) {
+	if (farjelage == false) {
 		baseMap.addAnnotations(annos);
 
-		$.btnShowFarglage.backgroundImage = '/images/farglage.png';
-		farglage = true;
+		$.btnShowFarjelage.backgroundImage = '/images/farjelage.png';
+		farjelage = true;
 	} else {
-		removeAnnoSpot(annos, 'farglage');
-		$.btnShowFarglage.backgroundImage = '/images/grayfarglage.png';
-		farglage = false;
+		removeAnnoSpot(annos, 'farjelage');
+		$.btnShowFarjelage.backgroundImage = '/images/grayfarjelage.png';
+		farjelage = false;
 	}
 }
 
