@@ -22,6 +22,34 @@
 // Alloy.Globals.someGlobalFunction = function(){};
 
 var alerted = false;
+//-----------------------------------------------------------
+// Globala variabler för geofencing.
+//-----------------------------------------------------------
+var gLat = 0;
+var gLon = 0;
+var foundId = 1;
+var notify = true;
+
+//-----------------------------------------------------------
+// Array som håller bokstäverna från bokstavsjakten.
+//-----------------------------------------------------------
+var lettersArray = [];
+var globalTrailID = 0;
+
+var interactiveVisible = false;
+
+var farglage = false;
+var snorkel = false;
+var torrdass = false;
+var utsiktsplats = false;
+var wc = false;
+var rastplats = false;
+var taltplats = false;
+var badplats = false;
+var information = false;
+var eldplats = false;
+
+//SANDRA TA BORT SEN, BARA TEST
 
 //-----------------------------------------------------------
 // Variabel för kartvyn
@@ -83,35 +111,7 @@ function newError(errorMsg, pageName) {
 	}
 }
 
-//-----------------------------------------------------------
-// Globala variabler för geofencing.
-//-----------------------------------------------------------
-var gLat = 0;
-var gLon = 0;
-var foundId = 1;
-var notify = true;
 
-//-----------------------------------------------------------
-// Array som håller bokstäverna från bokstavsjakten.
-//-----------------------------------------------------------
-var lettersArray = [];
-var word = 'sam';
-var globalTrailID = 0;
-
-var interactiveVisible = false;
-
-var farglage = false;
-var snorkel = false;
-var torrdass = false;
-var utsiktsplats = false;
-var wc = false;
-var rastplats = false;
-var taltplats = false;
-var badplats = false;
-var information = false;
-var eldplats = false;
-
-//SANDRA TA BORT SEN, BARA TEST
 
 //GEO STUFF
 //-----------------------------------------------------------------------------------------------------
@@ -120,17 +120,17 @@ var eldplats = false;
 //-----------------------------------------------------------------------------------------------------
 function getGPSpos(type) {
 	try {
-		// Ti.Geolocation.getCurrentPosition(function(e) {
-			// if (e.error) {
-				// Ti.API.info('Get current position' + e.error);
-				// getGPSpos();
-			// }
-		// });
+		Ti.Geolocation.getCurrentPosition(function(e) {
+			if (e.error) {
+				Ti.API.info('Get current position' + e.error);
+				//getGPSpos();
+			}
+		});
 
 		if (Ti.Geolocation.locationServicesEnabled) {
 //			Titanium.Geolocation.preferredProvider = Titanium.Geolocation.PROVIDER_GPS;
 			Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_NEAREST_TEN_METERS;
-			Titanium.Geolocation.pauseLocationUpdateAutomatically = true;
+			// Titanium.Geolocation.pauseLocationUpdateAutomatically = true;
 			Titanium.Geolocation.distanceFilter = 3;
 
 			Ti.Geolocation.addEventListener('location', function(e) {
@@ -182,6 +182,7 @@ function distanceInM(lat1, lon1, GLat, GLon) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - distanceInM");
 	}
 }
+//Alloy.Globals.distanceInM = distanceInM;
 
 //-----------------------------------------------------------
 // Kontrollerar om enhetens position är inom radien för en utsatt punkt
@@ -206,7 +207,7 @@ function isInsideRadius(lat1, lon1, rad) {
 //-----------------------------------------------------------
 function isNearPoint(type) {
 	// try {
-
+	var radius = 30;
 	var dialog = Ti.UI.createAlertDialog();
 
 	if (type == 'hotspot') {
@@ -226,7 +227,7 @@ function isNearPoint(type) {
 			// var txt = jsonHotspot[h].infoTxt;
 			// var hotid = jsonHotspot[h].id;
 
-			var radius = 10;
+			
 
 			if (isInsideRadius(lat, lon, radius)) {
 				dialog.message = 'Nu börjar du närma dig ' + jsonHotspot[h].name + '!';
@@ -262,18 +263,18 @@ function isNearPoint(type) {
 
 			var letterlati = Alloy.Globals.jsonCollection[l].latitude;
 			var letterlongi = Alloy.Globals.jsonCollection[l].longitude;
-			var letterradie = Alloy.Globals.jsonCollection[l].radie;
+			//var letterradie = Alloy.Globals.jsonCollection[l].radie;
 
-			if (isInsideRadius(letterlati, letterlongi, letterradie)) {
+			if (isInsideRadius(letterlati, letterlongi, radius)) {
 				if (Alloy.Globals.jsonCollection[l].found == 0) {
-					dialog.message = 'Nu börjar du närma dig en ny bokstav! Gå tillbaka till spelet för att se den.';
-					dialog.buttonNames = ['Stäng'];
-					dialog.show();
+					alert('Ny bokstav');
+					// dialog.message = 'Nu börjar du närma dig en ny bokstav! Gå tillbaka till spelet för att se den.';
+					// dialog.buttonNames = ['Stäng'];
+					// dialog.show();
 
 					Alloy.Globals.jsonCollection[l].found = 1;
 				}
 			}
-
 		}
 	}
 	// } catch(e) {

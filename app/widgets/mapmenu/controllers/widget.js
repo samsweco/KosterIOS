@@ -14,13 +14,13 @@ function displayMarkers() {
 	try {
 		var markerArray = [];
 		hotspotCollection.fetch();
-		
+
 		// if(Alloy.CFG.tabs.activeTab == 'hikeTab'){
-// 			
+		//
 		// } else {
-			// hotspotCollection.fetch();
+		// hotspotCollection.fetch();
 		// }
-		
+
 		var markersJSON = hotspotCollection.toJSON();
 		for (var u = 0; u < markersJSON.length; u++) {
 
@@ -52,23 +52,21 @@ function displayMarkers() {
 // Hämtar data för hotspots som hör till den valda vandringsleden
 //-----------------------------------------------------------
 // function getHotspotData() {
-	// try {
-		// var id = trailId;
-// 
-		// var hotstrailCollection = Alloy.Collections.hotspotModel;
-		// hotstrailCollection.fetch({
-			// query : 'SELECT hotspotModel.name, hotspotModel.cover_pic from hotspotModel join hotspot_trailsModel on hotspotModel.id = hotspot_trailsModel.hotspotID where trailsID ="' + id + '"'
-		// });
-// 
-		// var jsonObj = hotstrailCollection.toJSON();
-		// return jsonObj;
-// 
-	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "trailDetail - getHotspotData");
-	// }
+// try {
+// var id = trailId;
+//
+// var hotstrailCollection = Alloy.Collections.hotspotModel;
+// hotstrailCollection.fetch({
+// query : 'SELECT hotspotModel.name, hotspotModel.cover_pic from hotspotModel join hotspot_trailsModel on hotspotModel.id = hotspot_trailsModel.hotspotID where trailsID ="' + id + '"'
+// });
+//
+// var jsonObj = hotstrailCollection.toJSON();
+// return jsonObj;
+//
+// } catch(e) {
+// newError("Något gick fel när sidan skulle laddas, prova igen!", "trailDetail - getHotspotData");
 // }
-
-
+// }
 
 //-----------------------------------------------------------
 // Visar ikoner för alla informationsobjekt
@@ -78,7 +76,7 @@ function displayInfoSpots(type) {
 		var markerArray = [];
 		var infospotCollection = getInfoSpotCoordinatesCollection();
 		infospotCollection.fetch({
-		query : 'SELECT name, latitude, longitude FROM infospotCoordinatesModel WHERE name ="' + type + '"'
+			query : 'SELECT name, latitude, longitude FROM infospotCoordinatesModel WHERE name ="' + type + '"'
 		});
 
 		var infospotJSON = infospotCollection.toJSON();
@@ -115,20 +113,30 @@ function capitalizeFirstLetter(string) {
 function removeAnnoSpot(anno, infotype) {
 	// var arrayAnno = [];
 	// var anno;
-// 
+	//
 	// if (annoType == 'info') {
-		// anno = displayInfoSpots(infotype);
+	// anno = displayInfoSpots(infotype);
 	// } else if (annoType == 'hotspot') {
-		// anno = displayMarkers();
+	// anno = displayMarkers();
 	// }
-// 	
+	//
 	addedToMap[infotype] = anno;
-	
+
 	var annoArray = addedToMap[infotype];
 	Ti.API.info('addedToMap : ' + JSON.stringify(annoArray));
-	
+
 	for (var o = 0; o < annoArray.length; o++) {
 		baseMap.removeAnnotation(annoArray[o].title);
+	}
+}
+
+function removeAnnoHotspot() {
+	var anno = displayMarkers();
+	
+	Ti.API.info('anno : ' + JSON.stringify(anno));
+
+	for (var o = 0; o < anno.length; o++) {
+		baseMap.removeAnnotation(anno[o].title);
 	}
 }
 
@@ -146,18 +154,18 @@ $.hotspotSwitch.addEventListener('change', function(e) {
 
 		// Alloy.Globals.getGPSpos('hotspot');
 	} else {
-		removeAnnoSpot('hotspot', 'hot');
+		removeAnnoHotspot();
 		hotspotsNotVisible = true;
 	}
 });
 
-function showFarglage() {	
+function showFarglage() {
 	var annos = displayInfoSpots('farglage');
 	addedToMap['farglage'] = annos;
-	
+
 	if (farglage == false) {
 		baseMap.addAnnotations(annos);
-		
+
 		$.btnShowFarglage.backgroundImage = '/images/farglage.png';
 		farglage = true;
 	} else {
