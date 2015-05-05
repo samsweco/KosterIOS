@@ -26,8 +26,8 @@ function startInteractive() {
 }
 
 function loadClue(id) {
-		$.lblWelcome.text = "Ledtråd: ";
-		$.lblInfoText.text = jsonCollection[id-1].clue;
+	$.lblWelcome.text = "Ledtråd: ";
+	$.lblInfoText.text = jsonCollection[id - 1].clue;
 }
 
 function addClueZone() {
@@ -67,14 +67,14 @@ function getLetter() {
 
 function checkLetter(letterToCheck) {
 
-	if (Alloy.Globals.jsonCollection[foundId-1].letter == letterToCheck) {
-		lettersArray.push(Alloy.Globals.jsonCollection[foundId-1].letter);
-		Alloy.Globals.jsonCollection[foundId-1].found = 1;
-		
+	if (Alloy.Globals.jsonCollection[foundId - 1].letter == letterToCheck) {
+		lettersArray.push(Alloy.Globals.jsonCollection[foundId - 1].letter);
+		Alloy.Globals.jsonCollection[foundId - 1].found = 1;
+
 		$.lblCollectedLetters.text = $.lblCollectedLetters.text + letterToCheck;
 		$.txtLetter.value = '';
-		loadClue(Alloy.Globals.jsonCollection[foundId-1].id+1);
-		
+		loadClue(Alloy.Globals.jsonCollection[foundId - 1].id + 1);
+
 	} else {
 		alert("Är du säker på att " + letterToCheck + " är rätt bokstav?");
 		$.txtLetter.value = '';
@@ -100,7 +100,7 @@ function allLetters() {
 //-----------------------------------------------------------
 function checkWord() {
 	var check = $.txtWord.value;
-//	check.toLowerCase();
+	//	check.toLowerCase();
 
 	if (check == word) {
 		alert("Bra jobbat!");
@@ -121,18 +121,17 @@ function checkWord() {
 function displayMarkers() {
 	try {
 		var markerArray = [];
-		hotspotCollection.fetch();
-
-		var markersJSON = hotspotCollection.toJSON();
-		for (var u = 0; u < markersJSON.length; u++) {
+		var hotspots = getHotspots();
+		
+		for (var u = 0; u < hotspots.length; u++) {
 
 			if (OS_IOS) {
 				var marker = MapModule.createAnnotation({
-					id : markersJSON[u].name,
-					latitude : markersJSON[u].xkoord,
-					longitude : markersJSON[u].ykoord,
-					title : markersJSON[u].name,
-					subtitle : 'Läs mer om ' + markersJSON[u].name + ' här!',
+					id : hotspots[u].name,
+					latitude : hotspots[u].xkoord,
+					longitude : hotspots[u].ykoord,
+					title : hotspots[u].name,
+					subtitle : 'Läs mer om ' + hotspots[u].name + ' här!',
 					image : '/images/hot-icon-azure.png',
 					rightButton : '/images/arrow.png',
 					name : 'hotspot'
@@ -147,6 +146,16 @@ function displayMarkers() {
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - displayMarkers");
 	}
+}
+
+function getHotspots() {
+	var hotstrailCollection = Alloy.Collections.hotspotModel;
+	hotstrailCollection.fetch({
+		query : 'SELECT hotspotModel.name, hotspotModel.xkoord, hotspotModel.ykoord from hotspotModel join hotspot_trailsModel on hotspotModel.id = hotspot_trailsModel.hotspotID where trailsID ="' + 7 + '"'
+	});
+
+	var jsonObj = hotstrailCollection.toJSON();
+	return jsonObj;
 }
 
 //-----------------------------------------------------------
@@ -287,7 +296,6 @@ function createMapRoute() {
 	}
 }
 
-
 //GEO STUFF
 //-----------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------
@@ -315,7 +323,7 @@ function getGPSpos() {
 					Ti.API.info('Kan inte sätta eventListener ' + e.error);
 				} else {
 					getPosition(e.coords);
-			//		$.coords.text = 'Lat: ' + JSON.stringify(e.coords.latitude + 'Lon: ' + JSON.stringify(e.coords.longitude));
+					//		$.coords.text = 'Lat: ' + JSON.stringify(e.coords.latitude + 'Lon: ' + JSON.stringify(e.coords.longitude));
 
 				}
 			});
@@ -389,22 +397,22 @@ function isNearPoint() {
 		for (var i = 0; i < Alloy.Globals.jsonCollection.length; i++) {
 
 			if (Alloy.Globals.jsonCollection[i].found == 0) {
-				
+
 				var lat = Alloy.Globals.jsonCollection[i].latitude;
 				var lon = Alloy.Globals.jsonCollection[i].longitude;
 				foundId = Alloy.Globals.jsonCollection[i].id;
 				//$.lblInfoText.text = Alloy.Globals.jsonCollection[i].clue;
 
-				if(isInsideRadius(lat, lon, radius) && Alloy.Globals.jsonCollection[i].alerted == 0){
-					
-				var message = Ti.UI.createAlertDialog({
-					message : Alloy.Globals.jsonCollection[i].clue,
-					title : 'Ny bokstav i närheten!'
-				});
-				message.show();
-				Alloy.Globals.jsonCollection[i].alerted = 1;
+				if (isInsideRadius(lat, lon, radius) && Alloy.Globals.jsonCollection[i].alerted == 0) {
+
+					var message = Ti.UI.createAlertDialog({
+						message : Alloy.Globals.jsonCollection[i].clue,
+						title : 'Ny bokstav i närheten!'
+					});
+					message.show();
+					Alloy.Globals.jsonCollection[i].alerted = 1;
 				}
-				
+
 			}
 		}
 

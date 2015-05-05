@@ -96,7 +96,7 @@ function calculateMapRegion(trailCoordinates) {
 // sätter en vald vandingsled
 //-----------------------------------------------------------
 function setRoute() {
-	// try {
+	try {
 	if (zoomId != 8) {
 		var file = getFile(zoomId);
 
@@ -112,9 +112,9 @@ function setRoute() {
 		};
 	}
 	
-	// } catch(e) {
-	// newError("Något gick fel när sidan skulle laddas, prova igen!", "MapDetail - setRoute");
-	// }
+	} catch(e) {
+	newError("Något gick fel när sidan skulle laddas, prova igen!", "MapDetail - setRoute");
+	}
 }
 
 //-----------------------------------------------------------
