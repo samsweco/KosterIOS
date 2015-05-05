@@ -20,11 +20,12 @@ function setRowData() {
 		var tableViewData = [];
 		var rows = trailsCollection.toJSON();
 		
-		for(var i = 0; i<rows.length; i++){
+		for (var i = rows.length; i > 0; --i){
+		//(var i = 8; i<rows.length; i--){
 			
 				var row = Ti.UI.createTableViewRow({
 				layout : 'horizontal',
-				id : i + 1,
+				id : i - 1,
 				height : '90dp',
 				top : '0dp',
 				hasChild : true
