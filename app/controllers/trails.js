@@ -9,6 +9,10 @@ try {
 
 setRowData();
 
+$.table.addEventListener('click',function(e) {
+    e.row.backbroundColor='red';
+});
+
 //-----------------------------------------------------------
 // Läser in data till alla listitems
 //-----------------------------------------------------------
@@ -48,8 +52,7 @@ function setRowData() {
 				height : Ti.UI.SIZE,
 				width : Ti.UI.FILL,
 				backgroundColor : 'white',
-				layout : 'vertical',
-				selectedColor: 'red'
+				layout : 'vertical'
 			});
 
 			
