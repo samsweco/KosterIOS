@@ -11,9 +11,10 @@
 					<TextField id="txtLetter"></TextField>
 					<Label id="lblLetters" onClick="sendLetter" text="Skicka bokstav!"></Label>
 					<Label id="lblCollectedLetters" text="Bokstäver: "></Label>
-					<TextField id="txtWord"></TextField>
-					<Label id="lblWord" onClick="checkWord" text="Skicka ord!"></Label>
-
+					<View id="wordView">
+						<TextField id="txtWord"></TextField>
+						<Label id="lblWord" onClick="checkWord" text="Skicka ord!"></Label>
+					</View>>
 				</View>
 			</View>
 		</View>

@@ -84,6 +84,7 @@
 }
 
 "#wordView":{
+	top : 0,
 	layout : 'horizontal'
 }
 
