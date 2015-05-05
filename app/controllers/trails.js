@@ -20,12 +20,11 @@ function setRowData() {
 		var tableViewData = [];
 		var rows = trailsCollection.toJSON();
 		
-		for (var i = rows.length; i > 0; --i){
-		//(var i = 8; i<rows.length; i--){
+		for (var i = rows.length; i--;){
 			
 				var row = Ti.UI.createTableViewRow({
 				layout : 'horizontal',
-				id : i - 1,
+				id : rows[i].id,
 				height : '90dp',
 				top : '0dp',
 				hasChild : true
@@ -40,7 +39,7 @@ function setRowData() {
 			var img = Ti.UI.createImageView({
 				height : '75dp',
 				width : '115dp',
-				image : "/pics/" + rows[i].cover_img,
+				image : '/pics/' + rows[i].cover_img,
 				left : '5dp',
 				top : '5dp'
 			});
