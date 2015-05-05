@@ -83,13 +83,16 @@
 	visible: false
 }
 
+"#wordView":{
+	layout : 'horizontal'
+}
+
 "#txtWord":{
 	visible: false
 }
 
 "#lblWord":{
 	visible : false,
-	top: '30dp',
 	height: '35dp',
 	width: '70dp',
 	tintColor: 'blue',

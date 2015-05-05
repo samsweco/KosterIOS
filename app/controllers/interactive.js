@@ -73,7 +73,7 @@ function checkLetter(letterToCheck) {
 		
 		$.lblCollectedLetters.text = $.lblCollectedLetters.text + letterToCheck;
 		$.txtLetter.value = '';
-		loadClue(Alloy.Globals.jsonCollection[foundId-1].id+1);
+		loadClue(Alloy.Globals.jsonCollection[foundId-1].id);
 		
 	} else {
 		alert("Är du säker på att " + letterToCheck + " är rätt bokstav?");
