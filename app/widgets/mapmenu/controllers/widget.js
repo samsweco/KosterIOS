@@ -89,11 +89,11 @@ function displayInfoSpots(type) {
 			});
 
 			if (infospotJSON[i].name == 'taltplats') {
-				marker.title = 'Tältplats'+i;
+				marker.title = 'Tältplats';
 			} else if (infospotJSON[i].name == 'farjelage') {
-				marker.title = 'Färjeläge'+i;
+				marker.title = 'Färjeläge';
 			} else {
-				marker.title = capitalizeFirstLetter(infospotJSON[i].name)+i;
+				marker.title = capitalizeFirstLetter(infospotJSON[i].name);
 			}
 
 			markerArray.push(marker);
@@ -117,11 +117,11 @@ function removeAnnoSpot(anno, infotype) {
 		
 		var type = infospotArray[o].title;
 //		Ti.API.info(infotype);
-		var name = type.substring(0, type.length - 1);
+//		var name = type.substring(0, type.length - 1);
 //		Ti.API.info(name);
 		
-		if(anno == 'info' && infotype == name){
-			baseMap.removeAnnotation(infospotArray[o].title);
+		if(anno == 'info' && infotype == type){
+			baseMap.removeAnnotation(infospotArray[o]);
 		}
 	}
 }
