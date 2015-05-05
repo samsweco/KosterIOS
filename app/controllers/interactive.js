@@ -52,10 +52,10 @@ function getLetter() {
 
 function checkLetter(letterToCheck) {
 
-	if (Alloy.Globals.jsonCollection[foundId].letter == letterToCheck) {
-		lettersArray.push(Alloy.Globals.jsonCollection[foundId].letter);
+	if (Alloy.Globals.jsonCollection[foundId-1].letter == letterToCheck) {
+		lettersArray.push(Alloy.Globals.jsonCollection[foundId-1].letter);
 		$.lblCollectedLetters.text = $.lblCollectedLetters.text + letterToCheck;
-		Alloy.Globals.jsonCollection[foundId].found = 1;
+		Alloy.Globals.jsonCollection[foundId-1].found = 1;
 		$.txtLetter.value = '';
 	} else {
 		alert("Är du säker på att " + letterToCheck + " är rätt bokstav?");
