@@ -52,10 +52,10 @@ function getLetter() {
 
 function checkLetter(letterToCheck) {
 
-	if (Alloy.Globals.jsonCollection[foundId - 1].letter == letterToCheck) {
-		lettersArray.push(Alloy.Globals.jsonCollection[foundId - 1].letter);
+	if (Alloy.Globals.jsonCollection[foundId].letter == letterToCheck) {
+		lettersArray.push(Alloy.Globals.jsonCollection[foundId].letter);
 		$.lblCollectedLetters.text = $.lblCollectedLetters.text + letterToCheck;
-		Alloy.Globals.jsonCollection[foundId-1].found = 1;
+		Alloy.Globals.jsonCollection[foundId].found = 1;
 		$.txtLetter.value = '';
 	} else {
 		alert("Är du säker på att " + letterToCheck + " är rätt bokstav?");
@@ -408,7 +408,7 @@ function isNearPoint() {
 	try {
 		for (var i = 0; i < Alloy.Globals.jsonCollection.length; i++) {
 
-			if (Alloy.Globals.jsonCollection[i].found == 0) {
+			if (Alloy.Globals.jsonCollection[i].found == 0 || Alloy.Globals.jsonCollection[i].alerted == !1) {
 				var lat = Alloy.Globals.jsonCollection[i].latitude;
 				var lon = Alloy.Globals.jsonCollection[i].longitude;
 				foundId = Alloy.Globals.jsonCollection[i].id;
@@ -421,7 +421,7 @@ function isNearPoint() {
 					title : 'Ny bokstav i närheten!'
 				});
 				message.show();
-				Alloy.Globals.jsonCollection[i].found = 1;
+				Alloy.Globals.jsonCollection[i].alerted = 1;
 				}
 				
 			}

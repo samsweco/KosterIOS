@@ -90,7 +90,7 @@ function displayInfoSpots(type) {
 			if (infospotJSON[i].name == 'taltplats') {
 				marker.title = 'Tältplats';
 			} else if (infospotJSON[i].name == 'farjelage') {
-				marker.title = 'Färgläge';
+				marker.title = 'Färjeläge';
 			} else {
 				marker.title = capitalizeFirstLetter(infospotJSON[i].name);
 			}
@@ -122,7 +122,7 @@ function removeAnnoSpot(anno, infotype) {
 	addedToMap[infotype] = anno;
 
 	var annoArray = addedToMap[infotype];
-	Ti.API.info('addedToMap : ' + JSON.stringify(annoArray));
+	//Ti.API.info('addedToMap : ' + JSON.stringify(annoArray));
 
 	for (var o = 0; o < annoArray.length; o++) {
 		baseMap.removeAnnotation(annoArray[o].title);
@@ -132,7 +132,7 @@ function removeAnnoSpot(anno, infotype) {
 function removeAnnoHotspot() {
 	var anno = displayMarkers();
 	
-	Ti.API.info('anno : ' + JSON.stringify(anno));
+//	Ti.API.info('anno : ' + JSON.stringify(anno));
 
 	for (var o = 0; o < anno.length; o++) {
 		baseMap.removeAnnotation(anno[o].title);
