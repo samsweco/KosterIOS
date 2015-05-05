@@ -9,14 +9,16 @@ try {
 
 setRowData();
 
-$.table.addEventListener('click',function(e) {
-    e.row.backbroundColor='red';
+	$.table.addEventListener('click',function(e) {
+    e.row.selectedBackgroundColor='#C8C8C8';
 });
 
 //-----------------------------------------------------------
 // Läser in data till alla listitems
 //-----------------------------------------------------------
 function setRowData() {
+	
+
 
 		var trailsCollection = Alloy.Collections.trailsModel;
 		trailsCollection.fetch();
