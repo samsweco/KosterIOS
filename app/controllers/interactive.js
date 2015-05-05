@@ -16,7 +16,7 @@ addClueZone();
 //getGPSpos();
 
 function startInteractive() {
-	getGPSpos('interactive');
+	Alloy.Globals.getGPSpos('interactive');
 	loadClue();
 }
 

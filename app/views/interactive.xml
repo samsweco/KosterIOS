@@ -12,7 +12,6 @@
 					<Label id="lblLetters" onClick="sendLetter" text="Skicka bokstav!"></Label>
 					<Label id="lblCollectedLetters"></Label>
 					<TextField id="txtWord"></TextField>
-
 				</View>
 			</View>
 		</View>

@@ -120,23 +120,21 @@ var eldplats = false;
 //-----------------------------------------------------------------------------------------------------
 function getGPSpos(type) {
 	try {
-		Ti.Geolocation.getCurrentPosition(function(e) {
-			if (e.error) {
-				Ti.API.info('Get current position' + e.error);
-				getGPSpos();
-			}
-		});
+		// Ti.Geolocation.getCurrentPosition(function(e) {
+			// if (e.error) {
+				// Ti.API.info('Get current position' + e.error);
+				// getGPSpos();
+			// }
+		// });
 
 		if (Ti.Geolocation.locationServicesEnabled) {
-			Titanium.Geolocation.preferredProvider = Titanium.Geolocation.PROVIDER_GPS;
+//			Titanium.Geolocation.preferredProvider = Titanium.Geolocation.PROVIDER_GPS;
 			Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_NEAREST_TEN_METERS;
 			Titanium.Geolocation.pauseLocationUpdateAutomatically = true;
 			Titanium.Geolocation.distanceFilter = 3;
 
 			Ti.Geolocation.addEventListener('location', function(e) {
-				if (e.error) {
-					Ti.API.info('Kan inte sätta eventListener ' + e.error);
-				} else {
+				if (!e.error) {
 					getPosition(e.coords, type);
 					// $.coords.text = 'Lat: ' + JSON.stringify(e.coords.latitude + 'Lon: ' + JSON.stringify(e.coords.longitude));
 				}
@@ -150,7 +148,7 @@ function getGPSpos(type) {
 	}
 }
 
-// Alloy.Globals.getGPSpos = getGPSpos;
+Alloy.Globals.getGPSpos = getGPSpos;
 
 //-----------------------------------------------------------
 // Hämtar enhetens position och kontrollerar mot punkter
@@ -218,7 +216,7 @@ function isNearPoint(type) {
 		});
 
 		var jsonHotspot = hotspotColl.toJSON();
-		Ti.API.info('jsonhot : ' + JSON.stringify(jsonHotspot));
+		//Ti.API.info('jsonhot : ' + JSON.stringify(jsonHotspot));
 
 		for (var h = 0; h < jsonHotspot.length; h++) {
 
@@ -258,7 +256,7 @@ function isNearPoint(type) {
 
 		// var jsonLetters = letterColl.toJSON();
 		
-		Ti.API.info('jsonLetters : ' + JSON.stringify(Alloy.Globals.jsonCollection));
+	//	Ti.API.info('jsonLetters : ' + JSON.stringify(Alloy.Globals.jsonCollection));
 
 		for (var l = 0; l < Alloy.Globals.jsonCollection[0]; l++) {
 
@@ -267,13 +265,12 @@ function isNearPoint(type) {
 			var letterradie = Alloy.Globals.jsonCollection[l].radie;
 
 			if (isInsideRadius(letterlati, letterlongi, letterradie)) {
-				if (Alloy.Globals.jsonCollection[l].found == 0 && alerted == false) {
+				if (Alloy.Globals.jsonCollection[l].found == 0) {
 					dialog.message = 'Nu börjar du närma dig en ny bokstav! Gå tillbaka till spelet för att se den.';
 					dialog.buttonNames = ['Stäng'];
 					dialog.show();
 
 					Alloy.Globals.jsonCollection[l].found = 1;
-					alerted = true;
 				}
 			}
 
