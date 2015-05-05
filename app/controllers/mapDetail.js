@@ -81,11 +81,11 @@ function calculateMapRegion(trailCoordinates) {
 				longitude : poiCenter.lon,
 				latitudeDelta : delta,
 				longitudeDelta : delta
-				
+
 			};
 		}
 		return region;
-		
+
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapDetail - calculateMapRegion");
 	}
@@ -96,56 +96,66 @@ function calculateMapRegion(trailCoordinates) {
 // sätter en vald vandingsled
 //-----------------------------------------------------------
 function setRoute() {
-	try {
-
+	// try {
+	if (zoomId != 8) {
 		var file = getFile(zoomId);
 
 		for (var u = 0; u < file.length; u++) {
 			createMapRoutes(file[u].filename, zoomName, zoomColor);
 		}
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapDetail - setRoute");
+	} else {
+		baseMap.region = {
+			latitude : 58.907482,
+			longitude : 11.104129,
+			latitudeDelta : 0.1,
+			longitudeDelta : 0.1
+		};
 	}
+	
+	// } catch(e) {
+	// newError("Något gick fel när sidan skulle laddas, prova igen!", "MapDetail - setRoute");
+	// }
 }
 
 //-----------------------------------------------------------
 // skapar vandringsleden och sätter den på kartan
 //-----------------------------------------------------------
 function createMapRoutes(file, name, color) {
-	try {
-		var zoomedRoute = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory + "/routes/" + file).read().text;
-		var parsedRoute = JSON.parse(zoomedRoute);
+	// try {
+	var zoomedRoute = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory + "/routes/" + file).read().text;
+	var parsedRoute = JSON.parse(zoomedRoute);
 
-		var geoArray = [];
-		geoArray.push(parsedRoute);
+	var geoArray = [];
+	geoArray.push(parsedRoute);
 
-		var coordArray = [];
+	var coordArray = [];
 
-		for (var u = 0; u < geoArray.length; u++) {
-			var coords = geoArray[0].features[0].geometry.paths[u];
+	for (var u = 0; u < geoArray.length; u++) {
+		var coords = geoArray[0].features[0].geometry.paths[u];
 
-			for (var i = 0; i < coords.length; i++) {
+		for (var i = 0; i < coords.length; i++) {
 
-				var point = {
-					latitude : coords[i][1],
-					longitude : coords[i][0]
-				};
-				coordArray.push(point);
-			}
-
-			var route = {
-				name : name,
-				points : coordArray,
-				color : color,
-				width : 2.0
+			var point = {
+				latitude : coords[i][1],
+				longitude : coords[i][0]
 			};
-			baseMap.addRoute(MapModule.createRoute(route));
+			coordArray.push(point);
 		}
 
-		baseMap.region = calculateMapRegion(coordArray);
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - createMapRoute");
+		var route = {
+			name : name,
+			points : coordArray,
+			width : 2.0,
+			color : color
+		};
+
+		baseMap.addRoute(MapModule.createRoute(route));
 	}
+
+	baseMap.region = calculateMapRegion(coordArray);
+	// } catch(e) {
+	// newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - createMapRoute");
+	// }
 }
 
 //-----------------------------------------------------------
@@ -153,7 +163,6 @@ function createMapRoutes(file, name, color) {
 //-----------------------------------------------------------
 function getFile() {
 	try {
-
 		var jsonFileCollection = Alloy.Collections.jsonFilesModel;
 		jsonFileCollection.fetch({
 			query : 'SELECT filename FROM jsonFilesModel WHERE trailID ="' + zoomId + '"'
@@ -165,7 +174,7 @@ function getFile() {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapDetail - getFile");
 	}
 }
- 
+
 //-----------------------------------------------------------
 // Lägger till eventlistener för klick på hotspot
 //-----------------------------------------------------------
@@ -193,10 +202,10 @@ try {
 	newError("Något gick fel när sidan skulle laddas, prova igen!", "MapDetail - addEventListener");
 }
 
-function showMenu(){
+function showMenu() {
 	Alloy.Globals.showMenuWidget();
 }
 
-function getPos(){
+function getPos() {
 	Alloy.Globals.setUserPosition();
 }
