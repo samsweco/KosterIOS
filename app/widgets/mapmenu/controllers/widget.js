@@ -4,7 +4,7 @@ var trailsCollection = getTrailsCollection();
 var hotspotCollection = getHotspotCollection();
 
 var addedToMap = {};
-
+var infospotArray = [];
 
 //-----------------------------------------------------------
 // Visar markers för hotspots
@@ -71,6 +71,7 @@ function displayMarkers() {
 // Visar ikoner för alla informationsobjekt
 //-----------------------------------------------------------
 function displayInfoSpots(type) {
+	
 	try {
 		var markerArray = [];
 		var infospotCollection = getInfoSpotCoordinatesCollection();
@@ -88,14 +89,15 @@ function displayInfoSpots(type) {
 			});
 
 			if (infospotJSON[i].name == 'taltplats') {
-				marker.title = 'Tältplats';
+				marker.title = 'Tältplats'+i;
 			} else if (infospotJSON[i].name == 'farjelage') {
-				marker.title = 'Färjeläge';
+				marker.title = 'Färjeläge'+i;
 			} else {
-				marker.title = capitalizeFirstLetter(infospotJSON[i].name);
+				marker.title = capitalizeFirstLetter(infospotJSON[i].name)+i;
 			}
 
 			markerArray.push(marker);
+			infospotArray.push(marker);
 		}
 
 		return markerArray;
@@ -110,29 +112,44 @@ function capitalizeFirstLetter(string) {
 }
 
 function removeAnnoSpot(anno, infotype) {
-	// var arrayAnno = [];
-	// var anno;
-	//
-	// if (annoType == 'info') {
-	// anno = displayInfoSpots(infotype);
-	// } else if (annoType == 'hotspot') {
-	// anno = displayMarkers();
-	// }
-	//
-	addedToMap[infotype] = anno;
 
-	var annoArray = addedToMap[infotype];
-	//Ti.API.info('addedToMap : ' + JSON.stringify(annoArray));
-
-	for (var o = 0; o < annoArray.length; o++) {
-		baseMap.removeAnnotation(annoArray[o].title);
+	for (var o = 0; o < infospotArray.length; o++) {
+		
+		var type = infospotArray[o].title;
+//		Ti.API.info(infotype);
+		var name = type.substring(0, type.length - 1);
+//		Ti.API.info(name);
+		
+		if(anno == 'info' && infotype == name){
+			baseMap.removeAnnotation(infospotArray[o].title);
+		}
 	}
 }
 
+// function removeAnnoSpot(anno, infotype) {
+// // var arrayAnno = [];
+// // var anno;
+// //
+// // if (annoType == 'info') {
+// // anno = displayInfoSpots(infotype);
+// // } else if (annoType == 'hotspot') {
+// // anno = displayMarkers();
+// // }
+// //
+// addedToMap[infotype] = anno;
+//
+// var annoArray = addedToMap[infotype];
+// //Ti.API.info('addedToMap : ' + JSON.stringify(annoArray));
+//
+// for (var o = 0; o < annoArray.length; o++) {
+// baseMap.removeAnnotation(annoArray[o].title);
+// }
+// }
+
 function removeAnnoHotspot() {
 	var anno = displayMarkers();
-	
-//	Ti.API.info('anno : ' + JSON.stringify(anno));
+
+	//	Ti.API.info('anno : ' + JSON.stringify(anno));
 
 	for (var o = 0; o < anno.length; o++) {
 		baseMap.removeAnnotation(anno[o].title);
@@ -159,18 +176,30 @@ $.hotspotSwitch.addEventListener('change', function(e) {
 });
 
 function showFarglage() {
-	var annos = displayInfoSpots('farjelage');
-	addedToMap['farjelage'] = annos;
+	//var annos = displayInfoSpots('farjelage');
+//	addedToMap['farjelage'] = annos;
 
 	if (farjelage == false) {
-		baseMap.addAnnotations(annos);
+		baseMap.addAnnotations(displayInfoSpots('farjelage'));
 
 		$.btnShowFarjelage.backgroundImage = '/images/farjelage.png';
 		farjelage = true;
 	} else {
-		removeAnnoSpot(annos, 'farjelage');
+		removeAnnoSpot('info', 'Färjeläge');
 		$.btnShowFarjelage.backgroundImage = '/images/grayfarjelage.png';
 		farjelage = false;
+	}
+}
+
+function showTaltplats() {
+	if (taltplats == false) {
+		baseMap.addAnnotations(displayInfoSpots("taltplats"));
+		$.btnShowTaltplats.backgroundImage = '/images/taltplats.png';
+		taltplats = true;
+	} else {
+		removeAnnoSpot('info', 'Tältplats');
+		$.btnShowTaltplats.backgroundImage = '/images/graytaltplats.png';
+		taltplats = false;
 	}
 }
 
@@ -180,7 +209,7 @@ function showEldplats() {
 		$.btnShowEldplats.backgroundImage = '/images/eldplats.png';
 		eldplats = true;
 	} else {
-		removeAnnoSpot('info', 'eldplats');
+		removeAnnoSpot('info', 'Eldplats');
 		$.btnShowEldplats.backgroundImage = '/images/grayeldplats.png';
 		eldplats = false;
 	}
@@ -192,7 +221,7 @@ function showSnorkelled() {
 		$.btnShowSnorkelled.backgroundImage = '/images/snorkelled.png';
 		snorkel = true;
 	} else {
-		removeAnnoSpot('info', 'snorkelled');
+		removeAnnoSpot('info', 'Snorkelled');
 		$.btnShowSnorkelled.backgroundImage = '/images/graysnorkelled.png';
 		snorkel = false;
 	}
@@ -204,7 +233,7 @@ function showInformation() {
 		$.btnShowInformation.backgroundImage = '/images/information.png';
 		information = true;
 	} else {
-		removeAnnoSpot('info', 'information');
+		removeAnnoSpot('info', 'Information');
 		$.btnShowInformation.backgroundImage = '/images/grayinformation.png';
 		information = false;
 	}
@@ -216,7 +245,7 @@ function showBadplats() {
 		$.btnShowBadplats.backgroundImage = '/images/badplats.png';
 		badplats = true;
 	} else {
-		removeAnnoSpot('info', 'badplats');
+		removeAnnoSpot('info', 'Badplats');
 		$.btnShowBadplats.backgroundImage = '/images/graybadplats.png';
 		badplats = false;
 	}
@@ -228,21 +257,9 @@ function showRastplats() {
 		$.btnShowRastplats.backgroundImage = '/images/rastplats.png';
 		rastplats = true;
 	} else {
-		removeAnnoSpot('info', 'rastplats');
+		removeAnnoSpot('info', 'Rastplats');
 		$.btnShowRastplats.backgroundImage = '/images/grayrastplats.png';
 		rastplats = false;
-	}
-}
-
-function showTaltplats() {
-	if (taltplats == false) {
-		baseMap.addAnnotations(displayInfoSpots("taltplats"));
-		$.btnShowTaltplats.backgroundImage = '/images/taltplats.png';
-		taltplats = true;
-	} else {
-		removeAnnoSpot('info', 'taltplats');
-		$.btnShowTaltplats.backgroundImage = '/images/graytaltplats.png';
-		taltplats = false;
 	}
 }
 
@@ -252,7 +269,7 @@ function showUtkiksplats() {
 		$.btnShowUtsiktsplats.backgroundImage = '/images/utsiktsplats.png';
 		utsiktsplats = true;
 	} else {
-		removeAnnoSpot('info', 'utsiktsplats');
+		removeAnnoSpot('info', 'Utsiktsplats');
 		$.btnShowUtsiktsplats.backgroundImage = '/images/grayutsiktsplats.png';
 		utsiktsplats = false;
 	}
@@ -264,7 +281,7 @@ function showTorrdass() {
 		$.btnShowTorrdass.backgroundImage = '/images/torrdass.png';
 		torrdass = true;
 	} else {
-		removeAnnoSpot('info', 'torrdass');
+		removeAnnoSpot('info', 'Torrdass');
 		$.btnShowTorrdass.backgroundImage = '/images/graytorrdass.png';
 		torrdass = false;
 	}
