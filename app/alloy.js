@@ -38,11 +38,10 @@ var globalTrailID = 0;
 
 var interactiveVisible = false;
 
-var farglage = false;
+var farjelage = false;
 var snorkel = false;
 var torrdass = false;
 var utsiktsplats = false;
-var wc = false;
 var rastplats = false;
 var taltplats = false;
 var badplats = false;
@@ -128,7 +127,7 @@ function getGPSpos(type) {
 		});
 
 		if (Ti.Geolocation.locationServicesEnabled) {
-//			Titanium.Geolocation.preferredProvider = Titanium.Geolocation.PROVIDER_GPS;
+			Titanium.Geolocation.preferredProvider = Titanium.Geolocation.PROVIDER_GPS;
 			Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_NEAREST_TEN_METERS;
 			// Titanium.Geolocation.pauseLocationUpdateAutomatically = true;
 			Titanium.Geolocation.distanceFilter = 3;
@@ -267,6 +266,7 @@ function isNearPoint(type) {
 
 			if (isInsideRadius(letterlati, letterlongi, radius)) {
 				if (Alloy.Globals.jsonCollection[l].found == 0) {
+					
 					alert('Ny bokstav');
 					// dialog.message = 'Nu börjar du närma dig en ny bokstav! Gå tillbaka till spelet för att se den.';
 					// dialog.buttonNames = ['Stäng'];
@@ -282,3 +282,4 @@ function isNearPoint(type) {
 	// }
 }
 
+Alloy.Globals.isNearPoint = isNearPoint;

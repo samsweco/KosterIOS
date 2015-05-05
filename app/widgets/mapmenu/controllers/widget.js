@@ -5,7 +5,6 @@ var hotspotCollection = getHotspotCollection();
 
 var addedToMap = {};
 
-$.geoSwitch.value = true;
 
 //-----------------------------------------------------------
 // Visar markers för hotspots
