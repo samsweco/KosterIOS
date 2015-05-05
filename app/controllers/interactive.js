@@ -16,23 +16,36 @@ addClueZone();
 //getGPSpos();
 
 function startInteractive() {
+	$.btnStartQuiz.hide();
+	$.txtLetter.show();
+	$.lblLetters.show();
+	$.lblCollectedLetters.show();
 	getGPSpos('interactive');
 	loadClue();
 }
 
 function loadClue() {
-	$.btnStartQuiz.hide();
-	$.txtLetter.show();
-	$.lblLetters.show();
-	$.lblCollectedLetters.show();
-
-	if (foundId == !null) {
-
 		$.lblWelcome.text = "Ledtråd: ";
-		$.lblInfoText.text = jsonCollection[foundId].clue;
+		$.lblInfoText.text = jsonCollection[foundId-1].clue;
+}
 
-	} else {
-		Ti.API.info("foundId är null");
+function addClueZone() {
+
+	for (var c = 0; c < Alloy.Globals.jsonCollection.length; c++) {
+		var markerAnnotation = MapModule.createAnnotation({
+			latitude : Alloy.Globals.jsonCollection[c].latitude,
+			longitude : Alloy.Globals.jsonCollection[c].longitude,
+			title : Alloy.Globals.jsonCollection[c].id,
+			subtitle : Alloy.Globals.jsonCollection[c].letter
+		});
+
+		if (Alloy.Globals.jsonCollection[c].found == 0) {
+			markerAnnotation.image = '/images/red.png';
+		} else {
+			markerAnnotation.image = '/images/green.png';
+		}
+
+		familyMap.addAnnotation(markerAnnotation);
 	}
 }
 
@@ -54,9 +67,12 @@ function checkLetter(letterToCheck) {
 
 	if (Alloy.Globals.jsonCollection[foundId-1].letter == letterToCheck) {
 		lettersArray.push(Alloy.Globals.jsonCollection[foundId-1].letter);
-		$.lblCollectedLetters.text = $.lblCollectedLetters.text + letterToCheck;
 		Alloy.Globals.jsonCollection[foundId-1].found = 1;
+		
+		$.lblCollectedLetters.text = $.lblCollectedLetters.text + letterToCheck;
 		$.txtLetter.value = '';
+		loadClue();
+		
 	} else {
 		alert("Är du säker på att " + letterToCheck + " är rätt bokstav?");
 		$.txtLetter.value = '';
@@ -265,48 +281,6 @@ function createMapRoute() {
 	}
 }
 
-//-----------------------------------------------------------
-// Visar marker för vandringsleden
-//-----------------------------------------------------------
-function displayTrailMarkers() {
-	try {
-		var markerAnnotation = MapModule.createAnnotation({
-			latitude : 58.893198,
-			longitude : 11.047852,
-			title : 'Äventyrsleden',
-			pincolor : MapModule.ANNOTATION_PURPLE,
-			subtitle : 'Vandringsleden startar här!',
-			font : {
-				fontFamily : 'Raleway-Light'
-			}
-		});
-
-		familyMap.addAnnotation(markerAnnotation);
-
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - displayTrailMarkers");
-	}
-}
-
-function addClueZone() {
-
-	for (var c = 0; c < Alloy.Globals.jsonCollection.length; c++) {
-		var markerAnnotation = MapModule.createAnnotation({
-			latitude : Alloy.Globals.jsonCollection[c].latitude,
-			longitude : Alloy.Globals.jsonCollection[c].longitude,
-			title : Alloy.Globals.jsonCollection[c].id,
-			subtitle : Alloy.Globals.jsonCollection[c].letter
-		});
-
-		if (Alloy.Globals.jsonCollection[c].found == 0) {
-			markerAnnotation.image = '/images/red.png';
-		} else {
-			markerAnnotation.image = '/images/green.png';
-		}
-
-		familyMap.addAnnotation(markerAnnotation);
-	}
-}
 
 //GEO STUFF
 //-----------------------------------------------------------------------------------------------------
@@ -335,7 +309,7 @@ function getGPSpos() {
 					Ti.API.info('Kan inte sätta eventListener ' + e.error);
 				} else {
 					getPosition(e.coords);
-					$.coords.text = 'Lat: ' + JSON.stringify(e.coords.latitude + 'Lon: ' + JSON.stringify(e.coords.longitude));
+			//		$.coords.text = 'Lat: ' + JSON.stringify(e.coords.latitude + 'Lon: ' + JSON.stringify(e.coords.longitude));
 
 				}
 			});
@@ -408,14 +382,15 @@ function isNearPoint() {
 	try {
 		for (var i = 0; i < Alloy.Globals.jsonCollection.length; i++) {
 
-			if (Alloy.Globals.jsonCollection[i].found == 0 || Alloy.Globals.jsonCollection[i].alerted == !1) {
+			if (Alloy.Globals.jsonCollection[i].found == 0) {
+				
 				var lat = Alloy.Globals.jsonCollection[i].latitude;
 				var lon = Alloy.Globals.jsonCollection[i].longitude;
 				foundId = Alloy.Globals.jsonCollection[i].id;
-				$.lblInfoText.text = Alloy.Globals.jsonCollection[i].clue;
+				//$.lblInfoText.text = Alloy.Globals.jsonCollection[i].clue;
 
-				if(isInsideRadius(lat, lon, radius)){
-
+				if(isInsideRadius(lat, lon, radius) && Alloy.Globals.jsonCollection[i].alerted == 0){
+					
 				var message = Ti.UI.createAlertDialog({
 					message : Alloy.Globals.jsonCollection[i].clue,
 					title : 'Ny bokstav i närheten!'

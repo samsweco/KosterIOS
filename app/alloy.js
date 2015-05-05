@@ -35,6 +35,7 @@ var notify = true;
 //-----------------------------------------------------------
 var lettersArray = [];
 var globalTrailID = 0;
+var word = SAM;
 
 var interactiveVisible = false;
 
