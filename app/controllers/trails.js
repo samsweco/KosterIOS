@@ -48,7 +48,8 @@ function setRowData() {
 				height : Ti.UI.SIZE,
 				width : Ti.UI.FILL,
 				backgroundColor : 'white',
-				layout : 'vertical'
+				layout : 'vertical',
+				selectedColor: 'red'
 			});
 
 			
