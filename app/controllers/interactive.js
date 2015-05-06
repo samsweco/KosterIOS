@@ -110,9 +110,9 @@ function checkWord() {
 	//	check.toLowerCase();
 
 	if (check == word) {
-		alert("Bra jobbat!");
+		alert("Bra jobbat Det rätta ordet är SAM!");
 	} else {
-		alert("Försök igen!");
+		alert("Försök igen! Du har snart klurat ut det!");
 	}
 }
 
@@ -132,7 +132,6 @@ function displayMarkers() {
 		
 		for (var u = 0; u < hotspots.length; u++) {
 
-			if (OS_IOS) {
 				var markerHot = MapModule.createAnnotation({
 					id : hotspots[u].name,
 					latitude : hotspots[u].xkoord,
@@ -143,7 +142,6 @@ function displayMarkers() {
 					rightButton : '/images/arrow.png',
 					name : 'hotspot'
 				});
-			}
 
 			markerHotArray.push(markerHot);
 		}

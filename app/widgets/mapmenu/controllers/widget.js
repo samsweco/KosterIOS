@@ -63,15 +63,15 @@ function displayInfoSpots(type) {
 			});
 
 			if (infospotJSON[i].name == 'taltplats') {
-				marker.title = 'Tältplats';
+				infoMarker.title = 'Tältplats';
 			} else if (infospotJSON[i].name == 'farjelage') {
-				marker.title = 'Färjeläge';
+				infoMarker.title = 'Färjeläge';
 			} else {
-				marker.title = capitalizeFirstLetter(infospotJSON[i].name);
+				infoMarker.title = capitalizeFirstLetter(infospotJSON[i].name);
 			}
 
-			markerArray.push(marker);
-			infospotArray.push(marker);
+			markerArray.push(infoMarker);
+			infospotArray.push(infoMarker);
 		}
 
 		return markerArray;
