@@ -118,7 +118,6 @@ function createMapRoutes(file, name, color) {
 function showMap() {
 	try {
 		baseMap = MapModule.createView({
-			userLocation : true,
 			mapType : MapModule.HYBRID_TYPE,
 			animate : true,
 			height : '100%',
@@ -141,6 +140,7 @@ function setRegion(){
 		longitudeDelta : 0.1
 	}; 
 	baseMap.animate = true;
+	baseMap.userLocation = false;
 }
 Alloy.Globals.setRegion = setRegion;
 
@@ -275,6 +275,8 @@ function setUserPosition() {
 				latitudeDelta : 0.005,
 				longitudeDelta : 0.005
 			};
+			baseMap.animate = true;
+			baseMap.userLocation = true;
 		}
 	});
 }
