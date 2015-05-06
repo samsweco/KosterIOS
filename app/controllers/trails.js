@@ -43,11 +43,11 @@ function setRowData() {
 			});
 			
 			var img = Ti.UI.createImageView({
-				height : '75dp',
+				height : '70dp',
 				width : '115dp',
 				image : '/pics/' + rows[i].cover_img,
 				left : '5dp',
-				top : '5dp'
+				top : '10dp'
 			});
 			
 			var labelView = Ti.UI.createView({

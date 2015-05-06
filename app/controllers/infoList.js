@@ -47,7 +47,7 @@ function setRowData() {
 			var row = Ti.UI.createTableViewRow({
 				id : i + 1,
 				layout : 'horizontal',
-				height : '80dp',
+				height : '90dp',
 				top : '0dp',
 				hasChild : true
 			});
@@ -64,7 +64,7 @@ function setRowData() {
 				width : '110dp',
 				left : '5dp',
 				image : "/pics/" + rows[i].cover_img,
-				top : '5dp'
+				top : '10dp'
 			});
 
 			var lblName = Ti.UI.createLabel({

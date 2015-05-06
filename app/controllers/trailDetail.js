@@ -100,7 +100,7 @@ function showHotspots() {
 			var row = Ti.UI.createTableViewRow({
 				id : rows[i].name,
 				layout : 'horizontal',
-				height : '80dp',
+				height : '90dp',
 				top : '0dp',
 				hasChild : true
 			});
@@ -110,7 +110,7 @@ function showHotspots() {
 				width : '110dp',
 				image : '/pics/' + rows[i].cover_pic,
 				left : '15dp',
-				top : '5dp'
+				top : '10dp'
 			});
 
 			var labelView = Ti.UI.createView({
