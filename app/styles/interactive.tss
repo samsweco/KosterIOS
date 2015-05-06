@@ -85,15 +85,19 @@
 
 "#wordView":{
 	top : 0,
-	layout : 'horizontal'
+	layout : 'horizontal',
+	visible : false
 }
 
 "#txtWord":{
-	visible: false
+	height: '35dp',
+	width: '70dp',
+	tintColor: 'blue',
+	borderWidth: '1dp',
+	borderRadius: '5dp',
 }
 
 "#lblWord":{
-	visible : false,
 	height: '35dp',
 	width: '70dp',
 	tintColor: 'blue',

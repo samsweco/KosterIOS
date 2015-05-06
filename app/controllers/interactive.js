@@ -90,8 +90,7 @@ function allLetters() {
 		$.lblLetters.hide();
 		$.lblLetters.height = 0;
 		$.btnStartQuiz.height = 0;
-		$.txtWord.show();
-		$.lblWord.show();
+		$.wordView.show();
 
 	}
 }
@@ -121,13 +120,13 @@ function checkWord() {
 //-----------------------------------------------------------
 function displayMarkers() {
 	try {
-		var markerArray = [];
+		var markerHotArray = [];
 		var hotspots = getHotspots();
 		
 		for (var u = 0; u < hotspots.length; u++) {
 
 			if (OS_IOS) {
-				var marker = MapModule.createAnnotation({
+				var markerHot = MapModule.createAnnotation({
 					id : hotspots[u].name,
 					latitude : hotspots[u].xkoord,
 					longitude : hotspots[u].ykoord,
@@ -139,10 +138,10 @@ function displayMarkers() {
 				});
 			}
 
-			markerArray.push(marker);
+			markerHotArray.push(markerHot);
 		}
 
-		familyMap.addAnnotations(markerArray);
+		familyMap.addAnnotations(markerHotArray);
 
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - displayMarkers");
