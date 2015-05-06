@@ -2,6 +2,8 @@ $.tabs.open();
 Alloy.CFG.tabs = $.tabs;
 exports.toInteractive = toInteractive;
 
+var myPos = false;
+
 //-----------------------------------------------------------
 // Metoder för navigering
 //-----------------------------------------------------------
@@ -96,7 +98,14 @@ function showMenu() {
 }
 
 function getPos() {
-	Alloy.Globals.setUserPosition();
+	if(myPos == false){
+		Alloy.Globals.setUserPosition();
+		$.btnGetPosition.color = 'gray';
+		myPos = true;
+	}else{
+		Alloy.Globals.setRegion();
+		myPos = false;
+	}
 }
 
 function showInteractive() {

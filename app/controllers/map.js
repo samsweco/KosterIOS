@@ -154,22 +154,28 @@ function showMap() {
 			userLocation : true,
 			mapType : MapModule.HYBRID_TYPE,
 			animate : true,
-			region : {
-				latitude : 58.886154,
-				longitude : 11.024307,
-				latitudeDelta : 0.08,
-				longitudeDelta : 0.08
-			},
 			height : '100%',
 			width : Ti.UI.FILL
 		});
-
+		
+		setRegion();
 		$.mapView.add(baseMap);
 
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - showMap");
 	}
 }
+
+function setRegion(){
+	baseMap.region = {
+		latitude : 58.886154,
+		longitude : 11.024307,
+		latitudeDelta : 0.1,
+		longitudeDelta : 0.1
+	}; 
+	baseMap.animate = true;
+}
+Alloy.Globals.setRegion = setRegion;
 
 //-----------------------------------------------------------
 // Visar markers för vandringslederna
@@ -279,9 +285,7 @@ baseMap.addEventListener('singletap', function() {
 });
 
 function setUserPosition() {
-
 	Ti.Geolocation.getCurrentPosition(function(e) {
-		Ti.API.info('geopos : ' + JSON.stringify(e.coords));
 		if (e.coords != null) {
 			baseMap.region = {
 				latitude : e.coords.latitude,
