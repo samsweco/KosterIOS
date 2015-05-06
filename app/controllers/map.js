@@ -16,10 +16,7 @@ var hotspotAnnotation;
 var trailsCollection = getTrailsCollection();
 var hotspotCollection = getHotspotCollection();
 var jsonFileCollection = getJSONfiles();
-
-var infospotCollection = Alloy.Collections.infospotCoordinatesModel;
-
-// var infospotCollection = getInfospotCollection();
+// var infospotCollection = getInfoSpotCoordinatesCollection();
 
 //-----------------------------------------------------------
 // Onload-funktioner för kartan
@@ -254,17 +251,6 @@ baseMap.addEventListener('singletap', function() {
 function showMenu() {
 	Alloy.Globals.showMenuWidget();
 }
-
-// function getPos() {
-	// if(myPos == false){
-		// Alloy.Globals.setUserPosition();
-		// $.btnGetPosition.color = 'gray';
-		// myPos = true;
-	// }else{
-		// Alloy.Globals.setRegion();
-		// myPos = false;
-	// }
-// }
 
 function setUserPosition() {
 	Ti.Geolocation.getCurrentPosition(function(e) {
