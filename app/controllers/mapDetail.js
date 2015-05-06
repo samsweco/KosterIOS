@@ -28,7 +28,7 @@ function showMap() {
 	try {
 		baseMap = MapModule.createView({
 			userLocation : true,
-			mapType : MapModule.SATELLITE_TYPE,
+			mapType : MapModule.HYBRID_TYPE,
 			animate : true,
 			region : {
 				latitude : zoomLat,
