@@ -58,16 +58,15 @@
 }
 
 "#lblLetters": {
-	top: '5dp',
-	height : '0dp',
-	font: {
-		fontSize: '15dp',
-		fontFamily: 'Raleway-Medium'
-	},
-	color: "#000",
-	visible: false,
-	color : '#FFCC99',
-	left : '32%'
+	visible : false,
+	height: '0dp',
+	left : '15dp',
+	right : '15dp',
+	width: Titanium.UI.FILL,
+	backgroundColor: '#FFCC99',
+	borderRadius: '4dp',
+	color: 'black',
+	top: '17dp'
 }
 
 "#txtLetter": {
@@ -83,7 +82,10 @@
 }
 
 "#lblCollectedLetters": {
-	visible: false
+	visible: false,
+	left : '15dp',
+	right : '15dp',
+	width : Titanium.UI.FILL
 }
 
 "#wordView":{
@@ -112,10 +114,12 @@
 
 "#btnStartQuiz": {
 	height: '30dp',
-	width: '200dp',
+	width: Titanium.UI.FILL,
 	backgroundColor: '#FFCC99',
 	borderRadius: '4dp',
 	color: 'black',
-	top: '17dp'
+	top: '17dp',
+	left : '15dp',
+	right : '15dp',
 }
 
