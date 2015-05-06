@@ -1,5 +1,6 @@
 var args = arguments[0] || {};
 var radius = 20;
+var nextId = 1;
 
 var letterCollection = getLetterCollection();
 letterCollection.fetch();
@@ -63,6 +64,11 @@ function getLetter() {
 	//};
 }
 
+function nextClue(){
+	var nextClue = Alloy.Globals.jsonCollection[nextId].clue;
+	$.lblInfoText.text = nextClue;
+}
+
 //Sätta alert title
 
 function checkLetter(letterToCheck) {
@@ -73,8 +79,9 @@ function checkLetter(letterToCheck) {
 
 		$.lblCollectedLetters.text = $.lblCollectedLetters.text + letterToCheck;
 		$.txtLetter.value = '';
-
 		loadClue(Alloy.Globals.jsonCollection[foundId-1].id);
+		nextId++;
+		nextClue();
 
 	} else {
 		alert("Är du säker på att " + letterToCheck + " är rätt bokstav?");
