@@ -11,19 +11,13 @@ var infospotArray = [];
 //-----------------------------------------------------------
 function displayMarkers() {
 	try {
-		var markerArray = [];
+		var markerHotspotArray = [];
 		hotspotCollection.fetch();
-
-		// if(Alloy.CFG.tabs.activeTab == 'hikeTab'){
-		//
-		// } else {
-		// hotspotCollection.fetch();
-		// }
 
 		var markersJSON = hotspotCollection.toJSON();
 		for (var u = 0; u < markersJSON.length; u++) {
 
-			var marker = MapModule.createAnnotation({
+			var markerHotspot = MapModule.createAnnotation({
 				id : markersJSON[u].name,
 				latitude : markersJSON[u].xkoord,
 				longitude : markersJSON[u].ykoord,
@@ -38,34 +32,14 @@ function displayMarkers() {
 				name : 'hotspot'
 			});
 
-			markerArray.push(marker);
+			markerHotspotArray.push(markerHotspot);
 		}
 
-		return markerArray;
+		return markerHotspotArray;
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - displayMarkers");
 	}
 }
-
-//-----------------------------------------------------------
-// Hämtar data för hotspots som hör till den valda vandringsleden
-//-----------------------------------------------------------
-// function getHotspotData() {
-// try {
-// var id = trailId;
-//
-// var hotstrailCollection = Alloy.Collections.hotspotModel;
-// hotstrailCollection.fetch({
-// query : 'SELECT hotspotModel.name, hotspotModel.cover_pic from hotspotModel join hotspot_trailsModel on hotspotModel.id = hotspot_trailsModel.hotspotID where trailsID ="' + id + '"'
-// });
-//
-// var jsonObj = hotstrailCollection.toJSON();
-// return jsonObj;
-//
-// } catch(e) {
-// newError("Något gick fel när sidan skulle laddas, prova igen!", "trailDetail - getHotspotData");
-// }
-// }
 
 //-----------------------------------------------------------
 // Visar ikoner för alla informationsobjekt
@@ -82,7 +56,7 @@ function displayInfoSpots(type) {
 		var infospotJSON = infospotCollection.toJSON();
 
 		for (var i = 0; i < infospotJSON.length; i++) {
-			var marker = MapModule.createAnnotation({
+			var infoMarker = MapModule.createAnnotation({
 				latitude : infospotJSON[i].latitude,
 				longitude : infospotJSON[i].longitude,
 				image : '/images/map_' + infospotJSON[i].name + '.png'
@@ -114,43 +88,15 @@ function capitalizeFirstLetter(string) {
 function removeAnnoSpot(anno, infotype) {
 
 	for (var o = 0; o < infospotArray.length; o++) {
-		
-		var type = infospotArray[o].title;
-//		Ti.API.info(infotype);
-//		var name = type.substring(0, type.length - 1);
-//		Ti.API.info(name);
-		
+		var type = infospotArray[o].title;	
 		if(anno == 'info' && infotype == type){
 			baseMap.removeAnnotation(infospotArray[o]);
 		}
 	}
 }
 
-// function removeAnnoSpot(anno, infotype) {
-// // var arrayAnno = [];
-// // var anno;
-// //
-// // if (annoType == 'info') {
-// // anno = displayInfoSpots(infotype);
-// // } else if (annoType == 'hotspot') {
-// // anno = displayMarkers();
-// // }
-// //
-// addedToMap[infotype] = anno;
-//
-// var annoArray = addedToMap[infotype];
-// //Ti.API.info('addedToMap : ' + JSON.stringify(annoArray));
-//
-// for (var o = 0; o < annoArray.length; o++) {
-// baseMap.removeAnnotation(annoArray[o].title);
-// }
-// }
-
 function removeAnnoHotspot() {
 	var anno = displayMarkers();
-
-	//	Ti.API.info('anno : ' + JSON.stringify(anno));
-
 	for (var o = 0; o < anno.length; o++) {
 		baseMap.removeAnnotation(anno[o].title);
 	}
@@ -168,7 +114,6 @@ $.hotspotSwitch.addEventListener('change', function(e) {
 		baseMap.addAnnotations(arrayHot);
 		hotspotsNotVisible = false;
 
-		// Alloy.Globals.getGPSpos('hotspot');
 	} else {
 		removeAnnoHotspot();
 		hotspotsNotVisible = true;
@@ -176,8 +121,6 @@ $.hotspotSwitch.addEventListener('change', function(e) {
 });
 
 function showFarglage() {
-	//var annos = displayInfoSpots('farjelage');
-//	addedToMap['farjelage'] = annos;
 
 	if (farjelage == false) {
 		baseMap.addAnnotations(displayInfoSpots('farjelage'));
