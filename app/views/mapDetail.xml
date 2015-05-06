@@ -7,16 +7,16 @@
 	<Collection src="letterModel"></Collection>
 	<Window backButtonTitle="Tillbaka">
 		<!-- <LeftNavButton>
-			<Button id="btnGetPosition" image="/images/locationarrow.png" />
+			<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMenu" />
 		</LeftNavButton> -->
 		<RightNavButton>
-			<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMenu" />
+			<Button id="btnGetPosition" image="/images/locationarrow.png" />
 		</RightNavButton>
 		
 		<View id="mapDetailView">
 			
 		</View>
 		<Widget src="interactive" name="widget"></Widget>
-		<Widget src="mapmenu" name="widget"></Widget>
+		<!-- <Widget src="mapmenu" name="widget"></Widget> -->
 	</Window>
 </Alloy>

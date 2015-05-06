@@ -20,7 +20,8 @@ var trailsCollection = getTrailsCollection();
 //-----------------------------------------------------------
 showMap();
 setRoute();
-displayMarkers();
+displaySpecificMarkers();
+getSpecificIcons();
 
 //-----------------------------------------------------------
 // Läsa in kartvyn
@@ -211,13 +212,14 @@ function getPos() {
 	Alloy.Globals.setUserPosition();
 }
 
+
 //-----------------------------------------------------------
 // Visar markers för hotspots
 //-----------------------------------------------------------
-function displayMarkers() {
+function displaySpecificMarkers() {
 	try {
 		var markerHotspotArray = [];
-		var specificHotspots = getHotspots();
+		var specificHotspots = getSpecificHotspots();
 		
 		for (var u = 0; u < specificHotspots.length; u++) {
 
@@ -242,12 +244,54 @@ function displayMarkers() {
 	}
 }
 
-function getHotspots() {
+function getSpecificHotspots() {
 	var hotspotTrailCollection = Alloy.Collections.hotspotModel;
 	hotspotTrailCollection.fetch({
-		query : 'SELECT hotspotModel.name, hotspotModel.xkoord, hotspotModel.ykoord from hotspotModel join hotspot_trailsModel on hotspotModel.id = hotspot_trailsModel.hotspotID where trailsID ="' + 7 + '"'
+		query : 'SELECT hotspotModel.name, hotspotModel.xkoord, hotspotModel.ykoord from hotspotModel join hotspot_trailsModel on hotspotModel.id = hotspot_trailsModel.hotspotID where trailsID ="' + zoomId + '"'
 	});
 
 	var jsonHotspotObj = hotspotTrailCollection.toJSON();
 	return jsonHotspotObj;
+}
+
+//-----------------------------------------------------------
+// Hämtar ikoner till vald vandringsled
+//-----------------------------------------------------------
+function getSpecificIcons() {
+	// try {
+		var specificMarkerArray = [];
+
+		var specificinfotrailCollection = Alloy.Collections.infospotCoordinatesModel;
+		specificinfotrailCollection.fetch({
+			query : 'SELECT name, latitude, longitude from infospotCoordinatesModel join infospot_trailsModel on infospot_trailsModel.infospotID = infospotCoordinatesModel.infospotID where trailsID ="' + zoomId + '"'
+		});
+
+		var infospotsTrails = specificinfotrailCollection.toJSON();
+		for (var i = 0; i < infospotsTrails.length; i++) {
+			var specificinfoMarker = MapModule.createAnnotation({
+				latitude : infospotsTrails[i].latitude,
+				longitude : infospotsTrails[i].longitude,
+				image : '/images/map_' + infospotsTrails[i].name + '.png'
+			});
+
+			if (infospotsTrails[i].name == 'taltplats') {
+				specificinfoMarker.title = 'Tältplats';
+			} else if (infospotsTrails[i].name == 'farjelage') {
+				specificinfoMarker.title = 'Färjeläge';
+			} else {
+				specificinfoMarker.title = capitalizeTheFirstLetter(infospotsTrails[i].name);
+			}
+
+			specificMarkerArray.push(specificinfoMarker);
+		}
+		
+		baseMap.addAnnotations(specificMarkerArray);
+
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "mapDetail - getIcons");
+	// }
+}
+
+function capitalizeTheFirstLetter(string) {
+	return string.charAt(0).toUpperCase() + string.slice(1);
 }
