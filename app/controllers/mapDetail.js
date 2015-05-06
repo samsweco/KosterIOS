@@ -20,6 +20,7 @@ var trailsCollection = getTrailsCollection();
 //-----------------------------------------------------------
 showMap();
 setRoute();
+displayMarkers();
 
 //-----------------------------------------------------------
 // Läsa in kartvyn
@@ -208,4 +209,45 @@ function showMenu() {
 
 function getPos() {
 	Alloy.Globals.setUserPosition();
+}
+
+//-----------------------------------------------------------
+// Visar markers för hotspots
+//-----------------------------------------------------------
+function displayMarkers() {
+	try {
+		var markerHotspotArray = [];
+		var specificHotspots = getHotspots();
+		
+		for (var u = 0; u < specificHotspots.length; u++) {
+
+				var markerSpecificHotspot = MapModule.createAnnotation({
+					id : specificHotspots[u].name,
+					latitude : specificHotspots[u].xkoord,
+					longitude : specificHotspots[u].ykoord,
+					title : specificHotspots[u].name,
+					subtitle : 'Läs mer om ' + specificHotspots[u].name + ' här!',
+					image : '/images/hot-icon-azure.png',
+					rightButton : '/images/arrow.png',
+					name : 'hotspot'
+				});
+
+			markerHotspotArray.push(markerSpecificHotspot);
+		}
+
+		baseMap.addAnnotations(markerHotspotArray);
+
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - displayMarkers");
+	}
+}
+
+function getHotspots() {
+	var hotspotTrailCollection = Alloy.Collections.hotspotModel;
+	hotspotTrailCollection.fetch({
+		query : 'SELECT hotspotModel.name, hotspotModel.xkoord, hotspotModel.ykoord from hotspotModel join hotspot_trailsModel on hotspotModel.id = hotspot_trailsModel.hotspotID where trailsID ="' + 7 + '"'
+	});
+
+	var jsonHotspotObj = hotspotTrailCollection.toJSON();
+	return jsonHotspotObj;
 }

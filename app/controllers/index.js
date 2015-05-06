@@ -14,7 +14,7 @@ function toMap() {
 	
 	var mapwinTitle = Ti.UI.createLabel({
 		font : {
-			fontSize : '15dp',
+			fontSize : '16dp',
 			fontFamily : 'Raleway-Medium'
 		},
 		
@@ -30,7 +30,7 @@ function toInteractive() {
 	
 	var interacwinTitle = Ti.UI.createLabel({
 		font : {
-			fontSize : '15dp',
+			fontSize : '16dp',
 			fontFamily : 'Raleway-Medium'
 		},
 		text : 'Bokstavsjakt'
@@ -45,7 +45,7 @@ function toTrails() {
 
 	var hikewinTitle = Ti.UI.createLabel({
 		font : {
-			fontSize : '15dp',
+			fontSize : '16dp',
 			fontFamily : 'Raleway-Medium'
 		},
 		text : 'Vandringsleder'
@@ -60,7 +60,7 @@ function toInfo() {
 	
 	var infowinTitle = Ti.UI.createLabel({
 		font : {
-			fontSize : '15dp',
+			fontSize : '16dp',
 			fontFamily : 'Raleway-Medium'
 		},
 		text : 'Information'
