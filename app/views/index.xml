@@ -19,7 +19,7 @@
 		<Tab id="maptab" class="tabbar" title="Karta" icon="/images/mapMenu.png">
 			<Window id="mapWin" onOpen="toMap">
 					 <LeftNavButton>
-		<Button id="btnGetPosition" image="/images/locationarrow.png" onClick="hello" />
+		<Button id="btnGetPosition" image="/images/locationarrow.png" onClick="getPos" />
 	</LeftNavButton>
 	<RightNavButton>
 		<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMapMenu" />
