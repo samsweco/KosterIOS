@@ -19,10 +19,10 @@
 		<Tab id="maptab" class="tabbar" title="Karta" icon="/images/mapMenu.png">
 			<Window id="mapWin" onOpen="toMap">
 				<LeftNavButton>
-					<Button id="btnGetPosition" image="/images/locationarrow.png" onClick="getPos" />
+					<Button id="btnGetPosition" image="/images/locationarrow.png" onClick="getPos" tintColor="gray" />
 				</LeftNavButton>
 				<RightNavButton>
-					<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMenu" />
+					<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMenu" tintColor="gray" />
 				</RightNavButton>
 			</Window>
 		</Tab>

@@ -281,9 +281,14 @@ baseMap.addEventListener('singletap', function() {
 function setUserPosition() {
 
 	Ti.Geolocation.getCurrentPosition(function(e) {
-		if (e.error) {
-			alert('error : ' + e.error);
-			setUserPosition();
+		Ti.API.info('geopos : ' + JSON.stringify(e.coords));
+		if (e.coords != null) {
+			baseMap.region = {
+				latitude : e.coords.latitude,
+				longitude : e.coords.longitude,
+				latitudeDelta : 0.005,
+				longitudeDelta : 0.005
+			};
 		}
 	});
 }
