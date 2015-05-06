@@ -1,4 +1,4 @@
-var menuVisible = false;
+// var menuVisible = false;
 var hotspotsNotVisible = true;
 var trailsCollection = getTrailsCollection();
 var hotspotCollection = getHotspotCollection();
