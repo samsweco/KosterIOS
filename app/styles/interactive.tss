@@ -38,10 +38,10 @@
 }
 
 "#lblWelcome": {
-	top: '15dp',
+	top: '5dp',
 	font: {
 		fontFamily: 'Raleway-Medium',
-		fontSize: '20dp'
+		fontSize: '18dp'
 	},
 	color: '#FF9966',
 	left : '19dp'
@@ -59,6 +59,7 @@
 
 "#lblLetters": {
 	top: '5dp',
+	height : '0dp',
 	font: {
 		fontSize: '15dp',
 		fontFamily: 'Raleway-Medium'
@@ -70,9 +71,11 @@
 }
 
 "#txtLetter": {
-	top: '0dp',
-	height: '35dp',
-	width: '70dp',
+	top: '10dp',
+	right : '15dp',
+	left : '15dp',
+	height: '0dp',
+	width: Titanium.UI.FILL,
 	tintColor: 'blue',
 	borderWidth: '1dp',
 	borderRadius: '5dp',
@@ -90,8 +93,10 @@
 }
 
 "#txtWord":{
-	height: '35dp',
-	width: '70dp',
+	height: '40dp',
+	right : '15dp',
+	left : '15dp',
+	width: Titanium.UI.FILL,
 	tintColor: 'blue',
 	borderWidth: '1dp',
 	borderRadius: '5dp',
@@ -99,10 +104,10 @@
 
 "#lblWord":{
 	height: '35dp',
-	width: '70dp',
+	right : '15dp',
+	left : '15dp',
+	width: Titanium.UI.FILL,
 	tintColor: 'blue',
-	borderWidth: '1dp',
-	borderRadius: '5dp',
 }
 
 "#btnStartQuiz": {

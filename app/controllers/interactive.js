@@ -20,7 +20,9 @@ function startInteractive() {
 	$.btnStartQuiz.hide();
 	$.btnStartQuiz.height = 0;
 	$.txtLetter.show();
+	$.txtLetter.height = '40dp';
 	$.lblLetters.show();
+	$.lblLetters.height = '40dp';
 	$.lblCollectedLetters.show();
 	getGPSpos('interactive');
 	loadClue(1);
