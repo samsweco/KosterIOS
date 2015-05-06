@@ -107,7 +107,3 @@ function getPos() {
 		myPos = false;
 	}
 }
-
-function showInteractive() {
-	Alloy.Globals.showInteractive("Detta är ledtråden!");
-}

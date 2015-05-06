@@ -5,12 +5,15 @@
 		<Tab id="koster" class="tabbar" title="Hem" icon="/images/kosterStarMenu.png" >
 			<Window id="koster" backgroundImage="/pics/front.png" navBarHidden="true">
 				<View class="headView">
-					<ImageView class="imgKoster" image="/pics/kosterhavet_logga.png"></ImageView>
-					<Label id="lblFrontText">Välkommen till Kosterhavet! Upptäck den vackra naturen i Kosterhavet och ta en promenad bland klapperstensfält och strandängar.</Label>
-					
+					<ImageView class="imgKoster" image="/pics/kosterhavet_logga.png">
+					</ImageView>
+					<Label id="lblFrontText">
+						Välkommen till Kosterhavet! Upptäck den vackra naturen i Kosterhavet och ta en promenad bland klapperstensfält och strandängar.
+					</Label>
 					<!-- <Label id="lblInteractive" onClick="showInteractive"> Visa interactive</Label> -->
 				</View>
-				<Widget src="interactive" name="widget"></Widget>
+				<Widget src="interactive" name="widget">
+				</Widget>
 			</Window>
 		</Tab>
 		<Tab id="hikeTab" class="tabbar" title="Vandra" icon="/images/hikeMenu.png">
@@ -18,18 +21,18 @@
 		</Tab>
 		<Tab id="maptab" class="tabbar" title="Karta" icon="/images/mapMenu.png">
 			<Window id="mapWin" onOpen="toMap">
-					 <LeftNavButton>
-		<Button id="btnGetPosition" image="/images/locationarrow.png" onClick="getPos" />
-	</LeftNavButton>
-	<RightNavButton>
-		<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMapMenu" />
-	</RightNavButton>
+				<LeftNavButton>
+					<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMapMenu" />
+				</LeftNavButton>
+				<RightNavButton>
+					<Button id="btnGetPosition" image="/images/locationarrow.png" onClick="getPos" />
+				</RightNavButton>
 			</Window>
 		</Tab>
 		<Tab id="interactive" class="tabbar" title="Spela" icon="/images/quizMenu.png">
 			<Window id="interactiveWin" title="Bokstavsjakt" onOpen="toInteractive">
 				<LeftNavButton>
-					<Button id="btnGetPosition" image="/images/locationarrow.png" />
+					<Button id="btnGetPositionInteractive" image="/images/locationarrow.png" />
 				</LeftNavButton>
 			</Window> />
 		</Tab>
@@ -37,5 +40,4 @@
 			<Window id="infoWin" title="Information" onOpen="toInfo" />
 		</Tab>
 	</TabGroup>
-	
 </Alloy>

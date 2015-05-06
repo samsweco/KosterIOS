@@ -15,6 +15,8 @@ var MapModule = require('ti.map');
 
 var trailsCollection = getTrailsCollection();
 
+var myPosition = false;
+
 //-----------------------------------------------------------
 // Onload
 //-----------------------------------------------------------
@@ -30,25 +32,54 @@ addEventList();
 function showZoomedMap() {
 	try {
 		zoomedMap = MapModule.createView({
-			userLocation : true,
 			mapType : MapModule.HYBRID_TYPE,
-			animate : true,
-			region : {
-				latitude : zoomLat,
-				longitude : zoomLon,
-				latitudeDelta : 0.03,
-				longitudeDelta : 0.03
-			},
 			height : '100%',
 			width : Ti.UI.FILL
 		});
 
+		setZoomedRegion();
 		$.mapDetailView.add(zoomedMap);
 
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - showMap");
 	}
-};
+}
+
+function setZoomedRegion(){
+	zoomedMap.region = {
+		latitude : zoomLat,
+		longitude : zoomLon,
+		latitudeDelta : 0.03,
+		longitudeDelta : 0.03
+	}; 
+	zoomedMap.animate = true;
+	zoomedMap.userLocation = false;
+}
+
+function getPosition() {
+	Ti.Geolocation.getCurrentPosition(function(e) {
+		if (e.coords != null) {
+			zoomedMap.region = {
+				latitude : e.coords.latitude,
+				longitude : e.coords.longitude,
+				latitudeDelta : 0.007,
+				longitudeDelta : 0.007
+			};
+			zoomedMap.animate = true;
+			zoomedMap.userLocation = true;
+		}
+	});
+}
+
+function getZoomedMapPosition() {
+	if(myPosition == false){
+		getPosition();
+		myPosition = true;
+	}else{
+		setZoomedRegion();
+		myPosition = false;
+	}
+}
 
 //-----------------------------------------------------------
 // Beräknar nivån av inzoomning på en vald led

@@ -10,7 +10,7 @@
 			<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMenu" />
 		</LeftNavButton> -->
 		<RightNavButton>
-			<Button id="btnGetPosition" image="/images/locationarrow.png" />
+			<Button id="btnGetPosition" image="/images/locationarrow.png" onClick="getZoomedMapPosition" />
 		</RightNavButton>
 		
 		<View id="mapDetailView">

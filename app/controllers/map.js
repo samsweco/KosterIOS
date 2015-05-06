@@ -136,8 +136,8 @@ function setRegion(){
 	baseMap.region = {
 		latitude : 58.886154,
 		longitude : 11.024307,
-		latitudeDelta : 0.1,
-		longitudeDelta : 0.1
+		latitudeDelta : 0.07,
+		longitudeDelta : 0.07
 	}; 
 	baseMap.animate = true;
 	baseMap.userLocation = false;
@@ -255,16 +255,16 @@ function showMenu() {
 	Alloy.Globals.showMenuWidget();
 }
 
-function getPos() {
-	if(myPos == false){
-		Alloy.Globals.setUserPosition();
-		$.btnGetPosition.color = 'gray';
-		myPos = true;
-	}else{
-		Alloy.Globals.setRegion();
-		myPos = false;
-	}
-}
+// function getPos() {
+	// if(myPos == false){
+		// Alloy.Globals.setUserPosition();
+		// $.btnGetPosition.color = 'gray';
+		// myPos = true;
+	// }else{
+		// Alloy.Globals.setRegion();
+		// myPos = false;
+	// }
+// }
 
 function setUserPosition() {
 	Ti.Geolocation.getCurrentPosition(function(e) {
@@ -272,8 +272,8 @@ function setUserPosition() {
 			baseMap.region = {
 				latitude : e.coords.latitude,
 				longitude : e.coords.longitude,
-				latitudeDelta : 0.005,
-				longitudeDelta : 0.005
+				latitudeDelta : 0.007,
+				longitudeDelta : 0.007
 			};
 			baseMap.animate = true;
 			baseMap.userLocation = true;
