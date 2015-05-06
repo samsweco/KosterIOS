@@ -22,39 +22,6 @@ var infospotCollection = Alloy.Collections.infospotCoordinatesModel;
 // var infospotCollection = getInfospotCollection();
 
 //-----------------------------------------------------------
-// Hämtar enhetens senaste GPS-position
-// FUNGERAR MEN ÄR SJUKT STRÖRANDE
-//-----------------------------------------------------------
-// try {
-// Ti.Geolocation.getCurrentPosition(function(e) {
-// if (e.error) {
-// alert('Get current position' + e.error);
-// } else {
-// }
-// });
-//
-// if (Ti.Geolocation.locationServicesEnabled) {
-// Ti.Geolocation.accuracy = Ti.Geolocation.ACCURACY_BEST;
-// Ti.Geolocation.distanceFilter = 10;
-// Ti.Geolocation.preferredProvider = Ti.Geolocation.PROVIDER_GPS;
-//
-// Ti.Geolocation.addEventListener('location', function(e) {
-// if (e.error) {
-// alert('Add eventlistener!' + e.error);
-// } else {
-// getPosition(e.coords);
-//
-// Ti.API.info('e : ' + JSON.stringify(e.coords));
-// }
-// });
-// } else {
-// alert('Tillåt gpsen, tack');
-// }
-// } catch(e) {
-// newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - get current position GPS");
-// }
-
-//-----------------------------------------------------------
 // Onload-funktioner för kartan
 //-----------------------------------------------------------
 // try {
@@ -283,6 +250,21 @@ baseMap.addEventListener('click', function(evt) {
 baseMap.addEventListener('singletap', function() {
 	Alloy.Globals.closeMapMenu();
 });
+
+function showMenu() {
+	Alloy.Globals.showMenuWidget();
+}
+
+function getPos() {
+	if(myPos == false){
+		Alloy.Globals.setUserPosition();
+		$.btnGetPosition.color = 'gray';
+		myPos = true;
+	}else{
+		Alloy.Globals.setRegion();
+		myPos = false;
+	}
+}
 
 function setUserPosition() {
 	Ti.Geolocation.getCurrentPosition(function(e) {

@@ -18,12 +18,12 @@
 		</Tab>
 		<Tab id="maptab" class="tabbar" title="Karta" icon="/images/mapMenu.png">
 			<Window id="mapWin" onOpen="toMap">
-				<LeftNavButton>
-					<Button id="btnGetPosition" image="/images/locationarrow.png" onClick="getPos" />
-				</LeftNavButton>
-				<RightNavButton>
-					<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMenu" />
-				</RightNavButton>
+					 <LeftNavButton>
+		<Button id="btnGetPosition" image="/images/locationarrow.png" onClick="hello" />
+	</LeftNavButton>
+	<RightNavButton>
+		<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMapMenu" />
+	</RightNavButton>
 			</Window>
 		</Tab>
 		<Tab id="interactive" class="tabbar" title="Spela" icon="/images/quizMenu.png">

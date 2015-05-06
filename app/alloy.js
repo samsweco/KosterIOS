@@ -20,7 +20,7 @@
 // object. For example:
 //
 // Alloy.Globals.someGlobalFunction = function(){};
-var menuVisible = false;
+
 //-----------------------------------------------------------
 // Globala variabler för geofencing.
 //-----------------------------------------------------------

@@ -93,8 +93,13 @@ $.koster.addEventListener('blur', function() {
 	$.koster = null;
 });
 
-function showMenu() {
-	Alloy.Globals.showMenuWidget();
+function hello(){
+	alert('GPS');
+}
+
+function showMapMenu() {
+	alert('Mapmenu');
+	Alloy.Globals.showMapMenuWidget();
 }
 
 function getPos() {

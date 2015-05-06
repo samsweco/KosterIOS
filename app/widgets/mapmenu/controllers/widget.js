@@ -3,8 +3,9 @@ var hotspotsNotVisible = true;
 var trailsCollection = getTrailsCollection();
 var hotspotCollection = getHotspotCollection();
 
-var addedToMap = {};
 var infospotArray = [];
+var menuVisible = false;
+var mapMenuVisible = false;
 
 //-----------------------------------------------------------
 // Visar markers för hotspots
@@ -231,12 +232,22 @@ function showTorrdass() {
 }
 
 function showMenuWidget() {
-	if (!menuVisible) {
+	if (menuVisible == false) {
 		$.mapmenu.show();
 		menuVisible = true;
 	} else {
 		$.mapmenu.hide();
 		menuVisible = false;
+	}
+}
+
+function showMapMenuWidget() {
+	if (mapMenuVisible == false) {
+		$.mapmenu.show();
+		mapMenuVisible = true;
+	} else {
+		$.mapmenu.hide();
+		mapMenuVisible = false;
 	}
 }
 
@@ -250,4 +261,5 @@ $.mapmenu.addEventListener('singleTap', function() {
 });
 
 Alloy.Globals.showMenuWidget = showMenuWidget;
+Alloy.Globals.showMapMenuWidget = showMapMenuWidget;
 Alloy.Globals.closeMapMenu = closeMapMenu;

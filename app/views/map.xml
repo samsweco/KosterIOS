@@ -6,14 +6,9 @@
 	<Collection src="infospotCoordinatesModel" />
 	<Collection src="letterModel" />
 	<View class="container">
-		
-		<View id="mapView">
-			
-		</View>			
-		
+		<View id="mapView"></View>
+		<!-- <Button id="btnMenu" backgroundImage="/images/hamburger.png" onClick="showMenu" /> -->
 		<Widget src="interactive" name="widget"></Widget>
 		<Widget src="mapmenu" name="widget"></Widget>
-		<!-- <Button id="btnMenu" backgroundImage="/images/hamburger.png" onClick="showMapMenu" /> -->
-		
 	</View>
 </Alloy>
