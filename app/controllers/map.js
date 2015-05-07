@@ -23,9 +23,7 @@ var trailsCollection = getTrailsCollection();
 //-----------------------------------------------------------
 // try {
 displayBigMap();
-setRoutes();
-displayTrailMarkers();
-	setRegion();
+
 // } catch(e) {
 // newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - load page");
 // }

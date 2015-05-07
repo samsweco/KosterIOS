@@ -26,8 +26,9 @@ function showMap() {
 			height : '100%',
 			width : Ti.UI.FILL
 		});
-		
+		setRoutes();
 		setRegion();
+		displayTrailMarkers();
 		return map;
 
 	} catch(e) {
