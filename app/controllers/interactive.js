@@ -12,7 +12,7 @@ Alloy.Globals.jsonCollection = jsonCollection;
 displayMap();
 
 function displayMap(){
-	$.showFamilyTrail.add(showDetailMap(7, 'Äventyrsleden', 'purple'));
+	$.showFamilyTrail.add(showDetailMap(interactiveMap, 7, 'Äventyrsleden', 'purple'));
 	addClueZone();
 	displaySpecificMarkers(7, interactiveMap);
 }

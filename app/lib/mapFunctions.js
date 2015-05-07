@@ -408,8 +408,8 @@ function removeAnnoSpot(anno, infotype) {
 	}
 }
 
-function removeAnnoHotspot() {
-	var anno = displayAllMarkers();
+function removeAnnoHotspot(maptype) {
+	var anno = displayAllMarkers(maptype);
 	for (var o = 0; o < anno.length; o++) {
 		map.removeAnnotation(anno[o].title);
 	}

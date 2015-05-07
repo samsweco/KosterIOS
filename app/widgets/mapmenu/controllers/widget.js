@@ -24,11 +24,10 @@ $.geoSwitch.addEventListener('change', function(e) {
 
 $.hotspotSwitch.addEventListener('change', function(e) {
 	if ($.hotspotSwitch.value == true) {
-		displayAllMarkers();
+		displayAllMarkers(map);
 		hotspotsNotVisible = false;
-
 	} else {
-		removeAnnoHotspot();
+		removeAnnoHotspot(map);
 		hotspotsNotVisible = true;
 	}
 });
