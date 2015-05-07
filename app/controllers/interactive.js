@@ -14,6 +14,7 @@ displayMap();
 function displayMap(){
 	$.showFamilyTrail.add(showDetailMap(7, 'Äventyrsleden', 'purple'));
 	addClueZone();
+	displaySpecificMarkers(7);
 }
 
 function startInteractive() {
