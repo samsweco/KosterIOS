@@ -1,9 +1,8 @@
+Ti.include("mapFunctions.js");
+
 $.tabs.open();
 Alloy.CFG.tabs = $.tabs;
 exports.toInteractive = toInteractive;
-
-var myPos = false;
-var myInteractivePos = false;
 
 //-----------------------------------------------------------
 // Metoder för navigering
@@ -97,22 +96,12 @@ function showMapMenu() {
 	Alloy.Globals.showMapMenuWidget();
 }
 
-function getInteractivePos() {
-	if(myInteractivePos == false){
-		Alloy.Globals.setUserPosition();
-		myInteractivePos = true;
-	}else{
-		Alloy.Globals.setRegion();
-		myInteractivePos = false;
-	}
-}
-
 function getPos() {
-	if(myPos == false){
+	if(myPosition == false){
 		Alloy.Globals.setUserPosition();
-		myPos = true;
+		myPosition = true;
 	}else{
 		Alloy.Globals.setRegion();
-		myPos = false;
+		myPosition = false;
 	}
 }

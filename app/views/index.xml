@@ -31,7 +31,7 @@
 		<Tab id="interactive" class="tabbar" title="Spela" icon="/images/quizMenu.png">
 			<Window id="interactiveWin" title="Bokstavsjakt" onOpen="toInteractive">
 				<RightNavButton>
-					<Button id="btnGetPositionInteractive" image="/images/locationarrow.png" onClick="getInteractivePos" />
+					<Button id="btnGetPositionInteractive" image="/images/locationarrow.png" />
 				</RightNavButton>
 			</Window> />
 		</Tab>
