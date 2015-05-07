@@ -298,16 +298,9 @@ function displayInfoSpots(type) {
 			var infoMarker = MapModule.createAnnotation({
 				latitude : infospotJSON[i].latitude,
 				longitude : infospotJSON[i].longitude,
-				image : '/images/map_' + infospotJSON[i].name + '.png'
+				image : '/images/map_' + infospotJSON[i].name + '.png',
+				name : infospotJSON[i].name
 			});
-
-			if (infospotJSON[i].name == 'taltplats') {
-				infoMarker.title = 'Tältplats';
-			} else if (infospotJSON[i].name == 'farjelage') {
-				infoMarker.title = 'Färjeläge';
-			} else {
-				infoMarker.title = capitalizeFirstLetter(infospotJSON[i].name);
-			}
 
 			markerArray.push(infoMarker);
 			infospotArray.push(infoMarker);
@@ -377,14 +370,6 @@ function getSpecificIconsForTrail(id) {
 				name : 'infospot'
 			});
 
-			if (infospotsTrails[i].name == 'taltplats') {
-				specificinfoMarker.title = 'Tältplats';
-			} else if (infospotsTrails[i].name == 'farjelage') {
-				specificinfoMarker.title = 'Färjeläge';
-			} else {
-				specificinfoMarker.title = capitalizeFirstLetter(infospotsTrails[i].name);
-			}
-
 			specificMarkerArray.push(specificinfoMarker);
 		}
 
@@ -395,14 +380,9 @@ function getSpecificIconsForTrail(id) {
 	// }
 }
 
-function capitalizeFirstLetter(string) {
-	return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
 function removeAnnoSpot(anno, infotype) {
-
 	for (var o = 0; o < infospotArray.length; o++) {
-		var type = infospotArray[o].title;
+		var type = infospotArray[o].name;
 		if (anno == 'info' && infotype == type) {
 			map.removeAnnotation(infospotArray[o]);
 		}

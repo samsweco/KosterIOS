@@ -40,7 +40,7 @@ function showFarglage() {
 		$.btnShowFarjelage.backgroundImage = '/images/farjelage.png';
 		farjelage = true;
 	} else {
-		removeAnnoSpot('info', 'Färjeläge');
+		removeAnnoSpot('info', 'farjelage');
 		$.btnShowFarjelage.backgroundImage = '/images/grayfarjelage.png';
 		farjelage = false;
 	}
@@ -52,7 +52,7 @@ function showTaltplats() {
 		$.btnShowTaltplats.backgroundImage = '/images/taltplats.png';
 		taltplats = true;
 	} else {
-		removeAnnoSpot('info', 'Tältplats');
+		removeAnnoSpot('info', 'taltplats');
 		$.btnShowTaltplats.backgroundImage = '/images/graytaltplats.png';
 		taltplats = false;
 	}
@@ -64,7 +64,7 @@ function showEldplats() {
 		$.btnShowEldplats.backgroundImage = '/images/eldplats.png';
 		eldplats = true;
 	} else {
-		removeAnnoSpot('info', 'Eldplats');
+		removeAnnoSpot('info', 'eldplats');
 		$.btnShowEldplats.backgroundImage = '/images/grayeldplats.png';
 		eldplats = false;
 	}
@@ -76,7 +76,7 @@ function showSnorkelled() {
 		$.btnShowSnorkelled.backgroundImage = '/images/snorkelled.png';
 		snorkel = true;
 	} else {
-		removeAnnoSpot('info', 'Snorkelled');
+		removeAnnoSpot('info', 'snorkelled');
 		$.btnShowSnorkelled.backgroundImage = '/images/graysnorkelled.png';
 		snorkel = false;
 	}
@@ -88,7 +88,7 @@ function showInformation() {
 		$.btnShowInformation.backgroundImage = '/images/information.png';
 		information = true;
 	} else {
-		removeAnnoSpot('info', 'Information');
+		removeAnnoSpot('info', 'information');
 		$.btnShowInformation.backgroundImage = '/images/grayinformation.png';
 		information = false;
 	}
@@ -100,7 +100,7 @@ function showBadplats() {
 		$.btnShowBadplats.backgroundImage = '/images/badplats.png';
 		badplats = true;
 	} else {
-		removeAnnoSpot('info', 'Badplats');
+		removeAnnoSpot('info', 'badplats');
 		$.btnShowBadplats.backgroundImage = '/images/graybadplats.png';
 		badplats = false;
 	}
@@ -112,7 +112,7 @@ function showRastplats() {
 		$.btnShowRastplats.backgroundImage = '/images/rastplats.png';
 		rastplats = true;
 	} else {
-		removeAnnoSpot('info', 'Rastplats');
+		removeAnnoSpot('info', 'rastplats');
 		$.btnShowRastplats.backgroundImage = '/images/grayrastplats.png';
 		rastplats = false;
 	}
@@ -124,7 +124,7 @@ function showUtkiksplats() {
 		$.btnShowUtsiktsplats.backgroundImage = '/images/utsiktsplats.png';
 		utsiktsplats = true;
 	} else {
-		removeAnnoSpot('info', 'Utsiktsplats');
+		removeAnnoSpot('info', 'utsiktsplats');
 		$.btnShowUtsiktsplats.backgroundImage = '/images/grayutsiktsplats.png';
 		utsiktsplats = false;
 	}
@@ -136,7 +136,7 @@ function showTorrdass() {
 		$.btnShowTorrdass.backgroundImage = '/images/torrdass.png';
 		torrdass = true;
 	} else {
-		removeAnnoSpot('info', 'Torrdass');
+		removeAnnoSpot('info', 'torrdass');
 		$.btnShowTorrdass.backgroundImage = '/images/graytorrdass.png';
 		torrdass = false;
 	}
