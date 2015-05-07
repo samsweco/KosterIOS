@@ -7,17 +7,10 @@
 	<Collection src="letterModel"></Collection>
 	<Collection src="infospotCoordinatesModel"></Collection>
 	<Window backButtonTitle="Tillbaka">
-		<!-- <LeftNavButton>
-			<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMenu" />
-		</LeftNavButton> -->
 		<RightNavButton>
 			<Button id="btnGetPosition" image="/images/locationarrow.png" onClick="getZoomedMapPosition" />
 		</RightNavButton>
 		
-		<View id="mapDetailView">
-			
-		</View>
-		<Widget src="interactive" name="widget"></Widget>
-		<!-- <Widget src="mapmenu" name="widget"></Widget> -->
+		<View id="mapDetailView"></View>
 	</Window>
 </Alloy>

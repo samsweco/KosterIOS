@@ -10,6 +10,5 @@
 				</TableViewRow>
 			</TableView>
 		</ScrollView>
-		<Widget src="interactive" name="widget"></Widget>
 	</View>
 </Alloy>

@@ -7,8 +7,6 @@
 	<Collection src="letterModel" />
 	<View class="container">
 		<View id="mapView"></View>
-		<!-- <Button id="btnMenu" backgroundImage="/images/hamburger.png" onClick="showMenu" /> -->
-		<Widget src="interactive" name="widget"></Widget>
 		<Widget src="mapmenu" name="widget"></Widget>
 	</View>
 </Alloy>

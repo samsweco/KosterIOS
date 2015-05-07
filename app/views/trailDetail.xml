@@ -13,10 +13,6 @@
 			</View>
 			<View id="horizontalView">
 				<View id="iconrow"></View>
-				<View id="btnView">
-					<!-- <Label id="btnTrailOnMap" onClick="zoomMapTrail">Visa på karta</Label> -->
-					<!-- <ImageView id="imgArrow" image="/images/arrow.png"></ImageView> -->
-				</View>
 			</View>
 			<View class="lbls">
 				<Label id="lblTrailName" class="lbltrailDetail"></Label>
@@ -29,6 +25,5 @@
 				<TableView id="hotspotTable" onClick="showHotspot" />
 			</View>
 		</ScrollView>
-		<Widget src="interactive" name="widget"></Widget>
 	</Window>
 </Alloy>

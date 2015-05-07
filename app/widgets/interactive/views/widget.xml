@@ -1,7 +1,0 @@
-<Alloy>
-	<Collection src="letterModel"></Collection>
-	<View id="interactiveView">
-			<Label id="lblClue"></Label>
-			<Label id="lblCloseWidget" onClick="closeInteractive">Close</Label>
-	</View>
-</Alloy>

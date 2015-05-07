@@ -6,6 +6,5 @@
 				<TableViewRow class="row" onClick="getInfoDetails" />
 			</TableView>
 		</ScrollView>
-		<Widget src="interactive" name="widget"></Widget>
 	</View>
 </Alloy>

@@ -9,6 +9,5 @@
 			<Label id="lblHotspotInfoTxt" class="lblhotspotDetail"></Label>
 			<Label id="lblTest"></Label>
 		</ScrollView>
-		<Widget src="interactive" name="widget"></Widget>
 	</Window>
 </Alloy>
