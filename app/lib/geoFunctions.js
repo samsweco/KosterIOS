@@ -101,7 +101,7 @@ function isInsideRadius(latti, lonni, rad) {
 // Kontrollerar om enheten är innanför en punkt, sänder ut dialog om true
 //-----------------------------------------------------------
 function userIsNearHotspot() {
-	// try {
+ try {
 	var radius = 30;
 	var dialog = Ti.UI.createAlertDialog();
 
@@ -141,16 +141,16 @@ function userIsNearHotspot() {
 		}
 	}
 
-	// } catch(e) {
-	// newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - isNearPoint");
-	// }
+	} catch(e) {
+	newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - isNearPoint");
+	}
 }
 
 //-----------------------------------------------------------
 // Sätter ut punkterna som ska kontrolleras, loopar
 //-----------------------------------------------------------
 function userIsNearLetter() {
-//	try {
+	try {
 	var radius = 30;
 		for (var i = 0; i < Alloy.Globals.jsonCollection.length; i++) {
 
@@ -173,23 +173,10 @@ function userIsNearLetter() {
 			}
 		}
 
-	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!",  'isNearPoint - letter');
-	// }
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!",  'isNearPoint - letter');
+	}
 }
-
-
-
-// function setZoomedRegion() {
-	// map.region = {
-		// latitude : zoomLat,
-		// longitude : zoomLon,
-		// latitudeDelta : 0.03,
-		// longitudeDelta : 0.03
-	// };
-	// map.animate = true;
-	// map.userLocation = false;
-// }
 
 function getPosition() {
 	Ti.Geolocation.getCurrentPosition(function(e) {

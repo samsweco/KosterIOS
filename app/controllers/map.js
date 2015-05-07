@@ -1,180 +1,36 @@
+Ti.include("geoFunctions.js");
+Ti.include("mapFunctions.js");
+
 var args = arguments[0] || {};
 
 var zoomedName = args.name;
 var zoomColor = args.color;
 var zoomLat = args.zoomlat;
 
-var route;
-var MapModule = require('ti.map');
-
-var infospotsNotVisible = true;
-var hotspotsNotVisible = true;
-
-var infospotsAnnotation;
-var hotspotAnnotation;
+// var infospotsNotVisible = true;
+// var hotspotsNotVisible = true;
+// 
+// var infospotsAnnotation;
+// var hotspotAnnotation;
 
 var trailsCollection = getTrailsCollection();
-var hotspotCollection = getHotspotCollection();
-var jsonFileCollection = getJSONfiles();
+// var hotspotCollection = getHotspotCollection();
+// var jsonFileCollection = getJSONfiles();
 // var infospotCollection = getInfoSpotCoordinatesCollection();
 
 //-----------------------------------------------------------
 // Onload-funktioner för kartan
 //-----------------------------------------------------------
 // try {
-showMap();
+displayBigMap();
 setRoutes();
 displayTrailMarkers();
 // } catch(e) {
 // newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - load page");
 // }
 
-//-----------------------------------------------------------
-// Sätter ut alla vandringsleder på kartan
-//-----------------------------------------------------------
-function setRoutes() {
-	try {
-		trailsCollection.fetch({
-			query : 'SELECT id, name, color FROM trailsModel'
-		});
-
-		var jsonObj = trailsCollection.toJSON();
-
-		for (var i = 0; i < jsonObj.length; i++) {
-			if (jsonObj[i].name != 'Båtleden') {
-				var file = getFile(jsonObj[i].id);
-
-				for (var u = 0; u < file.length; u++) {
-					createMapRoutes(file[u].filename, jsonObj[i].name, jsonObj[i].color);
-				}
-			}
-		}
-
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "infoList - getInfoDetails");
-	}
-}
-
-//-----------------------------------------------------------
-// Hämtar JSON-fil för en vandringsled
-//-----------------------------------------------------------
-function getFile(id) {
-	try {
-		jsonFileCollection.fetch({
-			query : 'SELECT filename FROM jsonFilesModel WHERE trailID ="' + id + '"'
-		});
-
-		var filename = jsonFileCollection.toJSON();
-		return filename;
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - getFile");
-	}
-}
-
-//-----------------------------------------------------------
-// Skapar en vandringsled på kartan
-//-----------------------------------------------------------
-function createMapRoutes(file, name, color) {
-	try {
-		var routes = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory + "/routes/" + file).read().text;
-		var parsedRoute = JSON.parse(routes);
-
-		var geoArray = [];
-		geoArray.push(parsedRoute);
-
-		for (var u = 0; u < geoArray.length; u++) {
-			var coords = geoArray[0].features[0].geometry.paths[u];
-
-			var points = new Array();
-
-			for (var i = 0; i < coords.length; i++) {
-
-				var c = {
-					latitude : coords[i][1],
-					longitude : coords[i][0]
-				};
-				points.push(c);
-			}
-
-			var route = {
-				name : name,
-				points : points,
-				color : color,
-				width : 1.7
-			};
-			baseMap.addRoute(MapModule.createRoute(route));
-		}
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - createMapRoutes");
-	}
-}
-
-//-----------------------------------------------------------
-// Läser in kartvyn
-//-----------------------------------------------------------
-function showMap() {
-	try {
-		baseMap = MapModule.createView({
-			mapType : MapModule.HYBRID_TYPE,
-			animate : true,
-			height : '100%',
-			width : Ti.UI.FILL
-		});
-		
-		setRegion();
-		$.mapView.add(baseMap);
-
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - showMap");
-	}
-}
-
-function setRegion(){
-	baseMap.region = {
-		latitude : 58.886154,
-		longitude : 11.024307,
-		latitudeDelta : 0.08,
-		longitudeDelta : 0.08
-	}; 
-	baseMap.animate = true;
-	baseMap.userLocation = false;
-}
-Alloy.Globals.setRegion = setRegion;
-
-//-----------------------------------------------------------
-// Visar markers för vandringslederna
-//-----------------------------------------------------------
-function displayTrailMarkers() {
-	try {
-		trailsCollection.fetch({
-			query : 'SELECT name, pinLon, pinLat, color, area, length, pincolor FROM trailsModel'
-		});
-
-		var jsonObj = trailsCollection.toJSON();
-		for (var i = 0; i < jsonObj.length; i++) {
-			var markerAnnotation = MapModule.createAnnotation({
-				id : jsonObj[i].name,
-				latitude : jsonObj[i].pinLat,
-				longitude : jsonObj[i].pinLon,
-				title : jsonObj[i].name,
-				subtitle : jsonObj[i].area + ', ' + jsonObj[i].length + ' km',
-				rightButton : '/pins/arrow.png',
-				image : '/images/pin-' + jsonObj[i].pincolor + '.png',
-				centerOffset : {
-					x : 0,
-					y : -25
-				},
-				name : 'trail',
-				font : {
-					fontStyle : 'Raleway-Light'
-				}
-			});
-
-			baseMap.addAnnotation(markerAnnotation);
-		}
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - displayTrailMarkers");
-	}
+function displayBigMap(){
+	$.mapView.add(showMap());
 }
 
 //-----------------------------------------------------------
@@ -233,7 +89,7 @@ function showHotspot(myId) {
 //-----------------------------------------------------------
 // Eventlistener för klick på trail eller hotspot
 //-----------------------------------------------------------
-baseMap.addEventListener('click', function(evt) {
+map.addEventListener('click', function(evt) {
 
 	if (evt.clicksource == 'rightButton') {
 		if (evt.annotation.name == 'hotspot') {
@@ -244,25 +100,21 @@ baseMap.addEventListener('click', function(evt) {
 	}
 });
 
-baseMap.addEventListener('singletap', function() {
+map.addEventListener('singletap', function() {
 	Alloy.Globals.closeMapMenu();
 });
-
-function showMenu() {
-	Alloy.Globals.showMenuWidget();
-}
 
 function setUserPosition() {
 	Ti.Geolocation.getCurrentPosition(function(e) {
 		if (e.coords != null) {
-			baseMap.region = {
+			map.region = {
 				latitude : e.coords.latitude,
 				longitude : e.coords.longitude,
 				latitudeDelta : 0.008,
 				longitudeDelta : 0.008
 			};
-			baseMap.animate = true;
-			baseMap.userLocation = true;
+			map.animate = true;
+			map.userLocation = true;
 		}
 	});
 }

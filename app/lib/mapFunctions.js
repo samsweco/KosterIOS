@@ -1,4 +1,7 @@
 var trailsCollection = getTrailsCollection();
+trailsCollection.fetch();
+var trailJson = trailsCollection.toJSON();
+
 var hotspotCollection = getHotspotCollection();
 var letterCollection = getLetterCollection();
 letterCollection.fetch();
@@ -11,6 +14,26 @@ var nextId = 1;
 var infospotArray = [];
 var menuVisible = false;
 var mapMenuVisible = false;
+
+//-----------------------------------------------------------
+// Läser in kartvyn
+//-----------------------------------------------------------
+function showMap() {
+	try {
+		map = MapModule.createView({
+			mapType : MapModule.HYBRID_TYPE,
+			animate : true,
+			height : '100%',
+			width : Ti.UI.FILL
+		});
+		
+		setRegion();
+		return map;
+
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - showMap");
+	}
+}
 
 //-----------------------------------------
 // Zoomar in kartan på en Detaljkarta
@@ -138,6 +161,49 @@ function createMapRoutes(file, name, color) {
 	// newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - createMapRoute");
 	// }
 }
+//-----------------------------------------------------------
+// Sätter ut alla vandringsleder på kartan
+//-----------------------------------------------------------
+function setRoutes() {
+	try{	
+		for(i = 0; i<trailJson.length; i++){
+			setSpecificRoute(trailJson[i].id, trailJson[i].name, trailJson[i].color);
+		}
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "infoList - getInfoDetails");
+	}
+}
+
+//-----------------------------------------------------------
+// Visar markers för vandringslederna
+//-----------------------------------------------------------
+function displayTrailMarkers() {
+	try {
+		for (var i = 0; i < trailJson.length; i++) {
+			var markerAnnotation = MapModule.createAnnotation({
+				id : trailJson[i].name,
+				latitude : trailJson[i].pinLat,
+				longitude : trailJson[i].pinLon,
+				title : trailJson[i].name,
+				subtitle : trailJson[i].area + ', ' + trailJson[i].length + ' km',
+				rightButton : '/pins/arrow.png',
+				image : '/images/pin-' + trailJson[i].pincolor + '.png',
+				centerOffset : {
+					x : 0,
+					y : -25
+				},
+				name : 'trail',
+				font : {
+					fontStyle : 'Raleway-Light'
+				}
+			});
+
+			map.addAnnotation(markerAnnotation);
+		}
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - displayTrailMarkers");
+	}
+}
 
 //-----------------------------------------------------------
 // Hämtar JSON-filen för den valda vandringsleden
@@ -213,6 +279,17 @@ function displayAllMarkers() {
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - displayMarkers");
 	}
+}
+
+function setRegion(){
+	map.region = {
+		latitude : 58.886154,
+		longitude : 11.024307,
+		latitudeDelta : 0.08,
+		longitudeDelta : 0.08
+	}; 
+	map.animate = true;
+	map.userLocation = false;
 }
 
 //-----------------------------------------------------------
