@@ -7,30 +7,22 @@ var zoomedName = args.name;
 var zoomColor = args.color;
 var zoomLat = args.zoomlat;
 
-// var infospotsNotVisible = true;
-// var hotspotsNotVisible = true;
-// 
-// var infospotsAnnotation;
-// var hotspotAnnotation;
-
 var trailsCollection = getTrailsCollection();
-// var hotspotCollection = getHotspotCollection();
-// var jsonFileCollection = getJSONfiles();
-// var infospotCollection = getInfoSpotCoordinatesCollection();
 
 //-----------------------------------------------------------
 // Onload-funktioner för kartan
 //-----------------------------------------------------------
-// try {
 displayBigMap();
 
-// } catch(e) {
-// newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - load page");
-// }
-
-function displayBigMap(){
-	$.mapView.add(showMap(map));
-
+//-----------------------------------------------------------
+// Visar kartan
+//-----------------------------------------------------------
+function displayBigMap() {
+	try {
+		$.mapView.add(showMap(map));
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - load page");
+	}
 }
 
 //-----------------------------------------------------------
@@ -94,7 +86,7 @@ map.addEventListener('click', function(evt) {
 	if (evt.clicksource == 'rightButton') {
 		if (evt.annotation.name == 'hotspot') {
 			showHotspot(evt.annotation.id);
-		} else if(evt.annotation.name == 'trail') {
+		} else if (evt.annotation.name == 'trail') {
 			showTrail(evt.annotation.id);
 		}
 	}

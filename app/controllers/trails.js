@@ -9,97 +9,93 @@ try {
 
 setRowData();
 
-	$.table.addEventListener('click',function(e) {
-    e.row.selectedBackgroundColor='#C8C8C8';
+$.table.addEventListener('click', function(e) {
+	e.row.selectedBackgroundColor = '#C8C8C8';
 });
 
 //-----------------------------------------------------------
 // Läser in data till alla listitems
 //-----------------------------------------------------------
 function setRowData() {
-	
+	var trailsCollection = Alloy.Collections.trailsModel;
+	trailsCollection.fetch();
 
+	var tableViewData = [];
+	var rows = trailsCollection.toJSON();
 
-		var trailsCollection = Alloy.Collections.trailsModel;
-		trailsCollection.fetch();
+	for (var i = rows.length; i--; ) {
 
-		var tableViewData = [];
-		var rows = trailsCollection.toJSON();
-		
-		for (var i = rows.length; i--;){
-			
-				var row = Ti.UI.createTableViewRow({
-				layout : 'horizontal',
-				id : rows[i].id,
-				height : '90dp',
-				top : '0dp',
-				hasChild : true
-			});
-			
-			var listItem = Ti.UI.createView({
-				layout : 'vertical',
-				height : Ti.UI.SIZE,
-				width : Ti.UI.FILL,
-			});
-			
-			var img = Ti.UI.createImageView({
-				height : '70dp',
-				width : '115dp',
-				image : '/pics/' + rows[i].cover_img,
-				left : '5dp',
-				top : '10dp'
-			});
-			
-			var labelView = Ti.UI.createView({
-				height : Ti.UI.SIZE,
-				width : Ti.UI.FILL,
-				backgroundColor : 'white',
-				layout : 'vertical'
-			});
+		var row = Ti.UI.createTableViewRow({
+			layout : 'horizontal',
+			id : rows[i].id,
+			height : '90dp',
+			top : '0dp',
+			hasChild : true
+		});
 
-			
-			var lblName = Ti.UI.createLabel({
-				color : '#FF9966',
-				left : '5dp',
-				font : {
-					fontSize : '14dp',
-					fontFamily: 'Raleway-Medium'
-				},
-				text : rows[i].name
-			});
-			
-			var lblDistance = Ti.UI.createLabel({
-				left : '5dp',
-				top : '0dp',
-				font : {
-					fontSize : '12dp',
-					fontFamily: 'Raleway-Light'
-				},
-				text : 'Sträcka : ' + rows[i].length + " km"
-			});
-			
-			var lblArea = Ti.UI.createLabel({
-				left : '5dp',
-				top : '0dp',
-				font : {
-					fontSize : '12dp',
-					fontFamily: 'Raleway-Light'
-				},
-				text : rows[i].area
-			});
-		
-			var iconView = showIcons(rows[i].id);
-			
-		labelView.add(iconView);	
-		labelView.add(lblName);	
+		var listItem = Ti.UI.createView({
+			layout : 'vertical',
+			height : Ti.UI.SIZE,
+			width : Ti.UI.FILL,
+		});
+
+		var img = Ti.UI.createImageView({
+			height : '70dp',
+			width : '115dp',
+			image : '/pics/' + rows[i].cover_img,
+			left : '5dp',
+			top : '10dp'
+		});
+
+		var labelView = Ti.UI.createView({
+			height : Ti.UI.SIZE,
+			width : Ti.UI.FILL,
+			backgroundColor : 'white',
+			layout : 'vertical'
+		});
+
+		var lblName = Ti.UI.createLabel({
+			color : '#FF9966',
+			left : '5dp',
+			font : {
+				fontSize : '14dp',
+				fontFamily : 'Raleway-Medium'
+			},
+			text : rows[i].name
+		});
+
+		var lblDistance = Ti.UI.createLabel({
+			left : '5dp',
+			top : '0dp',
+			font : {
+				fontSize : '12dp',
+				fontFamily : 'Raleway-Light'
+			},
+			text : 'Sträcka : ' + rows[i].length + " km"
+		});
+
+		var lblArea = Ti.UI.createLabel({
+			left : '5dp',
+			top : '0dp',
+			font : {
+				fontSize : '12dp',
+				fontFamily : 'Raleway-Light'
+			},
+			text : rows[i].area
+		});
+
+		var iconView = showIcons(rows[i].id);
+
+		labelView.add(iconView);
+		labelView.add(lblName);
 		labelView.add(lblDistance);
 		labelView.add(lblArea);
-		
+
 		row.add(img);
-		row.add(labelView);	
-		
+		row.add(labelView);
+
 		tableViewData.push(row);
-		}
+	}
 	$.table.data = tableViewData;
 }
 
@@ -108,9 +104,9 @@ function setRowData() {
 //-----------------------------------------------------------
 function showTrailDetails(e) {
 
-	 try {
+	try {
 		var id = e.rowData.id;
-		
+
 		var trailsCollection = Alloy.Collections.trailsModel;
 		trailsCollection.fetch({
 			query : 'SELECT * FROM trailsModel where id ="' + id + '"'
@@ -118,23 +114,23 @@ function showTrailDetails(e) {
 
 		var jsonObj = trailsCollection.toJSON();
 
-	var args = {
-		id : id,
-		title : jsonObj[0].name,
-		length : jsonObj[0].length,
-		infoTxt : jsonObj[0].infoTxt,
-		area : jsonObj[0].area,
-		zoomlat : jsonObj[0].zoomLat,
-		zoomlon : jsonObj[0].zoomLon,
-		color : jsonObj[0].color,
-		jsonfile : jsonObj[0].JSONfile
-	};
+		var args = {
+			id : id,
+			title : jsonObj[0].name,
+			length : jsonObj[0].length,
+			infoTxt : jsonObj[0].infoTxt,
+			area : jsonObj[0].area,
+			zoomlat : jsonObj[0].zoomLat,
+			zoomlon : jsonObj[0].zoomLon,
+			color : jsonObj[0].color,
+			jsonfile : jsonObj[0].JSONfile
+		};
 
-	var trailDetail = Alloy.createController("trailDetail", args).getView();
-	Alloy.CFG.tabs.activeTab.open(trailDetail);
+		var trailDetail = Alloy.createController("trailDetail", args).getView();
+		Alloy.CFG.tabs.activeTab.open(trailDetail);
 
 	} catch(e) {
-	newError("Något gick fel när sidan skulle laddas, prova igen!", "Trails - showTrailDetails");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Trails - showTrailDetails");
 	}
 }
 
@@ -163,7 +159,7 @@ function showIcons(id) {
 			left : '0dp'
 		});
 
-			iconImgView.image = '/images/' + selectedIcons[i].name +'.png';
+		iconImgView.image = '/images/' + selectedIcons[i].name + '.png';
 
 		iconView.add(iconImgView);
 	}
