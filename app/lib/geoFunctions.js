@@ -1,5 +1,3 @@
-var myPosition = false;
-
 
 function getUserPos(type) {
 	try {
@@ -172,7 +170,6 @@ function userIsNearLetter() {
 					message.show();
 					Alloy.Globals.jsonCollection[i].alerted = 1;
 				}
-
 			}
 		}
 
@@ -181,26 +178,18 @@ function userIsNearLetter() {
 	// }
 }
 
-function getZoomedMapPosition() {
-	if (myPosition == false) {
-		getPosition();
-		myPosition = true;
-	} else {
-		setZoomedRegion();
-		myPosition = false;
-	}
-}
 
-function setZoomedRegion() {
-	map.region = {
-		latitude : zoomLat,
-		longitude : zoomLon,
-		latitudeDelta : 0.03,
-		longitudeDelta : 0.03
-	};
-	map.animate = true;
-	map.userLocation = false;
-}
+
+// function setZoomedRegion() {
+	// map.region = {
+		// latitude : zoomLat,
+		// longitude : zoomLon,
+		// latitudeDelta : 0.03,
+		// longitudeDelta : 0.03
+	// };
+	// map.animate = true;
+	// map.userLocation = false;
+// }
 
 function getPosition() {
 	Ti.Geolocation.getCurrentPosition(function(e) {
@@ -215,14 +204,4 @@ function getPosition() {
 			map.userLocation = true;
 		}
 	});
-}
-
-function getmapPosition() {
-	if (myPosition == false) {
-		getPosition();
-		myPosition = true;
-	} else {
-		setZoomedRegion();
-		myPosition = false;
-	}
 }

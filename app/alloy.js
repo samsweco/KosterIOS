@@ -28,6 +28,7 @@ var gLat = 0;
 var gLon = 0;
 var foundId = 1;
 var notify = true;
+var myPosition = false;
 
 //-----------------------------------------------------------
 // Array som håller bokstäverna från bokstavsjakten.
@@ -56,6 +57,7 @@ var eldplats = false;
 
 var MapModule = require('ti.map');
 var baseMap;
+var map;
 
 //-----------------------------------------------------------
 // Metoder för alla collections

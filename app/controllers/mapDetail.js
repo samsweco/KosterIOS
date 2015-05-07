@@ -9,6 +9,10 @@ var args = arguments[0] || {};
 var trailName = args.title;
 var trailColor = args.color;
 var trailId = args.id;
+var zoomLat = args.zoomlat;
+var zoomLon = args.zoomlon;
+
+Ti.API.info(zoomLat);
 
 var trailsCollection = getTrailsCollection();
 
@@ -51,9 +55,28 @@ function addEventList() {
 				};
 			}
 		});
-		$.btnGetPosition.addEventListener('click', getZoomedMapPosition);
+		
 
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapDetail - addEventListener");
+	}
+}
+
+function getZoomedMapPosition() {
+	if (myPosition == false) {
+		getPosition();
+		myPosition = true;
+	} else {
+
+		map.region = {
+			latitude : zoomLat,
+			longitude : zoomLon,
+			latitudeDelta : 0.03,
+			longitudeDelta : 0.03
+		};	
+	
+		map.animate = true;
+		map.userLocation = false;
+		myPosition = false;
 	}
 }

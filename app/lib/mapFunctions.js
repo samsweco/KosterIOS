@@ -11,7 +11,6 @@ var nextId = 1;
 var infospotArray = [];
 var menuVisible = false;
 var mapMenuVisible = false;
-var map;
 
 //-----------------------------------------
 // Zoomar in kartan på en Detaljkarta
