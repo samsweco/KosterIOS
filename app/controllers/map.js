@@ -133,8 +133,8 @@ function setRegion(){
 	baseMap.region = {
 		latitude : 58.886154,
 		longitude : 11.024307,
-		latitudeDelta : 0.07,
-		longitudeDelta : 0.07
+		latitudeDelta : 0.08,
+		longitudeDelta : 0.08
 	}; 
 	baseMap.animate = true;
 	baseMap.userLocation = false;
@@ -258,8 +258,8 @@ function setUserPosition() {
 			baseMap.region = {
 				latitude : e.coords.latitude,
 				longitude : e.coords.longitude,
-				latitudeDelta : 0.007,
-				longitudeDelta : 0.007
+				latitudeDelta : 0.008,
+				longitudeDelta : 0.008
 			};
 			baseMap.animate = true;
 			baseMap.userLocation = true;

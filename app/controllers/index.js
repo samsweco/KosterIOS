@@ -3,6 +3,7 @@ Alloy.CFG.tabs = $.tabs;
 exports.toInteractive = toInteractive;
 
 var myPos = false;
+var myInteractivePos = false;
 
 //-----------------------------------------------------------
 // Metoder för navigering
@@ -16,8 +17,7 @@ function toMap() {
 		font : {
 			fontSize : '16dp',
 			fontFamily : 'Raleway-Medium'
-		},
-		
+		},	
 		text : 'Karta'
 	});
 
@@ -97,10 +97,19 @@ function showMapMenu() {
 	Alloy.Globals.showMapMenuWidget();
 }
 
+function getInteractivePos() {
+	if(myInteractivePos == false){
+		Alloy.Globals.setUserPosition();
+		myInteractivePos = true;
+	}else{
+		Alloy.Globals.setRegion();
+		myInteractivePos = false;
+	}
+}
+
 function getPos() {
 	if(myPos == false){
 		Alloy.Globals.setUserPosition();
-		$.btnGetPosition.color = 'gray';
 		myPos = true;
 	}else{
 		Alloy.Globals.setRegion();

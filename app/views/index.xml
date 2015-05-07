@@ -10,7 +10,6 @@
 					<Label id="lblFrontText">
 						Välkommen till Kosterhavet! Upptäck den vackra naturen i Kosterhavet och ta en promenad bland klapperstensfält och strandängar.
 					</Label>
-					<!-- <Label id="lblInteractive" onClick="showInteractive"> Visa interactive</Label> -->
 				</View>
 				<Widget src="interactive" name="widget">
 				</Widget>
@@ -31,9 +30,9 @@
 		</Tab>
 		<Tab id="interactive" class="tabbar" title="Spela" icon="/images/quizMenu.png">
 			<Window id="interactiveWin" title="Bokstavsjakt" onOpen="toInteractive">
-				<LeftNavButton>
-					<Button id="btnGetPositionInteractive" image="/images/locationarrow.png" />
-				</LeftNavButton>
+				<RightNavButton>
+					<Button id="btnGetPositionInteractive" image="/images/locationarrow.png" onClick="getInteractivePos" />
+				</RightNavButton>
 			</Window> />
 		</Tab>
 		<Tab id="info" class="tabbar" title="Info" icon="/images/infoMenu.png">
