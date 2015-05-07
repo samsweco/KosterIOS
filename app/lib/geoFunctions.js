@@ -1,8 +1,6 @@
-//GEO STUFF
-//-----------------------------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------------------------
+var myPosition = false;
+
+
 function getUserPos(type) {
 	try {
 
@@ -155,6 +153,7 @@ function userIsNearHotspot() {
 //-----------------------------------------------------------
 function userIsNearLetter() {
 //	try {
+	var radius = 30;
 		for (var i = 0; i < Alloy.Globals.jsonCollection.length; i++) {
 
 			if (Alloy.Globals.jsonCollection[i].found == 0) {
@@ -180,4 +179,50 @@ function userIsNearLetter() {
 	// } catch(e) {
 		// newError("Något gick fel när sidan skulle laddas, prova igen!",  'isNearPoint - letter');
 	// }
+}
+
+function getZoomedMapPosition() {
+	if (myPosition == false) {
+		getPosition();
+		myPosition = true;
+	} else {
+		setZoomedRegion();
+		myPosition = false;
+	}
+}
+
+function setZoomedRegion() {
+	map.region = {
+		latitude : zoomLat,
+		longitude : zoomLon,
+		latitudeDelta : 0.03,
+		longitudeDelta : 0.03
+	};
+	map.animate = true;
+	map.userLocation = false;
+}
+
+function getPosition() {
+	Ti.Geolocation.getCurrentPosition(function(e) {
+		if (e.coords != null) {
+			map.region = {
+				latitude : e.coords.latitude,
+				longitude : e.coords.longitude,
+				latitudeDelta : 0.007,
+				longitudeDelta : 0.007
+			};
+			map.animate = true;
+			map.userLocation = true;
+		}
+	});
+}
+
+function getmapPosition() {
+	if (myPosition == false) {
+		getPosition();
+		myPosition = true;
+	} else {
+		setZoomedRegion();
+		myPosition = false;
+	}
 }

@@ -5,12 +5,13 @@
 	<Collection src="jsonFilesModel" />
 	<Collection src="hotspot_trailsModel" />
 	<Collection src="letterModel"></Collection>
+	<Collection src="infospotCoordinatesModel"></Collection>
 	<Window backButtonTitle="Tillbaka">
 		<!-- <LeftNavButton>
 			<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMenu" />
 		</LeftNavButton> -->
 		<RightNavButton>
-			<Button id="btnGetPosition" image="/images/locationarrow.png" onClick="getZoomedMapPosition" />
+			<Button id="btnGetPosition" image="/images/locationarrow.png" />
 		</RightNavButton>
 		
 		<View id="mapDetailView">
