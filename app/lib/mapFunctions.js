@@ -283,8 +283,8 @@ function displayAllMarkers() {
 
 function setRegion(){
 	map.region = {
-		latitude : 58.886154,
-		longitude : 11.024307,
+		latitude : 58.887396,
+		longitude : 11.024908,
 		latitudeDelta : 0.08,
 		longitudeDelta : 0.08
 	}; 

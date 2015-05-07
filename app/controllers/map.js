@@ -25,12 +25,14 @@ var trailsCollection = getTrailsCollection();
 displayBigMap();
 setRoutes();
 displayTrailMarkers();
+	setRegion();
 // } catch(e) {
 // newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - load page");
 // }
 
 function displayBigMap(){
 	$.mapView.add(showMap());
+
 }
 
 //-----------------------------------------------------------
