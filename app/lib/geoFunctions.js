@@ -1,4 +1,3 @@
-
 function getUserPos(type) {
 	try {
 
@@ -101,48 +100,48 @@ function isInsideRadius(latti, lonni, rad) {
 // Kontrollerar om enheten är innanför en punkt, sänder ut dialog om true
 //-----------------------------------------------------------
 function userIsNearHotspot() {
- try {
-	var radius = 30;
-	var dialog = Ti.UI.createAlertDialog();
+	try {
+		var radius = 30;
+		var dialog = Ti.UI.createAlertDialog();
 
-	var hotspotColl = Alloy.Collections.hotspotModel;
-	hotspotColl.fetch({
-		query : 'SELECT DISTINCT id, name, infoTxt, xkoord, ykoord FROM hotspotModel'
-	});
+		var hotspotColl = Alloy.Collections.hotspotModel;
+		hotspotColl.fetch({
+			query : 'SELECT DISTINCT id, name, infoTxt, xkoord, ykoord FROM hotspotModel'
+		});
 
-	var hotspotJSONobj = hotspotColl.toJSON();
-	for (var h = 0; h < hotspotJSONobj.length; h++) {
+		var hotspotJSONobj = hotspotColl.toJSON();
+		for (var h = 0; h < hotspotJSONobj.length; h++) {
 
-		var hotlat = hotspotJSONobj[h].xkoord;
-		var hotlon = hotspotJSONobj[h].ykoord;
+			var hotlat = hotspotJSONobj[h].xkoord;
+			var hotlon = hotspotJSONobj[h].ykoord;
 
-		if (isInsideRadius(hotlat, hotlon, radius)) {
-			dialog.message = 'Nu börjar du närma dig ' + hotspotJSONobj[h].name + '!';
-			dialog.buttonNames = ['Läs mer', 'Stäng'];
+			if (isInsideRadius(hotlat, hotlon, radius)) {
+				dialog.message = 'Nu börjar du närma dig ' + hotspotJSONobj[h].name + '!';
+				dialog.buttonNames = ['Läs mer', 'Stäng'];
 
-			var hottitle = hotspotJSONobj[h].name;
-			var infoText = hotspotJSONobj[h].infoTxt;
-			var hotid = hotspotJSONobj[h].id;
+				var hottitle = hotspotJSONobj[h].name;
+				var infoText = hotspotJSONobj[h].infoTxt;
+				var hotid = hotspotJSONobj[h].id;
 
-			dialog.addEventListener('click', function(e) {
-				if (e.index == 0) {
-					var hotspotTxt = {
-						title : hottitle,
-						infoTxt : infoText,
-						id : hotid
-					};
+				dialog.addEventListener('click', function(e) {
+					if (e.index == 0) {
+						var hotspotTxt = {
+							title : hottitle,
+							infoTxt : infoText,
+							id : hotid
+						};
 
-					var hotspotDetail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
-					Alloy.CFG.tabs.activeTab.open(hotspotDetail);
-				}
-			});
+						var hotspotDetail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
+						Alloy.CFG.tabs.activeTab.open(hotspotDetail);
+					}
+				});
 
-			dialog.show();
+				dialog.show();
+			}
 		}
-	}
 
 	} catch(e) {
-	newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - isNearPoint");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - isNearPoint");
 	}
 }
 
@@ -151,7 +150,7 @@ function userIsNearHotspot() {
 //-----------------------------------------------------------
 function userIsNearLetter() {
 	try {
-	var radius = 30;
+		var radius = 30;
 		for (var i = 0; i < Alloy.Globals.jsonCollection.length; i++) {
 
 			if (Alloy.Globals.jsonCollection[i].found == 0) {
@@ -165,8 +164,16 @@ function userIsNearLetter() {
 
 					var message = Ti.UI.createAlertDialog({
 						message : Alloy.Globals.jsonCollection[i].clue,
-						title : 'Ny bokstav i närheten!'
+						title : 'Ny bokstav i närheten!',
+						buttonNames : ['Gå till bokstavsjakten', 'Stäng']
 					});
+
+					message.addEventListener('click', function(e) {
+						if (e.index == 0) {
+							Alloy.CFG.tabs.setActiveTab(3);
+						}
+					});
+
 					message.show();
 					Alloy.Globals.jsonCollection[i].alerted = 1;
 				}
@@ -174,7 +181,7 @@ function userIsNearLetter() {
 		}
 
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!",  'isNearPoint - letter');
+		newError("Något gick fel när sidan skulle laddas, prova igen!", 'isNearPoint - letter');
 	}
 }
 
