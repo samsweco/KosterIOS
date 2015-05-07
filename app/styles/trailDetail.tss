@@ -26,20 +26,6 @@
 	width: '100%'
 }
 
-"#btnView": {
-	width: '57%',
-	height: '40dp',
-	right: '0dp',
-	layout: 'horizontal',
-	top: '10dp'
-}
-
-"#imgArrow": {
-	height: '12dp',
-	width: '12dp',
-	right: '0dp'
-}
-
 "#slideView": {
 	backgroundColor: '#000000',
 	height: Titanium.UI.SIZE,

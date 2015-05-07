@@ -7,10 +7,6 @@
 	width: '100%'
 }
 
-"#btnView": {
-	layout: 'horizontal'
-}
-
 "#selectIconView": {
 	layout: 'horizontal'
 }

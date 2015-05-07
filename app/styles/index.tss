@@ -4,7 +4,7 @@
 }
 
 ".imgKoster": {
-	top : '20dp',
+	top: '20dp',
 	center: '50%',
 	height: '90dp',
 	width: Titanium.UI.SIZE
@@ -19,9 +19,9 @@
 "#lblFrontText": {
 	color: "white",
 	right: '20dp',
-	left : '20dp',
-	top : '10dp',
-	font : {
+	left: '20dp',
+	top: '10dp',
+	font: {
 		fontSize: '14dp',
 		fontFamily: 'Raleway-Light'
 	}

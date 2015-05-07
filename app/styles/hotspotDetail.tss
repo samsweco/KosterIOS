@@ -48,11 +48,11 @@
 	color: '#FF9966'
 }
 
-"#lblHotspotInfoTxt" : {
-	left : '15dp',
+"#lblHotspotInfoTxt": {
+	left: '15dp',
 	top: '5dp',
 	right: '15dp',
 	font: {
-		fontSize : '14dp'
+		fontSize: '14dp'
 	}
 }

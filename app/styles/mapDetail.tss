@@ -2,12 +2,8 @@
 	layout: 'vertical'
 }
 
-"#btnView": {
-	layout: 'horizontal'
-}
-
 "#mapDetailView": {
 	height: '100%',
 	width: '100%',
-	layout : 'vertical'
+	layout: 'vertical'
 }
