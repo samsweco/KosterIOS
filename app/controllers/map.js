@@ -106,19 +106,3 @@ map.addEventListener('singletap', function() {
 	Alloy.Globals.closeMapMenu();
 });
 
-function setUserPosition() {
-	Ti.Geolocation.getCurrentPosition(function(e) {
-		if (e.coords != null) {
-			map.region = {
-				latitude : e.coords.latitude,
-				longitude : e.coords.longitude,
-				latitudeDelta : 0.008,
-				longitudeDelta : 0.008
-			};
-			map.animate = true;
-			map.userLocation = true;
-		}
-	});
-}
-
-Alloy.Globals.setUserPosition = setUserPosition;
