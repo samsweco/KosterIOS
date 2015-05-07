@@ -12,6 +12,7 @@ var hotspotsNotVisible = true;
 var radius = 20;
 var nextId = 1;
 var infospotArray = [];
+var markerHotspotArray = [];
 var menuVisible = false;
 var mapMenuVisible = false;
 
@@ -236,9 +237,8 @@ function showHotspot(myId) {
 //-----------------------------------------------------------
 // Visar markers för hotspots
 //-----------------------------------------------------------
-function displayAllMarkers(maptype) {
+function displayAllMarkers() {
 	try {
-		var markerHotspotArray = [];
 		hotspotCollection.fetch();
 
 		var markersJSON = hotspotCollection.toJSON();
@@ -262,7 +262,8 @@ function displayAllMarkers(maptype) {
 			markerHotspotArray.push(markerHotspot);
 		}
 
-		maptype.addAnnotations(markerHotspotArray);
+		map.addAnnotations(markerHotspotArray);
+		return markerHotspotArray;
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - displayMarkers");
 	}
@@ -408,10 +409,9 @@ function removeAnnoSpot(anno, infotype) {
 	}
 }
 
-function removeAnnoHotspot(maptype) {
-	var anno = displayAllMarkers(maptype);
-	for (var o = 0; o < anno.length; o++) {
-		map.removeAnnotation(anno[o].title);
+function removeAnnoHotspot() {
+	for (var o = 0; o < markerHotspotArray.length; o++) {
+		map.removeAnnotation(markerHotspotArray[o]);
 	}
 }
 
