@@ -94,7 +94,7 @@ function checkWord() {
 //-----------------------------------------------------------
 // Eventlistener för klick på trail eller hotspot
 //-----------------------------------------------------------
-map.addEventListener('click', function(evt) {
+interactiveMap.addEventListener('click', function(evt) {
 	if (evt.clicksource == 'rightButton') {
 		showHotspot(evt.annotation.id);
 	}
