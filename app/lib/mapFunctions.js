@@ -20,16 +20,10 @@ var mapMenuVisible = false;
 //-----------------------------------------------------------
 function showMap(maptype) {
 	try {
-		maptype = MapModule.createView({
-			mapType : MapModule.HYBRID_TYPE,
-			animate : true,
-			height : '100%',
-			width : Ti.UI.FILL
-		});
 		setRoutes(maptype);
 		setRegion(maptype);
 		displayTrailMarkers(maptype);
-		return maptype;
+		return map;
 
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - showMap");
@@ -41,15 +35,7 @@ function showMap(maptype) {
 //-----------------------------------------
 function showDetailMap(maptype, id, name, color) {
 	try {
-		maptype = MapModule.createView({
-			mapType : MapModule.HYBRID_TYPE,
-			animate : true,
-			height : '100%',
-			width : Ti.UI.FILL,
-		});
-
-		setSpecificRoute(id, name, color);
-
+		setSpecificRoute(maptype, id, name, color);
 		return maptype;
 
 	} catch(e) {

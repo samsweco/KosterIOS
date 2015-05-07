@@ -12,21 +12,19 @@ var trailId = args.id;
 var zoomLat = args.zoomlat;
 var zoomLon = args.zoomlon;
 
-Ti.API.info(zoomLat);
-
 var trailsCollection = getTrailsCollection();
 
 //-----------------------------------------------------------
 // Onload
 //-----------------------------------------------------------
 showMapDetail();
-displaySpecificMarkers(trailId);
+displaySpecificMarkers(trailId, detailMap);
 getSpecificIconsForTrail(trailId);
 addEventList();
 
 
 function showMapDetail(){
-		$.mapDetailView.add(showDetailMap(trailId, trailName, trailColor));
+		$.mapDetailView.add(showDetailMap(detailMap, trailId, trailName, trailColor));
 }
 
 //-----------------------------------------------------------
@@ -34,7 +32,7 @@ function showMapDetail(){
 //-----------------------------------------------------------
 function addEventList() {
 	try {
-		map.addEventListener('click', function(evt) {
+		detailMap.addEventListener('click', function(evt) {
 			if (evt.annotation.name == 'hotspot') {
 				if (evt.clicksource == 'rightButton') {
 					var hotspotCollection = Alloy.Collections.hotspotModel;
@@ -68,15 +66,15 @@ function getZoomedMapPosition() {
 		myPosition = true;
 	} else {
 
-		map.region = {
+		detailMap.region = {
 			latitude : zoomLat,
 			longitude : zoomLon,
 			latitudeDelta : 0.03,
 			longitudeDelta : 0.03
 		};	
 	
-		map.animate = true;
-		map.userLocation = false;
+		detailMap.animate = true;
+		detailMap.userLocation = false;
 		myPosition = false;
 	}
 }
