@@ -21,7 +21,7 @@ var myPosition = false;
 // Onload
 //-----------------------------------------------------------
 showZoomedMap();
-setRoute();
+setSpecificRoute();
 displaySpecificMarkers();
 getSpecificIcons();
 addEventList();
@@ -129,7 +129,7 @@ function calculateMapRegion(trailCoordinates) {
 //-----------------------------------------------------------
 // sätter en vald vandingsled
 //-----------------------------------------------------------
-function setRoute() {
+function setSpecificRoute() {
 	try {
 		if (zoomId != 8) {
 			var file = getFile(zoomId);
@@ -240,14 +240,6 @@ function addEventList() {
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapDetail - addEventListener");
 	}
-}
-
-function showMenu() {
-	Alloy.Globals.showMenuWidget();
-}
-
-function getPos() {
-	Alloy.Globals.setUserPosition();
 }
 
 //-----------------------------------------------------------
