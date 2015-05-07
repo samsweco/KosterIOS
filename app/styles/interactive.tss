@@ -23,8 +23,7 @@
 		fontSize: '14dp'
 	} ,
 	right: '20dp',
-	left: '20dp',
-	color: '#000000'
+	left: '20dp'
 }
 
 "#showFamilyTrail": {
@@ -49,8 +48,7 @@
 	font: {
 		fontSize: '16dp',
 		fontStyle: 'italic'
-	},
-	color: "#000000"
+	}
 }
 
 "#lblLetters": {
@@ -81,8 +79,7 @@
 	visible: false,
 	left: '15dp',
 	right: '15dp',
-	width: Titanium.UI.FILL,
-	color: '#000000'
+	width: Titanium.UI.FILL
 }
 
 "#wordView":{
@@ -98,8 +95,7 @@
 	width: Titanium.UI.FILL,
 	tintColor: 'blue',
 	borderWidth: '1dp',
-	borderRadius: '5dp',
-	color: '#000000'
+	borderRadius: '5dp'
 }
 
 "#lblWord":{
