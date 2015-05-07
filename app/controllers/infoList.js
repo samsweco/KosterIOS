@@ -61,14 +61,14 @@ function setRowData() {
 
 			var coverimg = Ti.UI.createImageView({
 				height : '70dp',
-				width : '110dp',
+				width : '115dp',
 				left : '5dp',
 				image : "/pics/" + rows[i].cover_img,
 				top : '10dp'
 			});
 
 			var lblName = Ti.UI.createLabel({
-				left : 5,
+				left : '5dp',
 				top : '2dp',
 				color : '#FF9966',
 				font : {

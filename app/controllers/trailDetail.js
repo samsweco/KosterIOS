@@ -107,7 +107,7 @@ function showHotspots() {
 
 			var img = Ti.UI.createImageView({
 				height : '70dp',
-				width : '110dp',
+				width : '115dp',
 				image : '/pics/' + rows[i].cover_pic,
 				left : '15dp',
 				top : '10dp'
@@ -124,7 +124,7 @@ function showHotspots() {
 				color : '#FF9966',
 				left : '5dp',
 				font : {
-					fontSize : 14,
+					fontSize : '14dp',
 					fontFamily: 'Raleway-Medium'
 				},
 				text : rows[i].name
