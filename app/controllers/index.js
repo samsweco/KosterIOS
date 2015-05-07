@@ -105,3 +105,13 @@ function getPos() {
 		myPosition = false;
 	}
 }
+
+function getPosInteractive(){
+	if(myPosition == false){
+		getPosition();
+		myPosition = true;
+	}else{
+		map.userLocation = false;
+		myPosition = false;
+	}
+}
