@@ -7,6 +7,51 @@ var infospotArray = [];
 var menuVisible = false;
 var mapMenuVisible = false;
 
+function stopGPS(){
+	Titanium.Geolocation.removeEventListener('location', addLocation);
+	Ti.Geolocation.Android.removeLocationProvider(providerGps);
+}
+
+//GEO STUFF
+//-----------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
+function getUserPos() {
+	try {
+
+		if (Ti.Geolocation.locationServicesEnabled) {
+			Titanium.Geolocation.preferredProvider = Titanium.Geolocation.PROVIDER_GPS;
+			Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_NEAREST_TEN_METERS;
+			Titanium.Geolocation.distanceFilter = 3;
+
+			Ti.Geolocation.addEventListener('location', addLocation);
+
+		} else {
+			alert('Tillåt gpsen, tack');
+		}
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - get current position GPS");
+	}
+}
+
+// var geoLocationFunction = function(e){
+    // if(!e.sucess || e.error){
+        // //Error msg here
+    // }else{
+        // //Disable location provider use, for Android's GPS
+            // Ti.Geolocation.Android.removeLocationProvider(providerGps);
+            // Titanium.Geolocation.removeEventListener('location', geoLocationFunction);
+    // }
+// };
+
+
+var addLocation = function(e){
+				if (!e.error) {
+					setUserPosition(e.coords);
+				}
+};
+
 //-----------------------------------------------------------
 // Visar markers för hotspots
 //-----------------------------------------------------------
@@ -106,6 +151,10 @@ function removeAnnoHotspot() {
 $.geoSwitch.addEventListener('change', function(e) {
 	if ($.geoSwitch.value == true) {
 		getUserPos();
+	}
+	
+	if($.geoSwitch.value == false){
+		stopGPS();
 	}
 });
 
@@ -264,38 +313,6 @@ Alloy.Globals.showMenuWidget = showMenuWidget;
 Alloy.Globals.showMapMenuWidget = showMapMenuWidget;
 Alloy.Globals.closeMapMenu = closeMapMenu;
 
-//GEO STUFF
-//-----------------------------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------------------------
-function getUserPos() {
-	try {
-		// Ti.Geolocation.getCurrentPosition(function(e) {
-		// if (e.error) {
-		// Ti.API.info('Kunde inte hitta din position');
-		// }
-		// });
-
-		if (Ti.Geolocation.locationServicesEnabled) {
-			Titanium.Geolocation.preferredProvider = Titanium.Geolocation.PROVIDER_GPS;
-			Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_NEAREST_TEN_METERS;
-			// Titanium.Geolocation.pauseLocationUpdateAutomatically = true;
-			Titanium.Geolocation.distanceFilter = 3;
-
-			Ti.Geolocation.addEventListener('location', function(e) {
-				if (!e.error) {
-					setUserPosition(e.coords);
-				}
-			});
-
-		} else {
-			alert('Tillåt gpsen, tack');
-		}
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - get current position GPS");
-	}
-}
 
 //-----------------------------------------------------------
 // Hämtar enhetens position och kontrollerar mot punkter
