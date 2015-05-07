@@ -24,8 +24,7 @@ $.geoSwitch.addEventListener('change', function(e) {
 
 $.hotspotSwitch.addEventListener('change', function(e) {
 	if ($.hotspotSwitch.value == true) {
-		var arrayHot = displayAllMarkers();
-		baseMap.addAnnotations(arrayHot);
+		displayAllMarkers();
 		hotspotsNotVisible = false;
 
 	} else {
@@ -37,7 +36,7 @@ $.hotspotSwitch.addEventListener('change', function(e) {
 function showFarglage() {
 
 	if (farjelage == false) {
-		baseMap.addAnnotations(displayInfoSpots('farjelage'));
+		map.addAnnotations(displayInfoSpots('farjelage'));
 
 		$.btnShowFarjelage.backgroundImage = '/images/farjelage.png';
 		farjelage = true;
@@ -50,7 +49,7 @@ function showFarglage() {
 
 function showTaltplats() {
 	if (taltplats == false) {
-		baseMap.addAnnotations(displayInfoSpots("taltplats"));
+		map.addAnnotations(displayInfoSpots("taltplats"));
 		$.btnShowTaltplats.backgroundImage = '/images/taltplats.png';
 		taltplats = true;
 	} else {
@@ -62,7 +61,7 @@ function showTaltplats() {
 
 function showEldplats() {
 	if (eldplats == false) {
-		baseMap.addAnnotations(displayInfoSpots("eldplats"));
+		map.addAnnotations(displayInfoSpots("eldplats"));
 		$.btnShowEldplats.backgroundImage = '/images/eldplats.png';
 		eldplats = true;
 	} else {
@@ -74,7 +73,7 @@ function showEldplats() {
 
 function showSnorkelled() {
 	if (snorkel == false) {
-		baseMap.addAnnotations(displayInfoSpots("snorkelled"));
+		map.addAnnotations(displayInfoSpots("snorkelled"));
 		$.btnShowSnorkelled.backgroundImage = '/images/snorkelled.png';
 		snorkel = true;
 	} else {
@@ -86,7 +85,7 @@ function showSnorkelled() {
 
 function showInformation() {
 	if (information == false) {
-		baseMap.addAnnotations(displayInfoSpots("information"));
+		map.addAnnotations(displayInfoSpots("information"));
 		$.btnShowInformation.backgroundImage = '/images/information.png';
 		information = true;
 	} else {
@@ -98,7 +97,7 @@ function showInformation() {
 
 function showBadplats() {
 	if (badplats == false) {
-		baseMap.addAnnotations(displayInfoSpots("badplats"));
+		map.addAnnotations(displayInfoSpots("badplats"));
 		$.btnShowBadplats.backgroundImage = '/images/badplats.png';
 		badplats = true;
 	} else {
@@ -110,7 +109,7 @@ function showBadplats() {
 
 function showRastplats() {
 	if (rastplats == false) {
-		baseMap.addAnnotations(displayInfoSpots("rastplats"));
+		map.addAnnotations(displayInfoSpots("rastplats"));
 		$.btnShowRastplats.backgroundImage = '/images/rastplats.png';
 		rastplats = true;
 	} else {
@@ -122,7 +121,7 @@ function showRastplats() {
 
 function showUtkiksplats() {
 	if (utsiktsplats == false) {
-		baseMap.addAnnotations(displayInfoSpots("utsiktsplats"));
+		map.addAnnotations(displayInfoSpots("utsiktsplats"));
 		$.btnShowUtsiktsplats.backgroundImage = '/images/utsiktsplats.png';
 		utsiktsplats = true;
 	} else {
@@ -134,7 +133,7 @@ function showUtkiksplats() {
 
 function showTorrdass() {
 	if (torrdass == false) {
-		baseMap.addAnnotations(displayInfoSpots("torrdass"));
+		map.addAnnotations(displayInfoSpots("torrdass"));
 		$.btnShowTorrdass.backgroundImage = '/images/torrdass.png';
 		torrdass = true;
 	} else {

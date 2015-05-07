@@ -29,7 +29,7 @@ displayBigMap();
 // }
 
 function displayBigMap(){
-	$.mapView.add(showMap());
+	$.mapView.add(showMap(map));
 
 }
 

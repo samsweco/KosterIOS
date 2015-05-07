@@ -57,6 +57,8 @@ var eldplats = false;
 
 var MapModule = require('ti.map');
 var map;
+var detailMap;
+var interactiveMap;
 
 //-----------------------------------------------------------
 // Metoder för alla collections
