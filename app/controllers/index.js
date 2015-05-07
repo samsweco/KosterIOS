@@ -1,4 +1,4 @@
-Ti.include("mapFunctions.js");
+Ti.include("geoFunctions.js");
 
 $.tabs.open();
 Alloy.CFG.tabs = $.tabs;
@@ -98,10 +98,10 @@ function showMapMenu() {
 
 function getPos() {
 	if(myPosition == false){
-		Alloy.Globals.setUserPosition();
+		getPosition();
 		myPosition = true;
 	}else{
-		Alloy.Globals.setRegion();
+		setRegion();
 		myPosition = false;
 	}
 }
