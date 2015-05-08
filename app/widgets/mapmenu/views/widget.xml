@@ -1,7 +1,6 @@
 <Alloy>
 	<Collection src="hotspotModel" />
 	<Collection src="trailsModel" />
-	<Collection src="infospotModel"></Collection>
 	<Collection src="infospotCoordinatesModel"></Collection>
 	<View id="mapmenu">
 		<View class="lineView"></View>
