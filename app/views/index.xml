@@ -32,11 +32,11 @@
 			</Window>
 		</Tab>
 		<Tab id="interactive" class="tabbar" title="Spela" icon="/images/quizMenu.png">
-			<Window id="interactiveWin" title="Bokstavsjakt" onOpen="toInteractive">
+			<Window id="interactiveWin" title="Bokstavsjakt" onOpen="toInteractive">				
 				<RightNavButton>
 					<Button id="btnGetPositionInteractive" image="/images/locationarrow.png" onClick="getPosInteractive" />
 				</RightNavButton>
-			</Window> />
+			</Window> 
 		</Tab>
 		<Tab id="info" class="tabbar" title="Info" icon="/images/infoMenu.png">
 			<Window id="infoWin" title="Information" onOpen="toInfo" />

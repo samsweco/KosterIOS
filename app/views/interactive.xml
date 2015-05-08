@@ -9,19 +9,20 @@
 	<View>
 		<View id="interactiveWin">
 			<View id="showFamilyTrail"></View>
-			<View id="startView">
-				<View id="hideView">
+			<View id="hideView">
+				<View id="horizontalView">
 					<TextField id="txtLetter"></TextField>
-					<Button id="lblLetters" onClick="sendLetter">Skicka bokstav!</Button>	
-					<Label id="lblWelcome" text="Välkommen till bokstavsjakten!"></Label>
-					<Label id="lblInfoText" text="Vandra äventyrslingan och leta efter de 8 bokstäverna! som finns gömda längs leden, försök sedan klura ut det hemliga ordet. Längs vägen kommer du få ledtrådar var du kan finna bokstäverna och vi kommer även påminna dig när du börjar närma dig en bokstav."></Label>
-					<Button id="btnStartQuiz" onClick="startInteractive">Starta quizen</Button>
-					<Label id="lblCollectedLetters" text="Bokstäver: "></Label>
-					<View id="wordView">
-						<TextField id="txtWord"></TextField>
-						<Label id="lblWord" onClick="checkWord" text="Skicka ord!"></Label>
-					</View>
+					<Button id="lblLetters" onClick="sendLetter">Skicka bokstav!</Button>
 				</View>
+				<Label id="lblWelcome" text="Välkommen till bokstavsjakten!"></Label>
+				<Label id="lblInfoText" text="Vandra äventyrslingan och leta efter de 8 bokstäverna! som finns gömda längs leden, försök sedan klura ut det hemliga ordet. Längs vägen kommer du få ledtrådar var du kan finna bokstäverna och vi kommer även påminna dig när du börjar närma dig en bokstav."></Label>
+				<Button id="btnStartQuiz" onClick="startInteractive">Klicka här för att starta quizen!</Button>
+				<Label id="lblCollectedLetters" text="Bokstäver: "></Label>
+				<View id="wordView">
+					<TextField id="txtWord"></TextField>
+					<Label id="lblWord" onClick="checkWord" text="Skicka ord!"></Label>
+				</View>
+				<Button id="closeInteractive">Avsluta bokstavsjakten</Button>
 			</View>
 		</View>
 	</View>

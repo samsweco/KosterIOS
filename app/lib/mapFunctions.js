@@ -422,9 +422,7 @@ function addClueZone() {
 		for (var c = 0; c < Alloy.Globals.jsonCollection.length; c++) {
 			var markerAnnotation = MapModule.createAnnotation({
 				latitude : Alloy.Globals.jsonCollection[c].latitude,
-				longitude : Alloy.Globals.jsonCollection[c].longitude,
-				title : Alloy.Globals.jsonCollection[c].id,
-				subtitle : Alloy.Globals.jsonCollection[c].letter
+				longitude : Alloy.Globals.jsonCollection[c].longitude
 			});
 
 			if (Alloy.Globals.jsonCollection[c].found == 0) {

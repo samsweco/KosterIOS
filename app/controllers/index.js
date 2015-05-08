@@ -12,12 +12,12 @@ exports.toInteractive = toInteractive;
 function toMap() {
 	var mapWind = Alloy.createController('map').getView();
 	$.mapWin.add(mapWind);
-	
+
 	var mapwinTitle = Ti.UI.createLabel({
 		font : {
 			fontSize : '16dp',
 			fontFamily : 'Raleway-Medium'
-		},	
+		},
 		text : 'Karta'
 	});
 
@@ -27,7 +27,7 @@ function toMap() {
 function toInteractive() {
 	var interactive = Alloy.createController('interactive').getView();
 	$.interactiveWin.add(interactive);
-	
+
 	var interacwinTitle = Ti.UI.createLabel({
 		font : {
 			fontSize : '16dp',
@@ -57,7 +57,7 @@ function toTrails() {
 function toInfo() {
 	var info = Alloy.createController('infoList').getView();
 	$.infoWin.add(info);
-	
+
 	var infowinTitle = Ti.UI.createLabel({
 		font : {
 			fontSize : '16dp',
@@ -98,20 +98,20 @@ function showMapMenu() {
 }
 
 function getPos() {
-	if(myPosition == false){
+	if (myPosition == false) {
 		getPosition(map);
 		myPosition = true;
-	}else{
+	} else {
 		setRegion(map);
 		myPosition = false;
 	}
 }
 
-function getPosInteractive(){
-	if(myPosition == false){
+function getPosInteractive() {
+	if (myPosition == false) {
 		getPosition(interactiveMap);
 		myPosition = true;
-	}else{
+	} else {
 		interactiveMap.userLocation = false;
 		myPosition = false;
 	}

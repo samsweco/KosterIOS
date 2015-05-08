@@ -25,9 +25,27 @@ function startInteractive() {
 	$.lblLetters.show();
 	$.lblLetters.height = '40dp';
 	$.lblCollectedLetters.show();
+	$.horizontalView.show();
+	$.horizontalView.height = Ti.UI.SIZE;
+	$.closeInteractive.show();
+	$.closeInteractive.height = '40dp';
 	getUserPos('letter');
 	loadClue(1);
+	// playSound();
 }
+
+// function playSound(){
+	// // var mediaModule = Ti.require('ti.media');
+// 	
+	// Titanium.Media.audioSessionMode = Ti.Media.AUDIO_SESSION_MODE_PLAYBACK;
+	// var player = Titanium.Media.createSound({
+			// url:"/sound/popcorn.mp3"
+		// });
+// 		
+	// player.play();
+	// player.release();
+// 
+// }
 
 function loadClue(id) {
 	$.lblWelcome.text = "Ledtråd " + id + ":";
@@ -117,4 +135,22 @@ interactiveMap.addEventListener('click', function(evt) {
 	if (evt.clicksource == 'rightButton') {
 		showHotspot(evt.annotation.id);
 	}
+});
+
+$.closeInteractive.addEventListener('click', function() {
+	var message = Ti.UI.createAlertDialog({
+		message : 'Vill du avsluta bokstavsjakten?',
+		title : 'Avsluta',
+		buttonNames : ['Fortsätt spela', 'Avsluta']
+	});
+
+	message.addEventListener('click', function(e) {
+		if (e.index == 1) {
+			Titanium.Geolocation.removeEventListener('location', addLetterLocation);
+		}else {
+			alert('Kul, nu kör vi!');
+		}
+	});
+
+	message.show();	
 });
