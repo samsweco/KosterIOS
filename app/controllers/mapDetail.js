@@ -22,8 +22,7 @@ displaySpecificMarkers(trailId, detailMap);
 getSpecificIconsForTrail(trailId);
 addEventList();
 
-
-function showMapDetail(){
+function showMapDetail() {
 	$.mapDetailView.add(showDetailMap(detailMap, trailId, trailName, trailColor));
 }
 
@@ -44,8 +43,8 @@ function addEventList() {
 
 					var hotspotTxt = {
 						title : evt.annotation.id,
-						infoTxt : jsonHotsObj[0].infoTxt,
-						id : jsonHotsObj[0].id
+						infoTxt : jsonHotspObj[0].infoTxt,
+						id : jsonHotspObj[0].id
 					};
 
 					var hotspotDetail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
@@ -53,26 +52,29 @@ function addEventList() {
 				};
 			}
 		});
-		
-
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapDetail - addEventListener");
 	}
 }
 
 function getZoomedMapPosition() {
-	if (myPosition == false) {
-		getPosition(detailMap);
-		myPosition = true;
-	} else {
-		detailMap.region = {
-			latitude : zoomLat,
-			longitude : zoomLon,
-			latitudeDelta : 0.03,
-			longitudeDelta : 0.03
-		};	
-		detailMap.animate = true;
-		detailMap.userLocation = false;
-		myPosition = false;
+	try {
+		if (myPosition == false) {
+			getPosition(detailMap);
+			myPosition = true;
+		} else {
+			detailMap.region = {
+				latitude : zoomLat,
+				longitude : zoomLon,
+				latitudeDelta : 0.03,
+				longitudeDelta : 0.03
+			};
+			detailMap.animate = true;
+			detailMap.userLocation = false;
+			myPosition = false;
+		}
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapDetail - getZoomedMapPosition");
 	}
+
 }
