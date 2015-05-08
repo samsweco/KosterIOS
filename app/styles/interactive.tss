@@ -112,7 +112,6 @@
 	height: '40dp',
 	width: Titanium.UI.FILL,
 	borderRadius: '4dp',
-	//backgroundColor: '#ffd88a',
 	color: '#FF9966',
 	font: {
 		fontFamily: 'Raleway-Medium',
@@ -120,19 +119,6 @@
 	},
 	top: '17dp',
 	left: '15dp',
-	right: '15dp',
-	//borderRadius: '10dp'
-}
-
-"#closeInteractive": {
-	visible: false,
-	height: '0dp',
-	top: '15dp',
-	color: '#FF9966',
-	backgroundColor: 'black',
-	font: {
-		fontFamily: 'Raleway-Medium',
-		fontSize: '16dp'
-	}
+	right: '15dp'
 }
 

@@ -22,7 +22,6 @@
 					<TextField id="txtWord"></TextField>
 					<Label id="lblWord" onClick="checkWord" text="Skicka ord!"></Label>
 				</View>
-				<Button id="closeInteractive">Avsluta bokstavsjakten</Button>
 			</View>
 		</View>
 	</View>
