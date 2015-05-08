@@ -14,7 +14,6 @@ $.geoSwitch.addEventListener('change', function(e) {
 	if ($.geoSwitch.value == true) {
 		getUserPos('hotspot');
 	}
-	
 	if($.geoSwitch.value == false){
 		stopGPS();
 		alert('Du kommer nu inte få några mer påminnelser!');
@@ -32,7 +31,6 @@ $.hotspotSwitch.addEventListener('change', function(e) {
 });
 
 function showFarglage() {
-
 	if (farjelage == false) {
 		map.addAnnotations(displayInfoSpots('farjelage'));
 

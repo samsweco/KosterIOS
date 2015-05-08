@@ -54,6 +54,10 @@ function nextClue(){
 }
 
 function checkLetter(letterToCheck) {
+	var messageDialog = Ti.UI.createAlertDialog({
+		buttonNames : ['Stäng']
+	});
+	
 	if (Alloy.Globals.jsonCollection[foundId - 1].letter == letterToCheck) {
 		lettersArray.push(Alloy.Globals.jsonCollection[foundId - 1].letter);
 		Alloy.Globals.jsonCollection[foundId - 1].found = 1;
@@ -64,8 +68,10 @@ function checkLetter(letterToCheck) {
 		nextId++;
 		nextClue();
 	} else {
-		alert("Är du säker på att " + letterToCheck + " är rätt bokstav?");
+		messageDialog.message = "Är du säker på att det är rätt bokstav?";
+		messageDialog.title = "Fel";
 		$.txtLetter.value = '';
+		messageDialog.show();
 	}
 }
 
@@ -94,11 +100,11 @@ function checkWord() {
 		$.lblInfoText.text = "Vandra äventyrslingan och leta efter de 8 bokstäverna! som finns gömda längs leden, försök sedan klura ut det hemliga ordet. Längs vägen kommer du få ledtrådar var du kan finna bokstäverna och vi kommer även påminna dig när du börjar närma dig en bokstav.";
 		$.btnStartQuiz.visible = true;
 		$.btnStartQuiz.height = "30dp";
-		$.txtLetter.close();
+		$.txtLetter.hide();
 		$.txtLetter.height = '0dp';
-		$.lblLetters.close();
+		$.lblLetters.hide();
 		$.lblLetters.height = '0dp';
-		
+		$.lblCollectedLetters.text = '';
 	} else {
 		alert("Försök igen! Du har snart klurat ut det!");
 	}
