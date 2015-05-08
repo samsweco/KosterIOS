@@ -47,10 +47,8 @@
 	}
 }
 
-"#lblInfoLink": {
-	left: '15dp',
-	color: 'blue',
-	top: '5dp'
+"#linkView": {
+	layout: 'horizontal'
 }
 
 "#slideView": {
