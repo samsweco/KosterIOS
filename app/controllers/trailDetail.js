@@ -227,7 +227,7 @@ function getIcons() {
 	try {
 		var id = trailId;
 
-		var infotrailCollection = Alloy.Collections.infospotModel;
+		var infotrailCollection = Alloy.Collections.infospotCoordinatesModel;
 		infotrailCollection.fetch({
 			query : 'SELECT DISTINCT name from infospotCoordinatesModel join infospot_trailsModel on infospot_trailsModel.infospotID = infospotCoordinatesModel.infospotID where trailsID ="' + id + '"'
 		});
