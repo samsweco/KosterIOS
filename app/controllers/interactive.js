@@ -98,6 +98,7 @@ function checkWord() {
 		$.txtLetter.height = '0dp';
 		$.lblLetters.close();
 		$.lblLetters.height = '0dp';
+		
 	} else {
 		alert("Försök igen! Du har snart klurat ut det!");
 	}
