@@ -30,14 +30,15 @@ function startInteractive() {
 }
 
 function loadClue(id) {
-	$.lblWelcome.text = "Ledtråd: ";
+	$.lblWelcome.text = "Ledtråd " + id + ":";
 	$.lblInfoText.text = jsonCollection[id - 1].clue;
 }
 
 function sendLetter() {
 	checkLetter(getLetter());
-	map.removeAllAnnotations();
+	interactiveMap.removeAllAnnotations();
 	addClueZone();
+	displaySpecificMarkers(7, interactiveMap);
 	allLetters();
 }
 
@@ -47,6 +48,7 @@ function getLetter() {
 }
 
 function nextClue(){
+	$.lblWelcome.text = "Ledtråd " + nextId + ":";
 	var nextClue = Alloy.Globals.jsonCollection[nextId].clue;
 	$.lblInfoText.text = nextClue;
 }
@@ -75,6 +77,8 @@ function allLetters() {
 		$.lblLetters.height = 0;
 		$.btnStartQuiz.height = 0;
 		$.wordView.show();
+		$.lblWelcome.text = 'Skriv ordet du bildat av bokstäverna!';
+		$.lblInfoText.text = 'Ledtråd: En svävande geléklump i havet.';
 	}
 }
 
@@ -85,7 +89,7 @@ function checkWord() {
 	var check = $.txtWord.value;
 
 	if (check == word) {
-		alert("Bra jobbat Det rätta ordet är SAM!");
+		alert("Bra jobbat! Du hittade det rätta ordet!");
 	} else {
 		alert("Försök igen! Du har snart klurat ut det!");
 	}

@@ -1,12 +1,16 @@
-var trailsCollection = getTrailsCollection();
-trailsCollection.fetch();
-var trailJson = trailsCollection.toJSON();
+try {
+	var trailsCollection = getTrailsCollection();
+	trailsCollection.fetch();
+	var trailJson = trailsCollection.toJSON();
 
-var hotspotCollection = getHotspotCollection();
-var letterCollection = getLetterCollection();
-letterCollection.fetch();
-var jsonCollection = letterCollection.toJSON();
-Alloy.Globals.jsonCollection = jsonCollection;
+	var hotspotCollection = getHotspotCollection();
+	var letterCollection = getLetterCollection();
+	letterCollection.fetch();
+	var jsonCollection = letterCollection.toJSON();
+	Alloy.Globals.jsonCollection = jsonCollection;
+} catch(e) {
+	newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - collectionFetches");
+}
 
 var hotspotsNotVisible = true;
 var radius = 20;
@@ -149,12 +153,13 @@ function createMapRoutes(maptype, file, name, color) {
 	// newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - createMapRoute");
 	// }
 }
+
 //-----------------------------------------------------------
 // Sätter ut alla vandringsleder på kartan
 //-----------------------------------------------------------
 function setRoutes(maptype) {
-	try{	
-		for(i = 0; i<trailJson.length; i++){
+	try {
+		for ( i = 0; i < trailJson.length; i++) {
 			setSpecificRoute(maptype, trailJson[i].id, trailJson[i].name, trailJson[i].color);
 		}
 	} catch(e) {
@@ -269,13 +274,13 @@ function displayAllMarkers() {
 	}
 }
 
-function setRegion(maptype){
+function setRegion(maptype) {
 	maptype.region = {
 		latitude : 58.887396,
 		longitude : 11.024908,
 		latitudeDelta : 0.08,
 		longitudeDelta : 0.08
-	}; 
+	};
 	maptype.animate = true;
 	maptype.userLocation = false;
 }
@@ -354,29 +359,29 @@ function displaySpecificMarkers(id, maptype) {
 //-----------------------------------------------------------
 function getSpecificIconsForTrail(id) {
 	// try {
-		var specificMarkerArray = [];
+	var specificMarkerArray = [];
 
-		var specificinfotrailCollection = Alloy.Collections.infospotCoordinatesModel;
-		specificinfotrailCollection.fetch({
-			query : 'SELECT name, latitude, longitude from infospotCoordinatesModel join infospot_trailsModel on infospot_trailsModel.infospotID = infospotCoordinatesModel.infospotID where trailsID ="' + id + '"'
+	var specificinfotrailCollection = Alloy.Collections.infospotCoordinatesModel;
+	specificinfotrailCollection.fetch({
+		query : 'SELECT name, latitude, longitude from infospotCoordinatesModel join infospot_trailsModel on infospot_trailsModel.infospotID = infospotCoordinatesModel.infospotID where trailsID ="' + id + '"'
+	});
+
+	var infospotsTrails = specificinfotrailCollection.toJSON();
+	for (var i = 0; i < infospotsTrails.length; i++) {
+		var specificinfoMarker = MapModule.createAnnotation({
+			latitude : infospotsTrails[i].latitude,
+			longitude : infospotsTrails[i].longitude,
+			image : '/images/map_' + infospotsTrails[i].name + '.png',
+			name : 'infospot'
 		});
 
-		var infospotsTrails = specificinfotrailCollection.toJSON();
-		for (var i = 0; i < infospotsTrails.length; i++) {
-			var specificinfoMarker = MapModule.createAnnotation({
-				latitude : infospotsTrails[i].latitude,
-				longitude : infospotsTrails[i].longitude,
-				image : '/images/map_' + infospotsTrails[i].name + '.png',
-				name : 'infospot'
-			});
+		specificMarkerArray.push(specificinfoMarker);
+	}
 
-			specificMarkerArray.push(specificinfoMarker);
-		}
-
-		detailMap.addAnnotations(specificMarkerArray);
+	detailMap.addAnnotations(specificMarkerArray);
 
 	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "mapDetail - getIcons");
+	// newError("Något gick fel när sidan skulle laddas, prova igen!", "mapDetail - getIcons");
 	// }
 }
 

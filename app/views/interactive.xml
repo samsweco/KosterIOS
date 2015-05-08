@@ -1,5 +1,11 @@
 <Alloy>
-	<Collection src="letterModel"/>
+	<Collection src="hotspotModel" />
+	<Collection src="coordinates" />
+	<Collection src="trailsModel" />
+	<Collection src="jsonFilesModel" />
+	<Collection src="hotspot_trailsModel" />
+	<Collection src="letterModel" />
+	<Collection src="infospotCoordinatesModel" />
 	<View>
 		<View id="interactiveWin">
 			<View id="showFamilyTrail"></View>

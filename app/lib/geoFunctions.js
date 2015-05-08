@@ -106,7 +106,6 @@ function isInsideRadius(latti, lonni, rad) {
 //-----------------------------------------------------------
 function userIsNearHotspot() {
 	try {
-		var radius = 30;
 		var dialog = Ti.UI.createAlertDialog();
 
 		for (var h = 0; h < Alloy.Globals.hotspotJSONobj.length; h++) {
@@ -115,6 +114,7 @@ function userIsNearHotspot() {
 
 				var hotlat = Alloy.Globals.hotspotJSONobj[h].xkoord;
 				var hotlon = Alloy.Globals.hotspotJSONobj[h].ykoord;
+				var radius = Alloy.Globals.hotspotJSONobj[h].radie;
 
 				if (isInsideRadius(hotlat, hotlon, radius)) {
 					dialog.message = 'Nu börjar du närma dig ' + Alloy.Globals.hotspotJSONobj[h].name + '!';
@@ -155,7 +155,6 @@ function userIsNearHotspot() {
 //-----------------------------------------------------------
 function userIsNearLetter() {
 	try {
-		var radius = 30;
 		for (var i = 0; i < Alloy.Globals.jsonCollection.length; i++) {
 
 			if (Alloy.Globals.jsonCollection[i].found == 0) {
@@ -163,7 +162,7 @@ function userIsNearLetter() {
 				var lat = Alloy.Globals.jsonCollection[i].latitude;
 				var lon = Alloy.Globals.jsonCollection[i].longitude;
 				foundId = Alloy.Globals.jsonCollection[i].id;
-				//$.lblInfoText.text = Alloy.Globals.jsonCollection[i].clue;
+				var radius = Alloy.Globals.jsonCollection[i].radius;
 
 				if (isInsideRadius(lat, lon, radius) && Alloy.Globals.jsonCollection[i].alerted == 0) {
 
@@ -190,17 +189,17 @@ function userIsNearLetter() {
 	}
 }
 
-function getPosition() {
+function getPosition(maptype) {
 	Ti.Geolocation.getCurrentPosition(function(e) {
 		if (e.coords != null) {
-			map.region = {
+			maptype.region = {
 				latitude : e.coords.latitude,
 				longitude : e.coords.longitude,
 				latitudeDelta : 0.007,
 				longitudeDelta : 0.007
 			};
-			map.animate = true;
-			map.userLocation = true;
+			maptype.animate = true;
+			maptype.userLocation = true;
 		}
 	});
 }

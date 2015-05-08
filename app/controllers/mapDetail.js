@@ -24,7 +24,7 @@ addEventList();
 
 
 function showMapDetail(){
-		$.mapDetailView.add(showDetailMap(detailMap, trailId, trailName, trailColor));
+	$.mapDetailView.add(showDetailMap(detailMap, trailId, trailName, trailColor));
 }
 
 //-----------------------------------------------------------
@@ -62,17 +62,15 @@ function addEventList() {
 
 function getZoomedMapPosition() {
 	if (myPosition == false) {
-		getPosition();
+		getPosition(detailMap);
 		myPosition = true;
 	} else {
-
 		detailMap.region = {
 			latitude : zoomLat,
 			longitude : zoomLon,
 			latitudeDelta : 0.03,
 			longitudeDelta : 0.03
 		};	
-	
 		detailMap.animate = true;
 		detailMap.userLocation = false;
 		myPosition = false;
