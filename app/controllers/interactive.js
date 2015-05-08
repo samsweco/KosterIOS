@@ -90,6 +90,14 @@ function checkWord() {
 
 	if (check == word) {
 		alert("Bra jobbat! Du hittade det rätta ordet!");
+		$.lblWelcome.text = "Välkommen till bokstavsjakten!";
+		$.lblInfoText.text = "Vandra äventyrslingan och leta efter de 8 bokstäverna! som finns gömda längs leden, försök sedan klura ut det hemliga ordet. Längs vägen kommer du få ledtrådar var du kan finna bokstäverna och vi kommer även påminna dig när du börjar närma dig en bokstav.";
+		$.btnStartQuiz.visible = true;
+		$.btnStartQuiz.height = "30dp";
+		$.txtLetter.close();
+		$.txtLetter.height = '0dp';
+		$.lblLetters.close();
+		$.lblLetters.height = '0dp';
 	} else {
 		alert("Försök igen! Du har snart klurat ut det!");
 	}

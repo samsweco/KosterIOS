@@ -42,15 +42,6 @@
 	left: '19dp'
 }
 
-"#lblClue": {
-	top: '5dp',
-	left: '5dp',
-	font: {
-		fontSize: '16dp',
-		fontStyle: 'italic'
-	}
-}
-
 "#lblLetters": {
 	visible: false,
 	height: '0dp',
@@ -103,7 +94,12 @@
 	right: '15dp',
 	left: '15dp',
 	width: Titanium.UI.FILL,
-	tintColor: 'blue'
+	color: '#FFCC99',
+	tintColor: 'blue',
+	font: {
+		fontFamily: 'Raleway-Medium',
+		fontSize: '13dp'
+	}
 }
 
 "#btnStartQuiz": {
