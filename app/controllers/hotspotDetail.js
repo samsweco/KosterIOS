@@ -25,9 +25,6 @@ function setPics() {
 //-----------------------------------------------------------
 function selectHotspotPics() {
 	try {
-	
-		Ti.API.info('id : ' + hotspotId);
-		
 		var mediaCollection = getMediaCollection();
 		mediaCollection.fetch({
 			query : 'SELECT * FROM mediaModel WHERE hotspot_id = "' + hotspotId + '"'

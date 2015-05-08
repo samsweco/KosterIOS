@@ -1,3 +1,8 @@
+var hotspotColl = Alloy.Collections.hotspotModel;
+hotspotColl.fetch();
+var hotspotJSONobj = hotspotColl.toJSON();
+Alloy.Globals.hotspotJSONobj = hotspotJSONobj;
+
 function getUserPos(type) {
 	try {
 
@@ -104,39 +109,39 @@ function userIsNearHotspot() {
 		var radius = 30;
 		var dialog = Ti.UI.createAlertDialog();
 
-		var hotspotColl = Alloy.Collections.hotspotModel;
-		hotspotColl.fetch({
-			query : 'SELECT DISTINCT id, name, infoTxt, xkoord, ykoord FROM hotspotModel'
-		});
+		for (var h = 0; h < Alloy.Globals.hotspotJSONobj.length; h++) {
 
-		var hotspotJSONobj = hotspotColl.toJSON();
-		for (var h = 0; h < hotspotJSONobj.length; h++) {
+			if (Alloy.Globals.hotspotJSONobj[h].alerted == 0) {
 
-			var hotlat = hotspotJSONobj[h].xkoord;
-			var hotlon = hotspotJSONobj[h].ykoord;
+				var hotlat = Alloy.Globals.hotspotJSONobj[h].xkoord;
+				var hotlon = Alloy.Globals.hotspotJSONobj[h].ykoord;
 
-			if (isInsideRadius(hotlat, hotlon, radius)) {
-				dialog.message = 'Nu börjar du närma dig ' + hotspotJSONobj[h].name + '!';
-				dialog.buttonNames = ['Läs mer', 'Stäng'];
+				if (isInsideRadius(hotlat, hotlon, radius)) {
+					dialog.message = 'Nu börjar du närma dig ' + Alloy.Globals.hotspotJSONobj[h].name + '!';
+					dialog.buttonNames = ['Läs mer', 'Stäng'];
 
-				var hottitle = hotspotJSONobj[h].name;
-				var infoText = hotspotJSONobj[h].infoTxt;
-				var hotid = hotspotJSONobj[h].id;
+					var hottitle = Alloy.Globals.hotspotJSONobj[h].name;
+					var infoText = Alloy.Globals.hotspotJSONobj[h].infoTxt;
+					var hotid = Alloy.Globals.hotspotJSONobj[h].id;
 
-				dialog.addEventListener('click', function(e) {
-					if (e.index == 0) {
-						var hotspotTxt = {
-							title : hottitle,
-							infoTxt : infoText,
-							id : hotid
-						};
+					Ti.API.info('nära hotspot : ' + Alloy.Globals.hotspotJSONobj[h].name);
 
-						var hotspotDetail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
-						Alloy.CFG.tabs.activeTab.open(hotspotDetail);
-					}
-				});
+					dialog.addEventListener('click', function(e) {
+						if (e.index == 0) {
+							var hotspotTxt = {
+								title : hottitle,
+								infoTxt : infoText,
+								id : hotid
+							};
 
-				dialog.show();
+							var hotspotDetail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
+							Alloy.CFG.tabs.activeTab.open(hotspotDetail);
+						}
+					});
+
+					dialog.show();
+					Alloy.Globals.hotspotJSONobj[h].alerted = 1;
+				}
 			}
 		}
 
