@@ -1,8 +1,8 @@
 <Alloy>
 	<Collection src="mediaModel"></Collection>
 	<Collection src="hotspotModel"></Collection>
-	<Collection src="infospotModel"></Collection>
 	<Collection src="letterModel"></Collection>
+	<Collection src="infoCoordinatesModel"></Collection>
 	<Window id="hikeDetailWin" backButtonTitle="Tillbaka">
 		<RightNavButton>
 			<Button id="btnShowOnMap" onClick="zoomMapTrail">Visa leden på karta</Button> /><!-- image="/images/mapMenu.png" -->
