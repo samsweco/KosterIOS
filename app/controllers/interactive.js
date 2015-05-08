@@ -126,20 +126,3 @@ interactiveMap.addEventListener('click', function(evt) {
 	}
 });
 
-$.closeInteractive.addEventListener('click', function() {
-	var message = Ti.UI.createAlertDialog({
-		message : 'Vill du avsluta bokstavsjakten?',
-		title : 'Avsluta',
-		buttonNames : ['Fortsätt spela', 'Avsluta']
-	});
-
-	message.addEventListener('click', function(e) {
-		if (e.index == 1) {
-			Titanium.Geolocation.removeEventListener('location', addLetterLocation);
-		}else {
-			alert('Kul, nu kör vi!');
-		}
-	});
-
-	message.show();	
-});
