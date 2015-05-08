@@ -1,19 +1,22 @@
 try {
-	var trailsCollection = getTrailsCollection();
+	var trailsCollection = Alloy.Collections.trailsModel;
 	trailsCollection.fetch();
 	var trailJson = trailsCollection.toJSON();
+} catch(e) {
+	newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - trailCollectionFetches");
+}
 
-	var hotspotCollection = getHotspotCollection();
+try {
+	var hotspotCollection = Alloy.Collections.hotspotModel;
 	var letterCollection = getLetterCollection();
 	letterCollection.fetch();
 	var jsonCollection = letterCollection.toJSON();
 	Alloy.Globals.jsonCollection = jsonCollection;
 } catch(e) {
-	newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - collectionFetches");
+	newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - hotspotCollectionFetches");
 }
 
 var hotspotsNotVisible = true;
-var radius = 20;
 var nextId = 1;
 var infospotArray = [];
 var markerHotspotArray = [];
