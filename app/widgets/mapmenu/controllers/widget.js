@@ -12,13 +12,12 @@ var mapMenuVisible = false;
 
 $.geoSwitch.addEventListener('change', function(e) {
 	if ($.geoSwitch.value == true) {
-		alert('På!');
 		getUserPos('hotspot');
 	}
 	
 	if($.geoSwitch.value == false){
 		stopGPS();
-		alert('Av!');
+		alert('Du kommer nu inte få några mer påminnelser!');
 	}
 });
 
