@@ -9,7 +9,6 @@ try {
 	$.infoImg.image = "/pics/" + args.img;
 	$.lblInfoText.text = args.infoTxt;
 	var id = args.id;
-	
 
 } catch(e) {
 	newError("Något gick fel när sidan skulle laddas, prova igen!", "infoDetail - load data into labels");
@@ -117,4 +116,12 @@ function openLink(link) {
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "infoDetail - openLink");
 	}
+}
+
+function playSound() {
+	var player = Ti.Media.createSound({
+		url : "/sound/popcorn.m4a"
+	});
+	
+	player.play();
 }
