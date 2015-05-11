@@ -77,7 +77,12 @@
 	visible: false,
 	left: '20dp',
 	right: '15dp',
-	width: Titanium.UI.FILL
+	width: Titanium.UI.FILL,
+	font:	
+	{
+		fontFamily: 'Raleway-Medium'
+	},
+	color: '#FCAF17'
 }
 
 "#wordView":{
