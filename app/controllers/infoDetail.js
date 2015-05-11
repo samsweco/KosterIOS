@@ -73,9 +73,13 @@ function setRowData() {
 			tableViewData.push(row);
 		}
 
-		if (tableViewData != null) {
+		if (tableViewData.length > 0) {
 			$.tableView.data = tableViewData;
-			$.lblLinkTitle.visible = true;
+			$.lblLink.show();
+		}
+		else {
+			$.lblLink.hide();
+			$.tableView.height = 0;
 		}
 
 	} catch(e) {

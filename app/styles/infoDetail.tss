@@ -61,7 +61,7 @@
 	width: '100%'
 }
 
-"#lblLinkTitle": {
+"#lblLink": {
 	left: '15dp',
 	color : '#FCAF17',
 	font: {
@@ -69,7 +69,7 @@
 		fontFamily: 'Raleway-Medium'
 	},
 	top: '20dp',
-	visible:false
+	visible: false
 }
 
 "#tableView": {
