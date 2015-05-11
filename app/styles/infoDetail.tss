@@ -68,7 +68,8 @@
 		fontSize: '14dp',
 		fontFamily: 'Raleway-Medium'
 	},
-	top: '20dp'
+	top: '20dp',
+	visible:false
 }
 
 "#tableView": {
