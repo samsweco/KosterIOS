@@ -63,9 +63,9 @@ function setRowData() {
 				left : '15dp',
 				right : '15dp',
 				font : {
-					fontSize : '12dp',
+					fontSize : '13dp',
 				},
-				color : '#00ADDC',
+				color : '#0098C3',
 				text : urlJson[i].linkname
 			});
 
