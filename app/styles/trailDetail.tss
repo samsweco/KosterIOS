@@ -95,15 +95,15 @@
 	left: '15dp',
 	color: '#FCAF17',
 	font: {
-		fontSize: '14dp',
-		fontFamily: 'Raleway-Medium'
+		fontSize: '16dp',
+		fontFamily: 'Raleway-Regular'
 	},
 	top: '10dp'
 }
 
 "#iconrow": {
 	layout: 'horizontal',
-	height: '40dp',
+height: '40dp',
 	left: '10dp',
 	width: Titanium.UI.SIZE
 }
@@ -115,4 +115,3 @@
 	},
 	left: '15dp'
 }
-

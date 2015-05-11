@@ -10,7 +10,6 @@
 		<RightNavButton>
 			<Button id="btnGetPosition" image="/images/locationarrow.png" onClick="getZoomedMapPosition" />
 		</RightNavButton>
-		
 		<View id="mapDetailView"></View>
 	</Window>
 </Alloy>

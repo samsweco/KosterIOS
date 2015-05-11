@@ -10,11 +10,8 @@
 		<Tab id="koster" class="tabbar" title="Hem" icon="/images/kosterStarMenu.png" >
 			<Window id="koster" backgroundImage="/pics/front.png" navBarHidden="true">
 				<View class="headView">
-					<ImageView class="imgKoster" image="/pics/kosterhavet_logga.png">
-					</ImageView>
-					<Label id="lblFrontText">
-						Välkommen till Kosterhavet! Upptäck den vackra naturen i Kosterhavet och ta en promenad bland klapperstensfält och strandängar.
-					</Label>
+					<ImageView class="imgKoster" image="/pics/kosterhavet_logga.png"></ImageView>
+					<Label id="lblFrontText">Välkommen till Kosterhavet! Upptäck den vackra naturen i Kosterhavet och ta en promenad bland klapperstensfält och strandängar.</Label>
 				</View>
 			</Window>
 		</Tab>
@@ -32,11 +29,11 @@
 			</Window>
 		</Tab>
 		<Tab id="interactive" class="tabbar" title="Spela" icon="/images/quizMenu.png">
-			<Window id="interactiveWin" title="Bokstavsjakt" onOpen="toInteractive">				
+			<Window id="interactiveWin" title="Bokstavsjakt" onOpen="toInteractive">
 				<RightNavButton>
 					<Button id="btnGetPositionInteractive" image="/images/locationarrow.png" onClick="getPosInteractive" />
 				</RightNavButton>
-			</Window> 
+			</Window>
 		</Tab>
 		<Tab id="info" class="tabbar" title="Info" icon="/images/infoMenu.png">
 			<Window id="infoWin" title="Information" onOpen="toInfo" />

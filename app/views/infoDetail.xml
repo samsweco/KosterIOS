@@ -1,15 +1,12 @@
 <Alloy>
-	<Collection src="info_urlModel">
-	</Collection>
+	<Collection src="info_urlModel"></Collection>
 	<Window id="infoDetail" backButtonTitle="Tillbaka">
 		<ScrollView class="container" scrollType="vertical" showVerticalScrollIndicator="true">
 			<View id="slideView">
-				<ImageView id="infoImg">
-				</ImageView>
+				<ImageView id="infoImg"></ImageView>
 			</View>
 			<Label id="lblInfoTitle1"></Label>
 			<Label id="lblInfoText"></Label>
-			
 			<Label id="lblLinkTitle" text="Läs mer via länkarna nedan:"></Label>
 			<View id="linkView">
 				<TableView id="tableView" onClick="getLink">
