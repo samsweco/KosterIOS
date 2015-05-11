@@ -6,8 +6,6 @@
 				<ImageView id="infoImg"></ImageView>
 			</View>
 			
-			<Button onClick="playSound">Spela</Button>
-			
 			<Label id="lblInfoTitle1"></Label>
 			<Label id="lblInfoText"></Label>
 			<Label id="lblLinkTitle" text="Läs mer via länkarna nedan:"></Label>

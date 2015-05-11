@@ -124,8 +124,6 @@ function userIsNearHotspot() {
 					var infoText = Alloy.Globals.hotspotJSONobj[h].infoTxt;
 					var hotid = Alloy.Globals.hotspotJSONobj[h].id;
 
-					Ti.API.info('nära hotspot : ' + Alloy.Globals.hotspotJSONobj[h].name);
-
 					dialog.addEventListener('click', function(e) {
 						if (e.index == 0) {
 							var hotspotTxt = {
@@ -140,6 +138,7 @@ function userIsNearHotspot() {
 					});
 
 					dialog.show();
+					playSound();
 					Alloy.Globals.hotspotJSONobj[h].alerted = 1;
 				}
 			}
@@ -179,6 +178,7 @@ function userIsNearLetter() {
 					});
 
 					message.show();
+					playSound();
 					Alloy.Globals.jsonCollection[i].alerted = 1;
 				}
 			}
@@ -187,6 +187,14 @@ function userIsNearLetter() {
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", 'isNearPoint - letter');
 	}
+}
+
+function playSound() {
+	var player = Ti.Media.createSound({
+		url : "/sound/popcorn.m4a"
+	});
+	
+	player.play();
 }
 
 function getPosition(maptype) {

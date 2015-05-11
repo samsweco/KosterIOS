@@ -117,11 +117,3 @@ function openLink(link) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "infoDetail - openLink");
 	}
 }
-
-function playSound() {
-	var player = Ti.Media.createSound({
-		url : "/sound/popcorn.m4a"
-	});
-	
-	player.play();
-}
