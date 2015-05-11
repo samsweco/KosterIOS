@@ -6,7 +6,7 @@
 	<Collection src="hotspot_trailsModel" />
 	<Collection src="letterModel" />
 	<Collection src="infospotCoordinatesModel" />
-	<TabGroup id="tabs" backgroundColor="#fff" height="100%" tintColor="#FF9966">
+	<TabGroup id="tabs" backgroundColor="#fff" height="100%" tintColor="#00ADDC">
 		<Tab id="koster" class="tabbar" title="Hem" icon="/images/kosterStarMenu.png" >
 			<Window id="koster" backgroundImage="/pics/front.png" navBarHidden="true">
 				<View class="headView">
