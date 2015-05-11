@@ -5,10 +5,11 @@ var urlCollection = Alloy.Collections.info_urlModel;
 // Args skickade från listvy
 //-----------------------------------------------------------
 try {
-	$.lblInfoTitle.text = args.name || "Title";
+	$.lblInfoTitle1.text = args.name || "Title";
 	$.infoImg.image = "/pics/" + args.img;
 	$.lblInfoText.text = args.infoTxt;
 	var id = args.id;
+	
 
 } catch(e) {
 	newError("Något gick fel när sidan skulle laddas, prova igen!", "infoDetail - load data into labels");
@@ -65,7 +66,7 @@ function setRowData() {
 				font : {
 					fontSize : '13dp',
 				},
-				color : '#0098C3',
+				color : '#FLAF17',
 				text : urlJson[i].linkname
 			});
 

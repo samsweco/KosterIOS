@@ -1,4 +1,4 @@
-".lblInfoDetail": {
+"#lblInfoText": {
 	top: '5dp',
 	left: '15dp',
 	right: '15dp',
@@ -36,10 +36,13 @@
 	backgroundColor: 'white'
 }
 
-"#lblInfoTitle": {
+
+
+
+"#lblInfoTitle1": {
 	left: '15dp',
 	top: '10dp',
-	color: '#FLAF17',
+	color: '#FCAF17',
 	right: '15dp',
 	font: {
 		fontSize: '20dp',
@@ -61,19 +64,15 @@
 	width: '100%'
 }
 
-"#lblInfoText": {
-	left: '15dp',
-	top: '10dp'
-}
-
 "#lblLinkTitle": {
 	left: '15dp',
+	color : '#0098C3',
 	font: {
 		fontSize: '14dp',
 		fontFamily: 'Raleway-Medium'
 	},
 	top: '20dp',
-	visible: false
+	// visible: false,
 }
 
 "#tableView": {

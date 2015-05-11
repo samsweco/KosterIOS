@@ -7,10 +7,10 @@
 				<ImageView id="infoImg">
 				</ImageView>
 			</View>
-			<Label class="lblInfoDetail" id="lblInfoTitle"></Label>
-			<Label class="lblInfoDetail" id="lblInfoText"></Label>
+			<Label id="lblInfoTitle1"></Label>
+			<Label id="lblInfoText"></Label>
 			
-			<Label id="lblLinkTitle">Läs mer via länkarna nedan:</Label>
+			<Label id="lblLinkTitle" text="Läs mer via länkarna nedan:"></Label>
 			<View id="linkView">
 				<TableView id="tableView" onClick="getLink">
 					<TableViewRow class="row" onClick="getLink" />
