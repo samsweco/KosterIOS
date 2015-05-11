@@ -95,8 +95,8 @@
 	left: '15dp',
 	color: '#FCAF17',
 	font: {
-		fontSize: '16dp',
-		fontFamily: 'Raleway-Regular'
+		fontSize: '14dp',
+		fontFamily: 'Raleway-Medium'
 	},
 	top: '10dp'
 }
