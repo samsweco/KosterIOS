@@ -11,7 +11,7 @@ Alloy.Globals.jsonCollection = jsonCollection;
 
 displayMap();
 
-function displayMap(){
+function displayMap() {
 	$.showFamilyTrail.add(showDetailMap(interactiveMap, 7, 'Äventyrsleden', 'purple'));
 	addClueZone();
 	displaySpecificMarkers(7, interactiveMap);
@@ -20,18 +20,18 @@ function displayMap(){
 function startInteractive() {
 	$.btnStartQuiz.hide();
 	$.btnStartQuiz.height = 0;
-	
+
 	$.txtLetter.show();
 	$.txtLetter.height = '40dp';
-	
+
 	$.lblLetters.show();
 	$.lblLetters.height = '40dp';
-	
+
 	$.lblCollectedLetters.show();
-	
+
 	$.horizontalView.show();
 	$.horizontalView.height = Ti.UI.SIZE;
-	
+
 	getUserPos('letter');
 	loadClue(1);
 }
@@ -54,7 +54,7 @@ function getLetter() {
 	return letter.toUpperCase();
 }
 
-function nextClue(){
+function nextClue() {
 	$.lblWelcome.text = "Ledtråd " + nextId + ":";
 	var nextClue = Alloy.Globals.jsonCollection[nextId].clue;
 	$.lblInfoText.text = nextClue;
@@ -64,14 +64,14 @@ function checkLetter(letterToCheck) {
 	var messageDialog = Ti.UI.createAlertDialog({
 		buttonNames : ['Stäng']
 	});
-	
+
 	if (Alloy.Globals.jsonCollection[foundId - 1].letter == letterToCheck) {
 		lettersArray.push(Alloy.Globals.jsonCollection[foundId - 1].letter);
 		Alloy.Globals.jsonCollection[foundId - 1].found = 1;
 
 		$.lblCollectedLetters.text = $.lblCollectedLetters.text + letterToCheck;
 		$.txtLetter.value = '';
-		loadClue(Alloy.Globals.jsonCollection[foundId-1].id);
+		loadClue(Alloy.Globals.jsonCollection[foundId - 1].id);
 		nextId++;
 		nextClue();
 	} else {
@@ -128,3 +128,60 @@ interactiveMap.addEventListener('click', function(evt) {
 	}
 });
 
+
+
+
+
+
+var deviceToken = null;
+
+function clickPush() {
+
+	// Check if the device is running iOS 8 or later
+	if (Ti.Platform.name == "iPhone OS" && parseInt(Ti.Platform.version.split(".")[0]) >= 8) {
+
+		// Wait for user settings to be registered before registering for push notifications
+		Ti.App.iOS.addEventListener('usernotificationsettings', function registerForPush() {
+
+			// Remove event listener once registered for push notifications
+			Ti.App.iOS.removeEventListener('usernotificationsettings', registerForPush);
+
+			Ti.Network.registerForPushNotifications({
+				success : deviceTokenSuccess,
+				error : deviceTokenError,
+				callback : receivePush
+			});
+		});
+
+		// Register notification types to use
+		Ti.App.iOS.registerUserNotificationSettings({
+			types : [Ti.App.iOS.USER_NOTIFICATION_TYPE_ALERT, Ti.App.iOS.USER_NOTIFICATION_TYPE_SOUND, Ti.App.iOS.USER_NOTIFICATION_TYPE_BADGE]
+		});
+	}
+
+	// For iOS 7 and earlier
+	else {
+		Ti.Network.registerForPushNotifications({
+			// Specifies which notifications to receive
+			types : [Ti.Network.NOTIFICATION_TYPE_BADGE, Ti.Network.NOTIFICATION_TYPE_ALERT, Ti.Network.NOTIFICATION_TYPE_SOUND],
+			success : deviceTokenSuccess,
+			error : deviceTokenError,
+			callback : receivePush
+		});
+	}
+
+}
+
+// Process incoming push notifications
+function receivePush(e) {
+	alert('Received push: ' + JSON.stringify(e));
+}
+
+// Save the device token for subsequent API calls
+function deviceTokenSuccess(e) {
+	deviceToken = e.deviceToken;
+}
+
+function deviceTokenError(e) {
+	alert('Failed to register for push notifications! ' + e.error);
+}

@@ -17,6 +17,7 @@
 				<Label id="lblWelcome" text="Välkommen till bokstavsjakten!"></Label>
 				<Label id="lblInfoText" text="Vandra äventyrslingan och leta efter de 8 bokstäverna! som finns gömda längs leden, försök sedan klura ut det hemliga ordet. Längs vägen kommer du få ledtrådar var du kan finna bokstäverna och vi kommer även påminna dig när du börjar närma dig en bokstav."></Label>
 				<Button id="btnStartQuiz" onClick="startInteractive">Klicka här för att starta quizen!</Button>
+				<Button id="btn" onClick="clickPush">Klicka här</Button>
 				<Label id="lblCollectedLetters" text="Bokstäver: "></Label>
 				<View id="wordView">
 					<TextField id="txtWord"></TextField>
