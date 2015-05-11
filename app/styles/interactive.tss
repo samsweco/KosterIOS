@@ -101,7 +101,7 @@
 	right: '15dp',
 	left: '15dp',
 	width: Titanium.UI.FILL,
-	color: '#FCAF17',
+	color: '#0098C3',
 	font: {
 		fontFamily: 'Raleway-Medium',
 		fontSize: '16dp'
