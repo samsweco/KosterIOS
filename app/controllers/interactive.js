@@ -112,6 +112,8 @@ function checkWord() {
 		$.lblLetters.hide();
 		$.lblLetters.height = '0dp';
 		$.lblCollectedLetters.text = '';
+		$.wordView.visible = false;
+		$.horizontalView.visible = false;
 	} else {
 		alert("Försök igen! Du har snart klurat ut det!");
 	}
