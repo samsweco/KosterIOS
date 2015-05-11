@@ -12,7 +12,7 @@
 			<Label class="lblInfoDetail" id="lblInfoTitle"></Label>
 			<Label class="lblInfoDetail" id="lblInfoText"></Label>
 			
-			<Label class="lblLinkTitle" id="lblText">Läs mer via länkarna nedan:</Label>
+			<Label id="lblLinkTitle">Läs mer via länkarna nedan:</Label>
 			<View id="linkView">
 				<TableView id="tableView" onClick="getLink">
 					<TableViewRow class="row" onClick="getLink" />

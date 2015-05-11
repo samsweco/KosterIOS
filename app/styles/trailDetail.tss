@@ -92,7 +92,6 @@
 }
 
 "#lblLangsVagen": {
-	top: '20dp',
 	left: '15dp',
 	font: {
 		fontSize: '14dp',

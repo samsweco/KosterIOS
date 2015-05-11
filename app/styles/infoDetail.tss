@@ -1,4 +1,4 @@
-"Label": {
+".lblInfoDetail": {
 	top: '5dp',
 	left: '15dp',
 	right: '15dp',
@@ -49,7 +49,7 @@
 
 "#linkView": {
 	layout: 'horizontal',
-	top: '10dp',
+	top: '5dp',
 	borderColor: "#e8e8e8",
 	borderWidth: '1dp'
 }
@@ -63,6 +63,15 @@
 "#lblInfoText": {
 	left: '15dp',
 	top: '10dp'
+}
+
+"#lblLinkTitle": {
+	left: '15dp',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Raleway-Medium'
+	},
+	top: '20dp'
 }
 
 // "#lblText": {

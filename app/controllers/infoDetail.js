@@ -58,15 +58,15 @@ function setRowData() {
 				top : '0dp'
 			});
 
-			var txt = Ti.UI.createLabel({
-				left : '15dp',
-				right : '15dp',
-				width : Ti.UI.FILL,
-				font : {
-					fontSize : '12dp'
-				},
-				text : urlJson[i].url_text,
-			});
+			// var txt = Ti.UI.createLabel({
+				// left : '15dp',
+				// right : '15dp',
+				// width : Ti.UI.FILL,
+				// font : {
+					// fontSize : '12dp'
+				// },
+				// text : urlJson[i].url_text,
+			// });
 
 			var linkName = Ti.UI.createLabel({
 				width : Ti.UI.FILL,
@@ -79,7 +79,7 @@ function setRowData() {
 				text : urlJson[i].linkname
 			});
 			
-			row.add(txt);
+			// row.add(txt);
 			row.add(linkName);
 
 			tableViewData.push(row);
