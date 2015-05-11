@@ -58,16 +58,6 @@ function setRowData() {
 				hasChild : true
 			});
 
-			// var txt = Ti.UI.createLabel({
-				// left : '15dp',
-				// right : '15dp',
-				// width : Ti.UI.FILL,
-				// font : {
-					// fontSize : '12dp'
-				// },
-				// text : urlJson[i].url_text,
-			// });
-
 			var linkName = Ti.UI.createLabel({
 				width : Ti.UI.FILL,
 				left : '15dp',
@@ -78,13 +68,15 @@ function setRowData() {
 				color : 'blue',
 				text : urlJson[i].linkname
 			});
-			
-			// row.add(txt);
-			row.add(linkName);
 
+			row.add(linkName);
 			tableViewData.push(row);
 		}
-		$.tableView.data = tableViewData;
+
+		if (tableViewData != null) {
+			$.tableView.data = tableViewData;
+			$.lblLinkTitle.visible = true;
+		}
 
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "infoList - setRowData");
@@ -96,14 +88,14 @@ function setRowData() {
 //-----------------------------------------------------------
 function getLink(e) {
 
-		var rowId = e.rowData.id;
-		urlCollection.fetch({
-			query : 'SELECT url FROM info_urlModel WHERE id = "' + rowId + '"'
-		});
+	var rowId = e.rowData.id;
+	urlCollection.fetch({
+		query : 'SELECT url FROM info_urlModel WHERE id = "' + rowId + '"'
+	});
 
-		var jsonObj = urlCollection.toJSON();
-		var web =  jsonObj[0].url;
-	
+	var jsonObj = urlCollection.toJSON();
+	var web = jsonObj[0].url;
+
 	openLink(web);
 }
 

@@ -51,7 +51,8 @@
 	layout: 'horizontal',
 	top: '5dp',
 	borderColor: "#e8e8e8",
-	borderWidth: '1dp'
+	borderWidth: '1dp',
+	height: Titanium.UI.SIZE
 }
 
 "#slideView": {
@@ -71,13 +72,10 @@
 		fontSize: '14dp',
 		fontFamily: 'Raleway-Medium'
 	},
-	top: '20dp'
+	top: '20dp',
+	visible: false
 }
 
-// "#lblText": {
-	// left: '15dp',
-	// color: '#FF9966',
-	// font:{
-		// fontFamily: 'Raleway-Medium'
-	// }
-// }
+"#tableView": {
+	height: Titanium.UI.SIZE
+}
