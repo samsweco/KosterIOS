@@ -3,6 +3,7 @@
 	<Collection src="coordinates" />
 	<Collection src="trailsModel" />
 	<Collection src="jsonFilesModel" />
+	<Collection src="hotspot_trailsModel" />
 	<Collection src="infospotCoordinatesModel" />
 	<Collection src="letterModel" />
 	<View class="container">

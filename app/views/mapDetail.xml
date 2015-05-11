@@ -4,12 +4,13 @@
 	<Collection src="trailsModel" />
 	<Collection src="jsonFilesModel" />
 	<Collection src="hotspot_trailsModel" />
-	<Collection src="letterModel"></Collection>
-	<Collection src="infospotCoordinatesModel"></Collection>
+	<Collection src="letterModel" />
+	<Collection src="infospotCoordinatesModel" />
 	<Window backButtonTitle="Tillbaka">
 		<RightNavButton>
-			<Button id="btnGetPosition" image="/images/locationarrow.png" onClick="getZoomedMapPosition" />
+			<Button id="btnShowMenu" image="/images/hamburger.png" onClick="getZoomedMapPosition" />
 		</RightNavButton>
 		<View id="mapDetailView"></View>
+		<Widget src="mapmenu" name="widget"></Widget>
 	</Window>
 </Alloy>

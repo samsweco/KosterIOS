@@ -13,6 +13,7 @@ var zoomLat = args.zoomlat;
 var zoomLon = args.zoomlon;
 
 var trailsCollection = getTrailsCollection();
+var menuDetailVisible = false;
 
 //-----------------------------------------------------------
 // Onload
@@ -59,20 +60,29 @@ function addEventList() {
 
 function getZoomedMapPosition() {
 	try {
-		if (myPosition == false) {
-			getPosition(detailMap);
-			myPosition = true;
-		} else {
-			detailMap.region = {
-				latitude : zoomLat,
-				longitude : zoomLon,
-				latitudeDelta : 0.03,
-				longitudeDelta : 0.03
-			};
-			detailMap.animate = true;
-			detailMap.userLocation = false;
-			myPosition = false;
+		// if (myPosition == false) {
+			// getPosition(detailMap);
+			// myPosition = true;
+		// } else {
+			// detailMap.region = {
+				// latitude : zoomLat,
+				// longitude : zoomLon,
+				// latitudeDelta : 0.03,
+				// longitudeDelta : 0.03
+			// };
+			// detailMap.animate = true;
+			// detailMap.userLocation = false;
+			// myPosition = false;
+		// }
+		if(!menuDetailVisible){
+			Alloy.Globals.showMapMenuWidget();
+			menuDetailVisible = true;
+		}else {
+			Alloy.Globals.closeMapMenu();
+			menuDetailVisible = false;
 		}
+		
+		
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapDetail - getZoomedMapPosition");
 	}

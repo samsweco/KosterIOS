@@ -138,37 +138,37 @@ function showTorrdass() {
 		torrdass = false;
 	}
 }
-
-function showMenuWidget() {
-	if (menuVisible == false) {
-		$.mapmenu.show();
-		menuVisible = true;
-	} else {
-		$.mapmenu.hide();
-		menuVisible = false;
-	}
-}
+// 
+// function showMenuWidget() {
+	// if (menuVisible == false) {
+		// $.mapmenu.show();
+		// menuVisible = true;
+	// } else {
+		// $.mapmenu.hide();
+		// menuVisible = false;
+	// }
+// }
 
 function showMapMenuWidget() {
-	if (mapMenuVisible == false) {
-		$.mapmenu.show();
-		mapMenuVisible = true;
-	} else {
-		$.mapmenu.hide();
-		mapMenuVisible = false;
-	}
+	// if (mapMenuVisible == false) {
+		$.mapmenu.height = '200dp';
+		// mapMenuVisible = true;
+	// } else {
+		// $.mapmenu.height = '0dp';
+		// mapMenuVisible = false;
+	// }
 }
 
 function closeMapMenu() {
-	$.mapmenu.hide();
-	menuVisible = false;
+	$.mapmenu.height = '0dp';
+	// menuVisible = false;
 }
 
 $.mapmenu.addEventListener('singleTap', function() {
 	closeMapMenu();
 });
 
-Alloy.Globals.showMenuWidget = showMenuWidget;
+// Alloy.Globals.showMenuWidget = showMenuWidget;
 Alloy.Globals.showMapMenuWidget = showMapMenuWidget;
 Alloy.Globals.closeMapMenu = closeMapMenu;
 
