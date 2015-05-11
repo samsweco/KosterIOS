@@ -66,7 +66,7 @@ function setRowData() {
 				font : {
 					fontSize : '13dp',
 				},
-				color : '#FLAF17',
+				color : '#FCAF17',
 				text : urlJson[i].linkname
 			});
 
