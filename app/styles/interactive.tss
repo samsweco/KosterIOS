@@ -45,7 +45,7 @@
 		fontFamily: 'Raleway-Medium',
 		fontSize: '18dp'
 	},
-	color: '#FLAF17',
+	color: '#FCAF17',
 	left: '19dp'
 }
 
@@ -55,7 +55,7 @@
 	left: '10dp',
 	width: Titanium.UI.SIZE,
 	top: '12dp',
-	color: '#FLAF17',
+	color: '#FCAF17',
 	font: {
 		fontFamily: 'Raleway-Medium',
 		fontSize: '16dp'
@@ -101,7 +101,7 @@
 	right: '15dp',
 	left: '15dp',
 	width: Titanium.UI.FILL,
-	color: '#FLAF17',
+	color: '#FCAF17',
 	font: {
 		fontFamily: 'Raleway-Medium',
 		fontSize: '16dp'
@@ -112,7 +112,7 @@
 	height: '40dp',
 	width: Titanium.UI.FILL,
 	borderRadius: '4dp',
-	color: '#FLAF17',
+	color: '#FCAF17',
 	font: {
 		fontFamily: 'Raleway-Medium',
 		fontSize: '16dp'

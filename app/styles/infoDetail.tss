@@ -36,9 +36,6 @@
 	backgroundColor: 'white'
 }
 
-
-
-
 "#lblInfoTitle1": {
 	left: '15dp',
 	top: '10dp',
@@ -71,8 +68,7 @@
 		fontSize: '14dp',
 		fontFamily: 'Raleway-Medium'
 	},
-	top: '20dp',
-	// visible: false,
+	top: '20dp'
 }
 
 "#tableView": {
