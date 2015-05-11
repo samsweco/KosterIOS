@@ -55,7 +55,7 @@
 	left: '10dp',
 	width: Titanium.UI.SIZE,
 	top: '12dp',
-	color: '#FCAF17',
+	color: '#0098C3',
 	font: {
 		fontFamily: 'Raleway-Medium',
 		fontSize: '16dp'
@@ -112,7 +112,7 @@
 	height: '40dp',
 	width: Titanium.UI.FILL,
 	borderRadius: '4dp',
-	color: '#FCAF17',
+	color: '#0098C3',
 	font: {
 		fontFamily: 'Raleway-Medium',
 		fontSize: '16dp'
