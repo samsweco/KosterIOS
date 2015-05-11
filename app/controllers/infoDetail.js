@@ -53,9 +53,9 @@ function setRowData() {
 		for (var i = 0; i < urlJson.length; i++) {
 			var row = Ti.UI.createTableViewRow({
 				id : urlJson[i].id,
-				layout : 'horizontal',
 				height : '60dp',
-				top : '0dp'
+				top : '0dp',
+				hasChild : true
 			});
 
 			// var txt = Ti.UI.createLabel({
