@@ -63,7 +63,7 @@
 
 "#lblLinkTitle": {
 	left: '15dp',
-	color : '#0098C3',
+	color : '#FCAF17',
 	font: {
 		fontSize: '14dp',
 		fontFamily: 'Raleway-Medium'
