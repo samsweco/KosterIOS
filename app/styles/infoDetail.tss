@@ -48,7 +48,10 @@
 }
 
 "#linkView": {
-	layout: 'horizontal'
+	layout: 'horizontal',
+	top: '10dp',
+	borderColor: "#e8e8e8",
+	borderWidth: '1dp'
 }
 
 "#slideView": {
@@ -58,13 +61,14 @@
 }
 
 "#lblInfoText": {
-	left: '15dp'
+	left: '15dp',
+	top: '10dp'
 }
 
-"#lblText": {
-	left: '15dp',
-	color: '#FF9966',
-	font:{
-		fontFamily: 'Raleway-Medium'
-	}
-}
+// "#lblText": {
+	// left: '15dp',
+	// color: '#FF9966',
+	// font:{
+		// fontFamily: 'Raleway-Medium'
+	// }
+// }

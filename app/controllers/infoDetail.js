@@ -7,6 +7,7 @@ var urlCollection = Alloy.Collections.info_urlModel;
 try {
 	$.lblInfoTitle.text = args.name || "Title";
 	$.infoImg.image = "/pics/" + args.img;
+	$.lblInfoText.text = args.infoTxt;
 	var id = args.id;
 
 } catch(e) {
@@ -35,7 +36,6 @@ function showinfoDetails(info) {
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "infoDetail - showInfoDetail");
 	}
-
 }
 
 //-----------------------------------------------------------
@@ -63,8 +63,7 @@ function setRowData() {
 				right : '15dp',
 				width : Ti.UI.FILL,
 				font : {
-					fontSize : '12dp',
-					fontStyle : 'italic'
+					fontSize : '12dp'
 				},
 				text : urlJson[i].url_text,
 			});
@@ -79,6 +78,7 @@ function setRowData() {
 				color : 'blue',
 				text : urlJson[i].linkname
 			});
+			
 			row.add(txt);
 			row.add(linkName);
 
@@ -102,13 +102,9 @@ function getLink(e) {
 		});
 
 		var jsonObj = urlCollection.toJSON();
-
 		var web =  jsonObj[0].url;
 	
 	openLink(web);
-
-
-
 }
 
 //-----------------------------------------------------------

@@ -119,5 +119,4 @@ function getInfoDetails(e) {
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "infoList - getInfoDetails");
 	}
-
 }
