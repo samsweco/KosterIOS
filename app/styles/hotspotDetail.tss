@@ -45,7 +45,7 @@
 		fontSize: '20dp',
 		fontFamily: 'Raleway-Medium'
 	},
-	color: '#FLAF17'
+	color: '#FCAF17'
 }
 
 "#lblHotspotInfoTxt": {
