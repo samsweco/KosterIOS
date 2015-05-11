@@ -6,8 +6,6 @@
 			<View id="slideView">
 				<ImageView id="infoImg">
 				</ImageView>
-				<!-- <View id="info">
-				</View> -->
 			</View>
 			<Label class="lblInfoDetail" id="lblInfoTitle"></Label>
 			<Label class="lblInfoDetail" id="lblInfoText"></Label>
