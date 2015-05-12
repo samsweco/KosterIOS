@@ -1,3 +1,5 @@
+Ti.include("SQL.js");
+
 try {
 	var trailsCollection = Alloy.Collections.trailsModel;
 	trailsCollection.fetch();
@@ -208,7 +210,7 @@ function getFile(id) {
 	try {
 		var jsonFileCollection = Alloy.Collections.jsonFilesModel;
 		jsonFileCollection.fetch({
-			query : 'SELECT filename FROM jsonFilesModel WHERE trailID ="' + id + '"'
+			query : query1 + id + '"'
 		});
 
 		var filename = jsonFileCollection.toJSON();
@@ -224,7 +226,7 @@ function getFile(id) {
 function showHotspot(myId) {
 	try {
 		hotspotCollection.fetch({
-			query : 'SELECT id, infoTxt FROM hotspotModel where name = "' + myId + '"'
+			query : query2 + myId + '"'
 		});
 
 		var jsonObjHot = hotspotCollection.toJSON();
@@ -302,7 +304,7 @@ function displayInfoSpots(type) {
 		var markerArray = [];
 		var infospotCollection = getInfoSpotCoordinatesCollection();
 		infospotCollection.fetch({
-			query : 'SELECT name, latitude, longitude FROM infospotCoordinatesModel WHERE name ="' + type + '"'
+			query : query3 + type + '"'
 		});
 
 		var infospotJSON = infospotCollection.toJSON();
@@ -333,7 +335,7 @@ function displaySpecificMarkers(id, maptype) {
 	try {
 		var hotspotTrailCollection = Alloy.Collections.hotspotModel;
 		hotspotTrailCollection.fetch({
-			query : 'SELECT hotspotModel.name, hotspotModel.xkoord, hotspotModel.ykoord from hotspotModel join hotspot_trailsModel on hotspotModel.id = hotspot_trailsModel.hotspotID where trailsID ="' + id + '"'
+			query : query4 + id + '"'
 		});
 
 		var specificHotspots = hotspotTrailCollection.toJSON();
@@ -371,7 +373,7 @@ function getSpecificIconsForTrail(id) {
 
 		var specificinfotrailCollection = Alloy.Collections.infospotCoordinatesModel;
 		specificinfotrailCollection.fetch({
-			query : 'SELECT name, latitude, longitude from infospotCoordinatesModel join infospot_trailsModel on infospot_trailsModel.infospotID = infospotCoordinatesModel.infospotID where trailsID ="' + id + '"'
+			query : query5 + id + '"'
 		});
 
 		var infospotsTrails = specificinfotrailCollection.toJSON();
