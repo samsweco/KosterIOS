@@ -62,7 +62,7 @@ function showMenu() {
 	try {
 
 		if(!menuDetailVisible){
-			$.widgetView.height = '200dp';
+			$.widgetView.height = '120dp';
 			menuDetailVisible = true;
 		}else {
 			$.widgetView.height = '0dp';

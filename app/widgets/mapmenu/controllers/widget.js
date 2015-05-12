@@ -26,6 +26,7 @@ $.posSwitch.addEventListener('change', function(e) {
 		myPosition = true;
 	} else {
 		myPosition = false;
+		getPos();
 	}
 });
 

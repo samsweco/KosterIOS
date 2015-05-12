@@ -441,7 +441,7 @@ function getPos() {
 		getPosition(map);
 		myPosition = true;
 	} else {
-		setRegion(map);
+		map.userLocation = false;
 		myPosition = false;
 	}
 }

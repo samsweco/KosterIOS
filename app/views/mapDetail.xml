@@ -12,7 +12,28 @@
 		</RightNavButton>
 		<View id="mapDetailView"></View>
 		<View id="widgetView">
-			<Widget src="mapmenu" name="widget"></Widget>
+			<View id="settingsView">
+				<View id="hotSwitchView" class="settingsHorizontalView">
+					<Label id="btnShowHotspots" text="Visa sevärdheter"></Label>
+					<View class="switchClass">
+						<Switch id="hotspotSwitch" class="switch" value="false"></Switch>
+					</View>
+				</View>
+				<View id="gpsSwitchView" class="settingsHorizontalView">
+					<Label id="lblSetGPS" text="Påminnelse vid sevärdheter"></Label>
+					<View class="switchClass">
+						<Switch id="geoSwitch" class="switch" value="false" titleOn="På" titleOff="Av"></Switch>
+					</View>
+				</View>
+				<View id="myposSwitchView" class="settingsHorizontalView">
+					<Label id="lblSetMypos" text="Visa min position"></Label>
+					<View class="switchClass">
+						<Switch id="posSwitch" class="switch" value="false" titleOn="På" titleOff="Av"></Switch>
+					</View>
+				</View>
+				<!-- <Label id="btnSetNotification" class="btnSetStuff" text="Inaktivera notifikationer" color="#00a9f0"></Label> -->
+			</View>
+			<!-- <Widget src="mapmenu" name="widget"></Widget> -->
 		</View>
 	</Window>
 </Alloy>

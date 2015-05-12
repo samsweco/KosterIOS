@@ -9,8 +9,42 @@
 }
 
 "#widgetView": {
-	height: '200dp',
+	height: '120dp',
 	width: Titanium.UI.FILL,
-	backgroundColor : 'green',
-	bottom : 0
+	bottom: 0,
+	backgroundColor : 'white',
+	opacity : 0.8
+}
+
+
+".settingsHorizontalView": {
+	top: '5dp',
+	layout: 'horizontal',
+	height: Titanium.UI.SIZE,
+	width: Titanium.UI.FILL,
+}
+
+"#settingsView": {
+	layout: 'vertical',
+	top: '5dp',
+	height: Titanium.UI.SIZE,
+	width: Titanium.UI.FILL,
+	bottom: 0
+}
+
+".switch": {
+	right: '15dp',
+	height: Titanium.UI.FILL,
+	width: Titanium.UI.FILL,
+	opacity : 1
+}
+
+".switchClass": {
+	height: '30dp',
+	width: Titanium.UI.SIZE,
+	opacity : 1
+}
+
+"Label" : {
+	left : '15dp'
 }
