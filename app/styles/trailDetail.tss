@@ -96,7 +96,7 @@
 	color: '#FCAF17',
 	font: {
 		fontSize: '16dp',
-		fontFamily: 'Raleway-Regular'
+		fontFamily: 'Raleway-Medium'
 	},
 	top: '10dp'
 }

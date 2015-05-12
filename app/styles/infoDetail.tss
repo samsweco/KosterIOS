@@ -65,7 +65,7 @@
 	left: '15dp',
 	color : '#FCAF17',
 	font: {
-		fontSize: '14dp',
+		fontSize: '16dp',
 		fontFamily: 'Raleway-Medium'
 	},
 	top: '20dp',
