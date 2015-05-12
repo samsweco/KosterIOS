@@ -1,3 +1,4 @@
+Ti.include('SQL.js');
 var args = arguments[0] || {};
 var urlCollection = Alloy.Collections.info_urlModel;
 
@@ -45,7 +46,7 @@ function setRowData() {
 	try {
 		var tableViewData = [];
 		urlCollection.fetch({
-			query : 'SELECT * from info_urlModel WHERE info_id ="' + id + '"'
+			query : query8 + id + '"'
 		});
 
 		var urlJson = urlCollection.toJSON();
@@ -94,7 +95,7 @@ function getLink(e) {
 
 	var rowId = e.rowData.id;
 	urlCollection.fetch({
-		query : 'SELECT url FROM info_urlModel WHERE id = "' + rowId + '"'
+		query : query9 + rowId + '"'
 	});
 
 	var jsonObj = urlCollection.toJSON();
