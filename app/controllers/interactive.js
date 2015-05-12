@@ -65,8 +65,8 @@ function checkLetter(letterToCheck) {
 		buttonNames : ['Stäng']
 	});
 
-	if (Alloy.Globals.jsonCollection[foundId - 1].letter == letterToCheck) {
-		if (Alloy.Globals.jsonCollection[foundId - 1].found == 0) {
+	if (Alloy.Globals.jsonCollection[foundId - 1].found == 0 && Alloy.Globals.jsonCollection[foundId - 1].alerted == 1) {
+		if (Alloy.Globals.jsonCollection[foundId - 1].letter == letterToCheck) {
 			lettersArray.push(letterToCheck);
 			//Alloy.Globals.jsonCollection[foundId - 1].letter
 
