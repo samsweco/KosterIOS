@@ -165,21 +165,28 @@ function userIsNearLetter() {
 
 				if (isInsideRadius(lat, lon, radius) && Alloy.Globals.jsonCollection[i].alerted == 0) {
 
-					var message = Ti.UI.createAlertDialog({
-						message : Alloy.Globals.jsonCollection[i].clue,
-						title : 'Ny bokstav i närheten!',
-						buttonNames : ['Gå till bokstavsjakten', 'Stäng']
-					});
+					var message = Ti.UI.createAlertDialog();
 
-					message.addEventListener('click', function(e) {
-						if (e.index == 0) {
-							Alloy.CFG.tabs.setActiveTab(3);
-						}
-					});
+					// if (foundId != nextId) {
+						// message.message = "Nu går du åt fel håll. Börja din vandring uppför backen vid naturum.";
+						// message.title = "Fel väg";
+						// message.buttonNames = ['Stäng'];
+					// } else {
+						message.message = Alloy.Globals.jsonCollection[i].clue;
+						message.title = 'Ny bokstav i närheten!';
+						message.buttonNames = ['Gå till bokstavsjakten', 'Stäng'];
+
+						message.addEventListener('click', function(e) {
+							if (e.index == 0) {
+								Alloy.CFG.tabs.setActiveTab(3);
+							}
+						});
+
+						Alloy.Globals.jsonCollection[i].alerted = 1;
+					// }
 
 					message.show();
 					playSound();
-					Alloy.Globals.jsonCollection[i].alerted = 1;
 				}
 			}
 		}

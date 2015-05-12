@@ -2,7 +2,6 @@ Ti.include("geoFunctions.js");
 Ti.include("mapFunctions.js");
 
 var args = arguments[0] || {};
-var nextId = 1;
 
 var letterCollection = getLetterCollection();
 letterCollection.fetch();
@@ -68,7 +67,6 @@ function checkLetter(letterToCheck) {
 	if (Alloy.Globals.jsonCollection[foundId - 1].found == 0 && Alloy.Globals.jsonCollection[foundId - 1].alerted == 1) {
 		if (Alloy.Globals.jsonCollection[foundId - 1].letter == letterToCheck) {
 			lettersArray.push(letterToCheck);
-			//Alloy.Globals.jsonCollection[foundId - 1].letter
 
 			$.lblCollectedLetters.text = $.lblCollectedLetters.text + letterToCheck;
 			$.txtLetter.value = '';

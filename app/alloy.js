@@ -27,6 +27,7 @@
 var gLat = 0;
 var gLon = 0;
 var foundId = 1;
+var nextId = 1;
 var notify = true;
 var myPosition = false;
 
@@ -70,7 +71,8 @@ interactiveMap = MapModule.createView({
 	mapType : MapModule.HYBRID_TYPE,
 	animate : true,
 	height : '100%',
-	width : Ti.UI.FILL
+	width : Ti.UI.FILL,
+	userLocation : true
 });
 
 //-----------------------------------------------------------
