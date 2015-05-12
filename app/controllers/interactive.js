@@ -1,13 +1,13 @@
 Ti.include("geoFunctions.js");
 Ti.include("mapFunctions.js");
 
-var args = arguments[0] || {};
-var nextId = 1;
-
 var letterCollection = getLetterCollection();
 letterCollection.fetch();
 var jsonCollection = letterCollection.toJSON();
 Alloy.Globals.jsonCollection = jsonCollection;
+
+var args = arguments[0] || {};
+var nextId = 1;
 
 displayMap();
 
@@ -114,6 +114,7 @@ function checkWord() {
 		$.lblCollectedLetters.text = '';
 		$.wordView.visible = false;
 		$.horizontalView.visible = false;
+		displayMap();
 	} else {
 		alert("Försök igen! Du har snart klurat ut det!");
 	}
@@ -127,3 +128,25 @@ interactiveMap.addEventListener('click', function(evt) {
 		showHotspot(evt.annotation.id);
 	}
 });
+
+
+function addClueZone() {
+	try {
+		for (var c = 0; c < Alloy.Globals.jsonCollection.length; c++) {
+			var markerAnnotation = MapModule.createAnnotation({
+				latitude : Alloy.Globals.jsonCollection[c].latitude,
+				longitude : Alloy.Globals.jsonCollection[c].longitude
+			});
+
+			if (Alloy.Globals.jsonCollection[c].found == 0) {
+				markerAnnotation.image = '/images/red.png';
+			} else {
+				markerAnnotation.image = '/images/green.png';
+			}
+
+			interactiveMap.addAnnotation(markerAnnotation);
+		}
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - addClueZone");
+	}
+}

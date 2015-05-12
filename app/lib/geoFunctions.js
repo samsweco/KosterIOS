@@ -44,19 +44,19 @@ var addHotspotLocation = function(e) {
 // Hämtar enhetens position och kontrollerar mot punkter
 //-----------------------------------------------------------
 function setUserPosition(userCoordinates, type) {
-	// try {
-	gLat = userCoordinates.latitude;
-	gLon = userCoordinates.longitude;
+	try {
+		gLat = userCoordinates.latitude;
+		gLon = userCoordinates.longitude;
 
-	if (type == 'hotspot') {
-		userIsNearHotspot();
-	} else if (type == 'letter') {
-		userIsNearLetter();
+		if (type == 'hotspot') {
+			userIsNearHotspot();
+		} else if (type == 'letter') {
+			userIsNearLetter();
+		}
+
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - getPosition");
 	}
-
-	// } catch(e) {
-	// newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - getPosition");
-	// }
 }
 
 function stopGPS() {
@@ -193,7 +193,7 @@ function playSound() {
 	var player = Ti.Media.createSound({
 		url : "/sound/popcorn.m4a"
 	});
-	
+
 	player.play();
 }
 

@@ -417,25 +417,3 @@ function removeAnnoHotspot() {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - removeAnnoHotspot");
 	}
 }
-
-
-function addClueZone() {
-	try {
-		for (var c = 0; c < Alloy.Globals.jsonCollection.length; c++) {
-			var markerAnnotation = MapModule.createAnnotation({
-				latitude : Alloy.Globals.jsonCollection[c].latitude,
-				longitude : Alloy.Globals.jsonCollection[c].longitude
-			});
-
-			if (Alloy.Globals.jsonCollection[c].found == 0) {
-				markerAnnotation.image = '/images/red.png';
-			} else {
-				markerAnnotation.image = '/images/green.png';
-			}
-
-			interactiveMap.addAnnotation(markerAnnotation);
-		}
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - addClueZone");
-	}
-}
