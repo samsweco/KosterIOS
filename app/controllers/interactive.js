@@ -3,25 +3,28 @@ Ti.include("mapFunctions.js");
 
 var args = arguments[0] || {};
 
-var jsonCollection;
+var letterCollection = getLetterCollection();
+letterCollection.fetch();
+jsonCollection = letterCollection.toJSON();
+Alloy.Globals.jsonCollection = jsonCollection; 
+	
 displayMap();
 
 function displayMap() {
 	$.showFamilyTrail.add(showDetailMap(interactiveMap, 7, 'Äventyrsleden', 'purple'));
-	getCollection();
 	addClueZone();
 	displaySpecificMarkers(7, interactiveMap);
 }
 
-function getCollection(){
-	var letterCollection = getLetterCollection();
-	letterCollection.fetch({
-		query : 'SELECT * FROM letterModel WHERE found =' + 0
-	});
-	
-	jsonCollection = letterCollection.toJSON();
-	Alloy.Globals.jsonCollection = jsonCollection;
-}
+// function getCollection(){
+	// var letterCollection = getLetterCollection();
+	// letterCollection.fetch({
+		// query : 'SELECT * FROM letterModel WHERE found =' + 0
+	// });
+// 	
+	// jsonCollection = letterCollection.toJSON();
+	// Alloy.Globals.jsonCollection = jsonCollection;
+// }
 
 function startInteractive() {
 	$.btnStartQuiz.hide();
@@ -50,7 +53,6 @@ function loadClue(id) {
 function sendLetter() {
 	checkLetter(getLetter());
 	interactiveMap.removeAllAnnotations();
-	getCollection();
 	addClueZone();
 	displaySpecificMarkers(7, interactiveMap);
 	allLetters();
@@ -83,12 +85,12 @@ function checkLetter(letterToCheck) {
 			$.txtLetter.value = '';
 			
 			
-			var db = Ti.Database.open('dbKostervandring');
-			db.execute('UPDATE letterModel SET found=1 WHERE id ="' + foundId + '"');
-			db.close(); 
+			// var db = Ti.Database.open('dbKostervandring');
+			// db.execute('UPDATE letterModel SET found=1 WHERE id ="' + foundId + '"');
+			// db.close(); 
 
 
-			// Alloy.Globals.jsonCollection[foundId - 1].found = 1;
+			Alloy.Globals.jsonCollection[foundId - 1].found = 1;
 			nextId++;
 			nextClue();
 			
