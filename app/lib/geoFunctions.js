@@ -181,8 +181,6 @@ function userIsNearLetter() {
 								Alloy.CFG.tabs.setActiveTab(3);
 							}
 						});
-
-						
 					// }
 
 					message.show();

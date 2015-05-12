@@ -3,10 +3,24 @@ Ti.include("mapFunctions.js");
 
 var args = arguments[0] || {};
 
+var letters = Alloy.createModel('letterModel');
+letters.save({
+	id : 13,
+	letter : "Y",
+	found : 0
+});
+letters.fetch();
+
+Ti.API.info('letters : ' + JSON.stringify(letters));
+
+
 var letterCollection = getLetterCollection();
 letterCollection.fetch();
 jsonCollection = letterCollection.toJSON();
 Alloy.Globals.jsonCollection = jsonCollection; 
+	
+// letterCollection.save({id:13, clue:'hejhej', found:1});
+// Ti.API.info('letterCol : ' + JSON.stringify(letterCollection));
 	
 displayMap();
 
@@ -83,18 +97,12 @@ function checkLetter(letterToCheck) {
 
 			$.lblCollectedLetters.text = $.lblCollectedLetters.text + letterToCheck;
 			$.txtLetter.value = '';
-			
-			
-			// var db = Ti.Database.open('dbKostervandring');
-			// db.execute('UPDATE letterModel SET found=1 WHERE id ="' + foundId + '"');
-			// db.close(); 
-
 
 			Alloy.Globals.jsonCollection[foundId - 1].found = 1;
 			nextId++;
 			nextClue();
 			
-			Ti.API.info('globala collen : ' + JSON.stringify(Alloy.Globals.jsonCollection));
+			Ti.API.info('globala collen : ' + JSON.stringify(Alloy.Globals.jsonCollection[0].found));
 	}
 		} else {
 		messageDialog.message = "Är du säker på att det är rätt bokstav?";
