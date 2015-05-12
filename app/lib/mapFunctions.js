@@ -10,10 +10,10 @@ try {
 
 try {
 	var hotspotCollection = Alloy.Collections.hotspotModel;
-	var letterCollection = getLetterCollection();
-	letterCollection.fetch();
-	var jsonCollection = letterCollection.toJSON();
-	Alloy.Globals.jsonCollection = jsonCollection;
+	// var letterCollection = getLetterCollection();
+	// letterCollection.fetch();
+	// var jsonCollection = letterCollection.toJSON();
+	// Alloy.Globals.jsonCollection = jsonCollection;
 } catch(e) {
 	newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - hotspotCollectionFetches");
 }

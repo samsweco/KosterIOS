@@ -1,13 +1,13 @@
 Ti.include("geoFunctions.js");
 Ti.include("mapFunctions.js");
 
+var args = arguments[0] || {};
+var nextId = 1;
+
 var letterCollection = getLetterCollection();
 letterCollection.fetch();
 var jsonCollection = letterCollection.toJSON();
 Alloy.Globals.jsonCollection = jsonCollection;
-
-var args = arguments[0] || {};
-var nextId = 1;
 
 displayMap();
 
@@ -71,7 +71,7 @@ function checkLetter(letterToCheck) {
 
 		$.lblCollectedLetters.text = $.lblCollectedLetters.text + letterToCheck;
 		$.txtLetter.value = '';
-		loadClue(Alloy.Globals.jsonCollection[foundId - 1].id);
+		// loadClue(Alloy.Globals.jsonCollection[foundId - 1].id);
 		nextId++;
 		nextClue();
 	} else {
@@ -90,6 +90,8 @@ function allLetters() {
 		$.lblLetters.height = 0;
 		$.btnStartQuiz.height = 0;
 		$.wordView.show();
+		$.wordView.height = Ti.UI.SIZE;
+
 		$.lblWelcome.text = 'Skriv ordet du bildat av bokstäverna!';
 		$.lblInfoText.text = 'Ledtråd: En svävande geléklump i havet.';
 	}
@@ -114,6 +116,7 @@ function checkWord() {
 		$.lblCollectedLetters.text = '';
 		$.wordView.visible = false;
 		$.horizontalView.visible = false;
+		interactiveMap.removeAllAnnotations();
 		displayMap();
 	} else {
 		alert("Försök igen! Du har snart klurat ut det!");

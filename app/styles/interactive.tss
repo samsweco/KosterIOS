@@ -17,6 +17,11 @@
 	layout: 'vertical'
 }
 
+"#wordView": {
+	visible : false,
+	height : 0 
+}
+
 "#horizontalView":{
 	layout: 'horizontal',
 	width: Titanium.UI.FILL,
@@ -122,7 +127,7 @@
 		fontFamily: 'Raleway-Medium',
 		fontSize: '16dp'
 	},
-	top: '17dp',
+	top: '5%',
 	left: '15dp',
 	right: '15dp'
 }
