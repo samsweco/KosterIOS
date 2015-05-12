@@ -65,15 +65,18 @@ function checkLetter(letterToCheck) {
 		buttonNames : ['Stäng']
 	});
 
-	if (Alloy.Globals.jsonCollection[foundId - 1].letter == letterToCheck && Alloy.Globals.jsonCollection[foundId - 1].found == 0) {
-		lettersArray.push(letterToCheck); //Alloy.Globals.jsonCollection[foundId - 1].letter
-		
-		$.lblCollectedLetters.text = $.lblCollectedLetters.text + letterToCheck;
-		$.txtLetter.value = '';
-		
-		Alloy.Globals.jsonCollection[foundId - 1].found = 1;
-		nextId++;
-		nextClue();
+	if (Alloy.Globals.jsonCollection[foundId - 1].letter == letterToCheck) {
+		if (Alloy.Globals.jsonCollection[foundId - 1].found == 0) {
+			lettersArray.push(letterToCheck);
+			//Alloy.Globals.jsonCollection[foundId - 1].letter
+
+			$.lblCollectedLetters.text = $.lblCollectedLetters.text + letterToCheck;
+			$.txtLetter.value = '';
+
+			Alloy.Globals.jsonCollection[foundId - 1].found = 1;
+			nextId++;
+			nextClue();
+		}
 	} else {
 		messageDialog.message = "Är du säker på att det är rätt bokstav?";
 		messageDialog.title = "Fel";
@@ -132,7 +135,6 @@ interactiveMap.addEventListener('click', function(evt) {
 		showHotspot(evt.annotation.id);
 	}
 });
-
 
 function addClueZone() {
 	try {
