@@ -16,13 +16,13 @@
 				<View id="gpsSwitchView" class="settingsHorizontalView">
 					<Label id="lblSetGPS" text="Påminnelse vid sevärdheter"></Label>
 					<View class="switchClass">
-						<Switch id="geoSwitch" class="switch" value="false" titleOn="På" titleOff="Av"></Switch>
+						<Switch id="geoSwitch1" class="switch" value="false" titleOn="På" titleOff="Av"></Switch>
 					</View>
 				</View>
 				<View id="myposSwitchView" class="settingsHorizontalView">
 					<Label id="lblSetMypos" text="Visa min position"></Label>
 					<View class="switchClass">
-						<Switch id="posSwitch" class="switch" value="false" titleOn="På" titleOff="Av"></Switch>
+						<Switch id="posSwitch1" class="switch" value="false" titleOn="På" titleOff="Av"></Switch>
 					</View>
 				</View>
 				<!-- <Label id="btnSetNotification" class="btnSetStuff" text="Inaktivera notifikationer" color="#00a9f0"></Label> -->

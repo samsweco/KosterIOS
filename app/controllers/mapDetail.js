@@ -58,22 +58,23 @@ function addEventList() {
 	}
 }
 
-$.geoSwitch.addEventListener('change', function(e) {
-	if ($.geoSwitch.value == true) {
+$.geoSwitch1.addEventListener('change', function(e) {
+	if ($.geoSwitch1.value == true) {
 		getUserPos('hotspot');
 	}
-	if($.geoSwitch.value == false){
+	if($.geoSwitch1.value == false){
 		stopGPS();
 	}
 });
 
-$.posSwitch.addEventListener('change', function(e) {
-	if ($.posSwitch.value == true) {
-		getPos();
+$.posSwitch1.addEventListener('change', function(e) {
+	if ($.posSwitch1.value == true) {
+		getPos(detailMap);
 		myPosition = true;
 	} else {
+		detailMap.userLocation = false;
 		myPosition = false;
-		getPos();
+		
 	}
 });
 

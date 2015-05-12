@@ -22,16 +22,16 @@ $.hotspotSwitch.addEventListener('change', function(e) {
 
 $.posSwitch.addEventListener('change', function(e) {
 	if ($.posSwitch.value == true) {
-		getPos();
+		getPos(map);
 		myPosition = true;
 	} else {
 		myPosition = false;
-		getPos();
+		map.userLocation = false;
 	}
 });
 
 function showFarglage() {
-	if (farjelage == false) {
+	if (farjelage == false){
 		map.addAnnotations(displayInfoSpots('farjelage'));
 
 		$.btnShowFarjelage.backgroundImage = '/images/farjelage.png';

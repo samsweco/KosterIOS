@@ -436,13 +436,10 @@ function setZoomMap(){
 		}
 }
 
-function getPos() {
+function getPos(maptype) {
 	if (myPosition == false) {
-		getPosition(map);
+		getPosition(maptype);
 		myPosition = true;
-	} else {
-		map.userLocation = false;
-		myPosition = false;
 	}
 }
 
