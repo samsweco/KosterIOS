@@ -1,3 +1,8 @@
+"Window": {
+	backgroundColor: 'white',
+	layout: 'vertical'
+}
+
 "#lblInfoText": {
 	top: '5dp',
 	left: '15dp',
@@ -6,11 +11,6 @@
 		fontSize: '14dp',
 		fontFamily: 'Raleway-Light'
 	}
-}
-
-"Window": {
-	backgroundColor: 'white',
-	layout: 'vertical'
 }
 
 ".container": {
