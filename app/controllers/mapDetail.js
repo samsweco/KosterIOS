@@ -58,9 +58,8 @@ function addEventList() {
 	}
 }
 
-function getZoomedMapPosition() {
-	try {
-		// if (myPosition == false) {
+// function setZoomMap(){
+			// if (myPosition == false) {
 			// getPosition(detailMap);
 			// myPosition = true;
 		// } else {
@@ -74,11 +73,16 @@ function getZoomedMapPosition() {
 			// detailMap.userLocation = false;
 			// myPosition = false;
 		// }
+// }
+
+function showMenu() {
+	try {
+
 		if(!menuDetailVisible){
-			Alloy.Globals.showMapMenuWidget();
+			$.widgetView.height = '200dp';
 			menuDetailVisible = true;
 		}else {
-			Alloy.Globals.closeMapMenu();
+			$.widgetView.height = '0dp';
 			menuDetailVisible = false;
 		}
 		

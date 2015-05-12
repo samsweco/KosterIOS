@@ -10,3 +10,9 @@
 "#selectIconView": {
 	layout: 'horizontal'
 }
+
+"#widgetView": {
+	height: '0dp',
+	width: Titanium.UI.FILL,
+	bottom : 0
+}

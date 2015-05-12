@@ -8,6 +8,8 @@
 	<Collection src="letterModel" />
 	<View class="container">
 		<View id="mapView"></View>
-		<Widget src="mapmenu" name="widget"></Widget>
+		<View id="widgetView">
+			<Widget src="mapmenu" name="widget"></Widget>
+		</View>
 	</View>
 </Alloy>

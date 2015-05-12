@@ -93,6 +93,16 @@ map.addEventListener('click', function(evt) {
 });
 
 map.addEventListener('singletap', function() {
-	Alloy.Globals.closeMapMenu();
+	closeMenu();
 });
+
+function openMenu(){
+	$.widgetView.height = '200dp';
+}
+Alloy.Globals.openMenu = openMenu;
+
+function closeMenu(){
+	$.widgetView.height = '0dp';
+}
+Alloy.Globals.closeMenu = closeMenu;
 

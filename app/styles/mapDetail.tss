@@ -7,3 +7,10 @@
 	width: '100%',
 	layout: 'vertical'
 }
+
+"#widgetView": {
+	height: '200dp',
+	width: Titanium.UI.FILL,
+	backgroundColor : 'green',
+	bottom : 0
+}

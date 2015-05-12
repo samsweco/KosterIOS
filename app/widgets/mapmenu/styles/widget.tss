@@ -3,7 +3,7 @@
 	bottom: 0,
 	backgroundColor: 'white',
 	opacity: 0.8,
-	height: '0dp',
+	height: '200dp',
 	width: Titanium.UI.FILL
 }
 

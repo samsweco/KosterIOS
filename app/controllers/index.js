@@ -97,14 +97,15 @@ $.koster.addEventListener('blur', function() {
 
 function showMapMenu() {
 	if(!menuMapVisible){
-		Alloy.Globals.showMapMenuWidget();
+		Alloy.Globals.openMenu();
 		menuMapVisible = true;
 	}else{
-		Alloy.Globals.closeMapMenu();
+		Alloy.Globals.closeMenu();
 		menuMapVisible = false;
 	}
-	
 }
+
+
 
 function getPos() {
 	if (myPosition == false) {

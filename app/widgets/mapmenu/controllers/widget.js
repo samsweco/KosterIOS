@@ -1,15 +1,6 @@
 Ti.include("geoFunctions.js");
 Ti.include("mapFunctions.js");
 
-// var menuVisible = false;
-// var hotspotsNotVisible = true;
-// var trailsCollection = getTrailsCollection();
-// var hotspotCollection = getHotspotCollection();
-// 
-// var infospotArray = [];
-var menuVisible = false;
-var mapMenuVisible = false;
-
 $.geoSwitch.addEventListener('change', function(e) {
 	if ($.geoSwitch.value == true) {
 		getUserPos('hotspot');
@@ -138,37 +129,9 @@ function showTorrdass() {
 		torrdass = false;
 	}
 }
-// 
-// function showMenuWidget() {
-	// if (menuVisible == false) {
-		// $.mapmenu.show();
-		// menuVisible = true;
-	// } else {
-		// $.mapmenu.hide();
-		// menuVisible = false;
-	// }
-// }
-
-function showMapMenuWidget() {
-	// if (mapMenuVisible == false) {
-		$.mapmenu.height = '200dp';
-		// mapMenuVisible = true;
-	// } else {
-		// $.mapmenu.height = '0dp';
-		// mapMenuVisible = false;
-	// }
-}
-
-function closeMapMenu() {
-	$.mapmenu.height = '0dp';
-	// menuVisible = false;
-}
 
 $.mapmenu.addEventListener('singleTap', function() {
 	closeMapMenu();
 });
 
-// Alloy.Globals.showMenuWidget = showMenuWidget;
-Alloy.Globals.showMapMenuWidget = showMapMenuWidget;
-Alloy.Globals.closeMapMenu = closeMapMenu;
 
