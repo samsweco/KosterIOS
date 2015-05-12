@@ -58,11 +58,30 @@ function addEventList() {
 	}
 }
 
+$.geoSwitch.addEventListener('change', function(e) {
+	if ($.geoSwitch.value == true) {
+		getUserPos('hotspot');
+	}
+	if($.geoSwitch.value == false){
+		stopGPS();
+	}
+});
+
+$.posSwitch.addEventListener('change', function(e) {
+	if ($.posSwitch.value == true) {
+		getPos();
+		myPosition = true;
+	} else {
+		myPosition = false;
+		getPos();
+	}
+});
+
 function showMenu() {
 	try {
 
 		if(!menuDetailVisible){
-			$.widgetView.height = '120dp';
+			$.widgetView.height = '90dp';
 			menuDetailVisible = true;
 		}else {
 			$.widgetView.height = '0dp';

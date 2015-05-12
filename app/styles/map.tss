@@ -14,6 +14,5 @@
 "#widgetView": {
 	height: '0dp',
 	width: Titanium.UI.FILL,
-	backgroundColor : '#0098C3',
 	bottom : 0
 }

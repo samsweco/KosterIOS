@@ -13,12 +13,6 @@
 		<View id="mapDetailView"></View>
 		<View id="widgetView">
 			<View id="settingsView">
-				<View id="hotSwitchView" class="settingsHorizontalView">
-					<Label id="btnShowHotspots" text="Visa sevärdheter"></Label>
-					<View class="switchClass">
-						<Switch id="hotspotSwitch" class="switch" value="false"></Switch>
-					</View>
-				</View>
 				<View id="gpsSwitchView" class="settingsHorizontalView">
 					<Label id="lblSetGPS" text="Påminnelse vid sevärdheter"></Label>
 					<View class="switchClass">

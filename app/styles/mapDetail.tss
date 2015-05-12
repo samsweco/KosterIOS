@@ -9,7 +9,7 @@
 }
 
 "#widgetView": {
-	height: '120dp',
+	height: '0dp',
 	width: Titanium.UI.FILL,
 	bottom: 0,
 	backgroundColor : 'white',
