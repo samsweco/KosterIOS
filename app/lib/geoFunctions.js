@@ -182,11 +182,12 @@ function userIsNearLetter() {
 							}
 						});
 
-						Alloy.Globals.jsonCollection[i].alerted = 1;
+						
 					// }
 
 					message.show();
 					playSound();
+					Alloy.Globals.jsonCollection[i].alerted = 1;
 				}
 			}
 		}
