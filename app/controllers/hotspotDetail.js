@@ -1,3 +1,4 @@
+Ti.include("SQL.js");
 var args = arguments[0] || {};
 
 $.lblHotspotName.text = args.title || "Name";
@@ -27,7 +28,7 @@ function selectHotspotPics() {
 	try {
 		var mediaCollection = getMediaCollection();
 		mediaCollection.fetch({
-			query : 'SELECT * FROM mediaModel WHERE hotspot_id = "' + hotspotId + '"'
+			query : query6 + hotspotId + '"'
 		});
 		var jsonMedia = mediaCollection.toJSON();
 
@@ -79,10 +80,9 @@ function selectHotspotPics() {
 function setPicText() {
 
 	var textCollection = Alloy.Collections.mediaModel;
-	textCollection.fetch('SELECT img_txt FROM mediaModel where filename = anemon.png');
+	textCollection.fetch(query7);
 
 	txt = textCollection.toJSON();
 	text = JSON.stringify(txt);
-	//Ti.API.info('HÄR ÄR INFORMATION SOM VI VILL SE : ' + text);
 }
 
