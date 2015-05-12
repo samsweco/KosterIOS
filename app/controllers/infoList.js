@@ -70,7 +70,7 @@ function setRowData() {
 			var lblName = Ti.UI.createLabel({
 				left : '5dp',
 				top : '2dp',
-				color : '#FF9966',
+				color : '#FCAF17',
 				font : {
 					fontSize : '14dp',
 					fontFamily: 'Raleway-Medium'
