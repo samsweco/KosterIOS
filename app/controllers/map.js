@@ -97,7 +97,7 @@ map.addEventListener('singletap', function() {
 });
 
 function openMenu(){
-	$.widgetView.height = '200dp';
+	$.widgetView.height = '190dp';
 }
 Alloy.Globals.openMenu = openMenu;
 

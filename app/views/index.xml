@@ -20,19 +20,19 @@
 		</Tab>
 		<Tab id="maptab" class="tabbar" title="Karta" icon="/images/mapMenu.png">
 			<Window id="mapWin" onOpen="toMap">
-				<LeftNavButton>
-					<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMapMenu" />
-				</LeftNavButton>
 				<RightNavButton>
-					<Button id="btnGetPosition" image="/images/locationarrow.png" onClick="getPos" />
+					<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMapMenu" />
 				</RightNavButton>
+				<!-- <RightNavButton>
+					<Button id="btnGetPosition" image="/images/locationarrow.png" onClick="getPos" />
+				</RightNavButton> -->
 			</Window>
 		</Tab>
 		<Tab id="interactive" class="tabbar" title="Spela" icon="/images/quizMenu.png">
 			<Window id="interactiveWin" title="Bokstavsjakt" onOpen="toInteractive">
-				<RightNavButton>
+				<!-- <RightNavButton>
 					<Button id="btnGetPositionInteractive" image="/images/locationarrow.png" onClick="getPosInteractive" />
-				</RightNavButton>
+				</RightNavButton> -->
 			</Window>
 		</Tab>
 		<Tab id="info" class="tabbar" title="Info" icon="/images/infoMenu.png">

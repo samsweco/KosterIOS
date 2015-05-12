@@ -58,23 +58,6 @@ function addEventList() {
 	}
 }
 
-// function setZoomMap(){
-			// if (myPosition == false) {
-			// getPosition(detailMap);
-			// myPosition = true;
-		// } else {
-			// detailMap.region = {
-				// latitude : zoomLat,
-				// longitude : zoomLon,
-				// latitudeDelta : 0.03,
-				// longitudeDelta : 0.03
-			// };
-			// detailMap.animate = true;
-			// detailMap.userLocation = false;
-			// myPosition = false;
-		// }
-// }
-
 function showMenu() {
 	try {
 

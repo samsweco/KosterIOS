@@ -25,6 +25,7 @@ var markerHotspotArray = [];
 var menuVisible = false;
 var mapMenuVisible = false;
 
+
 //-----------------------------------------------------------
 // Läser in kartvyn
 //-----------------------------------------------------------
@@ -415,5 +416,42 @@ function removeAnnoHotspot() {
 		}
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - removeAnnoHotspot");
+	}
+}
+
+function setZoomMap(){
+			if (myPosition == false) {
+			getPosition(detailMap);
+			myPosition = true;
+		} else {
+			detailMap.region = {
+				latitude : zoomLat,
+				longitude : zoomLon,
+				latitudeDelta : 0.03,
+				longitudeDelta : 0.03
+			};
+			detailMap.animate = true;
+			detailMap.userLocation = false;
+			myPosition = false;
+		}
+}
+
+function getPos() {
+	if (myPosition == false) {
+		getPosition(map);
+		myPosition = true;
+	} else {
+		setRegion(map);
+		myPosition = false;
+	}
+}
+
+function getPosInteractive() {
+	if (myPosition == false) {
+		getPosition(interactiveMap);
+		myPosition = true;
+	} else {
+		interactiveMap.userLocation = false;
+		myPosition = false;
 	}
 }

@@ -104,25 +104,3 @@ function showMapMenu() {
 		menuMapVisible = false;
 	}
 }
-
-
-
-function getPos() {
-	if (myPosition == false) {
-		getPosition(map);
-		myPosition = true;
-	} else {
-		setRegion(map);
-		myPosition = false;
-	}
-}
-
-function getPosInteractive() {
-	if (myPosition == false) {
-		getPosition(interactiveMap);
-		myPosition = true;
-	} else {
-		interactiveMap.userLocation = false;
-		myPosition = false;
-	}
-}
