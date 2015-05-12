@@ -65,13 +65,13 @@ function checkLetter(letterToCheck) {
 		buttonNames : ['Stäng']
 	});
 
-	if (Alloy.Globals.jsonCollection[foundId - 1].letter == letterToCheck) {
-		lettersArray.push(Alloy.Globals.jsonCollection[foundId - 1].letter);
-		Alloy.Globals.jsonCollection[foundId - 1].found = 1;
-
+	if (Alloy.Globals.jsonCollection[foundId - 1].letter == letterToCheck && Alloy.Globals.jsonCollection[foundId - 1].found == 0) {
+		lettersArray.push(letterToCheck); //Alloy.Globals.jsonCollection[foundId - 1].letter
+		
 		$.lblCollectedLetters.text = $.lblCollectedLetters.text + letterToCheck;
 		$.txtLetter.value = '';
-		// loadClue(Alloy.Globals.jsonCollection[foundId - 1].id);
+		
+		Alloy.Globals.jsonCollection[foundId - 1].found = 1;
 		nextId++;
 		nextClue();
 	} else {
@@ -102,6 +102,7 @@ function allLetters() {
 //-----------------------------------------------------------
 function checkWord() {
 	var check = $.txtWord.value;
+	check.toUpperCase();
 
 	if (check == word) {
 		alert("Bra jobbat! Du hittade det rätta ordet!");
