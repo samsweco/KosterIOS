@@ -3,24 +3,12 @@ Ti.include("mapFunctions.js");
 
 var args = arguments[0] || {};
 
-var letters = Alloy.createModel('letterModel');
-letters.save({
-	id : 13,
-	letter : "Y",
-	found : 0
-});
-letters.fetch();
-
-Ti.API.info('letters : ' + JSON.stringify(letters));
 
 
-var letterCollection = getLetterCollection();
+var letterCollection = Alloy.Collections.letterModel;
 letterCollection.fetch();
 jsonCollection = letterCollection.toJSON();
 Alloy.Globals.jsonCollection = jsonCollection; 
-	
-// letterCollection.save({id:13, clue:'hejhej', found:1});
-// Ti.API.info('letterCol : ' + JSON.stringify(letterCollection));
 	
 displayMap();
 
@@ -28,17 +16,7 @@ function displayMap() {
 	$.showFamilyTrail.add(showDetailMap(interactiveMap, 7, 'Äventyrsleden', 'purple'));
 	addClueZone();
 	displaySpecificMarkers(7, interactiveMap);
-}
-
-// function getCollection(){
-	// var letterCollection = getLetterCollection();
-	// letterCollection.fetch({
-		// query : 'SELECT * FROM letterModel WHERE found =' + 0
-	// });
-// 	
-	// jsonCollection = letterCollection.toJSON();
-	// Alloy.Globals.jsonCollection = jsonCollection;
-// }
+} 
 
 function startInteractive() {
 	$.btnStartQuiz.hide();
@@ -88,10 +66,10 @@ function checkLetter(letterToCheck) {
 		buttonNames : ['Stäng']
 	});
 	
-	Ti.API.info('rätt bokstav är : ' + Alloy.Globals.jsonCollection[foundId - 1].letter);
+	Ti.API.info('rätt bokstav är : ' + lettersModel.get('letter'));
 	
-	if (Alloy.Globals.jsonCollection[foundId - 1].letter == letterToCheck) {
-		if (Alloy.Globals.jsonCollection[foundId - 1].found == 0){ // && Alloy.Globals.jsonCollection[foundId - 1].alerted == 1) {
+	if (lettersModel.get('letter') == letterToCheck) {
+		if (lettersModel.get('found') == 0){ // && Alloy.Globals.jsonCollection[foundId - 1].alerted == 1) {
 		
 			lettersArray.push(letterToCheck);
 
@@ -99,10 +77,9 @@ function checkLetter(letterToCheck) {
 			$.txtLetter.value = '';
 
 			Alloy.Globals.jsonCollection[foundId - 1].found = 1;
+			foundId++;
 			nextId++;
 			nextClue();
-			
-			Ti.API.info('globala collen : ' + JSON.stringify(Alloy.Globals.jsonCollection[0].found));
 	}
 		} else {
 		messageDialog.message = "Är du säker på att det är rätt bokstav?";
@@ -147,6 +124,8 @@ function checkWord() {
 		$.lblCollectedLetters.text = '';
 		$.wordView.visible = false;
 		$.horizontalView.visible = false;
+		
+		lettersArray = null;
 		interactiveMap.removeAllAnnotations();
 		displayMap();
 	} else {

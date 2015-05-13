@@ -2,6 +2,7 @@
 	<Collection src="trailsModel" />
 	<Collection src="infospot_trailsModel"/>
 	<Collection src="infospotCoordinatesModel"/>
+			<Model src="letterModel" />
 	<View class="container" onClose="destroyModel">
 		<ScrollView class="headView" scrollType="vertical">
 			<TableView id="table" onClick="showTrailDetails">

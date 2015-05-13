@@ -5,7 +5,8 @@
 	<Collection src="jsonFilesModel" />
 	<Collection src="hotspot_trailsModel" />
 	<Collection src="infospotCoordinatesModel" />
-	<Collection src="letterModel" />
+	<!-- <Collection src="letterModel" /> -->
+		<Model src="letterModel" />
 	<View class="container">
 		<View id="mapView"></View>
 		<View id="widgetView">

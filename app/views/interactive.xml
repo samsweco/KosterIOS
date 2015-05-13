@@ -5,6 +5,7 @@
 	<Collection src="jsonFilesModel" />
 	<Collection src="hotspot_trailsModel" />
 	<Collection src="letterModel" />
+	<Model src="letterModel" />
 	<Collection src="infospotCoordinatesModel" />
 	<ScrollView scrollType="vertical">
 		<View id="interactiveWin">

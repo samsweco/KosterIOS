@@ -3,6 +3,8 @@
 	<Collection src="hotspotModel"></Collection>
 	<Collection src="infospotCoordinatesModel"></Collection>
 	<Collection src="letterModel"></Collection>
+	
+			<Model src="letterModel" />
 	<Window id="hikeDetailWin" backButtonTitle="Tillbaka">
 		<RightNavButton>
 			<Button id="btnShowOnMap" onClick="zoomMapTrail">Visa leden på karta</Button> /><!-- image="/images/mapMenu.png" -->

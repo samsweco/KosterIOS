@@ -33,7 +33,6 @@ function showMapDetail() {
 function addEventList() {
 	try {
 		detailMap.addEventListener('click', function(evt) {
-			if (evt.annotation.name == 'hotspot') {
 				if (evt.clicksource == 'rightButton') {
 					var hotspotCollection = Alloy.Collections.hotspotModel;
 					hotspotCollection.fetch({
@@ -50,8 +49,7 @@ function addEventList() {
 
 					var hotspotDetail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
 					Alloy.CFG.tabs.activeTab.open(hotspotDetail);
-				};
-			}
+				}
 		});
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapDetail - addEventListener");

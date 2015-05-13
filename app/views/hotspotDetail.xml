@@ -1,5 +1,6 @@
 <Alloy>
 	<Collection src="mediaModel"></Collection>
+			<Model src="letterModel" />
 	<Window id="hotspotDetail" backButtonTitle="Tillbaka">
 		<ScrollView class="headView" scrollType="vertical">
 			<View id="slideView">

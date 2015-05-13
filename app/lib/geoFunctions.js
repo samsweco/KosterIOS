@@ -3,6 +3,9 @@ hotspotColl.fetch();
 var hotspotJSONobj = hotspotColl.toJSON();
 Alloy.Globals.hotspotJSONobj = hotspotJSONobj;
 
+var lettersModel = Alloy.Models.letterModel;
+//lettersModel.fetch();
+
 function getUserPos(type) {
 	try {
 
@@ -44,19 +47,19 @@ var addHotspotLocation = function(e) {
 // Hämtar enhetens position och kontrollerar mot punkter
 //-----------------------------------------------------------
 function setUserPosition(userCoordinates, type) {
-	try {
-		gLat = userCoordinates.latitude;
-		gLon = userCoordinates.longitude;
+	// try {
+	gLat = userCoordinates.latitude;
+	gLon = userCoordinates.longitude;
 
-		if (type == 'hotspot') {
-			userIsNearHotspot();
-		} else if (type == 'letter') {
-			userIsNearLetter();
-		}
-
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - getPosition");
+	if (type == 'hotspot') {
+		userIsNearHotspot();
+	} else if (type == 'letter') {
+		userIsNearLetter();
 	}
+
+	// } catch(e) {
+	// newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - set userPosition");
+	// }
 }
 
 function stopGPS() {
@@ -153,46 +156,62 @@ function userIsNearHotspot() {
 // Sätter ut punkterna som ska kontrolleras, loopar
 //-----------------------------------------------------------
 function userIsNearLetter() {
-	try {
-		for (var i = 0; i < Alloy.Globals.jsonCollection.length; i++) {
+	//try {
+		
+		foundId = 12;
 
-			if (Alloy.Globals.jsonCollection[i].found == 0) {
+	//Här ska foundId in!!
+	lettersModel.fetch({
+		'id' : foundId
+	});
+	
+	Ti.API.info("Obj: " + JSON.stringify(lettersModel));
+	var pt = lettersModel.get('latitude');
+	//	Ti.API.info("pts: " + JSON.stringify(pt));
 
-				var lat = Alloy.Globals.jsonCollection[i].latitude;
-				var lon = Alloy.Globals.jsonCollection[i].longitude;
-				foundId = Alloy.Globals.jsonCollection[i].id;
-				var radius = Alloy.Globals.jsonCollection[i].radius;
+	// for (var i = 0; i < Alloy.Globals.jsonCollection.length; i++) {
 
-				if (isInsideRadius(lat, lon, radius) && Alloy.Globals.jsonCollection[i].alerted == 0) {
+	if (lettersModel.get('found') == 0) {
 
-					var message = Ti.UI.createAlertDialog();
+		lat = lettersModel.get('latitude');
+		lon = lettersModel.get('longitude');
+		var radius = lettersModel.get('radius');
 
-					// if (foundId != nextId) {
-						// message.message = "Nu går du åt fel håll. Börja din vandring uppför backen vid naturum.";
-						// message.title = "Fel väg";
-						// message.buttonNames = ['Stäng'];
-					// } else {
-						message.message = Alloy.Globals.jsonCollection[i].clue;
-						message.title = 'Ny bokstav i närheten!';
-						message.buttonNames = ['Gå till bokstavsjakten', 'Stäng'];
+		if (isInsideRadius(lat, lon, radius) && lettersModel.get('alerted') == 0) {
 
-						message.addEventListener('click', function(e) {
-							if (e.index == 0) {
-								Alloy.CFG.tabs.setActiveTab(3);
-							}
-						});
-					// }
+			var message = Ti.UI.createAlertDialog();
 
-					message.show();
-					playSound();
-					Alloy.Globals.jsonCollection[i].alerted = 1;
+			// if (foundId != nextId) {
+			// message.message = "Nu går du åt fel håll. Börja din vandring uppför backen vid naturum.";
+			// message.title = "Fel väg";
+			// message.buttonNames = ['Stäng'];
+			// } else {
+			message.message = lettersModel.get('clue');
+			message.title = 'Ny bokstav i närheten!';
+			message.buttonNames = ['Gå till bokstavsjakten', 'Stäng'];
+			message.addEventListener('click', function(e) {
+				if (e.index == 0) {
+					Alloy.CFG.tabs.setActiveTab(3);
 				}
-			}
-		}
+			});
+			// // }
+			//
+			message.show();
 
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", 'isNearPoint - letter');
+			lettersModel.set({
+				'alerted' : 1
+			});
+			lettersModel.save();
+			playSound();
+			// }
+			
+			Ti.API.info("changedObj: " + JSON.stringify(lettersModel));
+		}
 	}
+
+	// } catch(e) {
+	// newError("Något gick fel när sidan skulle laddas, prova igen!", 'isNearPoint - letter');
+	// }
 }
 
 function playSound() {
