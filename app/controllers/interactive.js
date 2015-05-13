@@ -32,7 +32,8 @@ function startInteractive() {
 
 	$.horizontalView.show();
 	$.horizontalView.height = Ti.UI.SIZE;
-
+	
+	fetchModel();
 	getUserPos('letter');
 	loadClue(1);
 }
@@ -76,10 +77,17 @@ function checkLetter(letterToCheck) {
 			$.lblCollectedLetters.text = $.lblCollectedLetters.text + letterToCheck;
 			$.txtLetter.value = '';
 
-			Alloy.Globals.jsonCollection[foundId - 1].found = 1;
+			// Alloy.Globals.jsonCollection[foundId - 1].found = 1;
+			lettersModel.set({
+				'found' : 1
+			});
+			lettersModel.save();
+			
 			foundId++;
+			Ti.API.info(foundId);
 			nextId++;
 			nextClue();
+			fetchModel();
 	}
 		} else {
 		messageDialog.message = "Är du säker på att det är rätt bokstav?";
@@ -144,13 +152,13 @@ interactiveMap.addEventListener('click', function(evt) {
 
 function addClueZone() {
 	try {
-		for (var c = 0; c < Alloy.Globals.jsonCollection.length; c++) {
+		for (var c = 0; c < lettersModel.length; c++) {
 			var markerAnnotation = MapModule.createAnnotation({
-				latitude : Alloy.Globals.jsonCollection[c].latitude,
-				longitude : Alloy.Globals.jsonCollection[c].longitude
+				latitude : lettersModel.get('latitude'),
+				longitude : lettersModel.get('longitude')
 			});
 
-			if (Alloy.Globals.jsonCollection[c].found == 0) {
+			if (lettersModel.get('found') == 0) {
 				markerAnnotation.image = '/images/red.png';
 			} else {
 				markerAnnotation.image = '/images/green.png';

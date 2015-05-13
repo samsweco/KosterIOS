@@ -4,6 +4,12 @@ var hotspotJSONobj = hotspotColl.toJSON();
 Alloy.Globals.hotspotJSONobj = hotspotJSONobj;
 
 var lettersModel = Alloy.Models.letterModel;
+
+function fetchModel(){
+		lettersModel.fetch({
+		'id' : foundId
+	});
+}
 //lettersModel.fetch();
 
 function getUserPos(type) {
@@ -157,19 +163,9 @@ function userIsNearHotspot() {
 //-----------------------------------------------------------
 function userIsNearLetter() {
 	//try {
-		
-		foundId = 12;
-
 	//Här ska foundId in!!
-	lettersModel.fetch({
-		'id' : foundId
-	});
 	
 	Ti.API.info("Obj: " + JSON.stringify(lettersModel));
-	var pt = lettersModel.get('latitude');
-	//	Ti.API.info("pts: " + JSON.stringify(pt));
-
-	// for (var i = 0; i < Alloy.Globals.jsonCollection.length; i++) {
 
 	if (lettersModel.get('found') == 0) {
 
