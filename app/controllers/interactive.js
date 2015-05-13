@@ -152,6 +152,9 @@ interactiveMap.addEventListener('click', function(evt) {
 
 function addClueZone() {
 	try {
+		
+		//Ändrade till letterModel från den globala collectionen men nu syns de inte
+		
 		for (var c = 0; c < lettersModel.length; c++) {
 			var markerAnnotation = MapModule.createAnnotation({
 				latitude : lettersModel.get('latitude'),
