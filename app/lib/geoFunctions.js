@@ -223,6 +223,26 @@ function playSound() {
 	player.play();
 }
 
+function addClueZone() {
+	try {
+		var zoneCollection = Alloy.Collections.letterModel;
+		zoneCollection.fetch();
+		var zoneJSON = zoneCollection.toJSON();
+		
+		for (var c = 0; c < zoneJSON.length; c++) {
+			var markerAnnotation = MapModule.createAnnotation({
+				latitude : zoneJSON[c].latitude,
+				longitude : zoneJSON[c].longitude,
+				image : '/images/green.png'
+			});
+
+			interactiveMap.addAnnotation(markerAnnotation);
+		}
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - addClueZone");
+	}
+}
+
 function getPosition(maptype) {
 	Ti.Geolocation.getCurrentPosition(function(e) {
 		if (e.coords != null) {

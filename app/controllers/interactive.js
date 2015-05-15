@@ -3,8 +3,6 @@ Ti.include("mapFunctions.js");
 
 var args = arguments[0] || {};
 
-
-
 var letterCollection = Alloy.Collections.letterModel;
 letterCollection.fetch();
 jsonCollection = letterCollection.toJSON();
@@ -45,9 +43,6 @@ function loadClue(id) {
 
 function sendLetter() {
 	checkLetter(getLetter());
-	interactiveMap.removeAllAnnotations();
-	addClueZone();
-	displaySpecificMarkers(7, interactiveMap);
 	allLetters();
 }
 
@@ -116,10 +111,11 @@ function checkWord() {
 
 	if (check == word) {
 		alert("Bra jobbat! Du hittade det rätta ordet!");
-		$.lblWelcome.text = "Välkommen till bokstavsjakten!";
-		$.lblInfoText.text = "Vandra äventyrslingan och leta efter de 8 bokstäverna! som finns gömda längs leden, försök sedan klura ut det hemliga ordet. Längs vägen kommer du få ledtrådar var du kan finna bokstäverna och vi kommer även påminna dig när du börjar närma dig en bokstav.";
-		$.btnStartQuiz.visible = true;
-		$.btnStartQuiz.height = "30dp";
+		$.lblWelcome.text = "Bra jobbat!";
+		$.lblWelcome.fontSize = '30dp';
+		// $.lblInfoText.text = "";
+		$.lblInfoText.hide();
+		$.lblInfoText.height = '0dp'; 
 		$.txtLetter.hide();
 		$.txtLetter.height = '0dp';
 		$.lblLetters.hide();
@@ -144,27 +140,3 @@ interactiveMap.addEventListener('click', function(evt) {
 		showHotspot(evt.annotation.id);
 	}
 });
-
-function addClueZone() {
-	try {
-		
-		//Ändrade till letterModel från den globala collectionen men nu syns de inte
-		
-		for (var c = 0; c < lettersModel.length; c++) {
-			var markerAnnotation = MapModule.createAnnotation({
-				latitude : lettersModel.get('latitude'),
-				longitude : lettersModel.get('longitude')
-			});
-
-			if (lettersModel.get('found') == 0) {
-				markerAnnotation.image = '/images/red.png';
-			} else {
-				markerAnnotation.image = '/images/green.png';
-			}
-
-			interactiveMap.addAnnotation(markerAnnotation);
-		}
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - addClueZone");
-	}
-}
