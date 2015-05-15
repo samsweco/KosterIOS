@@ -67,7 +67,13 @@ function checkLetter(letterToCheck) {
 	if (lettersModel.get('letter') == letterToCheck && lettersModel.get('found') == 0) { // && Alloy.Globals.jsonCollection[foundId - 1].alerted == 1) {
 			lettersArray.push(letterToCheck);
 
-			$.lblCollectedLetters.text = $.lblCollectedLetters.text + letterToCheck;
+			//LÄS IN DE BOKSTÄVER MED FOUND=1
+			// if(foundJSON.length != 0){
+				// for(var f = 0; f < foundJSON.length; f++){
+					// $.lblCollectedLetters.text = $.lblCollectedLetters.text + JSON.stringify(foundJSON[f].letter);
+				// }
+			// }
+			
 			$.txtLetter.value = '';
 
 			// Alloy.Globals.jsonCollection[foundId - 1].found = 1;

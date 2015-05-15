@@ -7,6 +7,7 @@ var letterObj;
 var lettersModel = Alloy.Models.letterModel;
 
 var foundCollection = Alloy.Collections.letterModel;
+var foundJSON; 
 
 function getUserPos(type) {
 	try {
@@ -162,7 +163,7 @@ function userIsNearLetter() {
 	foundCollection.fetch({
 		query : 'SELECT id FROM letterModel WHERE found = 0'
 	});
-	var foundJSON = foundCollection.toJSON(); 
+	foundJSON = foundCollection.toJSON(); 
 	var letterId = foundJSON[0].id;
 	Ti.API.info("letterId: " + JSON.stringify(letterId));
 	
