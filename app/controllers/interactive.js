@@ -125,8 +125,10 @@ function checkWord() {
 		$.horizontalView.visible = false;
 		
 		lettersArray = null;
-		interactiveMap.removeAllAnnotations();
 		displayMap();
+		
+		// TO DO: destroy'a model
+	
 	} else {
 		alert("Försök igen! Du har snart klurat ut det!");
 	}

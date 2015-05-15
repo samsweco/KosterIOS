@@ -5,15 +5,8 @@ Alloy.Globals.hotspotJSONobj = hotspotJSONobj;
 
 var letterObj;
 var lettersModel = Alloy.Models.letterModel;
-// lettersModel.fetch();
 
-// function fetchModel(){
-	// Ti.API.info('fetchModel id: ' + foundId);
-// 	
-	// lettersModel.fetch({
-		// 'id':foundId
-	// });
-// }
+var foundCollection = Alloy.Collections.letterModel;
 
 function getUserPos(type) {
 	try {
@@ -63,7 +56,7 @@ function setUserPosition(userCoordinates, type) {
 	if (type == 'hotspot') {
 		userIsNearHotspot();
 	} else if (type == 'letter') {
-		userIsNearLetter(foundId);
+		userIsNearLetter();
 	}
 
 	// } catch(e) {
@@ -164,14 +157,16 @@ function userIsNearHotspot() {
 //-----------------------------------------------------------
 // Sätter ut punkterna som ska kontrolleras, loopar
 //-----------------------------------------------------------
-function userIsNearLetter(letterId) {
-	//try {
-	//Här ska foundId in!!
+function userIsNearLetter() {
+	//try {	
+	foundCollection.fetch({
+		query : 'SELECT id FROM letterModel WHERE found = 0'
+	});
+	var foundJSON = foundCollection.toJSON(); 
+	var letterId = foundJSON[0].id;
+	Ti.API.info("letterId: " + JSON.stringify(letterId));
 	
-	Ti.API.info('id: '+letterId);
-
-	lettersModel.fetch({'id':foundId});
-	
+	lettersModel.fetch({'id':letterId});
 	Ti.API.info("Obj: " + JSON.stringify(lettersModel));
 
 	if (lettersModel.get('found') == 0){
@@ -242,6 +237,8 @@ function addClueZone() {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - addClueZone");
 	}
 }
+
+
 
 function getPosition(maptype) {
 	Ti.Geolocation.getCurrentPosition(function(e) {

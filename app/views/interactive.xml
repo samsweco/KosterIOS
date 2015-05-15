@@ -12,7 +12,7 @@
 			<View id="showFamilyTrail"></View>
 			<View id="hideView">
 				<Label id="lblWelcome" text="Välkommen till bokstavsjakten!"></Label>
-				<Label id="lblInfoText" text="Vandra äventyrslingan och leta efter de 8 bokstäverna! som finns gömda längs leden, försök sedan klura ut det hemliga ordet. Längs vägen kommer du få ledtrådar var du kan finna bokstäverna och vi kommer även påminna dig när du börjar närma dig en bokstav."></Label>
+				<Label id="lblInfoText" text="Vandra äventyrslingan och leta efter de 8 bokstäverna som finns gömda längs leden! Försök sedan klura ut det hemliga ordet. Längs vägen kommer du få ledtrådar som hjälper dig finna bokstäverna. Du kan se bokstävernas ungefärliga läge med hjälp av gröna plupparna. Vi kommer även påminna dig när du börjar närma dig en bokstav."></Label>
 				<Button id="btnStartQuiz" onClick="startInteractive">Starta bokstavsjakten!</Button>
 				
 				<View id="horizontalView">
