@@ -33,7 +33,7 @@ function startInteractive() {
 	$.horizontalView.show();
 	$.horizontalView.height = Ti.UI.SIZE;
 	
-	fetchModel();
+	// fetchModel();
 	getUserPos('letter');
 	loadClue(1);
 }
@@ -69,9 +69,7 @@ function checkLetter(letterToCheck) {
 	
 	Ti.API.info('rätt bokstav är : ' + lettersModel.get('letter'));
 	
-	if (lettersModel.get('letter') == letterToCheck) {
-		if (lettersModel.get('found') == 0){ // && Alloy.Globals.jsonCollection[foundId - 1].alerted == 1) {
-		
+	if (lettersModel.get('letter') == letterToCheck && lettersModel.get('found') == 0) { // && Alloy.Globals.jsonCollection[foundId - 1].alerted == 1) {
 			lettersArray.push(letterToCheck);
 
 			$.lblCollectedLetters.text = $.lblCollectedLetters.text + letterToCheck;
@@ -84,16 +82,13 @@ function checkLetter(letterToCheck) {
 			lettersModel.save();
 			
 			foundId++;
-			Ti.API.info(foundId);
 			nextId++;
 			nextClue();
-			fetchModel();
-	}
 		} else {
-		messageDialog.message = "Är du säker på att det är rätt bokstav?";
-		messageDialog.title = "Fel";
-		$.txtLetter.value = '';
-		messageDialog.show();
+			messageDialog.message = "Är du säker på att det är rätt bokstav?";
+			messageDialog.title = "Fel";
+			$.txtLetter.value = '';
+			messageDialog.show();
 	}
 }
 

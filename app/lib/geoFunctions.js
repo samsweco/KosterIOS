@@ -3,14 +3,17 @@ hotspotColl.fetch();
 var hotspotJSONobj = hotspotColl.toJSON();
 Alloy.Globals.hotspotJSONobj = hotspotJSONobj;
 
+var letterObj;
 var lettersModel = Alloy.Models.letterModel;
+lettersModel.fetch();
 
-function fetchModel(){
-		lettersModel.fetch({
-		'id' : foundId
-	});
-}
-//lettersModel.fetch();
+// function fetchModel(){
+	// Ti.API.info('fetchModel id: ' + foundId);
+// 	
+	// lettersModel.fetch({
+		// 'id':foundId
+	// });
+// }
 
 function getUserPos(type) {
 	try {
@@ -60,7 +63,7 @@ function setUserPosition(userCoordinates, type) {
 	if (type == 'hotspot') {
 		userIsNearHotspot();
 	} else if (type == 'letter') {
-		userIsNearLetter();
+		userIsNearLetter(foundId);
 	}
 
 	// } catch(e) {
@@ -161,20 +164,22 @@ function userIsNearHotspot() {
 //-----------------------------------------------------------
 // Sätter ut punkterna som ska kontrolleras, loopar
 //-----------------------------------------------------------
-function userIsNearLetter() {
+function userIsNearLetter(letterId) {
 	//try {
 	//Här ska foundId in!!
 	
+	lettersModel.fetch({'id':letterId});
+	// letterObj = lettersModel;
+	
+	Ti.API.info('id: '+letterId);
 	Ti.API.info("Obj: " + JSON.stringify(lettersModel));
 
-	if (lettersModel.get('found') == 0) {
-
+	if (lettersModel.get('found') == 0){
 		lat = lettersModel.get('latitude');
 		lon = lettersModel.get('longitude');
 		var radius = lettersModel.get('radius');
 
 		if (isInsideRadius(lat, lon, radius) && lettersModel.get('alerted') == 0) {
-
 			var message = Ti.UI.createAlertDialog();
 
 			// if (foundId != nextId) {
@@ -190,14 +195,13 @@ function userIsNearLetter() {
 					Alloy.CFG.tabs.setActiveTab(3);
 				}
 			});
-			// // }
-			//
+			// }
 			message.show();
-
-			lettersModel.set({
-				'alerted' : 1
-			});
+			
+			lettersModel.get('alerted');
+			lettersModel.set({'alerted':1});
 			lettersModel.save();
+			
 			playSound();
 			// }
 			
