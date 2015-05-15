@@ -29,11 +29,11 @@ function startInteractive() {
 	$.lblLetters.height = '40dp';
 
 	$.lblCollectedLetters.show();
+	$.lblCollectedLetters.text = 'Bokstäver: ';
 
 	$.horizontalView.show();
 	$.horizontalView.height = Ti.UI.SIZE;
 	
-	// fetchModel();
 	getUserPos('letter');
 	loadClue(1);
 }

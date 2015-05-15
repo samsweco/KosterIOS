@@ -5,7 +5,7 @@ Alloy.Globals.hotspotJSONobj = hotspotJSONobj;
 
 var letterObj;
 var lettersModel = Alloy.Models.letterModel;
-lettersModel.fetch();
+// lettersModel.fetch();
 
 // function fetchModel(){
 	// Ti.API.info('fetchModel id: ' + foundId);
@@ -168,10 +168,10 @@ function userIsNearLetter(letterId) {
 	//try {
 	//Här ska foundId in!!
 	
-	lettersModel.fetch({'id':letterId});
-	// letterObj = lettersModel;
-	
 	Ti.API.info('id: '+letterId);
+
+	lettersModel.fetch({'id':foundId});
+	
 	Ti.API.info("Obj: " + JSON.stringify(lettersModel));
 
 	if (lettersModel.get('found') == 0){
@@ -179,7 +179,7 @@ function userIsNearLetter(letterId) {
 		lon = lettersModel.get('longitude');
 		var radius = lettersModel.get('radius');
 
-		if (isInsideRadius(lat, lon, radius) && lettersModel.get('alerted') == 0) {
+		if (isInsideRadius(lat, lon, radius) && lettersModel.get('alerted') == 0){
 			var message = Ti.UI.createAlertDialog();
 
 			// if (foundId != nextId) {
@@ -196,6 +196,7 @@ function userIsNearLetter(letterId) {
 				}
 			});
 			// }
+			
 			message.show();
 			
 			lettersModel.get('alerted');
