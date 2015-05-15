@@ -1,3 +1,4 @@
+Ti.include("SQL.js");
 var args = arguments[0] || {};
 
 //-----------------------------------------------------------
@@ -42,7 +43,7 @@ function selectTrailPics() {
 	try {
 		var mediaCollection = Alloy.Collections.mediaModel;
 		mediaCollection.fetch({
-			query : 'SELECT * from mediaModel where trail_id="' + trailId + '"'
+			query : query14 + trailId + '"'
 		});
 
 		var jsonMedia = mediaCollection.toJSON();
@@ -155,7 +156,7 @@ function getHotspotData() {
 
 		var hotstrailCollection = Alloy.Collections.hotspotModel;
 		hotstrailCollection.fetch({
-			query : 'SELECT hotspotModel.name, hotspotModel.cover_pic from hotspotModel join hotspot_trailsModel on hotspotModel.id = hotspot_trailsModel.hotspotID where trailsID ="' + id + '"'
+			query : query15 + id + '"'
 		});
 
 		var jsonObj = hotstrailCollection.toJSON();
@@ -175,7 +176,7 @@ function showHotspot(e) {
 
 		var hotspotCollection = Alloy.Collections.hotspotModel;
 		hotspotCollection.fetch({
-			query : 'SELECT id, infoTxt from hotspotModel where name = "' + name + '"'
+			query : query16 + name + '"'
 		});
 
 		var jsonObj = hotspotCollection.toJSON();
@@ -230,7 +231,7 @@ function getIcons() {
 
 		var infotrailCollection = Alloy.Collections.infospotCoordinatesModel;
 		infotrailCollection.fetch({
-			query : 'SELECT DISTINCT name from infospotCoordinatesModel join infospot_trailsModel on infospot_trailsModel.infospotID = infospotCoordinatesModel.infospotID where trailsID ="' + id + '"'
+			query : query17 + id + '"'
 		});
 
 		var infoTrails = infotrailCollection.toJSON();

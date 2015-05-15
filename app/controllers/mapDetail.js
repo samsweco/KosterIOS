@@ -1,5 +1,6 @@
 Ti.include("geoFunctions.js");
 Ti.include("mapFunctions.js");
+Ti.include("SQL.js");
 
 var args = arguments[0] || {};
 
@@ -36,7 +37,7 @@ function addEventList() {
 				if (evt.clicksource == 'rightButton') {
 					var hotspotCollection = Alloy.Collections.hotspotModel;
 					hotspotCollection.fetch({
-						query : 'SELECT id, infoTxt from hotspotModel where name = "' + evt.annotation.id + '"'
+						query : query13 + evt.annotation.id + '"'
 					});
 
 					var jsonHotspObj = hotspotCollection.toJSON();

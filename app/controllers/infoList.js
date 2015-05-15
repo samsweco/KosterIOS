@@ -1,3 +1,4 @@
+Ti.include("SQL.js");
 var args = arguments[0] || {};
 
 //-----------------------------------------------------------
@@ -99,7 +100,7 @@ function getInfoDetails(e) {
 	try {
 		var id = e.rowData.id;
 		infoCollection.fetch({
-			query : 'SELECT * from infoModel where id = "' + id + '"'
+			query : query10 + id + '"'
 		});
 
 		var jsonObj = infoCollection.toJSON();

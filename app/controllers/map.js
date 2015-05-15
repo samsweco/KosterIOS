@@ -1,5 +1,6 @@
 Ti.include("geoFunctions.js");
 Ti.include("mapFunctions.js");
+Ti.include("SQL.js");
 
 var args = arguments[0] || {};
 
@@ -31,7 +32,7 @@ function displayBigMap() {
 function showTrail(myId) {
 	try {
 		trailsCollection.fetch({
-			query : 'SELECT * FROM trailsModel where name ="' + myId + '"'
+			query : query11 + myId + '"'
 		});
 
 		var jsonObjTr = trailsCollection.toJSON();
@@ -60,7 +61,7 @@ function showTrail(myId) {
 function showHotspot(myId) {
 	try {
 		hotspotCollection.fetch({
-			query : 'SELECT id, infoTxt FROM hotspotModel where name = "' + myId + '"'
+			query : query12 + myId + '"'
 		});
 
 		var jsonObjHot = hotspotCollection.toJSON();
