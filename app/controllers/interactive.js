@@ -60,33 +60,37 @@ function nextClue() {
 }
 
 function checkLetter(letterToCheck) {
+
 	var messageDialog = Ti.UI.createAlertDialog({
 		buttonNames : ['Stäng']
 	});
-	
+
 	Ti.API.info('rätt bokstav är : ' + lettersModel.get('letter'));
-	
-	if (lettersModel.get('letter') == letterToCheck && lettersModel.get('found') == 0) { // && Alloy.Globals.jsonCollection[foundId - 1].alerted == 1) {
-			lettersArray.push(letterToCheck);
 
-			$.txtLetter.value = '';
+	if (lettersModel.get('letter') == letterToCheck && lettersModel.get('found') == 0) {// && Alloy.Globals.jsonCollection[foundId - 1].alerted == 1) {
+		lettersArray.push(letterToCheck);
 
-			// Alloy.Globals.jsonCollection[foundId - 1].found = 1;
-			lettersModel.set({
-				'found' : 1
-			});
-			lettersModel.save();
-			
-			foundId++;
-			nextId++;
-			nextClue();
-			getFound();
-		} else {
-			messageDialog.message = "Är du säker på att det är rätt bokstav?";
-			messageDialog.title = "Fel";
-			$.txtLetter.value = '';
-			messageDialog.show();
+		$.txtLetter.value = '';
+
+		// Alloy.Globals.jsonCollection[foundId - 1].found = 1;
+		lettersModel.set({
+			'found' : 1
+		});
+		lettersModel.save();
+
+		Ti.API.info('uppdaterad : ' + JSON.stringify(lettersModel));
+
+		foundId++;
+		nextId++;
+		nextClue();
+		getFound();
+	} else {
+		messageDialog.message = "Är du säker på att det är rätt bokstav?";
+		messageDialog.title = "Fel";
+		$.txtLetter.value = '';
+		messageDialog.show();
 	}
+
 }
 
 function allLetters() {
@@ -132,11 +136,11 @@ function checkWord() {
 		$.wordView.visible = false;
 		$.horizontalView.visible = false;
 		
-		lettersArray = null;
-		// displayMap();
+		// foundJSON = null;
 		
 		// TO DO: destroy'a model
-		lettersModel.destroy();
+		// $.destroy();
+		// lettersModel.destroy();
 		// letterCollection.destroy();
 	
 	} else {
