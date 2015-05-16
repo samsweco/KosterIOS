@@ -6,12 +6,15 @@ Alloy.Globals.hotspotJSONobj = hotspotJSONobj;
 var letterObj;
 var lettersModel = Alloy.Models.letterModel;
 
-var foundCollection = Alloy.Collections.letterModel;
-var foundJSON; 
+var letterCollection = Alloy.Collections.letterModel;
+var foundJSON = []; 
 
+//-----------------------------------------------------------
+// Hämtar användarens position och startar location-event 
+// för påminnelser om sevärdheter eller bokstavsjakt
+//-----------------------------------------------------------
 function getUserPos(type) {
 	try {
-
 		if (Ti.Geolocation.locationServicesEnabled) {
 			Titanium.Geolocation.preferredProvider = Titanium.Geolocation.PROVIDER_GPS;
 			Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_NEAREST_TEN_METERS;
@@ -47,27 +50,30 @@ var addHotspotLocation = function(e) {
 };
 
 //-----------------------------------------------------------
-// Hämtar enhetens position och kontrollerar mot punkter
+// Avbryter location-event
 //-----------------------------------------------------------
-function setUserPosition(userCoordinates, type) {
-	// try {
-	gLat = userCoordinates.latitude;
-	gLon = userCoordinates.longitude;
-
-	if (type == 'hotspot') {
-		userIsNearHotspot();
-	} else if (type == 'letter') {
-		userIsNearLetter();
-	}
-
-	// } catch(e) {
-	// newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - set userPosition");
-	// }
-}
-
 function stopGPS() {
 	Titanium.Geolocation.removeEventListener('location', addHotspotLocation);
 	Titanium.Geolocation.removeEventListener('location', addLetterLocation);
+}
+
+//-----------------------------------------------------------
+// Hämtar enhetens position och kontrollerar mot punkter
+//-----------------------------------------------------------
+function setUserPosition(userCoordinates, type) {
+	try {
+		gLat = userCoordinates.latitude;
+		gLon = userCoordinates.longitude;
+
+		if (type == 'hotspot') {
+			userIsNearHotspot();
+		} else if (type == 'letter') {
+			userIsNearLetter();
+		}
+
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - set userPosition");
+	}
 }
 
 //-----------------------------------------------------------
@@ -108,7 +114,8 @@ function isInsideRadius(latti, lonni, rad) {
 }
 
 //-----------------------------------------------------------
-// Kontrollerar om enheten är innanför en punkt, sänder ut dialog om true
+// Kontrollerar om enheten är innanför en radie för en sevärdhet, 
+// sänder ut dialog om true
 //-----------------------------------------------------------
 function userIsNearHotspot() {
 	try {
@@ -156,74 +163,82 @@ function userIsNearHotspot() {
 }
 
 //-----------------------------------------------------------
-// Sätter ut punkterna som ska kontrolleras, loopar
+// Kontrollerar om enheten är innanför en radie för en bokstav, 
+// sänder ut dialog om true
 //-----------------------------------------------------------
 function userIsNearLetter() {
-	//try {	
-	foundCollection.fetch({
-		query : 'SELECT id FROM letterModel WHERE found = 0'
-	});
-	foundJSON = foundCollection.toJSON(); 
-	var letterId = foundJSON[0].id;
-	Ti.API.info("letterId: " + JSON.stringify(letterId));
-	
-	lettersModel.fetch({'id':letterId});
-	Ti.API.info("Obj: " + JSON.stringify(lettersModel));
+	try {
+		var letterId = getNotFound();
+		lettersModel.fetch({
+			'id' : letterId
+		});
+		Ti.API.info("Obj: " + JSON.stringify(lettersModel));
 
-	if (lettersModel.get('found') == 0){
-		lat = lettersModel.get('latitude');
-		lon = lettersModel.get('longitude');
-		var radius = lettersModel.get('radius');
+		if (lettersModel.get('found') == 0) {
+			lat = lettersModel.get('latitude');
+			lon = lettersModel.get('longitude');
+			var radius = lettersModel.get('radius');
 
-		if (isInsideRadius(lat, lon, radius) && lettersModel.get('alerted') == 0){
-			var message = Ti.UI.createAlertDialog();
+			if (isInsideRadius(lat, lon, radius) && lettersModel.get('alerted') == 0) {
+				var message = Ti.UI.createAlertDialog();
 
-			// if (foundId != nextId) {
-			// message.message = "Nu går du åt fel håll. Börja din vandring uppför backen vid naturum.";
-			// message.title = "Fel väg";
-			// message.buttonNames = ['Stäng'];
-			// } else {
-			message.message = lettersModel.get('clue');
-			message.title = 'Ny bokstav i närheten!';
-			message.buttonNames = ['Gå till bokstavsjakten', 'Stäng'];
-			message.addEventListener('click', function(e) {
-				if (e.index == 0) {
-					Alloy.CFG.tabs.setActiveTab(3);
-				}
-			});
-			// }
-			
-			message.show();
-			
-			lettersModel.get('alerted');
-			lettersModel.set({'alerted':1});
-			lettersModel.save();
-			
-			playSound();
-			// }
-			
-			Ti.API.info("changedObj: " + JSON.stringify(lettersModel));
+				//KOLLA OM MAN GÅR ÅT RÄTT HÅLL?? fast det kanske inte går nu...?
+				
+				// if (foundId != nextId) {
+				// message.message = "Nu går du åt fel håll. Börja din vandring uppför backen vid naturum.";
+				// message.title = "Fel väg";
+				// message.buttonNames = ['Stäng'];
+				// } else {
+				message.message = lettersModel.get('clue');
+				message.title = 'Ny bokstav i närheten!';
+				message.buttonNames = ['Gå till bokstavsjakten', 'Stäng'];
+				message.addEventListener('click', function(e) {
+					if (e.index == 0) {
+						Alloy.CFG.tabs.setActiveTab(3);
+					}
+				});
+				// }
+
+				message.show();
+
+				lettersModel.get('alerted');
+				lettersModel.set({
+					'alerted' : 1
+				});
+				lettersModel.save();
+
+				playSound();
+				// }
+			}
 		}
+
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", 'isNearPoint - letter');
 	}
-
-	// } catch(e) {
-	// newError("Något gick fel när sidan skulle laddas, prova igen!", 'isNearPoint - letter');
-	// }
 }
 
+//-----------------------------------------------------------
+// Spelar upp ett ljud när man får en påminnelse
+//-----------------------------------------------------------
 function playSound() {
-	var player = Ti.Media.createSound({
-		url : "/sound/popcorn.m4a"
-	});
+	try {
+		var player = Ti.Media.createSound({
+			url : "/sound/popcorn.m4a"
+		});
 
-	player.play();
+		player.play();
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", 'geofunctions - playsound');
+	}
 }
 
+//-----------------------------------------------------------
+// Lägger till de gröna plupparna på bokstavsjakt-kartan
+//-----------------------------------------------------------
 function addClueZone() {
 	try {
-		var zoneCollection = Alloy.Collections.letterModel;
-		zoneCollection.fetch();
-		var zoneJSON = zoneCollection.toJSON();
+		letterCollection.fetch();
+		var zoneJSON = letterCollection.toJSON();
 		
 		for (var c = 0; c < zoneJSON.length; c++) {
 			var markerAnnotation = MapModule.createAnnotation({
@@ -235,12 +250,51 @@ function addClueZone() {
 			interactiveMap.addAnnotation(markerAnnotation);
 		}
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - addClueZone");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - addClueZone");
 	}
 }
 
+//-----------------------------------------------------------
+// Skapar en collection med id'n för de bokstäver som ännu
+// inte hittats
+//-----------------------------------------------------------
+function getNotFound(){
+	try {
+		letterCollection.fetch({
+			query : 'SELECT id FROM letterModel WHERE found = 0'
+		});
+		var notfoundJSON = letterCollection.toJSON();
+		return notfoundJSON[0].id;
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - getNotFound");
+	}
+}
 
+//-----------------------------------------------------------
+// Push'ar in funna bokstäver i en array
+//-----------------------------------------------------------
+function getFound(){
+	try {
+		foundJSON = [];
 
+		letterCollection.fetch({
+			query : 'SELECT letter FROM letterModel WHERE found = 1'
+		});
+		foundLetters = letterCollection.toJSON();
+
+		for (var f = 0; f < foundLetters.length; f++) {
+			foundJSON.push('  ' + foundLetters[f].letter);
+		}
+
+		return foundJSON;
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - getFound");
+	}
+}
+
+//-----------------------------------------------------------
+// Sätter rätt region på karta utifrån vandringsledens storlek
+//-----------------------------------------------------------
 function getPosition(maptype) {
 	Ti.Geolocation.getCurrentPosition(function(e) {
 		if (e.coords != null) {

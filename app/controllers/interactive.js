@@ -44,6 +44,8 @@ function loadClue(id) {
 function sendLetter() {
 	checkLetter(getLetter());
 	allLetters();
+	
+	$.lblCollectedLetters.text = 'Bokstäver:  ' + foundJSON;
 }
 
 function getLetter() {
@@ -67,13 +69,6 @@ function checkLetter(letterToCheck) {
 	if (lettersModel.get('letter') == letterToCheck && lettersModel.get('found') == 0) { // && Alloy.Globals.jsonCollection[foundId - 1].alerted == 1) {
 			lettersArray.push(letterToCheck);
 
-			//LÄS IN DE BOKSTÄVER MED FOUND=1
-			// if(foundJSON.length != 0){
-				// for(var f = 0; f < foundJSON.length; f++){
-					// $.lblCollectedLetters.text = $.lblCollectedLetters.text + JSON.stringify(foundJSON[f].letter);
-				// }
-			// }
-			
 			$.txtLetter.value = '';
 
 			// Alloy.Globals.jsonCollection[foundId - 1].found = 1;
@@ -85,6 +80,7 @@ function checkLetter(letterToCheck) {
 			foundId++;
 			nextId++;
 			nextClue();
+			getFound();
 		} else {
 			messageDialog.message = "Är du säker på att det är rätt bokstav?";
 			messageDialog.title = "Fel";
@@ -117,23 +113,31 @@ function checkWord() {
 
 	if (check == word) {
 		alert("Bra jobbat! Du hittade det rätta ordet!");
+		
 		$.lblWelcome.text = "Bra jobbat!";
 		$.lblWelcome.fontSize = '30dp';
+		
 		// $.lblInfoText.text = "";
 		$.lblInfoText.hide();
 		$.lblInfoText.height = '0dp'; 
+		
 		$.txtLetter.hide();
 		$.txtLetter.height = '0dp';
+		
 		$.lblLetters.hide();
 		$.lblLetters.height = '0dp';
+		
 		$.lblCollectedLetters.text = '';
+		
 		$.wordView.visible = false;
 		$.horizontalView.visible = false;
 		
 		lettersArray = null;
-		displayMap();
+		// displayMap();
 		
 		// TO DO: destroy'a model
+		lettersModel.destroy();
+		// letterCollection.destroy();
 	
 	} else {
 		alert("Försök igen! Du har snart klurat ut det!");
