@@ -174,6 +174,7 @@ function checkWord() {
 			// $.destroy();
 			// lettersModel.destroy();
 			// letterCollection.destroy();
+			lettersModel = {};
 
 		} else {
 			alert("Försök igen! Du har snart klurat ut det!");
