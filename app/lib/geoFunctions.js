@@ -11,7 +11,6 @@ Alloy.Globals.hotspotJSONobj = hotspotJSONobj;
 //-----------------------------------------------------------
 // Hämtar letterCollection och letterModel
 //-----------------------------------------------------------
-// var letterObj;
 var lettersModel = Alloy.Models.letterModel;
 var letterCollection = Alloy.Collections.letterModel;
 

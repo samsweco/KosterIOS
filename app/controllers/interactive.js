@@ -143,7 +143,7 @@ function allLetters() {
 // Kontrollerar det inskickade ordet mot "facit"
 //-----------------------------------------------------------
 function checkWord() {
-	try {
+	// try {
 		var check = $.txtWord.value;
 		check.toUpperCase();
 
@@ -175,13 +175,14 @@ function checkWord() {
 			// lettersModel.destroy();
 			// letterCollection.destroy();
 			// lettersModel = {};
+			lettersModel.reset();
 
 		} else {
 			alert("Försök igen! Du har snart klurat ut det!");
 		}
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - checkWord");
-	}	
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - checkWord");
+	// }	
 }
 
 //-----------------------------------------------------------
