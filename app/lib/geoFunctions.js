@@ -61,6 +61,9 @@ function stopGPS() {
 	Titanium.Geolocation.removeEventListener('location', addHotspotLocation);
 	Titanium.Geolocation.removeEventListener('location', addLetterLocation);
 }
+function stopGame(){
+	Titanium.Geolocation.removeEventListener('location', addLetterLocation);
+}
 
 //-----------------------------------------------------------
 // Hämtar enhetens position och kontrollerar mot punkter
