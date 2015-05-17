@@ -22,7 +22,6 @@ var trailsCollection = getTrailsCollection();
 showMapDetail();
 displaySpecificMarkers(trailId, detailMap);
 getSpecificIconsForTrail(trailId);
-addEventList();
 
 //-----------------------------------------------------------
 // Visar kartan
@@ -32,32 +31,30 @@ function showMapDetail() {
 }
 
 //-----------------------------------------------------------
-// Lägger till eventlistener för klick på hotspot
+// Eventlistener för klick på hotspot
 //-----------------------------------------------------------
-function addEventList() {
-	try {
-		detailMap.addEventListener('click', function(evt) {
-				if (evt.clicksource == 'rightButton') {
-					var hotspotCollection = Alloy.Collections.hotspotModel;
-					hotspotCollection.fetch({
-						query : query13 + evt.annotation.id + '"'
-					});
+try {
+	detailMap.addEventListener('click', function(evt) {
+		if (evt.clicksource == 'rightButton') {
+			var hotspotCollection = Alloy.Collections.hotspotModel;
+			hotspotCollection.fetch({
+				query : query13 + evt.annotation.id + '"'
+			});
 
-					var jsonHotspObj = hotspotCollection.toJSON();
+			var jsonHotspObj = hotspotCollection.toJSON();
 
-					var hotspotTxt = {
-						title : evt.annotation.id,
-						infoTxt : jsonHotspObj[0].infoTxt,
-						id : jsonHotspObj[0].id
-					};
+			var hotspotTxt = {
+				title : evt.annotation.id,
+				infoTxt : jsonHotspObj[0].infoTxt,
+				id : jsonHotspObj[0].id
+			};
 
-					var hotspotDetail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
-					Alloy.CFG.tabs.activeTab.open(hotspotDetail);
-				}
-		});
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapDetail - addEventListener");
-	}
+			var hotspotDetail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
+			Alloy.CFG.tabs.activeTab.open(hotspotDetail);
+		}
+	});
+} catch(e) {
+	newError("Något gick fel när sidan skulle laddas, prova igen!", "MapDetail - addEventListener");
 }
 
 //-----------------------------------------------------------
