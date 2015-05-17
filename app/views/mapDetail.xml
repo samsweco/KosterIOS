@@ -5,7 +5,7 @@
 	<Collection src="jsonFilesModel" />
 	<Collection src="hotspot_trailsModel" />
 	<Collection src="letterModel" />
-			<Model src="letterModel" />
+	<Model src="letterModel" />
 	<Collection src="infospotCoordinatesModel" />
 	<Window backButtonTitle="Tillbaka">
 		<RightNavButton>

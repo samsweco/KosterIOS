@@ -4,7 +4,6 @@
 	<Collection src="trailsModel" />
 	<Collection src="jsonFilesModel" />
 	<Collection src="hotspot_trailsModel" />
-	<!-- <Collection src="letterModel" /> -->
 			<Model src="letterModel" />
 	<Collection src="infospotCoordinatesModel" />
 	<TabGroup id="tabs" backgroundColor="#fff" height="100%" tintColor="#0098C3">
@@ -24,16 +23,10 @@
 				<RightNavButton>
 					<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMapMenu" />
 				</RightNavButton>
-				<!-- <RightNavButton>
-					<Button id="btnGetPosition" image="/images/locationarrow.png" onClick="getPos" />
-				</RightNavButton> -->
 			</Window>
 		</Tab>
 		<Tab id="interactive" class="tabbar" title="Spela" icon="/images/quizMenu.png">
 			<Window id="interactiveWin" title="Bokstavsjakt" onOpen="toInteractive">
-				<!-- <RightNavButton>
-					<Button id="btnGetPositionInteractive" image="/images/locationarrow.png" onClick="getPosInteractive" />
-				</RightNavButton> -->
 			</Window>
 		</Tab>
 		<Tab id="info" class="tabbar" title="Info" icon="/images/infoMenu.png">

@@ -17,7 +17,7 @@
 }
 
 ".settingsHorizontalView": {
-	top : '5dp',
+	top: '5dp',
 	layout: 'horizontal',
 	height: Titanium.UI.SIZE,
 	width: Titanium.UI.FILL,
@@ -25,39 +25,39 @@
 }
 
 "#hotspotSwitch":{
-	right : '15dp',
-	height : Titanium.UI.FILL,
-	width : Titanium.UI.FILL
+	right: '15dp',
+	height: Titanium.UI.FILL,
+	width: Titanium.UI.FILL
 }
 
-"#v1" : {
-	right : '15dp',
-	height : '30dp',
-	width : Titanium.UI.SIZE
+"#v1": {
+	right: '15dp',
+	height: '30dp',
+	width: Titanium.UI.SIZE
 }
 
-"#v2" : {
-	right : '15dp',
-	height : '30dp',
-	width : Titanium.UI.SIZE
+"#v2": {
+	right: '15dp',
+	height: '30dp',
+	width: Titanium.UI.SIZE
 }
 
-"#v3" : {
-	right : '15dp',
-	height : '30dp',
-	width : Titanium.UI.SIZE
+"#v3": {
+	right: '15dp',
+	height: '30dp',
+	width: Titanium.UI.SIZE
 }
 
 "#geoSwitch":{
-	right : '15dp',
-	height : Titanium.UI.FILL,
-	width : Titanium.UI.FILL
+	right: '15dp',
+	height: Titanium.UI.FILL,
+	width: Titanium.UI.FILL
 }
 
 "#posSwitch":{
-	right : '15dp',
-	height : Titanium.UI.FILL,
-	width : Titanium.UI.FILL
+	right: '15dp',
+	height: Titanium.UI.FILL,
+	width: Titanium.UI.FILL
 }
 
 
@@ -73,7 +73,7 @@
 
 "#lblChoosePikto": {
 	top: '5dp',
-	left : '20dp',
+	left: '20dp',
 	font: {
 		fontSize: 13,
 		fontFamily: 'Raleway-Medium'
@@ -81,7 +81,7 @@
 }
 
 "#settingsView": {
-	layout : 'vertical',
+	layout: 'vertical',
 	left: '6%',
 	top: '5dp',
 	height: Titanium.UI.SIZE,
@@ -90,12 +90,4 @@
 
 ".btnChange":{
 	left: '2%'
-}
-
-".lblChange": {
-	font: {
-		fontSize: 15,
-		fontFamily: 'Raleway-Medium'
-	},
-	top: '7dp'
 }
