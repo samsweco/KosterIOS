@@ -3,18 +3,18 @@ Ti.include("mapFunctions.js");
 Ti.include("SQL.js");
 
 var args = arguments[0] || {};
-
-//-----------------------------------------------------------
-// args från annan controller
-//-----------------------------------------------------------
 var trailName = args.title;
 var trailColor = args.color;
 var trailId = args.id;
 var zoomLat = args.zoomlat;
 var zoomLon = args.zoomlon;
 
-var trailsCollection = getTrailsCollection();
 var menuDetailVisible = false;
+
+//-----------------------------------------------------------
+// Hämtar trailsCollection
+//-----------------------------------------------------------
+var trailsCollection = getTrailsCollection();
 
 //-----------------------------------------------------------
 // Onload
@@ -24,6 +24,9 @@ displaySpecificMarkers(trailId, detailMap);
 getSpecificIconsForTrail(trailId);
 addEventList();
 
+//-----------------------------------------------------------
+// Visar kartan
+//-----------------------------------------------------------
 function showMapDetail() {
 	$.mapDetailView.add(showDetailMap(detailMap, trailId, trailName, trailColor));
 }
@@ -57,6 +60,9 @@ function addEventList() {
 	}
 }
 
+//-----------------------------------------------------------
+// Switch för att aktivera location-event för hotspots/sevärdheter
+//-----------------------------------------------------------
 $.geoSwitch1.addEventListener('change', function(e) {
 	if ($.geoSwitch1.value == true) {
 		getUserPos('hotspot');
@@ -66,31 +72,30 @@ $.geoSwitch1.addEventListener('change', function(e) {
 	}
 });
 
+//-----------------------------------------------------------
+// Switch för att visa användarens position på kartan
+//-----------------------------------------------------------
 $.posSwitch1.addEventListener('change', function(e) {
 	if ($.posSwitch1.value == true) {
 		getPos(detailMap);
-		myPosition = true;
 	} else {
 		detailMap.userLocation = false;
-		myPosition = false;
-		
 	}
 });
 
+//-----------------------------------------------------------
+// Funktioner för att visa och stänga kartmenyn 
+//-----------------------------------------------------------
 function showMenu() {
 	try {
-
 		if(!menuDetailVisible){
 			$.widgetView.height = '90dp';
 			menuDetailVisible = true;
 		}else {
 			$.widgetView.height = '0dp';
 			menuDetailVisible = false;
-		}
-		
-		
+		}		
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapDetail - getZoomedMapPosition");
 	}
-
 }

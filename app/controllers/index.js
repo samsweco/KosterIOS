@@ -8,71 +8,87 @@ exports.toInteractive = toInteractive;
 var menuMapVisible = false;
 
 //-----------------------------------------------------------
-// Metoder för navigering
+// Metoder för navigeringen
 //-----------------------------------------------------------
-
 function toMap() {
-	var mapWind = Alloy.createController('map').getView();
-	$.mapWin.add(mapWind);
+	try {
+		var mapWind = Alloy.createController('map').getView();
+		$.mapWin.add(mapWind);
 
-	var mapwinTitle = Ti.UI.createLabel({
-		font : {
-			fontSize : '16dp',
-			fontFamily : 'Raleway-Medium'
-		},
-		text : 'Karta'
-	});
+		var mapwinTitle = Ti.UI.createLabel({
+			font : {
+				fontSize : '16dp',
+				fontFamily : 'Raleway-Medium'
+			},
+			text : 'Karta'
+		});
 
-	$.mapWin.titleControl = mapwinTitle;
+		$.mapWin.titleControl = mapwinTitle;
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "index - toMap");
+	}
 }
 
 function toInteractive() {
-	var interactive = Alloy.createController('interactive').getView();
-	$.interactiveWin.add(interactive);
+	try {
+		var interactive = Alloy.createController('interactive').getView();
+		$.interactiveWin.add(interactive);
 
-	var interacwinTitle = Ti.UI.createLabel({
-		font : {
-			fontSize : '16dp',
-			fontFamily : 'Raleway-Medium'
-		},
-		text : 'Bokstavsjakt'
-	});
+		var interacwinTitle = Ti.UI.createLabel({
+			font : {
+				fontSize : '16dp',
+				fontFamily : 'Raleway-Medium'
+			},
+			text : 'Bokstavsjakt'
+		});
 
-	$.interactiveWin.titleControl = interacwinTitle;
+		$.interactiveWin.titleControl = interacwinTitle;
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "index - toInteractive");
+	}
 }
 
 function toTrails() {
-	var trails = Alloy.createController('trails').getView();
-	$.hikeWin.add(trails);
+	try {
+		var trails = Alloy.createController('trails').getView();
+		$.hikeWin.add(trails);
 
-	var hikewinTitle = Ti.UI.createLabel({
-		font : {
-			fontSize : '16dp',
-			fontFamily : 'Raleway-Medium'
-		},
-		text : 'Vandringsleder'
-	});
+		var hikewinTitle = Ti.UI.createLabel({
+			font : {
+				fontSize : '16dp',
+				fontFamily : 'Raleway-Medium'
+			},
+			text : 'Vandringsleder'
+		});
 
-	$.hikeWin.titleControl = hikewinTitle;
+		$.hikeWin.titleControl = hikewinTitle;
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "index - toTrails");
+	}
 }
 
 function toInfo() {
-	var info = Alloy.createController('infoList').getView();
-	$.infoWin.add(info);
+	try {
+		var info = Alloy.createController('infoList').getView();
+		$.infoWin.add(info);
 
-	var infowinTitle = Ti.UI.createLabel({
-		font : {
-			fontSize : '16dp',
-			fontFamily : 'Raleway-Medium'
-		},
-		text : 'Information'
-	});
+		var infowinTitle = Ti.UI.createLabel({
+			font : {
+				fontSize : '16dp',
+				fontFamily : 'Raleway-Medium'
+			},
+			text : 'Information'
+		});
 
-	$.infoWin.titleControl = infowinTitle;
+		$.infoWin.titleControl = infowinTitle;
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "index - toInfo");
+	}
 }
 
 //-----------------------------------------------------------
-// Null'ar varje fönster när man trycker på en annan tab.
+// Null'ar varje fönster när man trycker på en annan tab,
+// för att minska risk för minnesläcka
 //-----------------------------------------------------------
 
 $.mapWin.addEventListener('blur', function() {
@@ -95,6 +111,10 @@ $.koster.addEventListener('blur', function() {
 	$.koster = null;
 });
 
+//-----------------------------------------------------------
+// Null'ar varje fönster när man trycker på en annan tab,
+// för att minska risk för minnesläcka
+//-----------------------------------------------------------
 function showMapMenu() {
 	if(!menuMapVisible){
 		Alloy.Globals.openMenu();

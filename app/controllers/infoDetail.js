@@ -2,9 +2,6 @@ Ti.include('SQL.js');
 var args = arguments[0] || {};
 var urlCollection = Alloy.Collections.info_urlModel;
 
-//-----------------------------------------------------------
-// Args skickade från listvy
-//-----------------------------------------------------------
 try {
 	$.lblInfoTitle1.text = args.name || "Title";
 	$.infoImg.image = "/pics/" + args.img;
@@ -92,16 +89,19 @@ function setRowData() {
 // Hämtar all info som ska läsas in i listan
 //-----------------------------------------------------------
 function getLink(e) {
+	try {
+		var rowId = e.rowData.id;
+		urlCollection.fetch({
+			query : query9 + rowId + '"'
+		});
 
-	var rowId = e.rowData.id;
-	urlCollection.fetch({
-		query : query9 + rowId + '"'
-	});
+		var jsonObj = urlCollection.toJSON();
+		var web = jsonObj[0].url;
 
-	var jsonObj = urlCollection.toJSON();
-	var web = jsonObj[0].url;
-
-	openLink(web);
+		openLink(web);
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "infoList - getLink");
+	}
 }
 
 //-----------------------------------------------------------

@@ -36,7 +36,6 @@
 					<Switch id="posSwitch" class="switch" value="false" titleOn="På" titleOff="Av"></Switch>
 				</View>	
 			</View>
-			<!-- <Label id="btnSetNotification" class="btnSetStuff" text="Inaktivera notifikationer" color="#00a9f0"></Label> -->
 		</View>
 
 	</View>

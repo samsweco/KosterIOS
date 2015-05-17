@@ -3,12 +3,10 @@ var args = arguments[0] || {};
 
 $.lblHotspotName.text = args.title || "Name";
 $.lblHotspotInfoTxt.text = args.infoTxt || "Info";
-
 var hotspotId = args.id || "Id";
 var picId = args.filename || "filename";
 
 setPics();
-//setPicText();
 
 //-----------------------------------------------------------
 // Sätter bilder till bildspelet
@@ -66,23 +64,9 @@ function selectHotspotPics() {
 			backgroundView.add(lblImgTxt);
 			
 			$.slideShowHotspotDetail.addView(backgroundView);
-			//$.slideShowHotspotDetail.add(lblImgTxt);
 		}
 
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "HotspotDetail - selectHotspotPics");
 	}
 }
-
-//---------------------------------------------------------
-//Sätter bildtexter till hotspotsen
-//---------------------------------------------------------
-function setPicText() {
-
-	var textCollection = Alloy.Collections.mediaModel;
-	textCollection.fetch(query7);
-
-	txt = textCollection.toJSON();
-	text = JSON.stringify(txt);
-}
-

@@ -1,9 +1,6 @@
 Ti.include("SQL.js");
 var args = arguments[0] || {};
 
-//-----------------------------------------------------------
-// Args från trails - klick på item i listan
-//-----------------------------------------------------------
 try {
 	$.lblTrailName.text = args.title || 'Default Name';
 	$.lblTrailLength.text = args.length + " kilometer" || 'Default Length';
@@ -18,23 +15,30 @@ try {
 }
 
 //-----------------------------------------------------------
-// hämtar info för den vandringsled som ska öppnas i detaljvy
+// Onload
 //-----------------------------------------------------------
-function zoomMapTrail() {
-	var trail = {
-		id : args.id,
-		title : args.title,
-		color : args.color,
-		zoomlat : args.zoomlat,
-		zoomlon : args.zoomlon
-	};
-	var mapDetail = Alloy.createController("mapDetail", trail).getView();
-	Alloy.CFG.tabs.activeTab.open(mapDetail);
-}
-
 selectTrailPics();
 showHotspots();
 showIcons();
+
+//-----------------------------------------------------------
+// Hämtar info för den vandringsled som ska öppnas i detaljvy
+//-----------------------------------------------------------
+function zoomMapTrail() {
+	try {
+		var trail = {
+			id : args.id,
+			title : args.title,
+			color : args.color,
+			zoomlat : args.zoomlat,
+			zoomlon : args.zoomlon
+		};
+		var mapDetail = Alloy.createController("mapDetail", trail).getView();
+		Alloy.CFG.tabs.activeTab.open(mapDetail);
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "trailDetail - zoomMapTrail");
+	}	
+}
 
 //-----------------------------------------------------------
 // Hämtar bilder till bildspel för den valda vandringsleder
@@ -66,8 +70,7 @@ function selectTrailPics() {
 					fontStyle : 'italic',
 					textAlign : Ti.UI.TEXT_ALIGNMENT_CENTER,
 					fontFamily: 'Raleway-Medium'
-				},
-
+				}
 			});
 
 			var backgroundView = Ti.UI.createView({
@@ -81,7 +84,6 @@ function selectTrailPics() {
 			backgroundView.add(lblImgTxt);
 
 			$.slideShowTrails.addView(backgroundView);
-			//$.slideShowHotspotDetail.add(lblImgTxt);
 		}
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "trailDetail - selectTrailPics");
@@ -122,7 +124,6 @@ function showHotspots() {
 			});
 
 			var lblName = Ti.UI.createLabel({
-				//color : '#FCAF17',
 				color: '#FCAF17',
 				left : '5dp',
 				font : {
@@ -216,7 +217,6 @@ function showIcons() {
 
 			$.iconrow.add(covericon);
 		}
-
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "trailDetail - showIcons");
 	}

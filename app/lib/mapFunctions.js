@@ -1,5 +1,15 @@
 Ti.include("SQL.js");
 
+// var hotspotsNotVisible = true;
+// var nextId = 1;
+var infospotArray = [];
+var markerHotspotArray = [];
+// var menuVisible = false;
+// var mapMenuVisible = false;
+
+//-----------------------------------------------------------
+// Hämtar trailsCollection
+//-----------------------------------------------------------
 try {
 	var trailsCollection = Alloy.Collections.trailsModel;
 	trailsCollection.fetch();
@@ -8,23 +18,14 @@ try {
 	newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - trailCollectionFetches");
 }
 
+//-----------------------------------------------------------
+// Hämtar hotspotCollection
+//-----------------------------------------------------------
 try {
-	var hotspotCollection = Alloy.Collections.hotspotModel;
-	// var letterCollection = getLetterCollection();
-	// letterCollection.fetch();
-	// var jsonCollection = letterCollection.toJSON();
-	// Alloy.Globals.jsonCollection = jsonCollection;
+	var hotspotCollection = getHotspotCollection();
 } catch(e) {
 	newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - hotspotCollectionFetches");
 }
-
-var hotspotsNotVisible = true;
-var nextId = 1;
-var infospotArray = [];
-var markerHotspotArray = [];
-var menuVisible = false;
-var mapMenuVisible = false;
-
 
 //-----------------------------------------------------------
 // Läser in kartvyn
@@ -35,7 +36,6 @@ function showMap(maptype) {
 		setRegion(maptype);
 		displayTrailMarkers(maptype);
 		return map;
-
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - showMap");
 	}
@@ -73,7 +73,6 @@ function setSpecificRoute(maptype, id, name, color) {
 				longitudeDelta : 0.1
 			};
 		}
-
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - setSpecRoutes");
 	}
@@ -300,7 +299,6 @@ function setRegion(maptype) {
 // Visar ikoner för alla informationsobjekt
 //-----------------------------------------------------------
 function displayInfoSpots(type) {
-
 	try {
 		var markerArray = [];
 		var infospotCollection = getInfoSpotCoordinatesCollection();
@@ -359,7 +357,6 @@ function displaySpecificMarkers(id, maptype) {
 		}
 
 		maptype.addAnnotations(markerHotspotArray);
-
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - displaySpecMarkers");
 	}
@@ -396,6 +393,9 @@ function getSpecificIconsForTrail(id) {
 	}
 }
 
+//-----------------------------------------------------------
+// Tar bort infospots från kartan
+//-----------------------------------------------------------
 function removeAnnoSpot(anno, infotype) {
 	try {
 		for (var o = 0; o < infospotArray.length; o++) {
@@ -409,6 +409,9 @@ function removeAnnoSpot(anno, infotype) {
 	}
 }
 
+//-----------------------------------------------------------
+// Tar bort hotspots från kartan
+//-----------------------------------------------------------
 function removeAnnoHotspot() {
 	try {
 		for (var o = 0; o < markerHotspotArray.length; o++) {
@@ -419,36 +422,12 @@ function removeAnnoHotspot() {
 	}
 }
 
-function setZoomMap(){
-			if (myPosition == false) {
-			getPosition(detailMap);
-			myPosition = true;
-		} else {
-			detailMap.region = {
-				latitude : zoomLat,
-				longitude : zoomLon,
-				latitudeDelta : 0.03,
-				longitudeDelta : 0.03
-			};
-			detailMap.animate = true;
-			detailMap.userLocation = false;
-			myPosition = false;
-		}
-}
-
+//-----------------------------------------------------------
+// Visar användarens position 
+//-----------------------------------------------------------
 function getPos(maptype) {
 	if (myPosition == false) {
 		getPosition(maptype);
 		myPosition = true;
-	}
-}
-
-function getPosInteractive() {
-	if (myPosition == false) {
-		getPosition(interactiveMap);
-		myPosition = true;
-	} else {
-		interactiveMap.userLocation = false;
-		myPosition = false;
 	}
 }

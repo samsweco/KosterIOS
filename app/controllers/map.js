@@ -3,11 +3,13 @@ Ti.include("mapFunctions.js");
 Ti.include("SQL.js");
 
 var args = arguments[0] || {};
-
 var zoomedName = args.name;
 var zoomColor = args.color;
 var zoomLat = args.zoomlat;
 
+//-----------------------------------------------------------
+// Hämtar trailsCollection
+//-----------------------------------------------------------
 var trailsCollection = getTrailsCollection();
 
 //-----------------------------------------------------------
@@ -83,7 +85,6 @@ function showHotspot(myId) {
 // Eventlistener för klick på trail eller hotspot
 //-----------------------------------------------------------
 map.addEventListener('click', function(evt) {
-
 	if (evt.clicksource == 'rightButton') {
 		if (evt.annotation.name == 'hotspot') {
 			showHotspot(evt.annotation.id);
@@ -93,10 +94,16 @@ map.addEventListener('click', function(evt) {
 	}
 });
 
+//-----------------------------------------------------------
+// Eventlistener för att stänga menyn vid klick på kartan
+//-----------------------------------------------------------
 map.addEventListener('singletap', function() {
 	closeMenu();
 });
 
+//-----------------------------------------------------------
+// Funktioner för att visa och stänga kartmenyn 
+//-----------------------------------------------------------
 function openMenu(){
 	$.widgetView.height = '190dp';
 }

@@ -22,7 +22,7 @@
 // Alloy.Globals.someGlobalFunction = function(){};
 
 //-----------------------------------------------------------
-// Globala variabler för geofencing.
+// Globala variabler
 //-----------------------------------------------------------
 var gLat = 0;
 var gLon = 0;
@@ -30,18 +30,15 @@ var lat = null;
 var lon = null;
 var foundId = 10;
 var nextId = 1;
-var notify = true;
-var myPosition = false;
 
-//-----------------------------------------------------------
-// Array som håller bokstäverna från bokstavsjakten.
-//-----------------------------------------------------------
-var lettersArray = [];
 var globalTrailID = 0;
 var word = 'SAM';
 
 var interactiveVisible = false;
 
+//-----------------------------------------------------------
+// Globala variabler för att visa och släcka infospots
+//-----------------------------------------------------------
 var farjelage = false;
 var snorkel = false;
 var torrdass = false;
@@ -53,9 +50,8 @@ var information = false;
 var eldplats = false;
 
 //-----------------------------------------------------------
-// Variabel för kartvyn
+// Variabel för kartvyer
 //-----------------------------------------------------------
-
 var MapModule = require('ti.map');
 map = MapModule.createView({
 	mapType : MapModule.HYBRID_TYPE,
@@ -78,9 +74,8 @@ interactiveMap = MapModule.createView({
 });
 
 //-----------------------------------------------------------
-// Metoder för alla collections
+// Metoder för att skapa collections
 //-----------------------------------------------------------
-
 function getHotspotCollection() {
 	var hotspotCollection = Alloy.Collections.hotspotModel;
 	return hotspotCollection;
@@ -125,7 +120,6 @@ function newError(errorMsg, pageName) {
 		er.myObject = pageName;
 		throw er;
 	} catch (e) {
-
 		alert("Error:[" + e.message + "] has occured on " + e.myObject + " page.");
 	}
 }

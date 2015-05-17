@@ -1,13 +1,19 @@
+var foundJSON = []; 
+
+//-----------------------------------------------------------
+// Hämtar hotspotCollection
+//-----------------------------------------------------------
 var hotspotColl = Alloy.Collections.hotspotModel;
 hotspotColl.fetch();
 var hotspotJSONobj = hotspotColl.toJSON();
 Alloy.Globals.hotspotJSONobj = hotspotJSONobj;
 
-var letterObj;
+//-----------------------------------------------------------
+// Hämtar letterCollection och letterModel
+//-----------------------------------------------------------
+// var letterObj;
 var lettersModel = Alloy.Models.letterModel;
-
 var letterCollection = Alloy.Collections.letterModel;
-var foundJSON = []; 
 
 //-----------------------------------------------------------
 // Hämtar användarens position och startar location-event 
