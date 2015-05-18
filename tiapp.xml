@@ -80,7 +80,6 @@
     <modules>
         <module platform="iphone">ti.map</module>
         <module platform="android">ti.map</module>
-        <module platform="android">ti.cloudpush</module>
     </modules>
     <deployment-targets>
         <target device="android">true</target>
