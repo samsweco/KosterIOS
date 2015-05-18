@@ -93,8 +93,6 @@ function checkLetter(letterToCheck) {
 			buttonNames : ['Stäng']
 		});
 
-		Ti.API.info('rätt bokstav är : ' + lettersModel.get('letter'));
-
 		if (lettersModel.get('letter') == letterToCheck && lettersModel.get('found') == 0) {
 			$.txtLetter.value = '';
 
