@@ -143,9 +143,9 @@ function allLetters() {
 function checkWord() {
 	try {
 		var check = $.txtWord.value;
-		check.toUpperCase();
+		var checkword = check.toUpperCase();
 
-		if (check == word) {
+		if (checkword == word) {
 			alert("Bra jobbat! Du hittade det rätta ordet!");
 
 			$.lblWelcome.text = "Bra jobbat!";
@@ -167,7 +167,7 @@ function checkWord() {
 			$.horizontalView.visible = false;
 
 			for (var lid = 0; lid < foundJSON.length; lid++) {
-				var letterid = lid + 1;
+				var letterid = lid+1;
 
 				lettersModel.fetch({
 					'id' : letterid
