@@ -83,6 +83,7 @@
 	left: '20dp',
 	right: '15dp',
 	width: Titanium.UI.FILL,
+	top : '10dp',
 	font:	
 	{
 		fontFamily: 'Raleway-Medium'
