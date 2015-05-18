@@ -185,7 +185,8 @@ function displayTrailMarkers(maptype) {
 				title : trailJson[i].name,
 				subtitle : trailJson[i].area + ', ' + trailJson[i].length + ' km',
 				rightButton : '/pins/arrow.png',
-				image : '/images/pin-' + trailJson[i].pincolor + '.png',
+				//image : '/images/pin-' + trailJson[i].pincolor + '.png',
+				pincolor : 'orange',
 				centerOffset : {
 					x : 0,
 					y : -25
@@ -261,6 +262,7 @@ function displayAllMarkers() {
 				title : markersJSON[u].name,
 				subtitle : 'Läs mer om ' + markersJSON[u].name + ' här!',
 				image : '/images/hot-icon-azure.png',
+				// pincolor : 'blue',
 				centerOffset : {
 					x : -3,
 					y : -16
@@ -425,9 +427,6 @@ function removeAnnoHotspot() {
 //-----------------------------------------------------------
 // Visar användarens position 
 //-----------------------------------------------------------
-function getPos(maptype) {
-	if (myPosition == false) {
-		getPosition(maptype);
-		myPosition = true;
-	}
-}
+// function getPos(maptype) {
+	// getPosition(maptype);
+// }

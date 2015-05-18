@@ -2,6 +2,18 @@ Ti.include("geoFunctions.js");
 Ti.include("mapFunctions.js");
 
 //-----------------------------------------------------------
+// Switch för att aktivera location-event för hotspots/sevärdheter
+//-----------------------------------------------------------
+$.geoSwitch.addEventListener('change', function(e) {
+	if ($.geoSwitch.value == true) {
+		getUserPos('hotspot');
+	}
+	if($.geoSwitch.value == false){
+		stopGPS();
+	}
+});
+
+//-----------------------------------------------------------
 // Switch för att visa hotspots/sevärdheter på kartan
 //-----------------------------------------------------------
 $.hotspotSwitch.addEventListener('change', function(e) {
@@ -17,7 +29,7 @@ $.hotspotSwitch.addEventListener('change', function(e) {
 //-----------------------------------------------------------
 $.posSwitch.addEventListener('change', function(e) {
 	if ($.posSwitch.value == true) {
-		getPos(map);
+		getPosition(map);
 	} else {
 		map.userLocation = false;
 	}

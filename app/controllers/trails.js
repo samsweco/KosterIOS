@@ -149,11 +149,11 @@ function showIcons(id) {
 
 		var iconView = Ti.UI.createView({
 			layout : 'horizontal',
-			height : '25dp',
+			height : '22dp',
 			width : Ti.UI.FILL,
 			backgroundColor : 'white',
 			left : '5dp',
-			top : '5dp'
+			top : '10dp'
 		});
 
 		for (var i = 0; i < selectedIcons.length; i++) {

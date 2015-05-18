@@ -74,7 +74,7 @@ $.geoSwitch1.addEventListener('change', function(e) {
 //-----------------------------------------------------------
 $.posSwitch1.addEventListener('change', function(e) {
 	if ($.posSwitch1.value == true) {
-		getPos(detailMap);
+		getPosition(detailMap);
 	} else {
 		detailMap.userLocation = false;
 	}
