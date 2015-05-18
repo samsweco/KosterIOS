@@ -32,7 +32,7 @@ var foundId = 10;
 var nextId = 1;
 
 var globalTrailID = 0;
-var word = 'SAM';
+var word = 'ÖRONMANET';
 
 var interactiveVisible = false;
 
