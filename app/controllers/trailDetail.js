@@ -1,6 +1,5 @@
 Ti.include("SQL.js");
 var args = arguments[0] || {};
-changeLabel();
 
 try {
 	$.lblTrailName.text = args.title || 'Default Name';
@@ -21,6 +20,7 @@ try {
 selectTrailPics();
 showHotspots();
 showIcons();
+changeLabel();
 
 //-----------------------------------------------------------
 // Hämtar info för den vandringsled som ska öppnas i detaljvy
