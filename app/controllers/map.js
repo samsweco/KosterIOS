@@ -7,6 +7,8 @@ var zoomedName = args.name;
 var zoomColor = args.color;
 var zoomLat = args.zoomlat;
 
+var menuVisible = false;
+
 //-----------------------------------------------------------
 // Hämtar trailsCollection
 //-----------------------------------------------------------
@@ -98,7 +100,10 @@ map.addEventListener('click', function(evt) {
 // Eventlistener för att stänga menyn vid klick på kartan
 //-----------------------------------------------------------
 map.addEventListener('singletap', function() {
-	closeMenu();
+	if(menuMapVisible){
+		closeMenu();
+		menuMapVisible = false; 
+	}
 });
 
 //-----------------------------------------------------------

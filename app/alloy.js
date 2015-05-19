@@ -35,6 +35,7 @@ var globalTrailID = 0;
 var word = 'ÖRONMANET';
 
 var interactiveVisible = false;
+var menuMapVisible = false;
 
 //-----------------------------------------------------------
 // Globala variabler för att visa och släcka infospots

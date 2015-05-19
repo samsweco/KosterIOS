@@ -182,10 +182,3 @@ function showTorrdass() {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "widget - showTorrdass");
 	}
 }
-
-//-----------------------------------------------------------
-// Stänger menyn
-//-----------------------------------------------------------
-// $.mapmenu.addEventListener('singleTap', function() {
-	// closeMapMenu();
-// });

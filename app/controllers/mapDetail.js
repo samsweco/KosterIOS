@@ -86,13 +86,25 @@ $.posSwitch1.addEventListener('change', function(e) {
 function showMenu() {
 	try {
 		if(!menuDetailVisible){
-			$.widgetView.height = '90dp';
+			showDetailMenu();
 			menuDetailVisible = true;
 		}else {
-			$.widgetView.height = '0dp';
+			closeDetailMenu();
 			menuDetailVisible = false;
 		}		
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapDetail - getZoomedMapPosition");
 	}
+}
+detailMap.addEventListener('singletap', function() {
+	if(menuDetailVisible){
+		closeDetailMenu();
+		menuDetailVisible = false;
+	}
+});
+function showDetailMenu(){
+	$.widgetView.height = '90dp';
+}
+function closeDetailMenu(){
+	$.widgetView.height = '0dp';
 }

@@ -7,7 +7,7 @@
 	<Collection src="letterModel" />
 	<Model src="letterModel" />
 	<Collection src="infospotCoordinatesModel" />
-	<Window backButtonTitle="Tillbaka">
+	<Window id="win" backButtonTitle="Tillbaka">
 		<RightNavButton>
 			<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMenu" />
 		</RightNavButton>

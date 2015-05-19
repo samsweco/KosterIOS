@@ -5,8 +5,6 @@ $.tabs.open();
 Alloy.CFG.tabs = $.tabs;
 exports.toInteractive = toInteractive;
 
-var menuMapVisible = false;
-
 //-----------------------------------------------------------
 // Metoder för navigeringen
 //-----------------------------------------------------------
