@@ -59,7 +59,6 @@ var addHotspotLocation = function(e) {
 //-----------------------------------------------------------
 function stopGPS() {
 	Titanium.Geolocation.removeEventListener('location', addHotspotLocation);
-	stopGame();
 }
 function stopGame(){
 	Titanium.Geolocation.removeEventListener('location', addLetterLocation);
