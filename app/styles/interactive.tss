@@ -31,6 +31,7 @@
 
 "#lblInfoText": {
 	top: '10dp',
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
 	font: {
 		fontSize: '14dp'
 	} ,
@@ -46,6 +47,7 @@
 
 "#lblWelcome": {
 	top: '10dp',
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
 	font: {
 		fontFamily: 'Raleway-Medium',
 		fontSize: '18dp'
@@ -57,8 +59,9 @@
 "#lblLetters": {
 	visible: false,
 	height: '0dp',
-	left: '10dp',
-	width: Titanium.UI.SIZE,
+	left: '15%',
+	right: '15%',
+	width: Titanium.UI.FILL,
 	top: '12dp',
 	color: '#0098C3',
 	font: {
@@ -69,9 +72,10 @@
 
 "#txtLetter": {
 	top: '10dp',
-	left: '20dp',
-	height: '0dp',
-	width: '50dp',
+     left : '15%',
+	right : '15%',
+//	height: '0dp',
+	width: Titanium.UI.FILL,
 	tintColor: 'blue',
 	borderWidth: '1dp',
 	borderRadius: '5dp',
@@ -86,7 +90,8 @@
 	top : '10dp',
 	font:	
 	{
-		fontFamily: 'Raleway-Medium'
+		fontFamily: 'Raleway-Light',
+		fontSize: '18dp'
 	},
 	color: '#FCAF17'
 }
