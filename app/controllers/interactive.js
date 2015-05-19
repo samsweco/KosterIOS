@@ -139,8 +139,7 @@ function checkLetter(letterToCheck) {
 }
 
 //-----------------------------------------------------------
-// Kontrollerar om man fått ihop alla bokstäver. Om man hittat 
-// alla bokstäver göms och släcks rätt labels och textfields
+// Kontrollerar om man fått ihop alla bokstäver. Om man hittat / alla bokstäver göms och släcks rätt labels och textfields
 //-----------------------------------------------------------
 function allLetters() {
 	try {
