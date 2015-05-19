@@ -180,7 +180,7 @@ function displayTrailMarkers(maptype) {
 				longitude : trailJson[i].pinLon,
 				title : trailJson[i].name,
 				subtitle : trailJson[i].area + ', ' + trailJson[i].length + ' km',
-				rightButton : '/pins/arrow.png',
+				rightButton : '/images/arrow.png',
 				image : '/images/pin-' + trailJson[i].pincolor + '.png',
 				centerOffset : {
 					x : 0,

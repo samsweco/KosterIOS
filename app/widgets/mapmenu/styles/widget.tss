@@ -93,18 +93,21 @@
 }
 
 "#lblSetMypos" : {
+	left: '5dp',
 	font: {
 		fontFamily: 'Raleway-Medium'
 	}
 }
 
 "#lblSetGPS" : {
+	left: '5dp',
 	font: {
 		fontFamily: 'Raleway-Medium'
 	}
 }
 
 "#btnShowHotspots" : {
+	left: '5dp',
 	font: {
 		fontFamily: 'Raleway-Medium'
 	}

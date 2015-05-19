@@ -19,18 +19,21 @@
 		<View id="lineTwo" class="lineView"></View>
 		<View id="settingsView">
 			<View id="hotSwitchView" class="settingsHorizontalView">
+				<ImageView image="/images/hotspotflag.png"></ImageView>
 				<Label id="btnShowHotspots" text="Visa sevärdheter"></Label>
 				<View id="v1">
 					<Switch id="hotspotSwitch" class="switch" value="false"></Switch>
 				</View>
 			</View>
 			<View id="gpsSwitchView" class="settingsHorizontalView">
+				<ImageView image="/images/sound.png"></ImageView>
 				<Label id="lblSetGPS" text="Påminnelse vid sevärdheter"></Label>
 				<View id="v2">
 					<Switch id="geoSwitch" class="switch" value="false" titleOn="På" titleOff="Av"></Switch>
 				</View>
 			</View>
 			<View id="myposSwitchView" class="settingsHorizontalView">
+				<ImageView image="/images/locationarrow.png"></ImageView>
 				<Label id="lblSetMypos" text="Visa min position"></Label>
 				<View id="v3">
 					<Switch id="posSwitch" class="switch" value="false" titleOn="På" titleOff="Av"></Switch>
