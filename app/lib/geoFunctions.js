@@ -1,4 +1,4 @@
-var foundJSON = []; 
+var foundJSON = [];
 
 //-----------------------------------------------------------
 // Hämtar hotspotCollection
@@ -15,7 +15,7 @@ var lettersModel = Alloy.Models.letterModel;
 var letterCollection = Alloy.Collections.letterModel;
 
 //-----------------------------------------------------------
-// Hämtar användarens position och startar location-event 
+// Hämtar användarens position och startar location-event
 // för påminnelser om sevärdheter eller bokstavsjakt
 //-----------------------------------------------------------
 function getUserPos(type) {
@@ -60,7 +60,8 @@ var addHotspotLocation = function(e) {
 function stopGPS() {
 	Titanium.Geolocation.removeEventListener('location', addHotspotLocation);
 }
-function stopGame(){
+
+function stopGame() {
 	Titanium.Geolocation.removeEventListener('location', addLetterLocation);
 }
 
@@ -121,7 +122,7 @@ function isInsideRadius(latti, lonni, rad) {
 }
 
 //-----------------------------------------------------------
-// Kontrollerar om enheten är innanför en radie för en sevärdhet, 
+// Kontrollerar om enheten är innanför en radie för en sevärdhet,
 // sänder ut dialog om true
 //-----------------------------------------------------------
 function userIsNearHotspot() {
@@ -170,7 +171,7 @@ function userIsNearHotspot() {
 }
 
 //-----------------------------------------------------------
-// Kontrollerar om enheten är innanför en radie för en bokstav, 
+// Kontrollerar om enheten är innanför en radie för en bokstav,
 // sänder ut dialog om true
 //-----------------------------------------------------------
 function userIsNearLetter() {
@@ -179,44 +180,31 @@ function userIsNearLetter() {
 		lettersModel.fetch({
 			'id' : letterId
 		});
-		Ti.API.info("Obj: " + JSON.stringify(lettersModel));
 
-		if (lettersModel.get('found') == 0) {
-			lat = lettersModel.get('latitude');
-			lon = lettersModel.get('longitude');
-			var radius = lettersModel.get('radius');
+		lat = lettersModel.get('latitude');
+		lon = lettersModel.get('longitude');
+		var radius = lettersModel.get('radius');
 
-			if (isInsideRadius(lat, lon, radius) && lettersModel.get('alerted') == 0) {
-				var message = Ti.UI.createAlertDialog();
+		if (isInsideRadius(lat, lon, radius) && lettersModel.get('alerted') == 0) {
+			var message = Ti.UI.createAlertDialog({
+				message : lettersModel.get('clue'),
+				title : 'Ny bokstav i närheten!',
+				buttonNames : ['Gå till bokstavsjakten', 'Stäng']
+			});
+			message.addEventListener('click', function(e) {
+				if (e.index == 0) {
+					Alloy.CFG.tabs.setActiveTab(3);
+				}
+			});
+			message.show();
 
-				//KOLLA OM MAN GÅR ÅT RÄTT HÅLL?? fast det kanske inte går nu...?
-				
-				// if (foundId != nextId) {
-				// message.message = "Nu går du åt fel håll. Börja din vandring uppför backen vid naturum.";
-				// message.title = "Fel väg";
-				// message.buttonNames = ['Stäng'];
-				// } else {
-				message.message = lettersModel.get('clue');
-				message.title = 'Ny bokstav i närheten!';
-				message.buttonNames = ['Gå till bokstavsjakten', 'Stäng'];
-				message.addEventListener('click', function(e) {
-					if (e.index == 0) {
-						Alloy.CFG.tabs.setActiveTab(3);
-					}
-				});
-				// }
+			lettersModel.get('alerted');
+			lettersModel.set({
+				'alerted' : 1
+			});
+			lettersModel.save();
 
-				message.show();
-
-				lettersModel.get('alerted');
-				lettersModel.set({
-					'alerted' : 1
-				});
-				lettersModel.save();
-
-				playSound();
-				// }
-			}
+			playSound();
 		}
 
 	} catch(e) {
@@ -246,7 +234,7 @@ function addClueZone() {
 	try {
 		letterCollection.fetch();
 		var zoneJSON = letterCollection.toJSON();
-		
+
 		for (var c = 0; c < zoneJSON.length; c++) {
 			var markerAnnotation = MapModule.createAnnotation({
 				latitude : zoneJSON[c].latitude,
@@ -265,12 +253,12 @@ function addClueZone() {
 // Skapar en collection med id'n för de bokstäver som ännu
 // inte hittats
 //-----------------------------------------------------------
-function getNotFound(){
+function getNotFound() {
 	try {
 		letterCollection.fetch({
 			query : 'SELECT id FROM letterModel WHERE found = 0'
 		});
-		
+
 		var notfoundJSON = letterCollection.toJSON();
 		return notfoundJSON[0].id;
 	} catch(e) {
@@ -281,22 +269,39 @@ function getNotFound(){
 //-----------------------------------------------------------
 // Push'ar in funna bokstäver i en array
 //-----------------------------------------------------------
-function getFound(){
+function getFound() {
 	try {
 		foundJSON = [];
 
 		letterCollection.fetch({
 			query : 'SELECT letter FROM letterModel WHERE found = 1'
 		});
-		
+
 		foundLetters = letterCollection.toJSON();
 		for (var f = 0; f < foundLetters.length; f++) {
-			foundJSON.push('  ' + foundLetters[f].letter);
+			foundJSON.push(' ' + foundLetters[f].letter);
 		}
 
 		return foundJSON;
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - getFound");
+	}
+}
+
+function startOver() {
+	for (var lid = 0; lid < foundJSON.length; lid++) {
+		var letterid = lid + 1;
+
+		Ti.API.info('startover : ' + foundJSON[lid]);
+
+		lettersModel.fetch({
+			'id' : letterid
+		});
+		lettersModel.set({
+			'found' : 0,
+			'alerted' : 0
+		});
+		lettersModel.save();
 	}
 }
 

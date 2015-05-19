@@ -14,7 +14,7 @@ try {
 } catch(e) {
 	newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - create letterCollection");
 }
-	
+
 displayMap();
 
 //-----------------------------------------------------------
@@ -28,7 +28,7 @@ function displayMap() {
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - displaymap");
 	}
-} 
+}
 
 //-----------------------------------------------------------
 // Startar bokstavsjakten, gömmer och visar rätt labels
@@ -48,32 +48,32 @@ function startInteractive() {
 
 	$.viewNext.show();
 	$.viewNext.height = '60dp';
-	
+
 	$.horizontalView.show();
 	$.horizontalView.height = Ti.UI.SIZE;
 
 	getUserPos('letter');
-	loadClue(foundJSON.length+1); 
+	loadClue(foundJSON.length + 1);
 }
 
 //-----------------------------------------------------------
 // Laddar in nästa ledtråd om man inte hittar bokstaven
 //-----------------------------------------------------------
-$.nextClue.addEventListener('click', function(){
+$.nextClue.addEventListener('click', function() {
 	var nextDialog = Ti.UI.createAlertDialog({
 		title : 'Gå till nästa',
 		message : 'Är du säker på att du inte hittar bokstaven?',
 		buttonNames : ['Ja, visa nästa ledtråd', 'Stäng']
 	});
-	
+
 	nextDialog.addEventListener('click', function(e) {
 		if (e.index == 0) {
-			if(lettersModel.get('found') != 1){
+			if (lettersModel.get('found') != 1) {
 				checkLetter(lettersModel.get('letter'));
 			}
 		}
 	});
-	
+
 	nextDialog.show();
 });
 
@@ -97,7 +97,7 @@ function sendLetter() {
 	try {
 		var letter = $.txtLetter.value;
 		var sendletter = letter.toUpperCase();
-		
+
 		checkLetter(sendletter);
 		allLetters();
 
@@ -114,24 +114,31 @@ function sendLetter() {
 function checkLetter(letterToCheck) {
 	try {
 		var messageDialog = Ti.UI.createAlertDialog({
+			title : 'Ojdå, nu blev det fel',
 			buttonNames : ['Stäng']
 		});
 
-		if (lettersModel.get('letter') == letterToCheck && lettersModel.get('found') == 0) {
+		// if (lettersModel.get('letter') == letterToCheck && lettersModel.get('found') == 0) {
+		if (letterToCheck.length > 1) {
+			messageDialog.message = "Man får bara skriva in en bokstav.";
+			messageDialog.show();
+		} else if (letterToCheck.length < 1) {
+			messageDialog.message = "Man måste skriva in en bokstav.";
+			messageDialog.show();
+		} else if (lettersModel.get('found') == 1) {
+			messageDialog.message = "Du har redan skrivit in din bokstav. Leta lite längre fram på leden efter nästa.";
+			messageDialog.show();
+		} else {
 			$.txtLetter.value = '';
 
 			lettersModel.set({
-				'found' : 1
+				'found' : 1,
+				'letter' : letterToCheck
 			});
 			lettersModel.save();
 
 			loadClue(lettersModel.get('id') + 1);
 			getFound();
-		} else {
-			messageDialog.message = "Är du säker på att det är rätt bokstav?";
-			messageDialog.title = "Fel";
-			$.txtLetter.value = '';
-			messageDialog.show();
 		}
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - checkLetter");
@@ -191,28 +198,19 @@ function checkWord() {
 			$.wordView.visible = false;
 			$.horizontalView.visible = false;
 
-			for (var lid = 0; lid < foundJSON.length; lid++) {
-				var letterid = lid+1;
-
-				lettersModel.fetch({
-					'id' : letterid
-				});
-				lettersModel.set({
-					'found' : 0,
-					'alerted' : 0
-				});
-				lettersModel.save();
-			}
-
 			stopGame();
-
+			startOver();
 		} else {
 			alert("Försök igen! Du har snart klurat ut det!");
 		}
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - checkWord");
-	}	
+	}
 }
+
+Titanium.App.addEventListener('close', function() {
+	startOver();
+});
 
 //-----------------------------------------------------------
 // Eventlistener för klick på trail eller hotspot
@@ -221,4 +219,4 @@ interactiveMap.addEventListener('click', function(evt) {
 	if (evt.clicksource == 'rightButton') {
 		showHotspot(evt.annotation.id);
 	}
-});
+}); 
