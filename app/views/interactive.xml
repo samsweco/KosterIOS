@@ -27,6 +27,8 @@
 					<Label id="lblWord" onClick="checkWord" text="Skicka ord!"></Label>
 				</View>
 				
+				<Label id="lblNoLetter">Hittar du ingen bokstav? Klicka här för att gå till nästa ledtråd.</Label>
+				
 			</View>
 		</View>
 	</ScrollView>

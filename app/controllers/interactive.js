@@ -46,6 +46,8 @@ function startInteractive() {
 	$.lblCollectedLetters.show();
 	$.lblCollectedLetters.text = 'Bokstäver: ';
 
+	$.lblNoLetter.show();
+	
 	$.horizontalView.show();
 	$.horizontalView.height = Ti.UI.SIZE;
 
@@ -125,9 +127,10 @@ function allLetters() {
 			$.txtLetter.height = 0;
 			$.lblLetters.hide();
 			$.lblLetters.height = 0;
+			$.lblNoLetter.hide();
 			$.btnStartQuiz.height = 0;
 			$.wordView.show();
-			$.wordView.height = Ti.UI.SIZE;
+			$.wordView.height = '40dp';
 
 			$.lblWelcome.text = 'Skriv ordet du bildat av bokstäverna!';
 			$.lblInfoText.text = 'Ledtråd: En svävande geléklump i havet.';

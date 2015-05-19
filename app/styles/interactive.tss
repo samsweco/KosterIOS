@@ -91,10 +91,23 @@
 	color: '#FCAF17'
 }
 
+"#lblNoLetter": {
+	visible: false,
+	right: '5dp',
+	top : '10dp',
+	font:	
+	{
+		fontFamily: 'Raleway-Light',
+		fontSize: 14
+	},
+	color: '#c3c3c3'
+}
+
 "#wordView":{
 	top: 0,
 	layout: 'horizontal',
-	visible: false
+	visible: false,
+	height: 0
 }
 
 "#txtWord":{
