@@ -1,6 +1,5 @@
 <Alloy>
 	<Collection src="hotspotModel" />
-	<Collection src="coordinates" />
 	<Collection src="trailsModel" />
 	<Collection src="jsonFilesModel" />
 	<Collection src="hotspot_trailsModel" />
