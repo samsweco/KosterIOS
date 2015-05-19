@@ -53,7 +53,7 @@ function startInteractive() {
 	$.horizontalView.height = Ti.UI.SIZE;
 
 	getUserPos('letter');
-	loadClue(1); 
+	loadClue(foundJSON.length+1); 
 }
 
 //-----------------------------------------------------------
@@ -153,7 +153,7 @@ function allLetters() {
 			$.viewNext.height = 0;
 			$.btnStartQuiz.height = 0;
 			$.wordView.show();
-			$.wordView.height = '40dp';
+			$.wordView.height = '50dp';
 
 			$.lblWelcome.text = 'Skriv ordet du bildat av bokstäverna!';
 			$.lblInfoText.text = 'Ledtråd: En svävande geléklump i havet.';
