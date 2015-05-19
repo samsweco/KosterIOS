@@ -1,11 +1,7 @@
 Ti.include("SQL.js");
 
-// var hotspotsNotVisible = true;
-// var nextId = 1;
 var infospotArray = [];
 var markerHotspotArray = [];
-// var menuVisible = false;
-// var mapMenuVisible = false;
 
 //-----------------------------------------------------------
 // Hämtar trailsCollection
@@ -186,10 +182,9 @@ function displayTrailMarkers(maptype) {
 				subtitle : trailJson[i].area + ', ' + trailJson[i].length + ' km',
 				rightButton : '/pins/arrow.png',
 				image : '/images/pin-' + trailJson[i].pincolor + '.png',
-				// pincolor : 'orange',
 				centerOffset : {
 					x : 0,
-					y : -25
+					y : -15
 				},
 				name : 'trail',
 				font : {
@@ -262,7 +257,6 @@ function displayAllMarkers() {
 				title : markersJSON[u].name,
 				subtitle : 'Läs mer om ' + markersJSON[u].name + ' här!',
 				image : '/images/hot-icon-azure.png',
-				// pincolor : 'blue',
 				centerOffset : {
 					x : -3,
 					y : -16

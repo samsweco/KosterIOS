@@ -70,3 +70,14 @@ function selectHotspotPics() {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "HotspotDetail - selectHotspotPics");
 	}
 }
+
+// $.hotspotDetail.addEventListener('close', function() {
+	// alert('stänger');
+	// $.hotspotDetail = null;
+// });
+
+function closeWin() {
+	alert('stänger');
+	$.hotspotDetail = null;
+	Ti.API.info('win : ' + JSON.stringify($.hotspotDetail));
+}
