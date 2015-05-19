@@ -75,7 +75,7 @@
 	top: '5dp',
 	left: '20dp',
 	font: {
-		fontSize: 13,
+		//fontSize: 13,
 		fontFamily: 'Raleway-Medium'
 	}
 }
@@ -90,4 +90,22 @@
 
 ".btnChange":{
 	left: '2%'
+}
+
+"#lblSetMypos" : {
+	font: {
+		fontFamily: 'Raleway-Medium'
+	}
+}
+
+"#lblSetGPS" : {
+	font: {
+		fontFamily: 'Raleway-Medium'
+	}
+}
+
+"#btnShowHotspots" : {
+	font: {
+		fontFamily: 'Raleway-Medium'
+	}
 }
