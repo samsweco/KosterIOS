@@ -46,7 +46,8 @@ function startInteractive() {
 	$.lblCollectedLetters.show();
 	$.lblCollectedLetters.text = 'Bokstäver: ';
 
-	$.lblNoLetter.show();
+	$.viewNext.show();
+	$.viewNext.height = '60dp';
 	
 	$.horizontalView.show();
 	$.horizontalView.height = Ti.UI.SIZE;
@@ -54,6 +55,27 @@ function startInteractive() {
 	getUserPos('letter');
 	loadClue(1); 
 }
+
+//-----------------------------------------------------------
+// Laddar in nästa ledtråd om man inte hittar bokstaven
+//-----------------------------------------------------------
+$.nextClue.addEventListener('click', function(){
+	var nextDialog = Ti.UI.createAlertDialog({
+		title : 'Gå till nästa',
+		message : 'Är du säker på att du inte hittar bokstaven?',
+		buttonNames : ['Ja, visa nästa ledtråd', 'Stäng']
+	});
+	
+	nextDialog.addEventListener('click', function(e) {
+		if (e.index == 0) {
+			if(lettersModel.get('found') != 1){
+				checkLetter(lettersModel.get('letter'));
+			}
+		}
+	});
+	
+	nextDialog.show();
+});
 
 //-----------------------------------------------------------
 // Laddar in första ledtråden
@@ -127,7 +149,8 @@ function allLetters() {
 			$.txtLetter.height = 0;
 			$.lblLetters.hide();
 			$.lblLetters.height = 0;
-			$.lblNoLetter.hide();
+			$.viewNext.hide();
+			$.viewNext.height = 0;
 			$.btnStartQuiz.height = 0;
 			$.wordView.show();
 			$.wordView.height = '40dp';

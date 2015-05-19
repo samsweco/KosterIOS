@@ -91,16 +91,24 @@
 	color: '#FCAF17'
 }
 
-"#lblNoLetter": {
-	visible: false,
-	right: '5dp',
-	top : '10dp',
-	font:	
-	{
+"#nextClue": {
+	bottom: 0,
+	font: {
 		fontFamily: 'Raleway-Light',
-		fontSize: 14
+		fontSize: 13
 	},
-	color: '#c3c3c3'
+	color: '#c6c6c6',
+	textAlign: 'right'
+}
+
+"#viewNext": {
+	visible: false,
+	// top: '5dp',
+	height: 0,
+	right: 0,
+	bottom: 0,
+	width: '80%',
+	layout: 'vertical'
 }
 
 "#wordView":{

@@ -270,6 +270,7 @@ function getNotFound(){
 		letterCollection.fetch({
 			query : 'SELECT id FROM letterModel WHERE found = 0'
 		});
+		
 		var notfoundJSON = letterCollection.toJSON();
 		return notfoundJSON[0].id;
 	} catch(e) {
@@ -287,8 +288,8 @@ function getFound(){
 		letterCollection.fetch({
 			query : 'SELECT letter FROM letterModel WHERE found = 1'
 		});
+		
 		foundLetters = letterCollection.toJSON();
-
 		for (var f = 0; f < foundLetters.length; f++) {
 			foundJSON.push('  ' + foundLetters[f].letter);
 		}
