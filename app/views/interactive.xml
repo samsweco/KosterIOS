@@ -6,8 +6,7 @@
 	<Collection src="letterModel" />
 	<Model src="letterModel" />
 	<Collection src="infospotCoordinatesModel" />
-	<ScrollView scrollType="vertical">
-		<View id="interactiveWin">
+		<ScrollView id="interactiveWin">
 			<View id="showFamilyTrail"></View>
 			<View id="hideView">
 				<Label id="lblWelcome" text="Välkommen till bokstavsjakten!"></Label>
@@ -29,7 +28,6 @@
 				<View id="viewNext">
 					<Label id="nextClue">Hittar du ingen bokstav? Klicka här för att gå till nästa ledtråd.</Label>
 				</View>
-			</View>
-		</View>
-	</ScrollView>
+				</View>
+			</ScrollView>
 </Alloy>

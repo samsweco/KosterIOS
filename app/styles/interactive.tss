@@ -9,7 +9,6 @@
 }
 
 "#interactiveWin": {
-	backgroundColor: 'white',
 	layout: 'vertical'
 }
 
@@ -17,15 +16,16 @@
 	layout: 'vertical'
 }
 
+
 "#wordView": {
-	visible : false,
-	height : 0 
+	visible: false,
+	height: '0dp'
 }
 
 "#horizontalView":{
 	layout: 'horizontal',
 	width: Titanium.UI.FILL,
-	height: 0,
+	height: '0dp',
 	visible: false
 }
 
@@ -46,7 +46,7 @@
 }
 
 "#lblWelcome": {
-	top: '10dp',
+	top: '5dp',
 	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
 	font: {
 		fontFamily: 'Raleway-Medium',
@@ -62,7 +62,7 @@
 	left: '15%',
 	right: '15%',
 	width: Titanium.UI.FILL,
-	top: '12dp',
+	top: '4dp',
 	color: '#0098C3',
 	font: {
 		fontFamily: 'Raleway-Medium',
@@ -71,10 +71,10 @@
 }
 
 "#txtLetter": {
-	top: '10dp',
-     left : '15%',
-	right : '15%',
-//	height: '0dp',
+	top: '5dp',
+	left: '15%',
+	right: '15%',
+	height: '0dp',
 	width: Titanium.UI.FILL,
 	tintColor: 'blue',
 	borderWidth: '1dp',
@@ -87,20 +87,20 @@
 	left: '20dp',
 	right: '15dp',
 	width: Titanium.UI.FILL,
-	top : '10dp',
-	font:	
+	top: '0dp',
+	font:
 	{
 		fontFamily: 'Raleway-Light',
-		fontSize: '18dp'
+		fontSize: '17dp'
 	},
 	color: '#FCAF17'
 }
 
 "#nextClue": {
-	bottom: 0,
+	top: '5dp',
 	font: {
 		fontFamily: 'Raleway-Light',
-		fontSize: 13
+		fontSize: '12dp'
 	},
 	color: '#c6c6c6',
 	textAlign: 'right'
@@ -108,19 +108,18 @@
 
 "#viewNext": {
 	visible: false,
-	// top: '5dp',
-	height: 0,
-	right: 0,
-	bottom: 0,
+	height: '0dp',
+	right: '0dp',
+	bottom: '0dp',
 	width: '80%',
 	layout: 'vertical'
 }
 
 "#wordView":{
-	top: 0,
+	top: '0dp',
 	layout: 'horizontal',
 	visible: false,
-	height: 0
+	height: '0dp'
 }
 
 "#txtWord":{
@@ -159,3 +158,7 @@
 	right: '15dp'
 }
 
+".headView": {
+	layout: 'vertical',
+	backgroundColor: 'white'
+}
