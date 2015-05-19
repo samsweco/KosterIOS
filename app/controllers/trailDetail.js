@@ -1,5 +1,6 @@
 Ti.include("SQL.js");
 var args = arguments[0] || {};
+changeLabel();
 
 try {
 	$.lblTrailName.text = args.title || 'Default Name';
@@ -242,3 +243,17 @@ function getIcons() {
 	}
 }
 
+//---------------------------------------------------------
+//Sätter labeln broende på om leden är an vandringsled eller båtleden
+//---------------------------------------------------------
+ 
+function changeLabel()
+{
+	if (args.title !='Båtleden') {
+		$.lblLangsVagen.text = 'Det här kan du se längs vägen:';
+	}
+	else {
+		$.lblLangsVagen.text= ' Det här kan du läsa om på båtresan:';
+	}
+}
+ 
