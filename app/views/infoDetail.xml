@@ -1,5 +1,6 @@
 <Alloy>
 	<Collection src="info_urlModel"></Collection>
+	<Model src="foundLettersModel" />
 	<Window id="infoDetail" backButtonTitle="Tillbaka">
 		<ScrollView class="container" scrollType="vertical" showVerticalScrollIndicator="true">
 			<View id="slideView">

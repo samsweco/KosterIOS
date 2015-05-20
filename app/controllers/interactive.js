@@ -3,6 +3,7 @@ Ti.include("mapFunctions.js");
 
 var args = arguments[0] || {};
 
+var foundLetterId = 1;
 var wrongWord = 0;
 var correctLetters = "A, T, R, Ö, N, N, E, M, O";
 
@@ -123,44 +124,26 @@ function checkLetter(letterToCheck) {
 			buttonNames : ['Stäng']
 		});
 
-		// if (lettersModel.get('letter') == letterToCheck && lettersModel.get('found') == 0) {
 		if (letterToCheck.length > 1) {
 			messageDialog.message = "Man får bara skriva in en bokstav.";
 			messageDialog.show();
 		} else if (letterToCheck.length < 1) {
 			messageDialog.message = "Man måste skriva in en bokstav.";
 			messageDialog.show();
-		} else if (lettersModel.get('found') == 1) {
-			messageDialog.message = "Du har redan skrivit in din bokstav. Vill du spara den här bokstaven istället? Leta annars vidare längre fram på leden efter nästa.";
-			messageDialog.buttonNames = ['Spara ny bokstav', 'Leta vidare'];
-			messageDialog.show();
-			
-			messageDialog.addEventListener('click', function(e) {
-				if (e.index == 0) {
-					$.txtLetter.value = '';
-
-					lettersModel.set({
-						'found' : 1,
-						'letter' : letterToCheck
-					});
-					lettersModel.save();
-
-					loadClue(lettersModel.get('id') + 1);
-					getFound(); 
-					$.lblCollectedLetters.text = 'Bokstäver:  ' + foundJSON;
-				} else {
-					$.txtLetter.value = '';
-				}
-			});
 		} else {
 			$.txtLetter.value = '';
+			foundLettersModel.fetch({
+				'id' : foundLetterId
+			});
 
-			lettersModel.set({
-				'found' : 1,
+			foundLettersModel.set({
 				'letter' : letterToCheck
 			});
-			lettersModel.save();
+			foundLettersModel.save();
+			
+			Ti.API.info('found : ' + JSON.stringify(foundLettersModel));
 
+			foundLetterId++;
 			loadClue(lettersModel.get('id') + 1);
 			getFound();
 		}

@@ -12,6 +12,7 @@ Alloy.Globals.hotspotJSONobj = hotspotJSONobj;
 // Hämtar letterCollection och letterModel
 //-----------------------------------------------------------
 var lettersModel = Alloy.Models.letterModel;
+var foundLettersModel = Alloy.Models.foundLettersModel;
 var letterCollection = Alloy.Collections.letterModel;
 
 //-----------------------------------------------------------
@@ -275,12 +276,13 @@ function getNotFound() {
 function getFound() {
 	try {
 		foundJSON = [];
-
-		letterCollection.fetch({
-			query : 'SELECT letter FROM letterModel WHERE found = 1'
+		
+		var foundLettersCollection = Alloy.Collections.foundLettersModel;
+		foundLettersCollection.fetch({
+			query : 'SELECT letter FROM foundLettersModel WHERE letter NOT LIKE null'
 		});
 
-		foundLetters = letterCollection.toJSON();
+		foundLetters = foundLettersCollection.toJSON();
 		for (var f = 0; f < foundLetters.length; f++) {
 			foundJSON.push(' ' + foundLetters[f].letter);
 		}

@@ -1,6 +1,7 @@
 <Alloy>
 	<Collection src="mediaModel" />
 	<Model src="letterModel" />
+	<Model src="foundLettersModel" />
 	<Window id="hotspotDetail" backButtonTitle="Tillbaka" onClose="closeWin">
 		<ScrollView id="hotspotView" class="headView" scrollType="vertical">
 			<View id="slideView">

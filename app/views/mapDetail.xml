@@ -5,6 +5,7 @@
 	<Collection src="hotspot_trailsModel" />
 	<Collection src="letterModel" />
 	<Model src="letterModel" />
+	<Model src="foundLettersModel" />
 	<Collection src="infospotCoordinatesModel" />
 	<Window id="win" backButtonTitle="Tillbaka">
 		<RightNavButton>

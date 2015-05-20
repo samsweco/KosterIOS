@@ -8,6 +8,7 @@
 	<Collection src="letterModel">
 	</Collection>
 	<Model src="letterModel" />
+	<Model src="foundLettersModel" />
 	<Window id="hikeDetailWin" backButtonTitle="Tillbaka">
 		<RightNavButton>
 			<Button id="btnShowOnMap" onClick="zoomMapTrail">
