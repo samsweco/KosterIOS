@@ -48,6 +48,8 @@ try {
 				infoTxt : jsonHotspObj[0].infoTxt,
 				id : jsonHotspObj[0].id
 			};
+			
+			Ti.API.info('hotspot klick');
 
 			var hotspotDetail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
 			Alloy.CFG.tabs.activeTab.open(hotspotDetail);
@@ -108,3 +110,21 @@ function showDetailMenu(){
 function closeDetailMenu(){
 	$.widgetView.height = '0dp';
 }
+
+// BARA TEST, INGET FUNKAR
+
+// $.win.addEventListener('close', function(){
+	// $.win.close();
+	// $.win = null;
+	// Ti.API.info('stäng');
+// 	
+	// // Alloy.Globals.closeWin();
+	// $.mapDetailView.cleanup();
+// });
+
+$.cleanup = function cleanup() {
+	$.destroy();
+	Ti.API.info('stäng');
+};
+
+$.win.addEventListener('close', $.cleanup);

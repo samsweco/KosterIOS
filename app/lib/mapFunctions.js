@@ -327,7 +327,7 @@ function displayInfoSpots(type) {
 // Visar markers för hotspots
 //-----------------------------------------------------------
 function displaySpecificMarkers(id, maptype) {
-	try {
+	try {		
 		var hotspotTrailCollection = Alloy.Collections.hotspotModel;
 		hotspotTrailCollection.fetch({
 			query : query4 + id + '"'
@@ -417,10 +417,3 @@ function removeAnnoHotspot() {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - removeAnnoHotspot");
 	}
 }
-
-//-----------------------------------------------------------
-// Visar användarens position 
-//-----------------------------------------------------------
-// function getPos(maptype) {
-	// getPosition(maptype);
-// }

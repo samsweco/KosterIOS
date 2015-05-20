@@ -3,7 +3,7 @@
 	<Model src="letterModel" />
 	<Collection src="letterModel" />
 	<Model src="foundLettersModel" />
-	<Window id="hotspotDetail" backButtonTitle="Tillbaka" onClose="closeWin">
+	<Window id="hotspotDetail" backButtonTitle="Tillbaka">
 		<ScrollView id="hotspotView" class="headView" scrollType="vertical">
 			<View id="slideView">
 				<ScrollableView id="slideShowHotspotDetail" showPagingControl="true"/>

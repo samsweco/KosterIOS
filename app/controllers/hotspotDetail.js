@@ -71,13 +71,22 @@ function selectHotspotPics() {
 	}
 }
 
+
+// TA BORT SEN
+
 // $.hotspotDetail.addEventListener('close', function() {
 	// alert('stänger');
 	// $.hotspotDetail = null;
 // });
 
 function closeWin() {
-	alert('stänger');
 	$.hotspotDetail = null;
+	
 	Ti.API.info('win : ' + JSON.stringify($.hotspotDetail));
 }
+
+$.hotspotDetail.addEventListener('close', function(){
+	$.hotspotDetail.close();
+	$.hotspotDetail = null;
+	Ti.API.info('stäng');
+});
