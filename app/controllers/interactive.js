@@ -221,7 +221,9 @@ function checkWord() {
 			$.lblCollectedLetters.text = '';
 
 			$.wordView.visible = false;
+			$.wordView.height = 0;
 			$.horizontalView.visible = false;
+			$.horizontalView.height = 0;
 
 			stopGame();
 			startOver();
