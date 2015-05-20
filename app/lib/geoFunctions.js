@@ -280,14 +280,14 @@ function getFound() {
 		
 		var foundLettersCollection = Alloy.Collections.foundLettersModel;
 		foundLettersCollection.fetch({
-			query : 'SELECT letter FROM foundLettersModel WHERE letter NOT LIKE null'
+			query : 'SELECT letter FROM foundLettersModel WHERE found = 1'
 		});
-
-		foundLetters = foundLettersCollection.toJSON();
+		
+		foundLetters = foundLettersCollection.toJSON();		
 		for (var f = 0; f < foundLetters.length; f++) {
 			foundJSON.push(' ' + foundLetters[f].letter);
 		}
-
+		
 		return foundJSON;
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - getFound");
@@ -300,14 +300,16 @@ function startOver() {
 
 		Ti.API.info('startover : ' + foundJSON[lid]);
 
-		lettersModel.fetch({
+		foundLettersModel.fetch({
 			'id' : letterid
 		});
-		lettersModel.set({
-			'found' : 0,
-			'alerted' : 0
+		
+		foundLettersModel.set({
+			'letter' : null,
+			'found' : 0
 		});
-		lettersModel.save();
+		
+		foundLettersModel.save();
 	}
 }
 

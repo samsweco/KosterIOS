@@ -137,15 +137,14 @@ function checkLetter(letterToCheck) {
 			});
 
 			foundLettersModel.set({
-				'letter' : letterToCheck
+				'letter' : letterToCheck,
+				'found' : 1
 			});
 			foundLettersModel.save();
-			
-			Ti.API.info('found : ' + JSON.stringify(foundLettersModel));
 
 			foundLetterId++;
-			loadClue(lettersModel.get('id') + 1);
 			getFound();
+			loadClue(foundJSON.length + 1);
 		}
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - checkLetter");
@@ -184,16 +183,18 @@ function checkWord() {
 	try {
 		var check = $.txtWord.value;
 		var checkword = check.toUpperCase();
+		var alertDialog = Ti.UI.createAlertDialog({
+			buttonNames : ['Stäng']
+		});
 
 		if (checkword == word) {
-			alert("Bra jobbat! Du hittade det rätta ordet!");
+			alertDialog.title = "Rätt ord!";
+			alertDialog.message = "Bra jobbat! Du hittade det rätta ordet!";
 
 			$.lblWelcome.text = "Bra jobbat!";
 			$.lblWelcome.fontSize = '30dp';
 
 			$.lblInfoText.text = "Ordet var öronmanet!";
-			// $.lblInfoText.hide();
-			// $.lblInfoText.height = '0dp';
 
 			$.txtLetter.hide();
 			$.txtLetter.height = '0dp';
@@ -212,9 +213,11 @@ function checkWord() {
 			startOver();
 			interactiveGPS = false;
 		} else if(wrongWord == 3){
-			alert("Vill du kontrollera dina bokstäver? Det här är de korrekta: " + correctLetters);
+			alertDialog.title = 'Fel ord';
+			alertDialog.message = "Nu blev det fel. Vill du kontrollera dina bokstäver? Det här är de korrekta: " + correctLetters;
 		} else {
-			alert("Försök igen! Du har snart klurat ut det!");
+			alertDialog.title = "Fel ord";
+			alertDialog.message = "Försök igen! Du har snart klurat ut det!";
 			wrongWord++;
 		}
 	} catch(e) {

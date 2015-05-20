@@ -6,6 +6,7 @@
 	<Collection src="letterModel" />
 	<Model src="letterModel" />
 	<Model src="foundLettersModel" />
+	<Collection src="foundLettersModel" />
 	<Collection src="infospotCoordinatesModel" />
 		<ScrollView id="interactiveWin">
 			<View id="showFamilyTrail"></View>
