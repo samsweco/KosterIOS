@@ -130,8 +130,27 @@ function checkLetter(letterToCheck) {
 			messageDialog.message = "Man måste skriva in en bokstav.";
 			messageDialog.show();
 		} else if (lettersModel.get('found') == 1) {
-			messageDialog.message = "Du har redan skrivit in din bokstav. Leta lite längre fram på leden efter nästa.";
+			messageDialog.message = "Du har redan skrivit in din bokstav. Vill du spara den här bokstaven istället? Leta annars vidare längre fram på leden efter nästa.";
+			messageDialog.buttonNames = ['Spara ny bokstav', 'Leta vidare'];
 			messageDialog.show();
+			
+			messageDialog.addEventListener('click', function(e) {
+				if (e.index == 0) {
+					$.txtLetter.value = '';
+
+					lettersModel.set({
+						'found' : 1,
+						'letter' : letterToCheck
+					});
+					lettersModel.save();
+
+					loadClue(lettersModel.get('id') + 1);
+					getFound(); 
+					$.lblCollectedLetters.text = 'Bokstäver:  ' + foundJSON;
+				} else {
+					$.txtLetter.value = '';
+				}
+			});
 		} else {
 			$.txtLetter.value = '';
 
@@ -163,7 +182,8 @@ function allLetters() {
 			$.viewNext.height = 0;
 			$.btnStartQuiz.height = 0;
 			$.wordView.show();
-			$.wordView.height = '50dp';
+			$.wordView.height = '80dp';
+			
 
 			$.lblWelcome.text = 'Skriv ordet du bildat av bokstäverna!';
 			$.lblInfoText.text = 'Ledtråd: En svävande geléklump i havet.';
