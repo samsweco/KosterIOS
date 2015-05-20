@@ -67,6 +67,7 @@ function stopGPS() {
 function stopGame() {
 	Titanium.Geolocation.removeEventListener('location', addLetterLocation);
 	lettersModel.destroy();
+	foundLettersModel.destroy();
 }
 
 Alloy.Globals.stopGPS = stopGPS;
@@ -183,7 +184,6 @@ function userIsNearHotspot() {
 //-----------------------------------------------------------
 function userIsNearLetter() {
 	try {
-		
 		for (var isnear = 0; isnear < letterJSON.lenght; isnear++) {
 			lat = letterJSON[isnear].latitude;
 			lon = letterJSON[isnear].longitude;
@@ -249,23 +249,6 @@ function addClueZone() {
 }
 
 //-----------------------------------------------------------
-// Skapar en collection med id'n för de bokstäver som ännu
-// inte hittats
-//-----------------------------------------------------------
-function getNotFound() {
-	try {
-		letterCollection.fetch({
-			query : 'SELECT id FROM letterModel WHERE found = 0'
-		});
-
-		var notfoundJSON = letterCollection.toJSON();
-		return notfoundJSON[0].id;
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - getNotFound");
-	}
-}
-
-//-----------------------------------------------------------
 // Push'ar in funna bokstäver i en array
 //-----------------------------------------------------------
 function getFound() {
@@ -288,20 +271,27 @@ function getFound() {
 	}
 }
 
+//-----------------------------------------------------------
+// Sparar till found 0 och tömmer bokstäverna så man kan spela igen
+//-----------------------------------------------------------
 function startOver() {
-	for (var lid = 0; lid < foundJSON.length; lid++) {
-		var letterid = lid + 1;
+	try {
+		for (var lid = 0; lid < foundJSON.length; lid++) {
+			var letterid = lid + 1;
 
-		foundLettersModel.fetch({
-			'id' : letterid
-		});
-		
-		foundLettersModel.set({
-			'letter' : null,
-			'found' : 0
-		});
-		
-		foundLettersModel.save();
+			foundLettersModel.fetch({
+				'id' : letterid
+			});
+
+			foundLettersModel.set({
+				'letter' : null,
+				'found' : 0
+			});
+
+			foundLettersModel.save();
+		}
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - startOver");
 	}
 }
 
