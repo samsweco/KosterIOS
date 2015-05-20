@@ -1,6 +1,7 @@
 <Alloy>
 	<Collection src="infoModel" />
 	<Model src="foundLettersModel" />
+	<Collection src="letterModel" />
 	<View>
 		<ScrollView class="headView" scrollType="vertical">
 			<TableView id="table" onClick="getInfoDetails">

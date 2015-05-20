@@ -1,12 +1,8 @@
 <Alloy>
-	<Collection src="mediaModel">
-	</Collection>
-	<Collection src="hotspotModel">
-	</Collection>
-	<Collection src="infospotCoordinatesModel">
-	</Collection>
-	<Collection src="letterModel">
-	</Collection>
+	<Collection src="mediaModel" />
+	<Collection src="hotspotModel" />
+	<Collection src="infospotCoordinatesModel" />
+	<Collection src="letterModel" />
 	<Model src="letterModel" />
 	<Model src="foundLettersModel" />
 	<Window id="hikeDetailWin" backButtonTitle="Tillbaka">

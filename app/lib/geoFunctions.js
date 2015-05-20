@@ -14,6 +14,8 @@ Alloy.Globals.hotspotJSONobj = hotspotJSONobj;
 var lettersModel = Alloy.Models.letterModel;
 var foundLettersModel = Alloy.Models.foundLettersModel;
 var letterCollection = Alloy.Collections.letterModel;
+letterCollection.fetch();
+var letterJSON = letterCollection.toJSON();
 
 //-----------------------------------------------------------
 // Hämtar användarens position och startar location-event
@@ -181,37 +183,29 @@ function userIsNearHotspot() {
 //-----------------------------------------------------------
 function userIsNearLetter() {
 	try {
-		var letterId = getNotFound();
-		lettersModel.fetch({
-			'id' : letterId
-		});
+		
+		for (var isnear = 0; isnear < letterJSON.lenght; isnear++) {
+			lat = letterJSON[isnear].latitude;
+			lon = letterJSON[isnear].longitude;
+			var radius = letterJSON[isnear].radius;
 
-		lat = lettersModel.get('latitude');
-		lon = lettersModel.get('longitude');
-		var radius = lettersModel.get('radius');
+			if (isInsideRadius(lat, lon, radius) && letterJSON[isnear].alerted == 0) {
+				var message = Ti.UI.createAlertDialog({
+					message : letterJSON[isnear].clue,
+					title : 'Ny bokstav i närheten!',
+					buttonNames : ['Gå till bokstavsjakten', 'Stäng']
+				});
+				message.addEventListener('click', function(e) {
+					if (e.index == 0) {
+						Alloy.CFG.tabs.setActiveTab(3);
+					}
+				});
+				message.show();
 
-		if (isInsideRadius(lat, lon, radius) && lettersModel.get('alerted') == 0) {
-			var message = Ti.UI.createAlertDialog({
-				message : lettersModel.get('clue'),
-				title : 'Ny bokstav i närheten!',
-				buttonNames : ['Gå till bokstavsjakten', 'Stäng']
-			});
-			message.addEventListener('click', function(e) {
-				if (e.index == 0) {
-					Alloy.CFG.tabs.setActiveTab(3);
-				}
-			});
-			message.show();
-
-			lettersModel.get('alerted');
-			lettersModel.set({
-				'alerted' : 1
-			});
-			lettersModel.save();
-
-			playSound();
+				letterJSON[isnear].alerted = 1;
+				playSound();
+			}
 		}
-
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", 'isNearPoint - letter');
 	}
@@ -297,8 +291,6 @@ function getFound() {
 function startOver() {
 	for (var lid = 0; lid < foundJSON.length; lid++) {
 		var letterid = lid + 1;
-
-		Ti.API.info('startover : ' + foundJSON[lid]);
 
 		foundLettersModel.fetch({
 			'id' : letterid
