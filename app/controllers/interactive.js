@@ -3,6 +3,9 @@ Ti.include("mapFunctions.js");
 
 var args = arguments[0] || {};
 
+var wrongWord = 0;
+var correctLetters = "A, T, R, Ö, N, N, E, M, O";
+
 //-----------------------------------------------------------
 // Hämtar letterCollection
 //-----------------------------------------------------------
@@ -70,6 +73,7 @@ $.nextClue.addEventListener('click', function() {
 		if (e.index == 0) {
 			if (lettersModel.get('found') != 1) {
 				checkLetter(lettersModel.get('letter'));
+				$.lblCollectedLetters.text = 'Bokstäver:  ' + foundJSON;
 			}
 		}
 	});
@@ -183,9 +187,9 @@ function checkWord() {
 			$.lblWelcome.text = "Bra jobbat!";
 			$.lblWelcome.fontSize = '30dp';
 
-			// $.lblInfoText.text = "";
-			$.lblInfoText.hide();
-			$.lblInfoText.height = '0dp';
+			$.lblInfoText.text = "Ordet var öronmanet!";
+			// $.lblInfoText.hide();
+			// $.lblInfoText.height = '0dp';
 
 			$.txtLetter.hide();
 			$.txtLetter.height = '0dp';
@@ -200,8 +204,11 @@ function checkWord() {
 
 			stopGame();
 			startOver();
+		} else if(wrongWord == 3){
+			alert("Vill du kontrollera dina bokstäver? Det här är de korrekta: " + correctLetters);
 		} else {
 			alert("Försök igen! Du har snart klurat ut det!");
+			wrongWord++;
 		}
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - checkWord");

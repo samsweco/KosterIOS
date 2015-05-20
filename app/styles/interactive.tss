@@ -100,16 +100,15 @@
 	top: '5dp',
 	font: {
 		fontFamily: 'Raleway-Light',
-		fontSize: '12dp'
+		fontSize: '13dp'
 	},
-	color: '#c6c6c6',
-	textAlign: 'right'
+	color: '#c6c6c6'
 }
 
 "#viewNext": {
 	visible: false,
 	height: '0dp',
-	right: '0dp',
+	left: '20dp',
 	bottom: '0dp',
 	width: '80%',
 	layout: 'vertical'
