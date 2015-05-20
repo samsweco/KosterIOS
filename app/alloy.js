@@ -131,7 +131,6 @@ function newError(errorMsg, pageName) {
 //-----------------------------------------------------------
 // Avsluta GPS när man stänger appen
 //-----------------------------------------------------------
-
 Titanium.App.addEventListener('close', function() {
 	if(hotspotGPS){
 		Alloy.Globals.stopGPS;
