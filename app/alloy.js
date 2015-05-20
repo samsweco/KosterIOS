@@ -37,6 +37,9 @@ var word = 'ÖRONMANET';
 var interactiveVisible = false;
 var menuMapVisible = false;
 
+var hotspotGPS = false;
+var interactiveGPS = false;
+
 //-----------------------------------------------------------
 // Globala variabler för att visa och släcka infospots
 //-----------------------------------------------------------
@@ -124,3 +127,19 @@ function newError(errorMsg, pageName) {
 		alert("Error:[" + e.message + "] has occured on " + e.myObject + " page.");
 	}
 }
+
+//-----------------------------------------------------------
+// Avsluta GPS när man stänger appen
+//-----------------------------------------------------------
+
+Titanium.App.addEventListener('close', function() {
+	if(hotspotGPS){
+		Alloy.Globals.stopGPS;
+	} 
+});
+Titanium.App.addEventListener('close', function() {
+	if(interactiveGPS){
+		Alloy.Globals.stopGame;
+	} 
+});
+

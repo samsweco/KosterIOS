@@ -7,9 +7,11 @@ Ti.include("mapFunctions.js");
 $.geoSwitch.addEventListener('change', function(e) {
 	if ($.geoSwitch.value == true) {
 		getUserPos('hotspot');
+		hotspotGPS = true;
 	}
 	if($.geoSwitch.value == false){
 		stopGPS();
+		hotspotGPS = false;
 	}
 });
 

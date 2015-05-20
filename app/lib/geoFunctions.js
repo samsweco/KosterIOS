@@ -65,6 +65,9 @@ function stopGame() {
 	Titanium.Geolocation.removeEventListener('location', addLetterLocation);
 }
 
+Alloy.Globals.stopGPS = stopGPS;
+Alloy.Globals.stopGame = stopGame;
+
 //-----------------------------------------------------------
 // Hämtar enhetens position och kontrollerar mot punkter
 //-----------------------------------------------------------

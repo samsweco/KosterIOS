@@ -57,6 +57,7 @@ function startInteractive() {
 
 	getUserPos('letter');
 	loadClue(foundJSON.length + 1);
+	interactiveGPS = true;
 }
 
 //-----------------------------------------------------------
@@ -224,6 +225,7 @@ function checkWord() {
 
 			stopGame();
 			startOver();
+			interactiveGPS = false;
 		} else if(wrongWord == 3){
 			alert("Vill du kontrollera dina bokstäver? Det här är de korrekta: " + correctLetters);
 		} else {
