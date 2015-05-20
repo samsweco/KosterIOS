@@ -111,6 +111,8 @@ function closeDetailMenu(){
 	$.widgetView.height = '0dp';
 }
 
+
+
 // BARA TEST, INGET FUNKAR
 
 // $.win.addEventListener('close', function(){
