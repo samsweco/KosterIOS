@@ -64,6 +64,7 @@ function stopGPS() {
 
 function stopGame() {
 	Titanium.Geolocation.removeEventListener('location', addLetterLocation);
+	lettersModel.destroy();
 }
 
 Alloy.Globals.stopGPS = stopGPS;
