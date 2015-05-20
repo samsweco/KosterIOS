@@ -108,7 +108,7 @@
 "#viewNext": {
 	visible: false,
 	height: '0dp',
-	left: '20dp',
+	left: '10dp',
 	bottom: '0dp',
 	width: '80%',
 	layout: 'vertical'
