@@ -126,7 +126,9 @@ function closeDetailMenu(){
 
 $.cleanup = function cleanup() {
 	$.destroy();
+	$.mapDetailView = null;
 	Ti.API.info('stäng');
+	// $.win.removeEventListener('close', $.cleanup);
 };
 
 $.win.addEventListener('close', $.cleanup);

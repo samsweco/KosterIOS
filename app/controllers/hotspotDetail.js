@@ -72,21 +72,20 @@ function selectHotspotPics() {
 }
 
 
+
 // TA BORT SEN
 
-// $.hotspotDetail.addEventListener('close', function() {
-	// alert('stänger');
+// $.hotspotDetail.addEventListener('close', function(){
+	// $.hotspotDetail.close();
 	// $.hotspotDetail = null;
+	// Ti.API.info('stäng');
 // });
 
-function closeWin() {
-	$.hotspotDetail = null;
-	
-	Ti.API.info('win : ' + JSON.stringify($.hotspotDetail));
-}
-
-$.hotspotDetail.addEventListener('close', function(){
-	$.hotspotDetail.close();
+$.clean = function cleanup() {
+	$.destroy();
 	$.hotspotDetail = null;
 	Ti.API.info('stäng');
-});
+	// $.hotspotDetail.removeEventListener('close', $.clean);
+};
+
+$.hotspotDetail.addEventListener('close', $.clean);
