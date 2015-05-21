@@ -66,6 +66,8 @@ interactiveMap = MapModule.createView({
 	userLocation : true
 });
 
+//var hotspotDetail = Alloy.createController("hotspotDetail");
+
 //-----------------------------------------------------------
 // Metoder för att skapa collections
 //-----------------------------------------------------------

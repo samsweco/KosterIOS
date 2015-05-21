@@ -13,7 +13,7 @@ try {
 	var query10 = 'SELECT * from infoModel where id = "';
 	var query11 = 'SELECT * FROM trailsModel where name ="';
 	var query12 = 'SELECT id, infoTxt FROM hotspotModel where name = "';
-	var query13 = 'SELECT id, infoTxt from hotspotModel where name = "';
+	var query13 = 'SELECT id, infoTxt, name from hotspotModel where name = "';
 	var query14 = 'SELECT * from mediaModel where trail_id="';
 	var query15 = 'SELECT hotspotModel.name, hotspotModel.cover_pic from hotspotModel join hotspot_trailsModel on hotspotModel.id = hotspot_trailsModel.hotspotID where trailsID ="';
 	var query16 = 'SELECT id, infoTxt from hotspotModel where name = "';

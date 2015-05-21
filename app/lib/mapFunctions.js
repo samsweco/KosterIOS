@@ -2,6 +2,7 @@ Ti.include("SQL.js");
 
 var infospotArray = [];
 var markerHotspotArray = [];
+var markerSpecHotspotArray = [];
 
 //-----------------------------------------------------------
 // Hämtar trailsCollection
@@ -269,7 +270,6 @@ function displayAllMarkers() {
 		}
 
 		map.addAnnotations(markerHotspotArray);
-		return markerHotspotArray;
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - displayMarkers");
 	}
@@ -327,17 +327,17 @@ function displayInfoSpots(type) {
 // Visar markers för hotspots
 //-----------------------------------------------------------
 function displaySpecificMarkers(id, maptype) {
-	try {		
-		var hotspotTrailCollection = Alloy.Collections.hotspotModel;
-		hotspotTrailCollection.fetch({
+	try {
+		markerSpecHotspotArray = null;
+		markerSpecHotspotArray = [];
+			
+		hotspotCollection.fetch({
 			query : query4 + id + '"'
 		});
 
-		var specificHotspots = hotspotTrailCollection.toJSON();
-		var markerHotspotArray = [];
+		var specificHotspots = hotspotCollection.toJSON();
 
 		for (var u = 0; u < specificHotspots.length; u++) {
-
 			var markerSpecificHotspot = MapModule.createAnnotation({
 				id : specificHotspots[u].name,
 				latitude : specificHotspots[u].xkoord,
@@ -349,10 +349,10 @@ function displaySpecificMarkers(id, maptype) {
 				name : 'hotspot'
 			});
 
-			markerHotspotArray.push(markerSpecificHotspot);
+			markerSpecHotspotArray.push(markerSpecificHotspot);
 		}
 
-		maptype.addAnnotations(markerHotspotArray);
+		maptype.addAnnotations(markerSpecHotspotArray);
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - displaySpecMarkers");
 	}

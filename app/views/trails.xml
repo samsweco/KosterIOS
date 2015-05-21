@@ -1,5 +1,6 @@
 <Alloy>
 	<Collection src="trailsModel" />
+		<Collection src="hotspotModel" />
 	<Collection src="infospot_trailsModel"/>
 	<Collection src="infospotCoordinatesModel"/>
 	<Collection src="letterModel" />

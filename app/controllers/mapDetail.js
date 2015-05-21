@@ -10,6 +10,7 @@ var zoomLat = args.zoomlat;
 var zoomLon = args.zoomlon;
 
 var menuDetailVisible = false;
+var hotspotDetail = null;
 
 //-----------------------------------------------------------
 // Hämtar trailsCollection
@@ -33,8 +34,8 @@ function showMapDetail() {
 //-----------------------------------------------------------
 // Eventlistener för klick på hotspot
 //-----------------------------------------------------------
-try {
-	detailMap.addEventListener('click', function(evt) {
+detailMap.addEventListener('click', function(evt) {
+	try {
 		if (evt.clicksource == 'rightButton') {
 			var hotspotCollection = Alloy.Collections.hotspotModel;
 			hotspotCollection.fetch({
@@ -48,15 +49,65 @@ try {
 				infoTxt : jsonHotspObj[0].infoTxt,
 				id : jsonHotspObj[0].id
 			};
-			
-			Ti.API.info('hotspot klick');
 
-			var hotspotDetail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
+			// if(hotspotDetail == null){
+			hotspotDetail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
 			Alloy.CFG.tabs.activeTab.open(hotspotDetail);
+			Ti.API.info('create');
+			// } else {
+			// Alloy.CFG.tabs.activeTab.open(hotspotDetail, hotspotTxt);
+			// Ti.API.info('open');
+			// }
+
+			hotspotDetail.close();
+			hotspotDetail = null;
 		}
-	});
-} catch(e) {
-	newError("Något gick fel när sidan skulle laddas, prova igen!", "MapDetail - addEventListener");
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapDetail - addEventListener");
+	}
+});
+
+// try {
+	// detailMap.addEventListener('click', function(evt) {
+		// if (evt.clicksource == 'rightButton') {
+// 			
+			// var evt = evt.annotation.id;
+// 			
+			// if(hotspotDetail == null){
+			// hotspotDetail = Alloy.createController("hotspotDetail", getHotspotInfo(evt)).getView();	
+			// Alloy.CFG.tabs.activeTab.open(hotspotDetail);
+			// Ti.API.info('hotspot klick');
+			// }
+// 			
+			// else{
+				// Alloy.CFG.tabs.activeTab.open(hotspotDetail, getHotspotInfo(evt));
+				// Ti.API.info("else click");
+			// }
+// 				
+		// //	var hotspotDetail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
+			// //Alloy.CFG.tabs.activeTab.open(hotspotDetail);
+		// }
+	// });
+// } catch(e) {
+	// newError("Något gick fel när sidan skulle laddas, prova igen!", "MapDetail - addEventListener");
+// }
+
+
+function getHotspotInfo(evt){
+	var hotspotCollection = Alloy.Collections.hotspotModel;
+			hotspotCollection.fetch({
+				query : query13 + evt + '"'
+			});
+
+			var jsonHotspObj = hotspotCollection.toJSON();
+
+			var hotspotTxt = {
+				title : jsonHotspObj[0].name,
+				infoTxt : jsonHotspObj[0].infoTxt,
+				id : jsonHotspObj[0].id
+			};
+			
+			return hotspotTxt;
 }
 
 //-----------------------------------------------------------
@@ -127,8 +178,7 @@ function closeDetailMenu(){
 $.cleanup = function cleanup() {
 	$.destroy();
 	$.win = null;
-	Ti.API.info('stäng');
-	// $.win.removeEventListener('close', $.cleanup);
+	Ti.API.info('stäng mapdetail');
 };
 
 $.win.addEventListener('close', $.cleanup);

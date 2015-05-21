@@ -14,8 +14,6 @@ try {
 	newError("Något gick fel när sidan skulle laddas, prova igen!", "trailDetail - set labels");
 }
 
-var mapDetail;
-
 //-----------------------------------------------------------
 // Onload
 //-----------------------------------------------------------
@@ -28,7 +26,7 @@ changeLabel();
 // Hämtar info för den vandringsled som ska öppnas i detaljvy
 //-----------------------------------------------------------
 function zoomMapTrail() {
-	try {
+	// try {
 		var trail = {
 			id : args.id,
 			title : args.title,
@@ -36,12 +34,12 @@ function zoomMapTrail() {
 			zoomlat : args.zoomlat,
 			zoomlon : args.zoomlon
 		};
-		
-		mapDetail = Alloy.createController("mapDetail", trail).getView(); 
-		Alloy.CFG.tabs.activeTab.open(mapDetail);
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "trailDetail - zoomMapTrail");
-	}	
+
+		var mapDetail = Alloy.createController("mapDetail", trail).getView();
+		Alloy.CFG.tabs.activeTab.open(mapDetail); 
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "trailDetail - zoomMapTrail");
+	// }	
 }
 
 //-----------------------------------------------------------
@@ -92,7 +90,6 @@ function selectTrailPics() {
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "trailDetail - selectTrailPics");
 	}
-
 }
 
 //-----------------------------------------------------------
@@ -194,8 +191,8 @@ function showHotspot(e) {
 			id : idnr
 		};
 
-		var hotspotDetail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
-		Alloy.CFG.tabs.activeTab.open(hotspotDetail);
+		var hotspotDetailTrail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
+		Alloy.CFG.tabs.activeTab.open(hotspotDetailTrail);
 
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "trailDetail - showHotspot");
@@ -264,11 +261,11 @@ function changeLabel()
 
 // BARA TEST, INGET FUNKAR
 
-$.cleanup = function cleanup() {
+ var cleanup = function() {
 	$.destroy();
 	$.hikeDetailWin = null;
-	Ti.API.info('stäng');
+	Ti.API.info('stäng - destroy');
 	// $.win.removeEventListener('close', $.cleanup);
 };
 
-$.hikeDetailWin.addEventListener('close', $.cleanup);
+$.hikeDetailWin.addEventListener('close', cleanup);
