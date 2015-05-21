@@ -14,6 +14,7 @@ try {
 	newError("Något gick fel när sidan skulle laddas, prova igen!", "trailDetail - set labels");
 }
 
+
 //-----------------------------------------------------------
 // Onload
 //-----------------------------------------------------------
@@ -36,7 +37,8 @@ function zoomMapTrail() {
 		};
 
 		var mapDetail = Alloy.createController("mapDetail", trail).getView();
-		Alloy.CFG.tabs.activeTab.open(mapDetail); 
+		Alloy.CFG.tabs.activeTab.open(mapDetail);
+		
 	// } catch(e) {
 		// newError("Något gick fel när sidan skulle laddas, prova igen!", "trailDetail - zoomMapTrail");
 	// }	

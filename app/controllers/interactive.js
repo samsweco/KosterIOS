@@ -119,32 +119,45 @@ function sendLetter() {
 //-----------------------------------------------------------
 function checkLetter(letterToCheck) {
 	try {
-		var messageDialog = Ti.UI.createAlertDialog({
-			title : 'Ojdå, nu blev det fel',
-			buttonNames : ['Stäng']
-		});
+		var messageDialog = Ti.UI.createAlertDialog();
 
 		if (letterToCheck.length > 1) {
 			messageDialog.message = "Man får bara skriva in en bokstav.";
+			messageDialog.title = 'Ojdå, nu blev det fel';
+			messageDialog.buttonNames = ['Stäng'];
+			
 			messageDialog.show();
 		} else if (letterToCheck.length < 1) {
 			messageDialog.message = "Man måste skriva in en bokstav.";
+			messageDialog.title = 'Ojdå, nu blev det fel';
+			messageDialog.buttonNames = ['Stäng'];
+			
 			messageDialog.show();
 		} else {
-			$.txtLetter.value = '';
-			foundLettersModel.fetch({
-				'id' : foundLetterId
-			});
+			messageDialog.message = "Är du säker på att du vill spara bokstaven " + letterToCheck + "?";
+			messageDialog.title = 'Ojdå, nu blev det fel';
+			messageDialog.buttonNames = ['Ja, jag vill spara!', 'Stäng'];
+			
+			messageDialog.addEventListener('click', function(e) {
+				if (e.index == 0) {
+					$.txtLetter.value = '';
+					foundLettersModel.fetch({
+						'id' : foundLetterId
+					});
 
-			foundLettersModel.set({
-				'letter' : letterToCheck,
-				'found' : 1
-			});
-			foundLettersModel.save();
+					foundLettersModel.set({
+						'letter' : letterToCheck,
+						'found' : 1
+					});
+					foundLettersModel.save();
 
-			foundLetterId++;
-			getFound();
-			loadClue(foundJSON.length + 1);
+					foundLetterId++;
+					getFound();
+					loadClue(foundJSON.length + 1); 
+				}
+			}); 
+
+			messageDialog.show();
 		}
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - checkLetter");

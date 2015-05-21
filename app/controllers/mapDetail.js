@@ -50,14 +50,14 @@ detailMap.addEventListener('click', function(evt) {
 				id : jsonHotspObj[0].id
 			};
 
-			// if(hotspotDetail == null){
-			hotspotDetail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
-			Alloy.CFG.tabs.activeTab.open(hotspotDetail);
-			Ti.API.info('create');
-			// } else {
-			// Alloy.CFG.tabs.activeTab.open(hotspotDetail, hotspotTxt);
-			// Ti.API.info('open');
-			// }
+			if (hotspotDetail == null) {
+				hotspotDetail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
+				Alloy.CFG.tabs.activeTab.open(hotspotDetail);
+				Ti.API.info('create');
+			} else {
+				Alloy.CFG.tabs.activeTab.open(hotspotDetail, hotspotTxt);
+				Ti.API.info('open');
+			}
 
 			hotspotDetail.close();
 			hotspotDetail = null;

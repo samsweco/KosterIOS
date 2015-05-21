@@ -31,7 +31,6 @@ function selectHotspotPics() {
 		var jsonMedia = mediaCollection.toJSON();
 
 		for (var i = 0; i < jsonMedia.length; i++) {
-
 			var img_view = Ti.UI.createView({
 				backgroundImage : "/pics/" + jsonMedia[i].filename,
 				height : '200dp',
@@ -49,8 +48,7 @@ function selectHotspotPics() {
 					fontStyle : 'italic',
 					textAlign : Ti.UI.TEXT_ALIGNMENT_CENTER,
 					fontFamily: 'Raleway-Medium'
-				},
-				
+				}
 			});
 
 			var backgroundView = Ti.UI.createView({
@@ -84,7 +82,7 @@ function selectHotspotPics() {
 $.clean = function cleanup() {
 	$.destroy();
 	$.hotspotDetail = null;
-	Ti.API.info('stäng');
+	Ti.API.info('stäng hotspotdetail');
 	// $.hotspotDetail.removeEventListener('close', $.clean);
 };
 
