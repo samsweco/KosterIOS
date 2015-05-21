@@ -256,7 +256,19 @@ function changeLabel()
 		$.lblLangsVagen.text = 'Det här kan du se längs vägen:';
 	}
 	else {
-		$.lblLangsVagen.text= ' Det här kan du läsa om på båtresan:';
+		$.lblLangsVagen.text= 'Det här kan du läsa om på båtresan:';
 	}
 }
  
+
+
+// BARA TEST, INGET FUNKAR
+
+$.cleanup = function cleanup() {
+	$.destroy();
+	$.hikeDetailWin = null;
+	Ti.API.info('stäng');
+	// $.win.removeEventListener('close', $.cleanup);
+};
+
+$.hikeDetailWin.addEventListener('close', $.cleanup);
