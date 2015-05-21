@@ -45,7 +45,6 @@ function showDetailMap(maptype, id, name, color) {
 	try {
 		setSpecificRoute(maptype, id, name, color);
 		return maptype;
-
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - showDetailMap");
 	}
@@ -135,21 +134,24 @@ function createMapRoutes(maptype, file, name, color) {
 			var coords = geoArray[0].features[0].geometry.paths[u];
 
 			for (var i = 0; i < coords.length; i++) {
-
 				var point = {
 					latitude : coords[i][1],
 					longitude : coords[i][0]
 				};
+				
 				coordArray.push(point);
 			}
+			
 			var route = {
 				name : name,
 				points : coordArray,
 				width : 2.0,
 				color : color
 			};
+			
 			maptype.addRoute(MapModule.createRoute(route));
 		}
+		
 		maptype.region = calculateMapRegion(coordArray);
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - createMapRoute");

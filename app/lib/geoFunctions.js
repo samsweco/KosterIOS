@@ -161,8 +161,8 @@ function userIsNearHotspot() {
 								id : hotid
 							};
 
-							var hotspotDetail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
-							Alloy.CFG.tabs.activeTab.open(hotspotDetail);
+							var hotspotDetails = Alloy.createController("hotspotDetail", hotspotTxt).getView();
+							Alloy.CFG.tabs.activeTab.open(hotspotDetails);
 						}
 					});
 

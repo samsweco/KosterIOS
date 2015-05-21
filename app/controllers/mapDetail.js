@@ -35,6 +35,9 @@ function showMapDetail() {
 // Eventlistener för klick på hotspot
 //-----------------------------------------------------------
 detailMap.addEventListener('click', function(evt) {
+	
+	Ti.API.info('evt list');
+	
 	try {
 		if (evt.clicksource == 'rightButton') {
 			var hotspotCollection = Alloy.Collections.hotspotModel;
@@ -149,12 +152,12 @@ function showMenu() {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapDetail - getZoomedMapPosition");
 	}
 }
-detailMap.addEventListener('singletap', function() {
-	if(menuDetailVisible){
-		closeDetailMenu();
-		menuDetailVisible = false;
-	}
-});
+// detailMap.addEventListener('singletap', function() {
+	// if(menuDetailVisible){
+		// closeDetailMenu();
+		// menuDetailVisible = false;
+	// }
+// });
 function showDetailMenu(){
 	$.widgetView.height = '90dp';
 }
