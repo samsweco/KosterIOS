@@ -65,7 +65,7 @@ function startInteractive() {
 //-----------------------------------------------------------
 // Laddar in nästa ledtråd om man inte hittar bokstaven
 //-----------------------------------------------------------
-$.nextClue.addEventListener('click', function() {
+function toNextClue() {
 	var nextDialog = Ti.UI.createAlertDialog({
 		title : 'Gå till nästa',
 		message : 'Är du säker på att du inte hittar bokstaven?',
@@ -82,7 +82,7 @@ $.nextClue.addEventListener('click', function() {
 	});
 
 	nextDialog.show();
-});
+}
 
 //-----------------------------------------------------------
 // Laddar in första ledtråden

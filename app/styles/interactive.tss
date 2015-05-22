@@ -140,20 +140,30 @@
 	}
 }
 
-"#nextClue": {
+"#lblnextClue": {
 	font: {
 		fontFamily: 'Raleway-Light',
 		fontSize: '13dp'
 	},
-	top: '5%',
+	top: '2dp',
 	left: '15dp',
 	right: '15dp',
 	color: 'gray'
 }
 
+"#nextClue": {
+	font: {
+		fontFamily: 'Raleway-Light',
+		fontSize: '13dp'
+	},
+	left: '15dp',
+	top: 0
+}
+
 "#viewNext": {
 	visible: false,
 	height: '0dp',
+	top: '5%',
 	left: '5dp',
 	bottom: '0dp',
 	width: '80%',
