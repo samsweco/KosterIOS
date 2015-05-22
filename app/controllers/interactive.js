@@ -21,6 +21,7 @@ try {
 
 displayMap();
 
+
 //-----------------------------------------------------------
 // Visar kartan med de olika sevärdheterna och ledtrådsplupparna
 //-----------------------------------------------------------
