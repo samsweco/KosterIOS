@@ -74,11 +74,11 @@
 	left: '15%',
 	right: '15%',
 	height: '0dp',
-	width: Titanium.UI.FILL,
+	visible: false,
 	tintColor: 'blue',
 	borderWidth: '1dp',
 	borderRadius: '5dp',
-	visible: false
+	width: Titanium.UI.FILL
 }
 
 "#lblCollectedLetters": {
@@ -125,13 +125,7 @@
 }
 
 "#btnStartQuiz": {
-	// height: '40dp',
-	// width: Titanium.UI.FILL,
-	// borderRadius: '4dp',
-	// color: '#0098C3'
 	height: '40dp',
-	// left: '15%',
-	// right: '15%',
 	width: Titanium.UI.FILL,
 	top: '5dp',
 	font: {
