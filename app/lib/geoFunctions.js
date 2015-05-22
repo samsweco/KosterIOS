@@ -23,11 +23,11 @@ var letterJSON = letterCollection.toJSON();
 //-----------------------------------------------------------
 function getUserPos(type) {
 	try {
-		if (Ti.Geolocation.locationServicesEnabled) {
 			Titanium.Geolocation.preferredProvider = Titanium.Geolocation.PROVIDER_GPS;
 			Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_NEAREST_TEN_METERS;
 			Titanium.Geolocation.pauseLocationUpdateAutomatically = true;
 			Titanium.Geolocation.distanceFilter = 3;
+		
 
 			if (type == 'hotspot') {
 				Ti.Geolocation.addEventListener('location', addHotspotLocation);
@@ -37,9 +37,6 @@ function getUserPos(type) {
 				Ti.Geolocation.addEventListener('location', addLetterLocation);
 			}
 
-		} else {
-			alert('Tillåt gpsen, tack');
-		}
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - get current position GPS");
 	}
@@ -138,9 +135,10 @@ function userIsNearHotspot() {
 		var dialog = Ti.UI.createAlertDialog();
 
 		for (var h = 0; h < Alloy.Globals.hotspotJSONobj.length; h++) {
-
 			if (Alloy.Globals.hotspotJSONobj[h].alerted == 0) {
 
+				Ti.API.info('inne!!!!!!');
+	
 				var hotlat = Alloy.Globals.hotspotJSONobj[h].xkoord;
 				var hotlon = Alloy.Globals.hotspotJSONobj[h].ykoord;
 				var radius = Alloy.Globals.hotspotJSONobj[h].radie;
@@ -184,27 +182,35 @@ function userIsNearHotspot() {
 //-----------------------------------------------------------
 function userIsNearLetter() {
 	try {
-		for (var isnear = 0; isnear < letterJSON.lenght; isnear++) {
-			lat = letterJSON[isnear].latitude;
-			lon = letterJSON[isnear].longitude;
-			var radius = letterJSON[isnear].radius;
+		var message = Ti.UI.createAlertDialog({
+			title : 'Ny bokstav i närheten!',
+			buttonNames : ['Gå till bokstavsjakten', 'Stäng']
+		}); 
 
-			if (isInsideRadius(lat, lon, radius) && letterJSON[isnear].alerted == 0) {
-				var message = Ti.UI.createAlertDialog({
-					message : letterJSON[isnear].clue,
-					title : 'Ny bokstav i närheten!',
-					buttonNames : ['Gå till bokstavsjakten', 'Stäng']
-				});
-				message.addEventListener('click', function(e) {
-					if (e.index == 0) {
-						Alloy.CFG.tabs.setActiveTab(3);
-					}
-				});
-				message.show();
-
-				letterJSON[isnear].alerted = 1;
-				playSound();
-			}
+		for (var isnear = 0; isnear < Alloy.Globals.jsonCollection.lenght; isnear++) {
+			if (Alloy.Globals.jsonCollection[isnear].alerted == 0){
+				
+				Ti.API.info('inne!!!!!!');
+				
+				lat = Alloy.Globals.jsonCollection[isnear].latitude;
+				lon = Alloy.Globals.jsonCollection[isnear].longitude;
+				var radius = Alloy.Globals.jsonCollection[isnear].radius;
+				
+				if (isInsideRadius(lat, lon, radius)) {
+					var clue = Alloy.Globals.jsonCollection[isnear].clue;
+					
+					message.message = clue;
+					message.addEventListener('click', function(e) {
+						if (e.index == 0) {
+							Alloy.CFG.tabs.setActiveTab(3);
+						}
+					});
+					message.show();
+					
+					Alloy.Globals.jsonCollection[isnear].alerted = 1;
+					playSound();
+				}
+			}			
 		}
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", 'isNearPoint - letter');

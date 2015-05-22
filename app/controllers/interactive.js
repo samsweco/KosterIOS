@@ -38,29 +38,36 @@ function displayMap() {
 //-----------------------------------------------------------
 // Startar bokstavsjakten, gömmer och visar rätt labels
 //-----------------------------------------------------------
-function startInteractive() {
-	$.btnStartQuiz.hide();
-	$.btnStartQuiz.height = 0;
+function startInteractive() {		
+	if (Ti.Geolocation.locationServicesEnabled) {
 
-	$.txtLetter.show();
-	$.txtLetter.height = '40dp';
+		$.btnStartQuiz.hide();
+		$.btnStartQuiz.height = 0;
 
-	$.lblLetters.show();
-	$.lblLetters.height = '40dp';
+		$.txtLetter.show();
+		$.txtLetter.height = '40dp';
 
-	$.lblCollectedLetters.show();
-	$.lblCollectedLetters.text = 'Bokstäver: ';
+		$.lblLetters.show();
+		$.lblLetters.height = '40dp';
 
-	$.viewNext.show();
-	$.viewNext.height = '60dp';
+		$.lblCollectedLetters.show();
+		$.lblCollectedLetters.text = 'Bokstäver: ';
 
-	$.horizontalView.show();
-	$.horizontalView.height = Ti.UI.SIZE;
+		$.viewNext.show();
+		$.viewNext.height = '60dp';
 
-	getUserPos('letter');
-	loadClue(foundJSON.length + 1);
-	interactiveGPS = true;
+		$.horizontalView.show();
+		$.horizontalView.height = Ti.UI.SIZE;
+
+		getUserPos('letter');
+		loadClue(foundJSON.length + 1);
+		interactiveGPS = true;
+
+	} else {
+		alert('Tillåt gpsen för att få , tack');
+	}
 }
+
 
 //-----------------------------------------------------------
 // Laddar in nästa ledtråd om man inte hittar bokstaven
