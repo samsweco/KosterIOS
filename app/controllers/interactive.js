@@ -107,8 +107,6 @@ function sendLetter() {
 
 		checkLetter(sendletter);
 		allLetters();
-
-		$.lblCollectedLetters.text = 'Bokstäver:  ' + foundJSON;
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - sendLetter");
 	}
@@ -135,8 +133,8 @@ function checkLetter(letterToCheck) {
 			
 			messageDialog.show();
 		} else {
-			messageDialog.message = "Är du säker på att du vill spara bokstaven " + letterToCheck + "?";
-			messageDialog.title = 'Ojdå, nu blev det fel';
+			messageDialog.message = "Vill du spara bokstaven " + letterToCheck + "?";
+			messageDialog.title = 'Spara bokstav';
 			messageDialog.buttonNames = ['Ja, jag vill spara!', 'Stäng'];
 			
 			messageDialog.addEventListener('click', function(e) {
@@ -155,6 +153,8 @@ function checkLetter(letterToCheck) {
 					foundLetterId++;
 					getFound();
 					loadClue(foundJSON.length + 1); 
+					
+					$.lblCollectedLetters.text = 'Bokstäver:  ' + foundJSON;
 				}
 			}); 
 
@@ -208,7 +208,7 @@ function checkWord() {
 			$.lblWelcome.text = "Bra jobbat!";
 			$.lblWelcome.fontSize = '30dp';
 
-			$.lblInfoText.text = "Ordet var öronmanet!";
+			$.lblInfoText.text = "Du hittade det rätta ordet!";
 
 			$.txtLetter.hide();
 			$.txtLetter.height = '0dp';

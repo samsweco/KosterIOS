@@ -17,7 +17,6 @@
 	layout: 'vertical'
 }
 
-
 "#wordView": {
 	visible: false,
 	height: '0dp'
@@ -32,7 +31,7 @@
 
 "#lblInfoText": {
 	top: '5dp',
-	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
 	font: {
 		fontSize: '14dp'
 	} ,
@@ -64,10 +63,9 @@
 	right: '15%',
 	width: Titanium.UI.FILL,
 	top: '4dp',
-	color: '#0098C3',
 	font: {
-		fontFamily: 'Raleway-Medium',
-		fontSize: '16dp'
+		fontSize: '16dp',
+		fontFamily: 'Raleway-Medium'
 	}
 }
 
@@ -95,24 +93,6 @@
 		fontSize: '17dp'
 	},
 	color: '#FCAF17'
-}
-
-"#nextClue": {
-	top: '5dp',
-	font: {
-		fontFamily: 'Raleway-Light',
-		fontSize: '13dp'
-	},
-	color: '#c6c6c6'
-}
-
-"#viewNext": {
-	visible: false,
-	height: '0dp',
-	left: '5dp',
-	bottom: '0dp',
-	width: '80%',
-	layout: 'vertical'
 }
 
 "#wordView":{
@@ -145,20 +125,37 @@
 }
 
 "#btnStartQuiz": {
+	// height: '40dp',
+	// width: Titanium.UI.FILL,
+	// borderRadius: '4dp',
+	// color: '#0098C3'
 	height: '40dp',
+	// left: '15%',
+	// right: '15%',
 	width: Titanium.UI.FILL,
-	borderRadius: '4dp',
-	color: '#0098C3',
+	top: '5dp',
 	font: {
-		fontFamily: 'Raleway-Medium',
-		fontSize: '16dp'
+		fontSize: '16dp',
+		fontFamily: 'Raleway-Medium'
+	}
+}
+
+"#nextClue": {
+	font: {
+		fontFamily: 'Raleway-Light',
+		fontSize: '13dp'
 	},
 	top: '5%',
 	left: '15dp',
-	right: '15dp'
+	right: '15dp',
+	color: 'gray'
 }
 
-".headView": {
-	layout: 'vertical',
-	backgroundColor: 'white'
+"#viewNext": {
+	visible: false,
+	height: '0dp',
+	left: '5dp',
+	bottom: '0dp',
+	width: '80%',
+	layout: 'vertical'
 }
