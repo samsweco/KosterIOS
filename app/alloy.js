@@ -17,7 +17,7 @@ var gLat = 0;
 var gLon = 0;
 var lat = null;
 var lon = null;
-var foundId = 10;
+var foundId = 1;
 var nextId = 1;
 
 var globalTrailID = 0;
