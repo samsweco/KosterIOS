@@ -70,49 +70,6 @@ detailMap.addEventListener('click', function(evt) {
 	}
 });
 
-// try {
-	// detailMap.addEventListener('click', function(evt) {
-		// if (evt.clicksource == 'rightButton') {
-// 			
-			// var evt = evt.annotation.id;
-// 			
-			// if(hotspotDetail == null){
-			// hotspotDetail = Alloy.createController("hotspotDetail", getHotspotInfo(evt)).getView();	
-			// Alloy.CFG.tabs.activeTab.open(hotspotDetail);
-			// Ti.API.info('hotspot klick');
-			// }
-// 			
-			// else{
-				// Alloy.CFG.tabs.activeTab.open(hotspotDetail, getHotspotInfo(evt));
-				// Ti.API.info("else click");
-			// }
-// 				
-		// //	var hotspotDetail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
-			// //Alloy.CFG.tabs.activeTab.open(hotspotDetail);
-		// }
-	// });
-// } catch(e) {
-	// newError("Något gick fel när sidan skulle laddas, prova igen!", "MapDetail - addEventListener");
-// }
-
-
-function getHotspotInfo(evt){
-	var hotspotCollection = Alloy.Collections.hotspotModel;
-			hotspotCollection.fetch({
-				query : query13 + evt + '"'
-			});
-
-			var jsonHotspObj = hotspotCollection.toJSON();
-
-			var hotspotTxt = {
-				title : jsonHotspObj[0].name,
-				infoTxt : jsonHotspObj[0].infoTxt,
-				id : jsonHotspObj[0].id
-			};
-			
-			return hotspotTxt;
-}
-
 //-----------------------------------------------------------
 // Switch för att aktivera location-event för hotspots/sevärdheter
 //-----------------------------------------------------------
