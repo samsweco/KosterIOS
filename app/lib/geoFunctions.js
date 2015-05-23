@@ -271,7 +271,7 @@ function getFound() {
 			foundJSON.push(' ' + foundLetters[f].letter);
 		}
 		
-		return foundJSON;
+		// return foundJSON;
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - getFound");
 	}

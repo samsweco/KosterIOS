@@ -104,8 +104,12 @@ function toNextClue() {
 //-----------------------------------------------------------
 function loadClue(id) {
 	try {
-		$.lblWelcome.text = "Ledtråd " + id + ":";
-		$.lblInfoText.text = jsonCollection[id - 1].clue;
+		if (id <= 9){
+			$.lblWelcome.text = "Ledtråd " + id + ":";
+			$.lblInfoText.text = jsonCollection[id - 1].clue; 
+		} else {
+			allLetters();
+		}
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 	}
@@ -121,7 +125,6 @@ function sendLetter() {
 		var sendletter = letter.toUpperCase();
 
 		checkLetter(sendletter);
-		allLetters();
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 	}
@@ -167,13 +170,13 @@ function checkLetter(letterToCheck) {
 
 					foundLetterId++;
 					getFound();
-					loadClue(foundJSON.length + 1); 
+					loadClue(foundJSON.length+1);
 					
 					$.lblCollectedLetters.text = 'Bokstäver:  ' + foundJSON;
 				}
 			}); 
 
-			messageDialog.show();
+			messageDialog.show(); 
 		}
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
@@ -185,7 +188,7 @@ function checkLetter(letterToCheck) {
 //-----------------------------------------------------------
 function allLetters() {
 	try {
-		if (word.length == foundJSON.length) {
+		if (foundJSON.length == 9) { //word.length == 
 			$.txtLetter.hide();
 			$.txtLetter.height = 0;
 			$.lblLetters.hide();
