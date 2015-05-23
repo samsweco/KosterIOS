@@ -159,8 +159,6 @@ function checkLetter(letterToCheck) {
 				if (e.index == 0) {
 					$.txtLetter.value = '';
 					
-					Ti.API.info('foundid : ' + foundLetterId);
-					
 					foundLettersModel.fetch({
 						'id' : foundLetterId
 					});
@@ -174,8 +172,6 @@ function checkLetter(letterToCheck) {
 					foundLetterId++;
 					getFound();
 					loadClue(foundLetterId);
-					
-					Ti.API.info('foundid++ : ' + foundLetterId);
 					
 					$.lblCollectedLetters.text = 'Bokstäver:  ' + foundJSON;
 				}
@@ -194,6 +190,8 @@ function checkLetter(letterToCheck) {
 function allLetters() {
 	try {
 		if (foundLetterId > 9) { //foundJSON.length == 9) { //word.length == 
+			Ti.API.info('hittade : ' + JSON.stringify(foundJSON));
+			
 			$.txtLetter.hide();
 			$.txtLetter.height = 0;
 			
@@ -202,6 +200,9 @@ function allLetters() {
 			
 			$.viewNext.hide();
 			$.viewNext.height = 0;
+			
+			$.lblnextClue.height = 0;
+			$.nextClue.height = 0;
 			
 			$.btnStartQuiz.height = 0;
 			

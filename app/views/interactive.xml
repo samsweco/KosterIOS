@@ -31,6 +31,6 @@
 					<Label id="lblnextClue">Hittar du ingen bokstav?</Label>
 					<Button id="nextClue" onClick="toNextClue">Klicka här för att gå till nästa ledtråd.</Button>
 				</View>
-				</View>
-			</ScrollView>
+			</View>
+		</ScrollView>
 </Alloy>
