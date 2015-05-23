@@ -103,9 +103,11 @@
 }
 
 "#txtWord":{
-	height: '40dp',
+	visible: false,
+	height: '0dp',
 	right: '15dp',
 	left: '15dp',
+	top: '5dp',
 	width: Titanium.UI.FILL,
 	tintColor: 'blue',
 	borderWidth: '1dp',
@@ -113,14 +115,15 @@
 }
 
 "#lblWord":{
-	height: '35dp',
-	right: '15dp',
-	left: '15dp',
+	visible: false,
+	height: '0dp',
+	left: '25%',
+	right: '25%',
 	width: Titanium.UI.FILL,
-	color: '#0098C3',
+	top: '5dp',
 	font: {
-		fontFamily: 'Raleway-Medium',
-		fontSize: '16dp'
+		fontSize: '16dp',
+		fontFamily: 'Raleway-Medium'
 	}
 }
 

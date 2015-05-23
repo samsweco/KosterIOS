@@ -86,8 +86,8 @@ function toNextClue() {
 
 		nextDialog.addEventListener('click', function(e) {
 			if (e.index == 0) {
-				if (lettersModel.get('found') != 1) {
-					checkLetter(lettersModel.get('letter'));
+				if (jsonCollection[foundLetterId].found == 0) {
+					checkLetter(jsonCollection[foundLetterId].letter);
 					$.lblCollectedLetters.text = 'Bokstäver:  ' + foundJSON;
 				}
 			}
@@ -104,7 +104,7 @@ function toNextClue() {
 //-----------------------------------------------------------
 function loadClue(id) {
 	try {
-		if (id <= 9){
+		if (id < 10){
 			$.lblWelcome.text = "Ledtråd " + id + ":";
 			$.lblInfoText.text = jsonCollection[id - 1].clue; 
 		} else {
@@ -158,6 +158,9 @@ function checkLetter(letterToCheck) {
 			messageDialog.addEventListener('click', function(e) {
 				if (e.index == 0) {
 					$.txtLetter.value = '';
+					
+					Ti.API.info('foundid : ' + foundLetterId);
+					
 					foundLettersModel.fetch({
 						'id' : foundLetterId
 					});
@@ -170,7 +173,9 @@ function checkLetter(letterToCheck) {
 
 					foundLetterId++;
 					getFound();
-					loadClue(foundJSON.length+1);
+					loadClue(foundLetterId);
+					
+					Ti.API.info('foundid++ : ' + foundLetterId);
 					
 					$.lblCollectedLetters.text = 'Bokstäver:  ' + foundJSON;
 				}
@@ -188,16 +193,26 @@ function checkLetter(letterToCheck) {
 //-----------------------------------------------------------
 function allLetters() {
 	try {
-		if (foundJSON.length == 9) { //word.length == 
+		if (foundLetterId > 9) { //foundJSON.length == 9) { //word.length == 
 			$.txtLetter.hide();
 			$.txtLetter.height = 0;
+			
 			$.lblLetters.hide();
 			$.lblLetters.height = 0;
+			
 			$.viewNext.hide();
 			$.viewNext.height = 0;
+			
 			$.btnStartQuiz.height = 0;
+			
 			$.wordView.show();
 			$.wordView.height = '80dp';
+			
+			$.txtWord.show();
+			$.txtWord.height = '40dp';
+
+			$.lblWord.show();
+			$.lblWord.height = '40dp';
 			
 
 			$.lblWelcome.text = 'Skriv ordet du bildat av bokstäverna!';
@@ -216,13 +231,11 @@ function checkWord() {
 		var check = $.txtWord.value;
 		var checkword = check.toUpperCase();
 		var alertDialog = Ti.UI.createAlertDialog({
-			buttonNames : ['Stäng']
+			buttonNames : ['Stäng'],
+			title : "Fel ord"
 		});
 
 		if (checkword == word) {
-			alertDialog.title = "Rätt ord!";
-			alertDialog.message = "Bra jobbat! Du hittade det rätta ordet!";
-
 			$.lblWelcome.text = "Bra jobbat!";
 			$.lblWelcome.fontSize = '30dp';
 
@@ -245,11 +258,11 @@ function checkWord() {
 			startOver();
 			interactiveGPS = false;
 		} else if(wrongWord == 3){
-			alertDialog.title = 'Fel ord';
 			alertDialog.message = "Nu blev det fel. Vill du kontrollera dina bokstäver? Det här är de korrekta: " + correctLetters;
+			alertDialog.show();
 		} else {
-			alertDialog.title = "Fel ord";
 			alertDialog.message = "Försök igen! Du har snart klurat ut det!";
+			alertDialog.show();
 			wrongWord++;
 		}
 	} catch(e) {

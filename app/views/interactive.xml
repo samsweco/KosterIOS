@@ -24,7 +24,7 @@
 				
 				<View id="wordView">
 					<TextField id="txtWord"></TextField>
-					<Label id="lblWord" onClick="checkWord" text="Skicka ord!"></Label>
+					<Button id="lblWord" onClick="checkWord">Skicka ord!</Button>
 				</View>
 				
 				<View id="viewNext">

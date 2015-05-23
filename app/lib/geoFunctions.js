@@ -282,7 +282,7 @@ function getFound() {
 //-----------------------------------------------------------
 function startOver() {
 	try {
-		for (var lid = 0; lid < foundJSON.length; lid++) {
+		for (var lid = 0; lid <= foundJSON.length; lid++) {
 			var letterid = lid + 1;
 
 			foundLettersModel.fetch({
