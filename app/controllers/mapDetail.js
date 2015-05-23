@@ -66,7 +66,7 @@ detailMap.addEventListener('click', function(evt) {
 			hotspotDetail = null;
 		}
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapDetail - addEventListener");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Detaljkartan");
 	}
 });
 
@@ -106,15 +106,15 @@ function showMenu() {
 			menuDetailVisible = false;
 		}		
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapDetail - getZoomedMapPosition");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Detaljkartan");
 	}
 }
-// detailMap.addEventListener('singletap', function() {
-	// if(menuDetailVisible){
-		// closeDetailMenu();
-		// menuDetailVisible = false;
-	// }
-// });
+detailMap.addEventListener('singletap', function() {
+	if(menuDetailVisible){
+		closeDetailMenu();
+		menuDetailVisible = false;
+	}
+});
 function showDetailMenu(){
 	$.widgetView.height = '90dp';
 }
@@ -124,16 +124,7 @@ function closeDetailMenu(){
 
 
 
-// BARA TEST, INGET FUNKAR
-
-// $.win.addEventListener('close', function(){
-	// $.win.close();
-	// $.win = null;
-	// Ti.API.info('stäng');
-// 	
-	// // Alloy.Globals.closeWin();
-	// $.mapDetailView.cleanup();
-// });
+// BARA TEST, INGET FUNKAR TROR JAG
 
 $.cleanup = function cleanup() {
 	$.destroy();

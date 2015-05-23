@@ -26,7 +26,7 @@ function displayBigMap() {
 	try {
 		$.mapView.add(showMap(map));
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Map - load page");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Kartan");
 	}
 }
 
@@ -55,7 +55,7 @@ function showTrail(myId) {
 		var trailDetail = Alloy.createController("trailDetail", args).getView();
 		Alloy.CFG.tabs.activeTab.open(trailDetail);
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - showTrail");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Kartan");
 	}
 }
 
@@ -79,7 +79,7 @@ function showHotspot(myId) {
 		var hotspotDetail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
 		Alloy.CFG.tabs.activeTab.open(hotspotDetail);
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "map - showHotspot");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Kartan");
 	}
 }
 

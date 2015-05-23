@@ -23,7 +23,7 @@ function toMap() {
 
 		$.mapWin.titleControl = mapwinTitle;
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "index - toMap");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Förstasidan");
 	}
 }
 
@@ -42,7 +42,7 @@ function toInteractive() {
 
 		$.interactiveWin.titleControl = interacwinTitle;
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "index - toInteractive");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Förstasidan");
 	}
 }
 
@@ -61,7 +61,7 @@ function toTrails() {
 
 		$.hikeWin.titleControl = hikewinTitle;
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "index - toTrails");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Förstasidan");
 	}
 }
 
@@ -80,7 +80,7 @@ function toInfo() {
 
 		$.infoWin.titleControl = infowinTitle;
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "index - toInfo");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Förstasidan");
 	}
 }
 

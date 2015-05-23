@@ -16,7 +16,7 @@ try {
 	jsonCollection = letterCollection.toJSON();
 	Alloy.Globals.jsonCollection = jsonCollection;
 } catch(e) {
-	newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - create letterCollection");
+	newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 }
 
 displayMap();
@@ -31,7 +31,7 @@ function displayMap() {
 		addClueZone();
 		displaySpecificMarkers(7, interactiveMap);
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - displaymap");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 	}
 }
 
@@ -39,32 +39,36 @@ function displayMap() {
 // Startar bokstavsjakten, gömmer och visar rätt labels
 //-----------------------------------------------------------
 function startInteractive() {		
-	if (Ti.Geolocation.locationServicesEnabled) {
+	try {
+		if (Ti.Geolocation.locationServicesEnabled) {
 
-		$.btnStartQuiz.hide();
-		$.btnStartQuiz.height = 0;
+			$.btnStartQuiz.hide();
+			$.btnStartQuiz.height = 0;
 
-		$.txtLetter.show();
-		$.txtLetter.height = '40dp';
+			$.txtLetter.show();
+			$.txtLetter.height = '40dp';
 
-		$.lblLetters.show();
-		$.lblLetters.height = '40dp';
+			$.lblLetters.show();
+			$.lblLetters.height = '40dp';
 
-		$.lblCollectedLetters.show();
-		$.lblCollectedLetters.text = 'Bokstäver: ';
+			$.lblCollectedLetters.show();
+			$.lblCollectedLetters.text = 'Bokstäver: ';
 
-		$.viewNext.show();
-		$.viewNext.height = '60dp';
+			$.viewNext.show();
+			$.viewNext.height = '60dp';
 
-		$.horizontalView.show();
-		$.horizontalView.height = Ti.UI.SIZE;
+			$.horizontalView.show();
+			$.horizontalView.height = Ti.UI.SIZE;
 
-		getUserPos('letter');
-		loadClue(foundJSON.length + 1);
-		interactiveGPS = true;
+			getUserPos('letter');
+			loadClue(foundJSON.length + 1);
+			interactiveGPS = true;
 
-	} else {
-		alert('Tillåt gpsen för att få , tack');
+		} else {
+			alert('Tillåt gpsen för att få , tack');
+		}
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 	}
 }
 
@@ -73,22 +77,26 @@ function startInteractive() {
 // Laddar in nästa ledtråd om man inte hittar bokstaven
 //-----------------------------------------------------------
 function toNextClue() {
-	var nextDialog = Ti.UI.createAlertDialog({
-		title : 'Gå till nästa',
-		message : 'Är du säker på att du inte hittar bokstaven?',
-		buttonNames : ['Ja, visa nästa ledtråd', 'Stäng']
-	});
+	try {
+		var nextDialog = Ti.UI.createAlertDialog({
+			title : 'Gå till nästa',
+			message : 'Är du säker på att du inte hittar bokstaven?',
+			buttonNames : ['Ja, visa nästa ledtråd', 'Stäng']
+		});
 
-	nextDialog.addEventListener('click', function(e) {
-		if (e.index == 0) {
-			if (lettersModel.get('found') != 1) {
-				checkLetter(lettersModel.get('letter'));
-				$.lblCollectedLetters.text = 'Bokstäver:  ' + foundJSON;
+		nextDialog.addEventListener('click', function(e) {
+			if (e.index == 0) {
+				if (lettersModel.get('found') != 1) {
+					checkLetter(lettersModel.get('letter'));
+					$.lblCollectedLetters.text = 'Bokstäver:  ' + foundJSON;
+				}
 			}
-		}
-	});
+		});
 
-	nextDialog.show();
+		nextDialog.show();
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
+	}
 }
 
 //-----------------------------------------------------------
@@ -99,7 +107,7 @@ function loadClue(id) {
 		$.lblWelcome.text = "Ledtråd " + id + ":";
 		$.lblInfoText.text = jsonCollection[id - 1].clue;
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - loadClue");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 	}
 }
 
@@ -115,7 +123,7 @@ function sendLetter() {
 		checkLetter(sendletter);
 		allLetters();
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - sendLetter");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 	}
 }
 
@@ -168,7 +176,7 @@ function checkLetter(letterToCheck) {
 			messageDialog.show();
 		}
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - checkLetter");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 	}
 }
 
@@ -193,7 +201,7 @@ function allLetters() {
 			$.lblInfoText.text = 'Ledtråd: En svävande geléklump i havet.';
 		}
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - allLetters");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 	}
 }
 
@@ -242,7 +250,7 @@ function checkWord() {
 			wrongWord++;
 		}
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "interactive - checkWord");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 	}
 }
 

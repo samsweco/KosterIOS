@@ -15,7 +15,7 @@ function setPics() {
 	try {
 		selectHotspotPics();
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "HotspotDetail - setPics");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Sevärdheter");
 	}
 }
 
@@ -65,25 +65,18 @@ function selectHotspotPics() {
 		}
 
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "HotspotDetail - selectHotspotPics");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Sevärdheter");
 	}
 }
 
 
 
-// TA BORT SEN
+// TA BORT SEN?? 
 
-// $.hotspotDetail.addEventListener('close', function(){
-	// $.hotspotDetail.close();
-	// $.hotspotDetail = null;
-	// Ti.API.info('stäng');
-// });
 
 $.clean = function cleanup() {
 	$.destroy();
 	$.hotspotDetail = null;
-	Ti.API.info('stäng hotspotdetail');
-	// $.hotspotDetail.removeEventListener('close', $.clean);
 };
 
 $.hotspotDetail.addEventListener('close', $.clean);

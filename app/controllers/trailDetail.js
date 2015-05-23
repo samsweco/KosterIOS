@@ -27,7 +27,7 @@ changeLabel();
 // Hämtar info för den vandringsled som ska öppnas i detaljvy
 //-----------------------------------------------------------
 function zoomMapTrail() {
-	// try {
+	try {
 		var trail = {
 			id : args.id,
 			title : args.title,
@@ -39,9 +39,9 @@ function zoomMapTrail() {
 		var mapDetail = Alloy.createController("mapDetail", trail).getView();
 		Alloy.CFG.tabs.activeTab.open(mapDetail);
 		
-	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "trailDetail - zoomMapTrail");
-	// }	
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled");
+	}	
 }
 
 //-----------------------------------------------------------
@@ -90,7 +90,7 @@ function selectTrailPics() {
 			$.slideShowTrails.addView(backgroundView);
 		}
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "trailDetail - selectTrailPics");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled");
 	}
 }
 
@@ -147,7 +147,7 @@ function showHotspots() {
 		$.hotspotTable.data = tableViewData;
 
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "trailDetail - showHotspots");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled");
 	}
 }
 
@@ -167,7 +167,7 @@ function getHotspotData() {
 		return jsonObj;
 
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "trailDetail - getHotspotData");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled");
 	}
 }
 
@@ -197,7 +197,7 @@ function showHotspot(e) {
 		Alloy.CFG.tabs.activeTab.open(hotspotDetailTrail);
 
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "trailDetail - showHotspot");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled");
 	}
 }
 
@@ -221,7 +221,7 @@ function showIcons() {
 			$.iconrow.add(covericon);
 		}
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "trailDetail - showIcons");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled");
 	}
 }
 
@@ -241,7 +241,7 @@ function getIcons() {
 		return infoTrails;
 
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "trailDetail - getIcons");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled");
 	}
 }
 
@@ -249,12 +249,10 @@ function getIcons() {
 //Sätter labeln broende på om leden är an vandringsled eller båtleden
 //---------------------------------------------------------
  
-function changeLabel()
-{
+function changeLabel() {
 	if (args.title !='Båtleden') {
 		$.lblLangsVagen.text = 'Det här kan du se längs vägen:';
-	}
-	else {
+	} else {
 		$.lblLangsVagen.text= 'Det här kan du läsa om på båtresan:';
 	}
 }
@@ -267,7 +265,6 @@ function changeLabel()
 	$.destroy();
 	$.hikeDetailWin = null;
 	Ti.API.info('stäng - destroy');
-	// $.win.removeEventListener('close', $.cleanup);
 };
 
 $.hikeDetailWin.addEventListener('close', cleanup);

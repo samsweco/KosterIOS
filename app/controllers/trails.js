@@ -101,7 +101,7 @@ function setRowData() {
 		}
 		$.table.data = tableViewData;
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "trails - setRowData");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsleder");
 	}
 }
 
@@ -135,7 +135,7 @@ function showTrailDetails(e) {
 		Alloy.CFG.tabs.activeTab.open(trailDetail);
 
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Trails - showTrailDetails");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsleder");
 	}
 }
 
@@ -169,7 +169,7 @@ function showIcons(id) {
 		
 		return iconView;
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Trails - showIcons");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsleder");
 	}
 }
 
@@ -190,7 +190,7 @@ function getIcons(trail_id) {
 		return infoTrails;
 
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "trailDetail - getIcons");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsleder");
 	}
 
 }
