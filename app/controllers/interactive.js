@@ -249,6 +249,7 @@ function checkWord() {
 			$.lblLetters.height = '0dp';
 
 			$.lblCollectedLetters.text = '';
+			$.lblCollectedLetters.hide();
 
 			$.wordView.visible = false;
 			$.wordView.height = 0;
