@@ -110,8 +110,7 @@ $.koster.addEventListener('blur', function() {
 });
 
 //-----------------------------------------------------------
-// Null'ar varje fönster när man trycker på en annan tab,
-// för att minska risk för minnesläcka
+// Öppnar och stänger menyn på "stora kartan"
 //-----------------------------------------------------------
 function showMapMenu() {
 	if(!menuMapVisible){

@@ -38,7 +38,7 @@ $.posSwitch.addEventListener('change', function(e) {
 });
 
 //-----------------------------------------------------------
-// Funktioner för att visa och släcka infospots
+// Funktioner för att tända och släcka infopunkter på kartan
 //-----------------------------------------------------------
 function showFarglage() {
 	try {
@@ -53,7 +53,7 @@ function showFarglage() {
 			farjelage = false;
 		}
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "widget - showFarglage");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Kartmenyn");
 	}
 }
 
@@ -69,8 +69,8 @@ function showTaltplats() {
 			taltplats = false;
 		}
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "widget - showTaltplats");
-	}
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Kartmenyn");
+	}	
 }
 
 function showEldplats() {
@@ -85,8 +85,8 @@ function showEldplats() {
 			eldplats = false;
 		}
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "widget - showEldplats");
-	}	
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Kartmenyn");
+	}
 }
 
 function showSnorkelled() {
@@ -101,8 +101,8 @@ function showSnorkelled() {
 			snorkel = false;
 		}
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "widget - showSnorkelled");
-	}
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Kartmenyn");
+	}	
 }
 
 function showInformation() {
@@ -117,7 +117,7 @@ function showInformation() {
 			information = false;
 		}
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "widget - showInformation");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Kartmenyn");
 	}
 }
 
@@ -133,8 +133,8 @@ function showBadplats() {
 			badplats = false;
 		}
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "widget - showBadplats");
-	}
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Kartmenyn");
+	}	
 }
 
 function showRastplats() {
@@ -149,7 +149,7 @@ function showRastplats() {
 			rastplats = false;
 		}
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "widget - showRastplats");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Kartmenyn");
 	}
 }
 
@@ -165,7 +165,7 @@ function showUtkiksplats() {
 			utsiktsplats = false;
 		}
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "widget - showUtkiksplats");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Kartmenyn");
 	}
 }
 
@@ -181,6 +181,6 @@ function showTorrdass() {
 			torrdass = false;
 		}
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "widget - showTorrdass");
-	}
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Kartmenyn");
+	}	
 }
