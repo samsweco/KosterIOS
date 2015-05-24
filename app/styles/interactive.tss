@@ -41,7 +41,7 @@
 
 "#showFamilyTrail": {
 	top: '0dp',
-	height: '45%',
+	height: '40%',
 	width: Titanium.UI.FILL
 }
 
@@ -62,7 +62,7 @@
 	left: '15%',
 	right: '15%',
 	width: Titanium.UI.FILL,
-	top: '4dp',
+	top: '2dp',
 	font: {
 		fontSize: '16dp',
 		fontFamily: 'Raleway-Medium'
