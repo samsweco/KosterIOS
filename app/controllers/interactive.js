@@ -168,6 +168,8 @@ function checkLetter(letterToCheck) {
 						'found' : 1
 					});
 					foundLettersModel.save();
+					
+					jsonCollection[foundLetterId].found = 1;
 
 					foundLetterId++;
 					getFound();
