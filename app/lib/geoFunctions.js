@@ -13,9 +13,9 @@ Alloy.Globals.hotspotJSONobj = hotspotJSONobj;
 //-----------------------------------------------------------
 var lettersModel = Alloy.Models.letterModel;
 var foundLettersModel = Alloy.Models.foundLettersModel;
-// var letterCollection = Alloy.Collections.letterModel;
-// letterCollection.fetch();
-// var letterJSON = letterCollection.toJSON();
+var letterCollection = Alloy.Collections.letterModel;
+letterCollection.fetch();
+var letterJSON = letterCollection.toJSON();
 
 //-----------------------------------------------------------
 // Hämtar användarens position och startar location-event

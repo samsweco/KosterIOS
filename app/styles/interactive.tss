@@ -10,7 +10,7 @@
 
 "#interactiveWin": {
 	layout: 'vertical',
-	height : Titanium.UI.SIZE
+	height : Titanium.UI.FILL
 }
 
 "#hideView": {
@@ -138,6 +138,7 @@
 }
 
 "#lblnextClue": {
+	visible: false,
 	font: {
 		fontFamily: 'Raleway-Light',
 		fontSize: '13dp'
@@ -145,16 +146,19 @@
 	top: '2dp',
 	left: '15dp',
 	right: '15dp',
-	color: 'gray'
+	color: 'gray',
+	height : 0
 }
 
 "#nextClue": {
+	visible: false,
 	font: {
 		fontFamily: 'Raleway-Light',
 		fontSize: '13dp'
 	},
 	left: '15dp',
-	top: 0
+	top: 0,
+	height : 0
 }
 
 "#viewNext": {

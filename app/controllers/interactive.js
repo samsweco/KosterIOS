@@ -11,9 +11,9 @@ var correctLetters = "A, T, R, Ö, N, N, E, M, O";
 // Hämtar letterCollection
 //-----------------------------------------------------------
 try {
-	var letterCollection = Alloy.Collections.letterModel;
-	letterCollection.fetch();
-	jsonCollection = letterCollection.toJSON();
+	var letterColl = Alloy.Collections.letterModel;
+	letterColl.fetch();
+	jsonCollection = letterColl.toJSON();
 	Alloy.Globals.jsonCollection = jsonCollection;	
 } catch(e) {
 	newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
@@ -56,7 +56,13 @@ function startInteractive() {
 
 			$.viewNext.show();
 			$.viewNext.height = '60dp';
-
+			
+			$.lblnextClue.show();
+			$.lblnextClue.height = '30dp';
+			
+			$.nextClue.show();
+			$.nextClue.height = '30dp';
+			
 			$.horizontalView.show();
 			$.horizontalView.height = Ti.UI.SIZE;
 
@@ -86,8 +92,11 @@ function toNextClue() {
 
 		nextDialog.addEventListener('click', function(e) {
 			if (e.index == 0) {
-				if (jsonCollection[foundLetterId].found == 0) {
-					checkLetter(jsonCollection[foundLetterId].letter);
+				if (Alloy.Globals.jsonCollection[foundLetterId-1].found == 0) {
+					
+					Ti.API.info('nextID : ' + foundLetterId);
+					
+					checkLetter(Alloy.Globals.jsonCollection[foundLetterId-1].letter);
 					$.lblCollectedLetters.text = 'Bokstäver:  ' + foundJSON;
 				}
 			}
@@ -106,7 +115,7 @@ function loadClue(id) {
 	try {
 		if (id < 10){
 			$.lblWelcome.text = "Ledtråd " + id + ":";
-			$.lblInfoText.text = jsonCollection[id - 1].clue; 
+			$.lblInfoText.text = Alloy.Globals.jsonCollection[id - 1].clue; 
 		} else {
 			allLetters();
 		}
@@ -169,7 +178,9 @@ function checkLetter(letterToCheck) {
 					});
 					foundLettersModel.save();
 					
-					jsonCollection[foundLetterId].found = 1;
+					Ti.API.info('checkId : ' + foundLetterId);
+					
+					Alloy.Globals.jsonCollection[foundLetterId-1].found = 1;
 
 					foundLetterId++;
 					getFound();
@@ -191,19 +202,23 @@ function checkLetter(letterToCheck) {
 //-----------------------------------------------------------
 function allLetters() {
 	try {
-		if (foundLetterId > 9) { //foundJSON.length == 9) { //word.length == 
-			Ti.API.info('hittade : ' + JSON.stringify(foundJSON));
-			
+		if (foundLetterId > 9) { 			
 			$.txtLetter.hide();
 			$.txtLetter.height = 0;
 			
 			$.lblLetters.hide();
 			$.lblLetters.height = 0;
 			
+			$.horizontalView.hide();
+			$.horizontalView.height = 0;
+			
 			$.viewNext.hide();
 			$.viewNext.height = 0;
 			
+			$.lblnextClue.hide();
 			$.lblnextClue.height = 0;
+			
+			$.nextClue.hide();
 			$.nextClue.height = 0;
 			
 			$.btnStartQuiz.height = 0;
@@ -244,19 +259,23 @@ function checkWord() {
 
 			$.lblInfoText.text = "Du hittade det rätta ordet!";
 
-			$.txtLetter.hide();
-			$.txtLetter.height = '0dp';
-
-			$.lblLetters.hide();
-			$.lblLetters.height = '0dp';
+			// $.txtLetter.hide();
+			// $.txtLetter.height = '0dp';
+// 
+			// $.lblLetters.hide();
+			// $.lblLetters.height = '0dp';
 
 			$.lblCollectedLetters.text = '';
 			$.lblCollectedLetters.hide();
 
-			$.wordView.visible = false;
+			$.wordView.hide();
 			$.wordView.height = 0;
-			$.horizontalView.visible = false;
-			$.horizontalView.height = 0;
+			
+			$.txtWord.hide();
+			$.txtWord.height = 0;
+			
+			$.lblWord.hide();
+			$.lblWord.height = 0;
 
 			stopGame();
 			startOver();
