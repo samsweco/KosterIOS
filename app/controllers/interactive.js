@@ -192,6 +192,10 @@ function checkLetter(letterToCheck) {
 	}
 }
 
+// function stepBack(){
+	// loadClue(foundLetterId-1);
+// }
+
 //-----------------------------------------------------------
 // Kontrollerar om man fått ihop alla bokstäver. Om man hittat / alla bokstäver göms och släcks rätt labels och textfields
 //-----------------------------------------------------------
