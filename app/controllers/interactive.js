@@ -67,7 +67,7 @@ function startInteractive() {
 			$.horizontalView.height = Ti.UI.SIZE;
 
 			getUserPos('letter');
-			loadClue(foundJSON.length + 1);
+			loadClue(foundLetterId);
 			interactiveGPS = true;
 
 		} else {
@@ -150,7 +150,7 @@ function checkLetter(letterToCheck) {
 			messageDialog.buttonNames = ['Stäng'];
 			
 			messageDialog.show();
-		} else if (letterToCheck.length < 1) {
+		} else if (letterToCheck.length < 1 && letterToCheck.length == " ") {
 			messageDialog.message = "Man måste skriva in en bokstav.";
 			messageDialog.title = 'Ojdå, nu blev det fel';
 			messageDialog.buttonNames = ['Stäng'];
@@ -178,7 +178,7 @@ function checkLetter(letterToCheck) {
 					Alloy.Globals.jsonCollection[foundLetterId-1].found = 1;
 
 					foundLetterId++;
-					getFound();
+					foundJSON.push(' ' + letterToCheck);
 					loadClue(foundLetterId);
 					
 					$.lblCollectedLetters.text = 'Bokstäver:  ' + foundJSON;
@@ -253,13 +253,7 @@ function checkWord() {
 			$.lblWelcome.fontSize = '30dp';
 
 			$.lblInfoText.text = "Du hittade det rätta ordet!";
-
-			// $.txtLetter.hide();
-			// $.txtLetter.height = '0dp';
-// 
-			// $.lblLetters.hide();
-			// $.lblLetters.height = '0dp';
-
+			
 			$.lblCollectedLetters.text = '';
 			$.lblCollectedLetters.hide();
 
@@ -273,7 +267,6 @@ function checkWord() {
 			$.lblWord.height = 0;
 
 			stopGame();
-			startOver();
 			interactiveGPS = false;
 		} else if(wrongWord == 3){
 			alertDialog.message = "Nu blev det fel. Vill du kontrollera dina bokstäver? Det här är de korrekta: " + correctLetters;
@@ -289,7 +282,7 @@ function checkWord() {
 }
 
 Titanium.App.addEventListener('close', function() {
-	startOver();
+	Alloy.Globals.stopGame();
 });
 
 //-----------------------------------------------------------
