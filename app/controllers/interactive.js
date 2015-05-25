@@ -92,10 +92,7 @@ function toNextClue() {
 
 		nextDialog.addEventListener('click', function(e) {
 			if (e.index == 0) {
-				if (Alloy.Globals.jsonCollection[foundLetterId-1].found == 0) {
-					
-					Ti.API.info('nextID : ' + foundLetterId);
-					
+				if (Alloy.Globals.jsonCollection[foundLetterId-1].found == 0) {					
 					checkLetter(Alloy.Globals.jsonCollection[foundLetterId-1].letter);
 					$.lblCollectedLetters.text = 'Bokstäver:  ' + foundJSON;
 				}
@@ -177,8 +174,6 @@ function checkLetter(letterToCheck) {
 						'found' : 1
 					});
 					foundLettersModel.save();
-					
-					Ti.API.info('checkId : ' + foundLetterId);
 					
 					Alloy.Globals.jsonCollection[foundLetterId-1].found = 1;
 
