@@ -13,9 +13,9 @@ Alloy.Globals.hotspotJSONobj = hotspotJSONobj;
 //-----------------------------------------------------------
 var lettersModel = Alloy.Models.letterModel;
 var foundLettersModel = Alloy.Models.foundLettersModel;
-var letterCollection = Alloy.Collections.letterModel;
-letterCollection.fetch();
-var letterJSON = letterCollection.toJSON();
+// var letterCollection = Alloy.Collections.letterModel;
+// letterCollection.fetch();
+// var letterJSON = letterCollection.toJSON();
 
 //-----------------------------------------------------------
 // Hämtar användarens position och startar location-event
@@ -187,16 +187,14 @@ function userIsNearLetter() {
 			buttonNames : ['Gå till bokstavsjakten', 'Stäng']
 		}); 
 
-		for (var isnear = 0; isnear < Alloy.Globals.jsonCollection.lenght; isnear++) {
+		for (var isnear = 0; isnear < Alloy.Globals.jsonCollection.length; isnear++) {
 			if (Alloy.Globals.jsonCollection[isnear].alerted == 0){
 				
-				Ti.API.info('inne!!!!!!');
+				var lat = Alloy.Globals.jsonCollection[isnear].latitude;
+				var lon = Alloy.Globals.jsonCollection[isnear].longitude;
+				var letterradius = Alloy.Globals.jsonCollection[isnear].radius;
 				
-				lat = Alloy.Globals.jsonCollection[isnear].latitude;
-				lon = Alloy.Globals.jsonCollection[isnear].longitude;
-				var radius = Alloy.Globals.jsonCollection[isnear].radius;
-				
-				if (isInsideRadius(lat, lon, radius)) {
+				if (isInsideRadius(lat, lon, letterradius)) {
 					var clue = Alloy.Globals.jsonCollection[isnear].clue;
 					
 					message.message = clue;
@@ -237,8 +235,7 @@ function playSound() {
 //-----------------------------------------------------------
 function addClueZone() {
 	try {
-		letterCollection.fetch();
-		var zoneJSON = letterCollection.toJSON();
+		var zoneJSON = Alloy.Globals.jsonCollection;
 
 		for (var c = 0; c < zoneJSON.length; c++) {
 			var markerAnnotation = MapModule.createAnnotation({
@@ -270,8 +267,6 @@ function getFound() {
 		for (var f = 0; f < foundLetters.length; f++) {
 			foundJSON.push(' ' + foundLetters[f].letter);
 		}
-		
-		// return foundJSON;
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - getFound");
 	}

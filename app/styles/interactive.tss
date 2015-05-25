@@ -41,7 +41,6 @@
 }
 
 "#showFamilyTrail": {
-	top: '0dp',
 	height: '45%',
 	width: Titanium.UI.FILL
 }

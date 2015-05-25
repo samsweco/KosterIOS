@@ -14,7 +14,7 @@ try {
 	var letterCollection = Alloy.Collections.letterModel;
 	letterCollection.fetch();
 	jsonCollection = letterCollection.toJSON();
-	Alloy.Globals.jsonCollection = jsonCollection;
+	Alloy.Globals.jsonCollection = jsonCollection;	
 } catch(e) {
 	newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 }
