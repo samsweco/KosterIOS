@@ -157,8 +157,8 @@ function checkLetter(letterToCheck) {
 			
 			messageDialog.show();
 		} else {
-			messageDialog.message = "Vill du spara bokstaven " + letterToCheck + "?";
-			messageDialog.title = 'Spara bokstav';
+			messageDialog.message = "Vill du spara bokstaven " + letterToCheck + " och gå vidare till nästa ledtråd?";
+			messageDialog.title = 'Bra, du hittade en bokstav!';
 			messageDialog.buttonNames = ['Ja, jag vill spara!', 'Stäng'];
 			
 			messageDialog.addEventListener('click', function(e) {

@@ -16,20 +16,26 @@
 	height: '93%'
 }
 
-"#firstLbl": {
-	top: '15dp'
-}
-
-"#secondLbl": {
-	top: '5dp'
-}
-
 ".lblFrontText": {
-	color: "white",
+	color: 'white',
 	right: '20dp',
-	left: '40dp',
+	left: '20dp',
+	top: '5dp',
 	font: {
 		fontSize: '14dp',
 		fontFamily: 'Raleway-Light'
 	}
 }
+
+"#lblView": {
+	height: '25%',
+	width: '80%',
+	top: '10dp',
+	left: '10%',
+	right: '10%',
+	borderRadius: 15,
+	layout: 'vertical',
+	backgroundColor: 'gray',
+	opacity: 0.3
+}
+

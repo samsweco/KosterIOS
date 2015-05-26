@@ -12,8 +12,11 @@
 			<Window id="koster" backgroundImage="/pics/front.png" navBarHidden="true">
 				<View class="headView">
 					<ImageView class="imgKoster" image="/pics/kosterhavet_logga.png"></ImageView>
-					<Label id="firstLbl" class="lblFrontText">Välkommen till Kosterhavet!</Label>
-					<Label id="secondLbl" class="lblFrontText">Upptäck den vackra naturen i Kosterhavet och ta en promenad bland klapperstensfält och strandängar.</Label>
+					<View id="lblView">
+						
+						<!-- <Label id="firstLbl" class="lblFrontText">Välkommen till Kosterhavet!</Label>
+						<Label id="secondLbl" class="lblFrontText">Upptäck den vackra naturen i Kosterhavet och ta en promenad bland klapperstensfält och strandängar.</Label> -->
+					</View>
 				</View>
 			</Window>
 		</Tab>
