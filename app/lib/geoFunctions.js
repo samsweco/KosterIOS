@@ -45,6 +45,7 @@ function getUserPos(type) {
 var addLetterLocation = function(e) {
 	if (!e.error) {
 		setUserPosition(e.coords, 'letter');
+		currentLocationFinder();
 	}
 };
 
@@ -88,6 +89,20 @@ function setUserPosition(userCoordinates, type) {
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - set userPosition");
 	}
+}
+
+function currentLocationFinder(){
+    Titanium.Geolocation.getCurrentPosition(function(e){
+        var currentRegion={
+            latitude: e.coords.latitude,
+            longitude: e.coords.longitude,
+            animate:true,
+            latitudeDelta: 0.002,
+            longitudeDelta: 0.002
+        };
+        
+        interactiveMap.setLocation(currentRegion);
+    });
 }
 
 //-----------------------------------------------------------
