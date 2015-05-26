@@ -45,7 +45,7 @@
 	height: '45dp',
 	width: '90%',
 	backgroundColor: 'white',
-	opacity: 0.7,
+	// opacity: 0.9,
 	left: '5%',
 	right: '5%',
 	borderRadius: 10,
