@@ -35,7 +35,17 @@
 	right: '10%',
 	borderRadius: 15,
 	layout: 'vertical',
-	backgroundColor: 'gray',
-	opacity: 0.3
+	backgroundColor: 'white',
+	opacity: "0.3"
 }
 
+"#btnBoat": {
+	height: '35dp',
+	width: '80%',
+	backgroundColor: 'white',
+	opacity: "0.3",
+	left: '10%',
+	right: '10%',
+	borderRadius: 10,
+	color: 'black'
+}

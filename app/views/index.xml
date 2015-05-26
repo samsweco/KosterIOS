@@ -13,10 +13,10 @@
 				<View class="headView">
 					<ImageView class="imgKoster" image="/pics/kosterhavet_logga.png"></ImageView>
 					<View id="lblView">
-						
-						<!-- <Label id="firstLbl" class="lblFrontText">Välkommen till Kosterhavet!</Label>
-						<Label id="secondLbl" class="lblFrontText">Upptäck den vackra naturen i Kosterhavet och ta en promenad bland klapperstensfält och strandängar.</Label> -->
+						<Label id="firstLbl" class="lblFrontText">Välkommen till Kosterhavet!</Label>
+						<Label id="secondLbl" class="lblFrontText">Upptäck den vackra naturen i Kosterhavet och ta en promenad bland klapperstensfält och strandängar.</Label>
 					</View>
+					<Button id="btnBoat">Att läsa under båtresan</Button>
 				</View>
 			</Window>
 		</Tab>
