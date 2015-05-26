@@ -16,3 +16,20 @@
 	width: Titanium.UI.FILL,
 	bottom : 0
 }
+
+"#viewMessage": {
+	height : '50dp',
+	width : Ti.UI.SIZE,
+	backgroundColor : 'white',
+	opacity : 0.5,
+	visible: true
+}
+
+"#lblMessage": {
+	color: 'black',
+	font: {
+		fontFamily: 'Raleway-Light',
+		fontSize: 14
+	},
+	textAlign: 'center'
+}

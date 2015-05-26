@@ -26,8 +26,8 @@ function setRowData() {
 		var tableViewData = [];
 		var rows = trailsCollection.toJSON();
 
-		for (var i = rows.length; i--; ) {
-
+		for (var i = 0; i < rows.length; i++) {
+			if(rows[i].id != 8){
 			var row = Ti.UI.createTableViewRow({
 				layout : 'horizontal',
 				id : rows[i].id,
@@ -98,6 +98,7 @@ function setRowData() {
 			row.add(labelView);
 
 			tableViewData.push(row);
+		}
 		}
 		$.table.data = tableViewData;
 	} catch(e) {

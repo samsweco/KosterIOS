@@ -55,13 +55,13 @@ function startInteractive() {
 			$.lblCollectedLetters.text = 'Bokstäver: ';
 
 			$.viewNext.show();
-			$.viewNext.height = '60dp';
+			$.viewNext.height = '50dp';
 			
 			$.lblnextClue.show();
-			$.lblnextClue.height = '30dp';
+			$.lblnextClue.height = '25dp';
 			
 			$.nextClue.show();
-			$.nextClue.height = '30dp';
+			$.nextClue.height = '25dp';
 			
 			$.horizontalView.show();
 			$.horizontalView.height = Ti.UI.SIZE;

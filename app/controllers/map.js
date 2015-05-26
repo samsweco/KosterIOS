@@ -18,6 +18,7 @@ var trailsCollection = getTrailsCollection();
 // Onload-funktioner för kartan
 //-----------------------------------------------------------
 displayBigMap();
+showMessageView();
 
 //-----------------------------------------------------------
 // Visar kartan
@@ -118,4 +119,18 @@ function closeMenu(){
 	$.widgetView.height = '0dp';
 }
 Alloy.Globals.closeMenu = closeMenu;
+
+
+
+function showMessageView(){
+	$.viewMessage.show();
+	
+	setTimeout(function(){
+		$.viewMessage.hide({
+			opacity : 0,
+			duration : 500
+		});
+	}, 1000);
+}
+
 

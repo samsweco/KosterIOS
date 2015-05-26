@@ -133,3 +133,6 @@ Titanium.App.addEventListener('close', function() {
 	} 
 });
 
+Titanium.App.addEventListener('open', function() {
+	alert('öppnas'); 
+});
