@@ -240,9 +240,7 @@ function addClueZone() {
 			var zoneAnnotation = MapModule.createAnnotation({
 				latitude : zoneJSON[c].latitude,
 				longitude : zoneJSON[c].longitude,
-				image : '/images/1green.png',
-				title : 'Här hittar du bokstav ' + (c+1) + '!',
-				rightButton : ''
+				image : '/images/' + (c+1) + 'green.png'
 			});
 
 			interactiveMap.addAnnotation(zoneAnnotation);
