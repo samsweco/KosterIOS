@@ -22,6 +22,7 @@ var trailsCollection = getTrailsCollection();
 //-----------------------------------------------------------
 // Onload
 //-----------------------------------------------------------
+detailMap.removeAllAnnotations();
 showMapDetail();
 getSpecificIconsForTrail(trailId);
 
