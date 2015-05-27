@@ -92,7 +92,7 @@ function getLink(e) {
 	try {
 		var rowId = e.rowData.id;
 		
-		if(rowId != 3 && rowId != 4){			
+		// if(rowId != 3 && rowId != 4){			
 			urlCollection.fetch({
 				query : query9 + rowId + '"'
 			});
@@ -101,15 +101,15 @@ function getLink(e) {
 			var web = jsonObj[0].url;
 
 			openLink(web); 
-		} else if(rowId == 3) {
-			var pdfView = Ti.UI.createWindow({
-				height: Ti.UI.SIZE,
-				width: Ti.UI.FILL,
-				backgroundImage: "/pdf/Regler för Kosterhavets nationalpark.pdf"
-			});
-			
-			Alloy.CFG.tabs.activeTab.open(pdfView);
-		}
+		// } else if(rowId == 3) {
+			// var pdfView = Ti.UI.createWindow({
+				// height: Ti.UI.SIZE,
+				// width: Ti.UI.FILL,
+				// backgroundImage: '/pdf/Regler för Kosterhavets nationalpark.png'
+			// });
+// 			
+			// Alloy.CFG.tabs.activeTab.open(pdfView);
+		// }
 		
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Informationssidan");
