@@ -253,13 +253,11 @@ function changeLabel() {
 }
  
 
-
-// BARA TEST, INGET FUNKAR
-
  var cleanup = function() {
 	$.destroy();
+	$.off();
 	$.hikeDetailWin = null;
-	Ti.API.info('stäng - destroy');
+	Ti.API.info('stäng traildetail');
 };
 
-$.hikeDetailWin.addEventListener('close', cleanup);
+$.detailwin.addEventListener('close', cleanup);

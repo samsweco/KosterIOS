@@ -73,10 +73,11 @@ var mediaCollection = getMediaCollection();
 	}
 }
 
-$.clean = function cleanup() {
+var cleanup = function() {
 	$.destroy();
 	$.off();
-	$.hotspotDetail = null;
+	$.hotspotWin = null;
+	Ti.API.info('stäng hotspotDetail');
 };
 
-$.hotspotWin.addEventListener('close', $.clean);
+$.detailwin.addEventListener('close', cleanup);

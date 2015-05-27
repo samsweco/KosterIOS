@@ -105,8 +105,9 @@ function closeDetailMenu(){
 
 // BARA TEST, INGET FUNKAR TROR JAG
 
- var cleanup = function cleanup() {
+ var cleanup = function() {
 	$.destroy();
+	$.off();
 	$.detailwin = null;
 	Ti.API.info('stäng mapdetail');
 };
