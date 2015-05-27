@@ -5,6 +5,8 @@ $.tabs.open();
 Alloy.CFG.tabs = $.tabs;
 exports.toInteractive = toInteractive;
 
+var infoVisible = false;
+
 //-----------------------------------------------------------
 // Metoder för navigeringen
 //-----------------------------------------------------------
@@ -139,4 +141,12 @@ function openBoat(){
 
 	var trailDetail = Alloy.createController("trailDetail", args).getView();
 	Alloy.CFG.tabs.activeTab.open(trailDetail);
+}
+
+function showInfo(){
+	if(infoVisible){
+		$.infoView.show();
+		$.infoView.height = '50%';
+	}
+	
 }

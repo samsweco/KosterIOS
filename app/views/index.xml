@@ -9,8 +9,10 @@
 	<Collection src="infospotCoordinatesModel" />
 	<TabGroup id="tabs" backgroundColor="#fff" height="100%" tintColor="#0098C3" fontFamily="Raleway-Medium">
 		<Tab id="koster" class="tabbar" title="Hem" icon="/images/kosterStarMenu.png" >
-			<Window id="koster" backgroundImage="/pics/front.png" navBarHidden="true">
+			<Window id="koster" backgroundImage="/pics/front.png" navBarHidden="true">				
 				<View class="headView">
+					<Button id="btnAbout" onClick="showInfo">Om appen</Button>
+					
 					<ImageView class="imgKoster" image="/pics/kosterhavet_logga.png"></ImageView>
 					<View id="lblView">
 						<Label id="firstLbl" class="lblFrontText">Välkommen till Kosterhavet!</Label>
@@ -20,7 +22,7 @@
 						<ImageView id="boatPikto" image="/images/farjelage.png"></ImageView>
 						<Button id="btnBoat" onClick="openBoat">Båtresan</Button>
 					</View>
-				</View>
+				</View>				
 			</Window>
 		</Tab>
 		<Tab id="hikeTab" class="tabbar" title="Vandra" icon="/images/hikeMenu.png">

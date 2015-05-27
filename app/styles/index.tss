@@ -4,7 +4,7 @@
 }
 
 ".imgKoster": {
-	top: '7%',
+	top: '5%',
 	center: '50%',
 	height: '90dp',
 	width: Titanium.UI.SIZE
@@ -29,10 +29,10 @@
 
 "#lblView": {
 	height: '15%',
-	width: '90%',
+	width: '80%',
 	top: '7dp',
-	left: '5%',
-	right: '5%',
+	left: '15dp',
+	right: '10%',
 	layout: 'vertical'
 }
 
@@ -50,8 +50,8 @@
 	width: '35%',
 	backgroundColor: 'white',
 	opacity: 0.9,
-	left: '10%',
-	right: '50%',
+	left: '32%',
+	right: '32%',
 	borderRadius: 7,
 	color: '#0098C3',
 	top: '15dp',
@@ -61,4 +61,26 @@
 "#boatPikto": {
 	top: '5dp',
 	left: '5%'
+}
+
+"#infoView": {
+	backgroundColor: 'white',
+	top: '10dp',
+	width: '80%',
+	height: 0, //height: '50%',
+	borderRadius: 10,
+	left: '10%',
+	right: '10%',
+	opacity: 0.9,
+	visible: false
+}
+
+"#btnAbout": {
+	// backgroundColor: '#0098C3',
+	// color: 'white',
+	// borderRadius: 30,
+	height: '35dp',
+	width: '100dp',
+	top: '10dp',
+	left: '5dp'
 }
