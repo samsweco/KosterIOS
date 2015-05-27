@@ -1,3 +1,5 @@
 <Alloy>
-	<Label>I'm the default widget</Label>
+	<ScrollView id="infoView">
+		<Label>I'm the default widget</Label>
+	</ScrollView>
 </Alloy>

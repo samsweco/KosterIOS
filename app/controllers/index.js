@@ -144,9 +144,13 @@ function openBoat(){
 }
 
 function showInfo(){
-	if(infoVisible){
-		$.infoView.show();
-		$.infoView.height = '50%';
+	if(!infoVisible){
+		$.widgetInfo.show();
+		$.widgetInfo.height = '50%';
+		infoVisible = true;
+	} else {
+		$.widgetInfo.hide();
+		$.widgetInfo.height = 0;
+		infoVisible = false;
 	}
-	
 }

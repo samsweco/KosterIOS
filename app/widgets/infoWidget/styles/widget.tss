@@ -7,3 +7,15 @@
 	height: Ti.UI.SIZE,
 	width: Ti.UI.SIZE
 }
+
+"#infoView": {
+	backgroundColor: 'white',
+	top: '10dp',
+	width: '80%',
+	height: '50%',
+	borderRadius: 10,
+	left: '10%',
+	right: '10%',
+	opacity: 0.9
+	// visible: false
+}

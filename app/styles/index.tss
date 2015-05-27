@@ -63,24 +63,17 @@
 	left: '5%'
 }
 
-"#infoView": {
-	backgroundColor: 'white',
-	top: '10dp',
-	width: '80%',
-	height: 0, //height: '50%',
-	borderRadius: 10,
-	left: '10%',
-	right: '10%',
-	opacity: 0.9,
-	visible: false
-}
-
 "#btnAbout": {
 	// backgroundColor: '#0098C3',
 	// color: 'white',
 	// borderRadius: 30,
 	height: '35dp',
 	width: '100dp',
-	top: '10dp',
+	top: '15dp',
 	left: '5dp'
+}
+
+"#widgetInfo": {
+	height: 0,
+	visible: false
 }
