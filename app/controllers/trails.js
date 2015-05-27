@@ -134,6 +134,7 @@ function showTrailDetails(e) {
 
 		var trailDetail = Alloy.createController("trailDetail", args).getView();
 		Alloy.CFG.tabs.activeTab.open(trailDetail);
+		Ti.API.info("en gång");
 		// $.winName.open(trailDetail);
 
 	// } catch(e) {

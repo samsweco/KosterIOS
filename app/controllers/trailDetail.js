@@ -39,7 +39,7 @@ changeLabel();
 //-----------------------------------------------------------
 function zoomMapTrail() {
 
-	Ti.API.info('i trailDetail');
+	Ti.API.info('en gång i trail detail');
 	// try {
 		var trail = {
 			id : args.id,
