@@ -38,6 +38,7 @@ changeLabel();
 // Hämtar info för den vandringsled som ska öppnas i detaljvy
 //-----------------------------------------------------------
 function zoomMapTrail() {
+
 	Ti.API.info('i trailDetail');
 	// try {
 		var trail = {
@@ -51,6 +52,7 @@ function zoomMapTrail() {
 		//Alloy.CFG.tabs.activeTab.open(Alloy.createController("mapDetail", trail).getView());
 		var mapDetail = Alloy.createController("mapDetail", trail).getView();
 		Alloy.CFG.tabs.activeTab.open(mapDetail);
+		cleanup();
 // 		
 	// } catch(e) {
 		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled - zoomMapTrail");
