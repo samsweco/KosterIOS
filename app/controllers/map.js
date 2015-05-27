@@ -61,30 +61,6 @@ function showTrail(myId) {
 }
 
 //-----------------------------------------------------------
-// Öppnar hotspotDetail med info om vald hotspot
-//-----------------------------------------------------------
-// function showHotspot(myId) {
-	// try {
-		// hotspotCollection.fetch({
-			// query : query12 + myId + '"'
-		// });
-// 
-		// var jsonObjHot = hotspotCollection.toJSON();
-// 
-		// var hotspotTxt = {
-			// title : myId,
-			// infoTxt : jsonObjHot[0].infoTxt,
-			// id : jsonObjHot[0].id
-		// };
-// 
-		// var hotspotDetail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
-		// Alloy.CFG.tabs.activeTab.open(hotspotDetail);
-	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Kartan");
-	// }
-// }
-
-//-----------------------------------------------------------
 // Eventlistener för klick på trail eller hotspot
 //-----------------------------------------------------------
 map.addEventListener('click', function(evt) {

@@ -19,6 +19,10 @@ try {
 if(args.title == 'Äventyrsleden'){
 	$.btnGame.show();
 	$.btnGame.height = '20dp';
+	
+	$.btnGame.addEventListener('click', function(){
+		Alloy.CFG.tabs.setActiveTab(3);
+	});
 }
 
 //-----------------------------------------------------------
