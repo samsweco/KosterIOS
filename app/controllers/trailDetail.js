@@ -1,4 +1,6 @@
 Ti.include("SQL.js");
+Ti.include("mapFunctions.js");
+
 var args = arguments[0] || {};
 
 try {
