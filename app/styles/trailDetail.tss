@@ -118,5 +118,7 @@
 
 "#btnGame": {
 	visible: false,
-	height: 0
+	height: 0,
+	top: '10dp',
+	left: '15dp'
 }

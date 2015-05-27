@@ -40,7 +40,7 @@
 
 "#btnBoat": {
 	left: '10dp',
-	top: '7dp',
+	top: '4dp',
 	font: {
 		fontSize: '14dp',
 		fontFamily: 'Raleway-Medium'
@@ -48,12 +48,12 @@
 }
 
 "#boatBtnView": {
-	height: '45dp',
-	width: '35%',
+	height: '35dp',
+	width: '80%',
 	backgroundColor: 'white',
 	opacity: 0.9,
-	left: '32%',
-	right: '32%',
+	left: '10%',
+	right: '10%',
 	borderRadius: 7,
 	color: '#0098C3',
 	top: '15dp',
@@ -61,6 +61,6 @@
 }
 
 "#boatPikto": {
-	top: '10dp',
-	left: '5dp'
+	top: '5dp',
+	left: '30%'
 }
