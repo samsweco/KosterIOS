@@ -2,7 +2,6 @@ Ti.include("SQL.js");
 Ti.include("mapFunctions.js");
 
 var args = arguments[0] || {};
-
 try {
 	$.lblTrailName.text = args.title || 'Default Name';
 	$.lblTrailLength.text = args.length + " kilometer" || 'Default Length';
@@ -11,6 +10,8 @@ try {
 
 	var trailId = args.id;
 	globalTrailID = trailId;
+	
+	
 
 } catch(e) {
 	newError("Något gick fel när sidan skulle laddas, prova igen!", "trailDetail - set labels");
@@ -37,7 +38,8 @@ changeLabel();
 // Hämtar info för den vandringsled som ska öppnas i detaljvy
 //-----------------------------------------------------------
 function zoomMapTrail() {
-	try {
+	Ti.API.info('i trailDetail');
+	// try {
 		var trail = {
 			id : args.id,
 			title : args.title,
@@ -46,12 +48,13 @@ function zoomMapTrail() {
 			zoomlon : args.zoomlon
 		};
 
+		//Alloy.CFG.tabs.activeTab.open(Alloy.createController("mapDetail", trail).getView());
 		var mapDetail = Alloy.createController("mapDetail", trail).getView();
 		Alloy.CFG.tabs.activeTab.open(mapDetail);
-		
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled");
-	}	
+// 		
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled - zoomMapTrail");
+	// }	
 }
 
 //-----------------------------------------------------------
@@ -100,7 +103,7 @@ function selectTrailPics() {
 			$.slideShowTrails.addView(backgroundView);
 		}
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled-selectTrailPics");
 	}
 }
 
@@ -157,7 +160,7 @@ function LoadHotspotList() {
 		$.hotspotTable.data = tableViewData;
 
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled-LoadHotspotList");
 	}
 }
 
@@ -177,7 +180,7 @@ function getHotspotData() {
 		return jsonObj;
 
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled - getHotspotData");
 	}
 }
 
@@ -187,26 +190,9 @@ function getHotspotData() {
 function sendToHotspot(e) {
 	try {
 		showHotspot(e.rowData.id);
-		// var hotspotCollection = Alloy.Collections.hotspotModel;
-		// hotspotCollection.fetch({
-			// query : query16 + name + '"'
-		// });
-// 
-		// var jsonObj = hotspotCollection.toJSON();
-		// var txt = jsonObj[0].infoTxt;
-		// var idnr = jsonObj[0].id;
-// 
-		// var hotspotTxt = {
-			// title : name,
-			// infoTxt : txt,
-			// id : idnr
-		// };
-// 
-		// var hotspotDetailTrail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
-		// Alloy.CFG.tabs.activeTab.open(hotspotDetailTrail);
 
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled - SendToHotspot");
 	}
 }
 
@@ -230,7 +216,7 @@ function showIcons() {
 			$.iconrow.add(covericon);
 		}
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled-showIcons");
 	}
 }
 
@@ -250,7 +236,7 @@ function getIcons() {
 		return infoTrails;
 
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled-getIcons");
 	}
 }
 

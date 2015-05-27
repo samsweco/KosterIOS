@@ -3,6 +3,7 @@ Ti.include("SQL.js");
 var infospotArray = [];
 var markerHotspotArray = [];
 var markerSpecHotspotArray = [];
+var hotspotDetail;
 
 //-----------------------------------------------------------
 // Hämtar trailsCollection
@@ -44,11 +45,31 @@ function showMap(maptype) {
 function showDetailMap(maptype, id, name, color) {
 	try {
 		setSpecificRoute(maptype, id, name, color);
+		
+		maptype.addEventListener('click', evtList);
+		
 		return maptype;
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - showDetailMap");
 	}
 }
+
+//-----------------------------------------------------------
+// Eventlistener för klick på hotspot
+//-----------------------------------------------------------
+
+var evtList = function(evt){
+Ti.API.info('evt list innan ' + evt.annotation.id);
+ if (evt.clicksource == 'rightButton') 
+ 		showHotspot(evt.annotation.id);		
+			 Ti.API.info('evt list efter ' + evt.annotation.id);
+			// hotspotDetail = null;
+		};
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Detaljkartan");
+	// }
+
+
 
 //-----------------------------------------------------------
 // sätter en vald vandingsled
@@ -223,7 +244,7 @@ function getFile(id) {
 // Öppnar hotspotDetail med info om vald hotspot
 //-----------------------------------------------------------
 function showHotspot(myId) {
-	try {
+	// try {
 		hotspotCollection.fetch({
 			query : query2 + myId + '"'
 		});
@@ -236,14 +257,12 @@ function showHotspot(myId) {
 			id : jsonObjHot[0].id
 		};
 
-		var hotspotDetail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
-		Alloy.CFG.tabs.activeTab.open(hotspotDetail);
+		Alloy.CFG.tabs.activeTab.open(Alloy.createController("hotspotDetail", hotspotTxt).getView());
 		
-		hotspotDetail.close();
 		hotspotDetail = null;
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - showHotspot");
-	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - showHotspot");
+	// }
 }
 
 //-----------------------------------------------------------

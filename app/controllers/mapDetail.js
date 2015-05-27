@@ -33,56 +33,6 @@ function showMapDetail() {
 	Ti.API.info("show map detail");
 }
 
-//-----------------------------------------------------------
-// Eventlistener för klick på hotspot
-//-----------------------------------------------------------
-// var eventListener = function() {};
-// myView.addEventListener('click',  eventListener);
-//  
-// //now you can remove it
-// myView.removeEventListener('click',  eventListener);
-
-var evtList = function(evt){
-Ti.API.info('evt list innan');
- if (evt.clicksource == 'rightButton' && lastClicked != evt.annotation.id) 
- 		showHotspot(evt.annotation.id);
-// 			
-			 Ti.API.info('evt list efter');
-// 
-			// var hotspotCollection = Alloy.Collections.hotspotModel;
-			// hotspotCollection.fetch({
-				// query : query13 + evt.annotation.id + '"'
-			// });
-// 
-			// var jsonHotspObj = hotspotCollection.toJSON();
-// 
-			// var hotspotTxt = {
-				// title : evt.annotation.id,
-				// infoTxt : jsonHotspObj[0].infoTxt,
-				// id : jsonHotspObj[0].id
-			// };
-// 
-			// if (hotspotDetail == null) {
-				// hotspotDetail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
-				// Alloy.CFG.tabs.activeTab.open(hotspotDetail);
-				// Ti.API.info('create');
-				// lastClicked = evt.annotation.id;
-			// } 
-			// else {
-				// //Går aldrig in i open... därför aldrig hotspotDetail null?
-				// Alloy.CFG.tabs.activeTab.open(hotspotDetail, hotspotTxt);
-				// Ti.API.info('open');
-			// }
-// 
-			// hotspotDetail.close();
-			 hotspotDetail = null;
-		};
-	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Detaljkartan");
-	// }
-
-
-
 
 //-----------------------------------------------------------
 // Switch för att aktivera location-event för hotspots/sevärdheter
@@ -155,10 +105,10 @@ function closeDetailMenu(){
 
 // BARA TEST, INGET FUNKAR TROR JAG
 
-$.cleanup = function cleanup() {
+ var cleanup = function cleanup() {
 	$.destroy();
-	$.win = null;
+	$.detailwin = null;
 	Ti.API.info('stäng mapdetail');
 };
 
-$.win.addEventListener('close', $.cleanup);
+$.detailwin.addEventListener('close', cleanup);

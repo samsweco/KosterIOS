@@ -8,6 +8,10 @@ var picId = args.filename || "filename";
 
 setPics();
 
+
+
+Ti.API.info("Skapat en hotspotDetail-Controller");
+
 //-----------------------------------------------------------
 // Sätter bilder till bildspelet
 //-----------------------------------------------------------
@@ -24,7 +28,7 @@ function setPics() {
 //-----------------------------------------------------------
 function selectHotspotPics() {
 	try {
-		var mediaCollection = getMediaCollection();
+var mediaCollection = getMediaCollection();
 		mediaCollection.fetch({
 			query : query6 + hotspotId + '"'
 		});
@@ -69,14 +73,10 @@ function selectHotspotPics() {
 	}
 }
 
-
-
-// TA BORT SEN?? 
-
-
 $.clean = function cleanup() {
 	$.destroy();
+	$.off();
 	$.hotspotDetail = null;
 };
 
-$.hotspotDetail.addEventListener('close', $.clean);
+$.hotspotWin.addEventListener('close', $.clean);
