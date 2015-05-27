@@ -18,11 +18,10 @@
 
 ".lblFrontText": {
 	color: 'white',
-	// right: '20dp',
-	// left: '20dp',
 	left : '5dp',
 	right : '10dp',
 	top: '5dp',
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
 	font: {
 		fontSize: '14dp',
 		fontFamily: 'Raleway-Medium'
@@ -30,25 +29,38 @@
 }
 
 "#lblView": {
-	height: '20%',
+	height: '15%',
 	width: '90%',
 	top: '7dp',
-	left: '10%',
-	right: '12%',
+	left: '5%',
+	right: '5%',
 	borderRadius: 15,
 	layout: 'vertical'
-	// backgroundColor: '#0098C3',
-	// opacity: 0.6
 }
 
 "#btnBoat": {
+	left: '10dp',
+	top: '7dp',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Raleway-Medium'
+	}
+}
+
+"#boatBtnView": {
 	height: '45dp',
-	width: '90%',
+	width: '35%',
 	backgroundColor: 'white',
-	// opacity: 0.9,
-	left: '5%',
-	right: '5%',
-	borderRadius: 10,
+	opacity: 0.9,
+	left: '32%',
+	right: '32%',
+	borderRadius: 7,
 	color: '#0098C3',
-	top: '150dp'
+	top: '15dp',
+	layout : 'horizontal'
+}
+
+"#boatPikto": {
+	top: '10dp',
+	left: '5dp'
 }

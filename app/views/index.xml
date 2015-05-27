@@ -16,7 +16,11 @@
 						<Label id="firstLbl" class="lblFrontText">Välkommen till Kosterhavet!</Label>
 						<Label id="secondLbl" class="lblFrontText">Upptäck den vackra naturen i Kosterhavet och ta en promenad bland klapperstensfält och strandängar.</Label>
 					</View>
-					<Button id="btnBoat" onClick="openBoat">Att läsa under båtresan</Button>
+					<View id="boatBtnView">
+						<ImageView id="boatPikto" image="/images/farjelage.png"></ImageView>
+						<Button id="btnBoat" onClick="openBoat">Båtresan</Button>
+					</View>
+					
 				</View>
 			</Window>
 		</Tab>
@@ -30,7 +34,7 @@
 				</RightNavButton>
 			</Window>
 		</Tab>
-		<Tab id="interactive" class="tabbar" title="Bokstavsjakten" icon="/images/quizMenu.png">
+		<Tab id="interactive" class="tabbar" title="Bokstavsjakt" icon="/images/quizMenu.png">
 			<Window id="interactiveWin" title="Bokstavsjakt" onOpen="toInteractive">
 			</Window>
 		</Tab>

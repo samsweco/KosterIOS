@@ -46,5 +46,8 @@
 }
 
 "Label": {
-	left : '15dp'
+	left : '15dp',
+	font: {
+		fontFamily: 'Raleway-Medium'
+	}
 }
