@@ -43,11 +43,11 @@ function showMapDetail() {
 // myView.removeEventListener('click',  eventListener);
 
 var evtList = function(evt){
-	showHotspot(evt.annotation.id);
-
-		// if (evt.clicksource == 'rightButton' && lastClicked != evt.annotation.id) {
+Ti.API.info('evt list innan');
+ if (evt.clicksource == 'rightButton' && lastClicked != evt.annotation.id) 
+ 		showHotspot(evt.annotation.id);
 // 			
-			// Ti.API.info('evt list efter');
+			 Ti.API.info('evt list efter');
 // 
 			// var hotspotCollection = Alloy.Collections.hotspotModel;
 			// hotspotCollection.fetch({
