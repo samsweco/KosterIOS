@@ -115,3 +115,8 @@
 	},
 	left: '15dp'
 }
+
+"#btnGame": {
+	visible: false,
+	height: 0
+}
