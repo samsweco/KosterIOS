@@ -260,4 +260,4 @@ function changeLabel() {
 	Ti.API.info('stäng traildetail');
 };
 
-$.detailwin.addEventListener('close', cleanup);
+$.hikeDetailWin.addEventListener('close', cleanup);

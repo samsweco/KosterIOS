@@ -80,4 +80,4 @@ var cleanup = function() {
 	Ti.API.info('stäng hotspotDetail');
 };
 
-$.detailwin.addEventListener('close', cleanup);
+$.hotspotWin.addEventListener('close', cleanup);

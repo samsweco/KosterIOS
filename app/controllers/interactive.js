@@ -297,3 +297,11 @@ interactiveMap.addEventListener('click', function(evt) {
 		showHotspot(evt.annotation.id);
 	}
 }); 
+
+var cleanup = function() {
+	$.destroy();
+	$.off();
+	$.interactiveWin = null;
+};
+
+$.interactiveWin.addEventListener('close', cleanup);
