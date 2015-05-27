@@ -62,6 +62,7 @@ $.posSwitch1.addEventListener('change', function(e) {
 //-----------------------------------------------------------
 function disHot(){
 	if ($.HotSwitch1.value == true) {
+		removeSpecHotspot();
 		displaySpecificMarkers(trailId, detailMap);
 		detailMap.addEventListener('click', evtList);	
 	} else {
