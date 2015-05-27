@@ -134,6 +134,7 @@ function showTrailDetails(e) {
 
 		var trailDetail = Alloy.createController("trailDetail", args).getView();
 		Alloy.CFG.tabs.activeTab.open(trailDetail);
+		// $.winName.open(trailDetail);
 
 	// } catch(e) {
 		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsleder");
