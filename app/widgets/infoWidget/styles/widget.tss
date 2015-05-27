@@ -1,21 +1,23 @@
 "Label": {
 	color: '#000',
 	font: {
-		fontSize: 18,
-		fontWeight: 'bold'
+		fontSize: 16,
+		fontFamily: 'Raleway-Light'
 	},
 	height: Ti.UI.SIZE,
-	width: Ti.UI.SIZE
+	width: Ti.UI.SIZE,
+	top: '5dp',
+	left: '10dp'
 }
 
 "#infoView": {
 	backgroundColor: 'white',
 	top: '10dp',
 	width: '80%',
-	height: '50%',
+	height: '80%',
 	borderRadius: 10,
 	left: '10%',
 	right: '10%',
-	opacity: 0.9
-	// visible: false
+	opacity: 0.9,
+	layout: 'vertical'
 }

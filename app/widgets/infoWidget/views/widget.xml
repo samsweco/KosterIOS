@@ -1,5 +1,5 @@
 <Alloy>
 	<ScrollView id="infoView">
-		<Label>I'm the default widget</Label>
+		<Label>Här ska det finnas text</Label>
 	</ScrollView>
 </Alloy>
