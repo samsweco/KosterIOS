@@ -22,6 +22,7 @@
 	layout: 'horizontal',
 	height: Titanium.UI.SIZE,
 	width: Titanium.UI.FILL,
+	left: '6%'
 }
 
 "#settingsView": {
@@ -33,7 +34,7 @@
 }
 
 ".switch": {
-	right: '15dp',
+	right: '13dp',
 	height: Titanium.UI.FILL,
 	width: Titanium.UI.FILL,
 	opacity : 1
@@ -46,7 +47,7 @@
 }
 
 "Label": {
-	left : '15dp',
+	left : '5dp',
 	font: {
 		fontFamily: 'Raleway-Medium'
 	}
