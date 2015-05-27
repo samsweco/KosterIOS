@@ -20,7 +20,6 @@
 						<ImageView id="boatPikto" image="/images/farjelage.png"></ImageView>
 						<Button id="btnBoat" onClick="openBoat">Båtresan</Button>
 					</View>
-					
 				</View>
 			</Window>
 		</Tab>

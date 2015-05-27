@@ -18,10 +18,9 @@
 
 ".lblFrontText": {
 	color: 'white',
-	left : '5dp',
-	right : '10dp',
+	left : '5%',
+	right : '5%',
 	top: '5dp',
-	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
 	font: {
 		fontSize: '14dp',
 		fontFamily: 'Raleway-Medium'
@@ -34,7 +33,6 @@
 	top: '7dp',
 	left: '5%',
 	right: '5%',
-	borderRadius: 15,
 	layout: 'vertical'
 }
 
@@ -49,11 +47,11 @@
 
 "#boatBtnView": {
 	height: '35dp',
-	width: '80%',
+	width: '35%',
 	backgroundColor: 'white',
 	opacity: 0.9,
 	left: '10%',
-	right: '10%',
+	right: '50%',
 	borderRadius: 7,
 	color: '#0098C3',
 	top: '15dp',
@@ -62,5 +60,5 @@
 
 "#boatPikto": {
 	top: '5dp',
-	left: '30%'
+	left: '5%'
 }

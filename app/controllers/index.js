@@ -122,7 +122,9 @@ function showMapMenu() {
 	}
 }
 
-
+//-----------------------------------------------------------
+// Skickar till båtleden från startsidan
+//-----------------------------------------------------------
 function openBoat(){
 	var args = {
 		id : 8,
