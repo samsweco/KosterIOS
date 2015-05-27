@@ -7,7 +7,6 @@
 	<Model src="letterModel" />
 	<Model src="foundLettersModel" />
 	<Collection src="infospotCoordinatesModel" />
-	
 	<Window id="win" backButtonTitle="Tillbaka" exitOnClose="true">
 		<RightNavButton>
 			<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMenu" />
@@ -25,6 +24,12 @@
 					<Label id="lblSetMypos" text="Visa min position"></Label>
 					<View class="switchClass">
 						<Switch id="posSwitch1" class="switch" value="false" titleOn="På" titleOff="Av"></Switch>
+					</View>
+				</View>
+				<View id="hotspotSwitchView" class="settingsHorizontalView">
+					<Label id="lblHotspot" text="Visa hotspots"></Label>
+					<View class="switchClass">
+						<Switch id="HotSwitch1" class="switch" value="false" titleOn="På" titleOff="Av" onChange="disHot"></Switch>
 					</View>
 				</View>
 			</View>

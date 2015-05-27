@@ -46,19 +46,19 @@ var eldplats = false;
 // Variabel för kartvyer
 //-----------------------------------------------------------
 var MapModule = require('ti.map');
-map = MapModule.createView({
+var map = MapModule.createView({
 	mapType : MapModule.HYBRID_TYPE,
 	animate : true,
 	height : '100%',
 	width : Ti.UI.FILL
 });
-detailMap = MapModule.createView({
+var detailMap = MapModule.createView({
 	mapType : MapModule.HYBRID_TYPE,
 	animate : true,
 	height : '100%',
 	width : Ti.UI.FILL
 });
-interactiveMap = MapModule.createView({
+var interactiveMap = MapModule.createView({
 	mapType : MapModule.HYBRID_TYPE,
 	animate : true,
 	height : '100%',

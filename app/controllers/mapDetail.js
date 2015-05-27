@@ -12,6 +12,8 @@ var zoomLon = args.zoomlon;
 var menuDetailVisible = false;
 var hotspotDetail = null;
 
+var lastClicked = null;
+
 //-----------------------------------------------------------
 // Hämtar trailsCollection
 //-----------------------------------------------------------
@@ -21,7 +23,6 @@ var trailsCollection = getTrailsCollection();
 // Onload
 //-----------------------------------------------------------
 showMapDetail();
-displaySpecificMarkers(trailId, detailMap);
 getSpecificIconsForTrail(trailId);
 
 //-----------------------------------------------------------
@@ -29,46 +30,59 @@ getSpecificIconsForTrail(trailId);
 //-----------------------------------------------------------
 function showMapDetail() {
 	$.mapDetailView.add(showDetailMap(detailMap, trailId, trailName, trailColor));
+	Ti.API.info("show map detail");
 }
 
 //-----------------------------------------------------------
 // Eventlistener för klick på hotspot
 //-----------------------------------------------------------
-detailMap.addEventListener('click', function(evt) {
-	
-	Ti.API.info('evt list');
-	
-	try {
-		if (evt.clicksource == 'rightButton') {
-			var hotspotCollection = Alloy.Collections.hotspotModel;
-			hotspotCollection.fetch({
-				query : query13 + evt.annotation.id + '"'
-			});
+// var eventListener = function() {};
+// myView.addEventListener('click',  eventListener);
+//  
+// //now you can remove it
+// myView.removeEventListener('click',  eventListener);
 
-			var jsonHotspObj = hotspotCollection.toJSON();
+var evtList = function(evt){
+	showHotspot(evt.annotation.id);
 
-			var hotspotTxt = {
-				title : evt.annotation.id,
-				infoTxt : jsonHotspObj[0].infoTxt,
-				id : jsonHotspObj[0].id
-			};
+		// if (evt.clicksource == 'rightButton' && lastClicked != evt.annotation.id) {
+// 			
+			// Ti.API.info('evt list efter');
+// 
+			// var hotspotCollection = Alloy.Collections.hotspotModel;
+			// hotspotCollection.fetch({
+				// query : query13 + evt.annotation.id + '"'
+			// });
+// 
+			// var jsonHotspObj = hotspotCollection.toJSON();
+// 
+			// var hotspotTxt = {
+				// title : evt.annotation.id,
+				// infoTxt : jsonHotspObj[0].infoTxt,
+				// id : jsonHotspObj[0].id
+			// };
+// 
+			// if (hotspotDetail == null) {
+				// hotspotDetail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
+				// Alloy.CFG.tabs.activeTab.open(hotspotDetail);
+				// Ti.API.info('create');
+				// lastClicked = evt.annotation.id;
+			// } 
+			// else {
+				// //Går aldrig in i open... därför aldrig hotspotDetail null?
+				// Alloy.CFG.tabs.activeTab.open(hotspotDetail, hotspotTxt);
+				// Ti.API.info('open');
+			// }
+// 
+			// hotspotDetail.close();
+			 hotspotDetail = null;
+		};
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Detaljkartan");
+	// }
 
-			if (hotspotDetail == null) {
-				hotspotDetail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
-				Alloy.CFG.tabs.activeTab.open(hotspotDetail);
-				Ti.API.info('create');
-			} else {
-				Alloy.CFG.tabs.activeTab.open(hotspotDetail, hotspotTxt);
-				Ti.API.info('open');
-			}
 
-			hotspotDetail.close();
-			hotspotDetail = null;
-		}
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Detaljkartan");
-	}
-});
+
 
 //-----------------------------------------------------------
 // Switch för att aktivera location-event för hotspots/sevärdheter
@@ -94,6 +108,21 @@ $.posSwitch1.addEventListener('change', function(e) {
 });
 
 //-----------------------------------------------------------
+// Switch för att visa hotspots på kartan
+//-----------------------------------------------------------
+function disHot(){
+	if ($.HotSwitch1.value == true) {
+		displaySpecificMarkers(trailId, detailMap);
+		detailMap.addEventListener('click', evtList);	
+	} else {
+		detailMap.removeEventListener('click', evtList);
+		removeSpecHotspot();
+	}
+}
+
+
+
+//-----------------------------------------------------------
 // Funktioner för att visa och stänga kartmenyn 
 //-----------------------------------------------------------
 function showMenu() {
@@ -116,7 +145,7 @@ detailMap.addEventListener('singletap', function() {
 	}
 });
 function showDetailMenu(){
-	$.widgetView.height = '90dp';
+	$.widgetView.height = '110dp';
 }
 function closeDetailMenu(){
 	$.widgetView.height = '0dp';

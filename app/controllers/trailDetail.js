@@ -19,7 +19,7 @@ try {
 // Onload
 //-----------------------------------------------------------
 selectTrailPics();
-showHotspots();
+LoadHotspotList();
 showIcons();
 changeLabel();
 
@@ -97,7 +97,7 @@ function selectTrailPics() {
 //-----------------------------------------------------------
 // Visar hotspots för en vald vandringsled
 //-----------------------------------------------------------
-function showHotspots() {
+function LoadHotspotList() {
 	try {
 		var tableViewData = [];
 		var rows = getHotspotData();
@@ -174,27 +174,26 @@ function getHotspotData() {
 //-----------------------------------------------------------
 // Öppnar detaljvy med vald hotspot - klickad på i kartvyn
 //-----------------------------------------------------------
-function showHotspot(e) {
+function sendToHotspot(e) {
 	try {
-		var name = e.rowData.id;
-
-		var hotspotCollection = Alloy.Collections.hotspotModel;
-		hotspotCollection.fetch({
-			query : query16 + name + '"'
-		});
-
-		var jsonObj = hotspotCollection.toJSON();
-		var txt = jsonObj[0].infoTxt;
-		var idnr = jsonObj[0].id;
-
-		var hotspotTxt = {
-			title : name,
-			infoTxt : txt,
-			id : idnr
-		};
-
-		var hotspotDetailTrail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
-		Alloy.CFG.tabs.activeTab.open(hotspotDetailTrail);
+		showHotspot(e.rowData.id);
+		// var hotspotCollection = Alloy.Collections.hotspotModel;
+		// hotspotCollection.fetch({
+			// query : query16 + name + '"'
+		// });
+// 
+		// var jsonObj = hotspotCollection.toJSON();
+		// var txt = jsonObj[0].infoTxt;
+		// var idnr = jsonObj[0].id;
+// 
+		// var hotspotTxt = {
+			// title : name,
+			// infoTxt : txt,
+			// id : idnr
+		// };
+// 
+		// var hotspotDetailTrail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
+		// Alloy.CFG.tabs.activeTab.open(hotspotDetailTrail);
 
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled");

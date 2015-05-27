@@ -238,6 +238,9 @@ function showHotspot(myId) {
 
 		var hotspotDetail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
 		Alloy.CFG.tabs.activeTab.open(hotspotDetail);
+		
+		hotspotDetail.close();
+		hotspotDetail = null;
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - showHotspot");
 	}
@@ -414,6 +417,19 @@ function removeAnnoHotspot() {
 	try {
 		for (var o = 0; o < markerHotspotArray.length; o++) {
 			map.removeAnnotation(markerHotspotArray[o]);
+		}
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - removeAnnoHotspot");
+	}
+}
+
+//-----------------------------------------------------------
+// Tar bort hotspots från kartan
+//-----------------------------------------------------------
+function removeSpecHotspot() {
+	try {
+		for (var o = 0; o < markerSpecHotspotArray.length; o++) {
+			detailMap.removeAnnotation(markerSpecHotspotArray[o]);
 		}
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - removeAnnoHotspot");
