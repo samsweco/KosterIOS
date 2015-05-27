@@ -193,6 +193,7 @@ function getHotspotData() {
 function sendToHotspot(e) {
 	try {
 		showHotspot(e.rowData.id);
+		Ti.API.info(JSON.stringify(e.rowData.id));
 
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled - SendToHotspot");

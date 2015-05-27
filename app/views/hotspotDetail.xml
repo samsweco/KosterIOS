@@ -1,5 +1,6 @@
 <Alloy>
 	<Collection src="mediaModel" />
+	<Collection src="hotspotModel"></Collection>
 	<Model src="letterModel" />
 	<Collection src="letterModel" />
 	<Model src="foundLettersModel" />

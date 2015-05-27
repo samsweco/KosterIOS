@@ -244,15 +244,33 @@ function getFile(id) {
 // Öppnar hotspotDetail med info om vald hotspot
 //-----------------------------------------------------------
 function showHotspot(myId) {
+			 var hotspotCollection = Alloy.Collections.hotspotModel;
+		// hotspotCollection.fetch({
+			// query : query16 + name + '"'
+		// });
+// 
+		// var jsonObj = hotspotCollection.toJSON();
+		// var txt = jsonObj[0].infoTxt;
+		// var idnr = jsonObj[0].id;
+// 
+		// var hotspotTxt = {
+			// title : name,
+			// infoTxt : txt,
+			// id : idnr
+		// };
+// 
+		// var hotspotDetailTrail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
+		// Alloy.CFG.tabs.activeTab.open(hotspotDetailTrail);
 	// try {
 		hotspotCollection.fetch({
 			query : query2 + myId + '"'
 		});
 
 		var jsonObjHot = hotspotCollection.toJSON();
+		Ti.API.info(JSON.stringify(jsonObjHot));
 
 		var hotspotTxt = {
-			title : myId,
+			title : jsonObjHot[0].name,
 			infoTxt : jsonObjHot[0].infoTxt,
 			id : jsonObjHot[0].id
 		};
