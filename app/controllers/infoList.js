@@ -121,10 +121,3 @@ function getInfoDetails(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Infolistan");
 	}
 }
-var cleanup = function() {
-	$.destroy();
-	$.off();
-	$.infoWin = null;
-};
-
-$.infoWin.addEventListener('close', cleanup);

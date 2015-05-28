@@ -11,7 +11,7 @@ var infoVisible = false;
 // Metoder för navigeringen
 //-----------------------------------------------------------
 function toMap() {
-	try {
+	// try {
 		var mapWind = Alloy.createController('map').getView();
 		$.mapWin.add(mapWind);
 
@@ -24,13 +24,13 @@ function toMap() {
 		});
 
 		$.mapWin.titleControl = mapwinTitle;
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Förstasidan");
-	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Förstasidan");
+	// }
 }
 
 function toInteractive() {
-	try {
+	// try {
 		var interactive = Alloy.createController('interactive').getView();
 		$.interactiveWin.add(interactive);
 
@@ -43,13 +43,13 @@ function toInteractive() {
 		});
 
 		$.interactiveWin.titleControl = interacwinTitle;
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Förstasidan");
-	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Förstasidan");
+	// }
 }
 
 function toTrails() {
-	try {
+	// try {
 		var trails = Alloy.createController('trails').getView();
 		$.hikeWin.add(trails);
 
@@ -62,13 +62,13 @@ function toTrails() {
 		});
 
 		$.hikeWin.titleControl = hikewinTitle;
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Förstasidan");
-	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Förstasidan");
+	// }
 }
 
 function toInfo() {
-	try {
+	// try {
 		var info = Alloy.createController('infoList').getView();
 		$.infoWin.add(info);
 
@@ -81,9 +81,9 @@ function toInfo() {
 		});
 
 		$.infoWin.titleControl = infowinTitle;
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Förstasidan");
-	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Förstasidan");
+	// }
 }
 
 //-----------------------------------------------------------
