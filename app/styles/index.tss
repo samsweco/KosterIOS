@@ -38,11 +38,12 @@
 
 "#btnBoat": {
 	left: '10dp',
-	top: '4dp',
+	top: '8dp',
 	font: {
 		fontSize: '14dp',
 		fontFamily: 'Raleway-Medium'
-	}
+	},
+	color: "#0098C3"
 }
 
 "#boatBtnView": {
@@ -50,14 +51,9 @@
 	width: '35%',
 	backgroundColor: 'white',
 	opacity: 0.8,
-	// left: '10dp',
 	left: '13%',
-	// right: '5%',
-	// left: '32%',
-	// right: '32%',
 	borderRadius: 7,
 	color: '#0098C3',
-	// top: '15dp',
 	layout : 'horizontal'
 }
 
@@ -67,12 +63,13 @@
 }
 
 "#btnAbout": {
-	left: '6dp',
-	top: '4dp',
+	left: '5dp',
+	top: '8dp',
 	font: {
 		fontSize: '14dp',
 		fontFamily: 'Raleway-Medium'
-	}
+	},
+	color: "#0098C3"
 }
 
 "#btnAboutPic": {
@@ -82,10 +79,7 @@
 }
 
 "#appBtnView": {
-	// top: '40%',
 	right: '13%',
-	// left: '5%',
-	// width: '120dp',
 	width : '35%',
 	layout: 'horizontal',
 	height: '35dp',

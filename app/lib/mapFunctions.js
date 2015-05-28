@@ -35,6 +35,7 @@ function showMap(maptype) {
 		setRoutes(maptype);
 		setRegion(maptype);
 		displayTrailMarkers(maptype);
+		
 		return map;
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - showMap");

@@ -19,13 +19,13 @@
 					</View>
 					
 					<View id="horiView">
-						<View id="boatBtnView">
+						<View id="boatBtnView" onClick="openBoat">
 							<ImageView id="boatPikto" image="/images/farjelage.png"></ImageView>
-							<Button id="btnBoat" onClick="openBoat">Båtresan</Button>
+							<Label id="btnBoat">Båtresan</Label>
 						</View>
-						<View id="appBtnView">
+						<View id="appBtnView" onClick="showInfo">
 							<Button id="btnAboutPic" image="/images/smartphone-icon.png"></Button>
-							<Button id="btnAbout" onClick="showInfo">Om appen</Button>
+							<Label id="btnAbout">Om appen</Label>
 						</View>
 					</View>
 					
