@@ -143,6 +143,9 @@ function openBoat(){
 	Alloy.CFG.tabs.activeTab.open(trailDetail);
 }
 
+//-----------------------------------------------------------
+// Visar infoWidget
+//-----------------------------------------------------------
 function showInfo(){
 	if(!infoVisible){
 		$.widgetInfo.show();
@@ -154,3 +157,11 @@ function showInfo(){
 		infoVisible = false;
 	}
 }
+
+$.frontView.addEventListener('click', function(){
+	if(infoVisible){
+		$.widgetInfo.hide();
+		$.widgetInfo.height = 0;
+		infoVisible = false;
+	}
+});

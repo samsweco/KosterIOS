@@ -11,8 +11,7 @@
 	<TabGroup id="tabs" backgroundColor="#fff" height="100%" tintColor="#0098C3" fontFamily="Raleway-Medium">
 		<Tab id="koster" class="tabbar" title="Hem" icon="/images/kosterStarMenu.png" >
 			<Window id="koster" backgroundImage="/pics/front.png" navBarHidden="true">								
-				<View class="headView">
-					<Button id="btnAbout" image="/images/smartphone-icon.png" onClick="showInfo">Om appen</Button>
+				<View id="frontView" class="headView">
 					<ImageView class="imgKoster" image="/pics/kosterhavet_logga.png"></ImageView>
 					<View id="lblView">
 						<Label id="firstLbl" class="lblFrontText">Välkommen till Kosterhavet!</Label>
@@ -22,6 +21,11 @@
 						<ImageView id="boatPikto" image="/images/farjelage.png"></ImageView>
 						<Button id="btnBoat" onClick="openBoat">Båtresan</Button>
 					</View>
+					<View id="appBtnView" onClick="showInfo">
+						<ImageView id="btnAboutPic" image="/images/smartphone-icon.png"></ImageView>
+						<Button id="btnAbout">Om appen</Button>
+					</View>
+					
 				</View>	
 				<View id="widgetInfo">
 					<Widget id="infoW" src="infoWidget" name="widget"></Widget>

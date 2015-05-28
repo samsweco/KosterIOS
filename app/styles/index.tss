@@ -4,7 +4,7 @@
 }
 
 ".imgKoster": {
-	top: '3%',
+	top: '7%',
 	center: '50%',
 	height: '90dp',
 	width: Titanium.UI.SIZE
@@ -64,15 +64,28 @@
 }
 
 "#btnAbout": {
-	height: '45dp',
-	width: '45dp',
-	top: '20dp',
-	left: '5dp'
+	height: '20dp',
+	width: '20dp'
+	// left: '1dp'
+}
+
+"#btnAboutPic": {
+	left: '2dp'
+}
+
+"#appBtnView": {
+	top: '40%',
+	right: '5dp',
+	width: '100dp',
+	layout: 'horizontal',
+	height: Titanium.UI.SIZE,
+	borderRadius: 7,
+	backgroundColor: 'white',
+	opacity: 0.9
 }
 
 "#widgetInfo": {
 	height: 0,
 	visible: false,
-	// height: Titanium.UI.SIZE,
 	width: Titanium.UI.SIZE
 }
