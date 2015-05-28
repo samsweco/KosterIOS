@@ -7,6 +7,7 @@
 	<Model src="letterModel" />
 	<Model src="foundLettersModel" />
 	<Collection src="infospotCoordinatesModel" />
+	
 	<Window id="detailwin" backButtonTitle="Tillbaka" exitOnClose="true">
 		<RightNavButton>
 			<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMenu" />

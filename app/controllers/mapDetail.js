@@ -10,9 +10,6 @@ var zoomLat = args.zoomlat;
 var zoomLon = args.zoomlon;
 
 var menuDetailVisible = false;
-var hotspotDetail = null;
-
-var lastClicked = null;
 
 //-----------------------------------------------------------
 // Hämtar trailsCollection
