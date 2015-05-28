@@ -109,4 +109,11 @@ function showMessageView(){
 	}, 1000);
 }
 
+var cleanup = function() {
+	$.destroy();
+	$.off();
+	$.mapWin = null;
+};
+
+$.mapWin.addEventListener('close', cleanup);
 

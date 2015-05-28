@@ -150,3 +150,12 @@ function openLink(link) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Informationssidan");
 	}
 }
+
+var cleanup = function() {
+	$.destroy();
+	$.off();
+	$.infoDetail = null;
+};
+
+$.infoDetail.addEventListener('close', cleanup);
+

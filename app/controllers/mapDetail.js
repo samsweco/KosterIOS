@@ -99,10 +99,6 @@ function closeDetailMenu(){
 	$.widgetView.height = '0dp';
 }
 
-
-
-// BARA TEST, INGET FUNKAR TROR JAG
-
  var cleanup = function() {
 	$.destroy();
 	$.off();
