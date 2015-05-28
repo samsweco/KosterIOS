@@ -21,9 +21,9 @@
 						<ImageView id="boatPikto" image="/images/farjelage.png"></ImageView>
 						<Button id="btnBoat" onClick="openBoat">Båtresan</Button>
 					</View>
-					<View id="appBtnView" onClick="showInfo">
+					<View id="appBtnView">
 						<ImageView id="btnAboutPic" image="/images/smartphone-icon.png"></ImageView>
-						<Button id="btnAbout">Om appen</Button>
+						<Button id="btnAbout" onClick="showInfo">Om appen</Button>
 					</View>
 					
 				</View>	
@@ -43,8 +43,7 @@
 			</Window>
 		</Tab>
 		<Tab id="interactive" class="tabbar" title="Bokstavsjakt" icon="/images/quizMenu.png">
-			<Window id="interactiveWin" title="Bokstavsjakt" onOpen="toInteractive">
-			</Window>
+			<Window id="interactiveWin" title="Bokstavsjakt" onOpen="toInteractive" />
 		</Tab>
 		<Tab id="info" class="tabbar" title="Info" icon="/images/infoMenu.png">
 			<Window id="infoWin" title="Information" onOpen="toInfo" />
