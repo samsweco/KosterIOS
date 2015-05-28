@@ -8,7 +8,7 @@
 	<Window id="hikeDetailWin" backButtonTitle="Tillbaka" exitOnClose="true">
 		<RightNavButton>
 			<Button id="btnShowOnMap" onClick="zoomMapTrail">
-				Visa led på karta!
+				Visa led på karta
 			</Button> 
 		</RightNavButton>
 		<ScrollView class="headView" scrollType="vertical">
