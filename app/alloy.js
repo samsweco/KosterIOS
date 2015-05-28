@@ -7,8 +7,6 @@
 // make available throughout your app. You can easily make things
 // accessible globally by attaching them to the `Alloy.Globals`
 // object. For example:
-//
-// Alloy.Globals.someGlobalFunction = function(){};
 
 //-----------------------------------------------------------
 // Globala variabler
@@ -65,8 +63,6 @@ var interactiveMap = MapModule.createView({
 	width : Ti.UI.FILL,
 	userLocation : true
 });
-
-//var hotspotDetail = Alloy.createController("hotspotDetail");
 
 //-----------------------------------------------------------
 // Metoder för att skapa collections

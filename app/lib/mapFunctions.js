@@ -61,14 +61,15 @@ function showDetailMap(maptype, id, name, color) {
 //-----------------------------------------------------------
 
 var evtList = function(evt){
-Ti.API.info('evt list innan ' + evt.annotation.id);
- if (evt.clicksource == 'rightButton') {
-  		showHotspot(evt.annotation.id);		
-			 Ti.API.info('evt list efter ' + evt.annotation.id);	
- }
+	Ti.API.info('evt list innan ' + evt.annotation.id);
+	if (evt.clicksource == 'rightButton') {
+		showHotspot(evt.annotation.id);
+		Ti.API.info('evt list efter ' + evt.annotation.id);
+	}
 
-			// hotspotDetail = null;
+	// hotspotDetail = null;
 };
+
 	// } catch(e) {
 		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Detaljkartan");
 	// }
