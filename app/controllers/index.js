@@ -158,10 +158,3 @@ function showInfo(){
 	}
 }
 
-$.frontView.addEventListener('click', function(){
-	if(infoVisible){
-		$.widgetInfo.hide();
-		$.widgetInfo.height = 0;
-		infoVisible = false;
-	}
-});
