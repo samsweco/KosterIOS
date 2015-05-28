@@ -112,6 +112,7 @@ function closeDetailMenu(){
 	$.off();
 	$.detailwin = null;
 	Ti.API.info('stäng mapdetail');
+	detailMap.removeEventListener('click', evtList);
 };
 
 $.detailwin.addEventListener('close', cleanup);

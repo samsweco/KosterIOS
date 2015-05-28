@@ -47,9 +47,6 @@ function showMap(maptype) {
 function showDetailMap(maptype, id, name, color) {
 	try {
 		setSpecificRoute(maptype, id, name, color);
-		
-		maptype.addEventListener('click', evtList);
-		
 		return maptype;
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - showDetailMap");
@@ -61,13 +58,15 @@ function showDetailMap(maptype, id, name, color) {
 //-----------------------------------------------------------
 
 var evtList = function(evt){
-	Ti.API.info('evt list innan ' + evt.annotation.id);
-	if (evt.clicksource == 'rightButton') {
-		showHotspot(evt.annotation.id);
-		Ti.API.info('evt list efter ' + evt.annotation.id);
-	}
-
-	// hotspotDetail = null;
+	try {
+		Ti.API.info('evt list innan ' + evt.annotation.id);
+		if (evt.clicksource == 'rightButton') {
+			showHotspot(evt.annotation.id);
+			Ti.API.info('evt list efter ' + evt.annotation.id);
+		}
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Kartfunktioner");
+	}	
 };
 
 	// } catch(e) {

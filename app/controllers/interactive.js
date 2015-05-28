@@ -30,6 +30,7 @@ function displayMap() {
 		$.showFamilyTrail.add(showDetailMap(interactiveMap, 7, 'Äventyrsleden', 'purple'));
 		addClueZone();
 		displaySpecificMarkers(7, interactiveMap);
+		interactiveMap.addEventListener('click', evtList);
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 	}
@@ -288,15 +289,6 @@ function checkWord() {
 Titanium.App.addEventListener('close', function() {
 	Alloy.Globals.stopGame();
 });
-
-//-----------------------------------------------------------
-// Eventlistener för klick på trail eller hotspot
-//-----------------------------------------------------------
-interactiveMap.addEventListener('click', function(evt) {
-	if (evt.clicksource == 'rightButton') {
-		showHotspot(evt.annotation.id);
-	}
-}); 
 
 var cleanup = function() {
 	$.destroy();
