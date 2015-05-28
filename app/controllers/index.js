@@ -157,4 +157,3 @@ function showInfo(){
 		infoVisible = false;
 	}
 }
-

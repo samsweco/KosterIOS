@@ -17,13 +17,16 @@
 						<Label id="firstLbl" class="lblFrontText">Välkommen till Kosterhavet!</Label>
 						<Label id="secondLbl" class="lblFrontText">Upptäck den vackra naturen i Kosterhavet och ta en promenad bland klapperstensfält och strandängar.</Label>
 					</View>
-					<View id="boatBtnView">
-						<ImageView id="boatPikto" image="/images/farjelage.png"></ImageView>
-						<Button id="btnBoat" onClick="openBoat">Båtresan</Button>
-					</View>
-					<View id="appBtnView">
-						<ImageView id="btnAboutPic" image="/images/smartphone-icon.png"></ImageView>
-						<Button id="btnAbout" onClick="showInfo">Om appen</Button>
+					
+					<View id="horiView">
+						<View id="boatBtnView">
+							<ImageView id="boatPikto" image="/images/farjelage.png"></ImageView>
+							<Button id="btnBoat" onClick="openBoat">Båtresan</Button>
+						</View>
+						<View id="appBtnView">
+							<Button id="btnAboutPic" image="/images/smartphone-icon.png"></Button>
+							<Button id="btnAbout" onClick="showInfo">Om appen</Button>
+						</View>
 					</View>
 					
 				</View>	
