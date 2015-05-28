@@ -31,9 +31,7 @@ getSpecificIconsForTrail(trailId);
 //-----------------------------------------------------------
 function showMapDetail() {
 	$.mapDetailView.add(showDetailMap(detailMap, trailId, trailName, trailColor));
-	Ti.API.info("show map detail");
 }
-
 
 //-----------------------------------------------------------
 // Switch för att aktivera location-event för hotspots/sevärdheter
@@ -72,8 +70,6 @@ function disHot(){
 	}
 }
 
-
-
 //-----------------------------------------------------------
 // Funktioner för att visa och stänga kartmenyn 
 //-----------------------------------------------------------
@@ -111,7 +107,6 @@ function closeDetailMenu(){
 	$.destroy();
 	$.off();
 	$.detailwin = null;
-	Ti.API.info('stäng mapdetail');
 	detailMap.removeEventListener('click', evtList);
 };
 

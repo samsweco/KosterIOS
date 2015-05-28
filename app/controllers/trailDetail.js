@@ -38,9 +38,7 @@ changeLabel();
 // Hämtar info för den vandringsled som ska öppnas i detaljvy
 //-----------------------------------------------------------
 function zoomMapTrail() {
-
-	Ti.API.info('en gång i trail detail');
-	// try {
+	try {
 		var trail = {
 			id : args.id,
 			title : args.title,
@@ -48,16 +46,14 @@ function zoomMapTrail() {
 			zoomlat : args.zoomlat,
 			zoomlon : args.zoomlon
 		};
-
-		//Alloy.CFG.tabs.activeTab.open(Alloy.createController("mapDetail", trail).getView());
+		
 		var mapDetail = Alloy.createController("mapDetail", trail).getView();
-		// $.winName.open(trailDetail);
 		Alloy.CFG.tabs.activeTab.open(mapDetail);
 		cleanup();
-// 		
-	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled - zoomMapTrail");
-	// }	
+		
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled - zoomMapTrail");
+	}	
 }
 
 //-----------------------------------------------------------
@@ -193,8 +189,6 @@ function getHotspotData() {
 function sendToHotspot(e) {
 	try {
 		showHotspot(e.rowData.id);
-		Ti.API.info(JSON.stringify(e.rowData.id));
-
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled - SendToHotspot");
 	}
@@ -261,7 +255,6 @@ function changeLabel() {
 	$.destroy();
 	$.off();
 	$.hikeDetailWin = null;
-	Ti.API.info('stäng traildetail');
 };
 
 $.hikeDetailWin.addEventListener('close', cleanup);

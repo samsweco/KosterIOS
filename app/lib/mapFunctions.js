@@ -56,24 +56,15 @@ function showDetailMap(maptype, id, name, color) {
 //-----------------------------------------------------------
 // Eventlistener för klick på hotspot
 //-----------------------------------------------------------
-
 var evtList = function(evt){
 	try {
-		Ti.API.info('evt list innan ' + evt.annotation.id);
 		if (evt.clicksource == 'rightButton') {
 			showHotspot(evt.annotation.id);
-			Ti.API.info('evt list efter ' + evt.annotation.id);
 		}
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Kartfunktioner");
 	}	
 };
-
-	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Detaljkartan");
-	// }
-
-
 
 //-----------------------------------------------------------
 // sätter en vald vandingsled
@@ -247,15 +238,13 @@ function getFile(id) {
 //-----------------------------------------------------------
 // Öppnar hotspotDetail med info om vald hotspot
 //-----------------------------------------------------------
-function showHotspot(myId) {
-			
-
+function showHotspot(myId) {		
+	try {
 		hotspotCollection.fetch({
 			query : query2 + myId + '"'
 		});
 
 		var jsonObjHot = hotspotCollection.toJSON();
-		Ti.API.info(JSON.stringify(jsonObjHot));
 
 		var hotspotTxt = {
 			title : jsonObjHot[0].name,
@@ -266,9 +255,9 @@ function showHotspot(myId) {
 		Alloy.CFG.tabs.activeTab.open(Alloy.createController("hotspotDetail", hotspotTxt).getView());
 		
 		hotspotDetail = null;
-	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - showHotspot");
-	// }
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - showHotspot");
+	}
 }
 
 //-----------------------------------------------------------

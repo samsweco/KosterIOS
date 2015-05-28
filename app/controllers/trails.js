@@ -19,7 +19,7 @@ setRowData();
 // Läser in data till alla listitems
 //-----------------------------------------------------------
 function setRowData() {
-//	try {
+	try {
 		var trailsCollection = Alloy.Collections.trailsModel;
 		trailsCollection.fetch();
 
@@ -101,16 +101,16 @@ function setRowData() {
 			}
 		}
 		$.table.data = tableViewData;
-	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsleder");
-	// }
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsleder");
+	}
 }
 
 //-----------------------------------------------------------
 // Öppnar trail detail med args för den valda leden
 //-----------------------------------------------------------
 function showTrailDetails(e) {
-//	try {
+	try {
 		var id = e.rowData.id;
 
 		var trailsCollection = Alloy.Collections.trailsModel;
@@ -134,12 +134,9 @@ function showTrailDetails(e) {
 
 		var trailDetail = Alloy.createController("trailDetail", args).getView();
 		Alloy.CFG.tabs.activeTab.open(trailDetail);
-		Ti.API.info("en gång");
-		// $.winName.open(trailDetail);
-
-	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsleder");
-	// }
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsleder");
+	}
 }
 
 //-----------------------------------------------------------

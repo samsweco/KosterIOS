@@ -8,10 +8,6 @@ var picId = args.filename || "filename";
 
 setPics();
 
-
-
-Ti.API.info("Skapat en hotspotDetail-Controller");
-
 //-----------------------------------------------------------
 // Sätter bilder till bildspelet
 //-----------------------------------------------------------
@@ -77,7 +73,6 @@ var cleanup = function() {
 	$.destroy();
 	$.off();
 	$.hotspotWin = null;
-	Ti.API.info('stäng hotspotDetail');
 };
 
 $.hotspotWin.addEventListener('close', cleanup);
