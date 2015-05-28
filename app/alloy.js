@@ -132,7 +132,3 @@ Titanium.App.addEventListener('close', function() {
 		Alloy.Globals.stopGame;
 	} 
 });
-
-Titanium.App.addEventListener('open', function() {
-	alert('öppnas'); 
-});
