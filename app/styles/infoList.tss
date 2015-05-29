@@ -20,3 +20,7 @@
 	width: Ti.UI.FILL,
 	right: '15dp'
 }
+
+"#table": {
+	height: Titanium.UI.SIZE
+}

@@ -24,7 +24,7 @@
 							<Label id="btnBoat">Båtresan</Label>
 						</View>
 						<View id="appBtnView" onClick="showInfo">
-							<Button id="btnAboutPic" image="/images/smartphone-icon.png"></Button>
+							<ImageView id="btnAboutPic" image="/images/smartphone-icon.png"></ImageView>
 							<Label id="btnAbout">Om appen</Label>
 						</View>
 					</View>

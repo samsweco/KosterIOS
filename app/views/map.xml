@@ -10,10 +10,6 @@
 	<View id="headMapView" class="container">
 		<View id="mapView"></View>
 		
-		<View id="viewMessage">
-			<Label id="lblMessage">Klicka på menyn</Label>
-		</View>
-		
 		<View id="widgetView">
 			<Widget src="mapmenu" name="widget"></Widget>
 		</View>

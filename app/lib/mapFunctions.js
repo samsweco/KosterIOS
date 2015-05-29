@@ -201,7 +201,6 @@ function displayTrailMarkers(maptype) {
 				title : trailJson[i].name,
 				subtitle : trailJson[i].area + ', ' + trailJson[i].length + ' km',
 				rightButton : '/images/arrow.png',
-				image : '/images/pin-' + trailJson[i].pincolor + '.png',
 				centerOffset : {
 					x : 0,
 					y : -15
@@ -211,6 +210,12 @@ function displayTrailMarkers(maptype) {
 					fontStyle : 'Raleway-Light'
 				}
 			});
+			
+			if(trailJson[i].name != 'Båtresan'){
+				markerAnnotation.image = '/images/pin-' + trailJson[i].pincolor + '.png';
+			} else {
+				markerAnnotation.image = '/images/map_farjelage.png';
+			}
 
 			maptype.addAnnotation(markerAnnotation);
 		}

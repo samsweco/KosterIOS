@@ -92,41 +92,20 @@ function getLink(e) {
 	try {
 		var rowId = e.rowData.id;
 		
-		if(rowId != 3 && rowId != 4){			
-			urlCollection.fetch({
-				query : query9 + rowId + '"'
-			});
-
-			var jsonObj = urlCollection.toJSON();
-			var web = jsonObj[0].url;
-
-			openLink(web); 
-		} else if(rowId == 3 || rowId == 4) {
-			var pdfView = Ti.UI.createWindow({
-				height: Ti.UI.SIZE,
-				width: Ti.UI.FILL,
-				backButtonTitle: 'Tillbaka',
-				layout: 'vertical',
-				backgroundColor: 'white'
-			});
-			
-			var img;
-			
-			if(rowId == 3){
-				img = Ti.UI.createImageView({
-					image: '/images/regler_for_kosterhavets_nationalpark.png'
-				});
-			} else {
-				img = Ti.UI.createImageView({
-					image: '/images/regler_for_kosteroarnas_naturreservat.png'
-				});
-			}
-			
-			pdfView.add(img);
-			
-			Alloy.CFG.tabs.activeTab.open(pdfView);
-		}
+		urlCollection.fetch({
+			query : query9 + rowId + '"'
+		});		
+		var jsonObj = urlCollection.toJSON();
 		
+		if(rowId != 3 && rowId != 4){			
+			var web = jsonObj[0].url;
+			openLink(web); 
+		} else if(rowId == 3 || rowId == 4){
+			var txt = jsonObj[0].url;
+			var titl = jsonObj[0].linkname; 
+			showRules(txt, titl);
+		} 	
+			
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Informationssidan");
 	}
@@ -149,6 +128,58 @@ function openLink(link) {
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Informationssidan");
 	}
+}
+
+function showRules(infTxt, linktitle){
+	var infoWindowRules = Ti.UI.createWindow({
+		layout: 'vertical',
+		top: '0dp',
+		backgroundColor: 'white',
+		backButtonTitle: "Tillbaka"
+	});
+	
+	var infoScrollRules = Ti.UI.createScrollView({
+		showVerticalScrollIndicator: true,
+  		showHorizontalScrollIndicator: true,
+		layout: 'vertical',
+		top: '0dp'
+	});
+	
+	var viewen = Ti.UI.createView({
+		layout: 'vertical',
+		top: '0dp',
+		height: Ti.UI.SIZE
+	});
+	
+	var infoDetailTitleLbl = Ti.UI.createLabel({
+		top: '10dp',
+		left: '15dp',
+		right: '15dp',
+		font: {
+			fontSize: '15dp',
+			fontFamily: 'Raleway-Medium'
+		},
+		color: '#FCAF17',
+		text: linktitle
+	});
+	
+	var infoDetailLbl = Ti.UI.createLabel({
+		top: '10dp',
+		left: '15dp',
+		right: '15dp',
+		font: {
+			fontSize: '14dp',
+			fontFamily: 'Raleway-Light'
+		},
+		text: infTxt
+	});
+	
+	viewen.add(infoDetailTitleLbl);
+	viewen.add(infoDetailLbl);
+	infoScrollRules.add(viewen);
+	infoWindowRules.add(infoScrollRules);
+	
+	Alloy.CFG.tabs.activeTab.open(infoWindowRules);
 }
 
 var cleanup = function() {
