@@ -203,6 +203,7 @@ function userIsNearLetter() {
 
 		for (var isnear = 0; isnear < Alloy.Globals.jsonCollection.length; isnear++) {
 			if (Alloy.Globals.jsonCollection[isnear].alerted == 0){
+				if (Alloy.Globals.jsonCollection[isnear].found == 0){
 				
 				var lat = Alloy.Globals.jsonCollection[isnear].latitude;
 				var lon = Alloy.Globals.jsonCollection[isnear].longitude;
@@ -214,15 +215,16 @@ function userIsNearLetter() {
 					message.message = clue;
 					message.addEventListener('click', function(e) {
 						if (e.index == 0) {
-							Alloy.CFG.tabs.setActiveTab(3);
-						}
-					});
-					message.show();
+								Alloy.CFG.tabs.setActiveTab(3);
+							}
+						});
+						message.show();
 					
-					Alloy.Globals.jsonCollection[isnear].alerted = 1;
-					playSound();
-				}
-			}			
+						Alloy.Globals.jsonCollection[isnear].alerted = 1;
+						playSound();
+					}
+				}	
+			}		
 		}
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", 'isNearPoint - letter');
