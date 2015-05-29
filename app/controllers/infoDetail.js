@@ -130,56 +130,64 @@ function openLink(link) {
 	}
 }
 
+//-----------------------------------------------------------
+// Öppnar regler i en egen vy
+//-----------------------------------------------------------
 function showRules(infTxt, linktitle){
-	var infoWindowRules = Ti.UI.createWindow({
-		layout: 'vertical',
-		top: '0dp',
-		backgroundColor: 'white',
-		backButtonTitle: "Tillbaka"
-	});
-	
-	var infoScrollRules = Ti.UI.createScrollView({
-		showVerticalScrollIndicator: true,
-  		showHorizontalScrollIndicator: true,
-		layout: 'vertical',
-		top: '0dp'
-	});
-	
-	var viewen = Ti.UI.createView({
-		layout: 'vertical',
-		top: '0dp',
-		height: Ti.UI.SIZE
-	});
-	
-	var infoDetailTitleLbl = Ti.UI.createLabel({
-		top: '10dp',
-		left: '15dp',
-		right: '15dp',
-		font: {
-			fontSize: '15dp',
-			fontFamily: 'Raleway-Medium'
-		},
-		color: '#FCAF17',
-		text: linktitle
-	});
-	
-	var infoDetailLbl = Ti.UI.createLabel({
-		top: '10dp',
-		left: '15dp',
-		right: '15dp',
-		font: {
-			fontSize: '14dp',
-			fontFamily: 'Raleway-Light'
-		},
-		text: infTxt
-	});
-	
-	viewen.add(infoDetailTitleLbl);
-	viewen.add(infoDetailLbl);
-	infoScrollRules.add(viewen);
-	infoWindowRules.add(infoScrollRules);
-	
-	Alloy.CFG.tabs.activeTab.open(infoWindowRules);
+	try {
+		var infoWindowRules = Ti.UI.createWindow({
+			layout : 'vertical',
+			top : '0dp',
+			backgroundColor : 'white',
+			backButtonTitle : "Tillbaka"
+		});
+
+		var infoScrollRules = Ti.UI.createScrollView({
+			showVerticalScrollIndicator : true,
+			showHorizontalScrollIndicator : true,
+			layout : 'vertical',
+			top : '0dp'
+		});
+
+		var viewen = Ti.UI.createView({
+			layout : 'vertical',
+			top : '0dp',
+			height : Ti.UI.SIZE
+		});
+
+		var infoDetailTitleLbl = Ti.UI.createLabel({
+			top : '10dp',
+			left : '15dp',
+			right : '15dp',
+			font : {
+				fontSize : '15dp',
+				fontFamily : 'Raleway-Medium'
+			},
+			color : '#FCAF17',
+			text : linktitle
+		});
+
+		var infoDetailLbl = Ti.UI.createLabel({
+			top : '10dp',
+			left : '15dp',
+			right : '15dp',
+			font : {
+				fontSize : '14dp',
+				fontFamily : 'Raleway-Light'
+			},
+			text : infTxt
+		});
+
+		viewen.add(infoDetailTitleLbl);
+		viewen.add(infoDetailLbl);
+		infoScrollRules.add(viewen);
+		infoWindowRules.add(infoScrollRules);
+
+		Alloy.CFG.tabs.activeTab.open(infoWindowRules);
+
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Informationssidan");
+	}
 }
 
 var cleanup = function() {
