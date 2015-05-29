@@ -1,5 +1,6 @@
 <Alloy>
 	<ScrollView id="infoView">
-		<Label>Här ska det finnas text</Label>
+		<Label>Välkommen till Kosterhavets app!
+			Här kan du få information om hur du använder appe</Label>
 	</ScrollView>
 </Alloy>
