@@ -66,7 +66,7 @@ function stopGame() {
 	Titanium.Geolocation.removeEventListener('location', addLetterLocation);
 	lettersModel.destroy();
 	foundLettersModel.destroy();
-	foundJSON = [];
+	startOver();
 }
 
 Alloy.Globals.stopGPS = stopGPS;
@@ -268,7 +268,7 @@ function addClueZone() {
 }
 
 //-----------------------------------------------------------
-// Sätter rätt region på karta utifrån vandringsledens storlek
+// Sätter rätt region på karta utifrån var användaren befinner sig
 //-----------------------------------------------------------
 function getPosition(maptype) {
 	Ti.Geolocation.getCurrentPosition(function(e) {
@@ -284,3 +284,51 @@ function getPosition(maptype) {
 		}
 	});
 }
+
+//-----------------------------------------------------------
+// Push'ar in funna bokstäver i en array
+//-----------------------------------------------------------
+function getFound() {
+	try {
+		foundJSON = [];
+
+		var foundLettersCollection = Alloy.Collections.foundLettersModel;
+		foundLettersCollection.fetch({
+			query : 'SELECT letter FROM foundLettersModel WHERE found = 1'
+		});
+
+		foundLetters = foundLettersCollection.toJSON();
+		for (var f = 0; f < foundLetters.length; f++) {
+			foundJSON.push(' ' + foundLetters[f].letter);
+		}
+
+		return foundJSON;
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - getFound");
+	}
+}
+
+//-----------------------------------------------------------
+// Sparar till found 0 och tömmer bokstäverna så man kan spela igen
+//-----------------------------------------------------------
+function startOver() {
+	try {
+		for (var lid = 0; lid < foundJSON.length; lid++) {
+			var letterid = lid + 1;
+
+			foundLettersModel.fetch({
+				'id' : letterid
+			});
+
+			foundLettersModel.set({
+				'letter' : null,
+				'found' : 0
+			});
+
+			foundLettersModel.save();
+		}
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - startOver");
+	}
+}
+Alloy.Globals.startOver = startOver;

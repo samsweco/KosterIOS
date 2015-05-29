@@ -178,8 +178,9 @@ function checkLetter(letterToCheck) {
 					
 					Alloy.Globals.jsonCollection[foundLetterId-1].found = 1;
 
+					// foundJSON.push(' ' + letterToCheck);
+					getFound();
 					foundLetterId++;
-					foundJSON.push(' ' + letterToCheck);
 					loadClue(foundLetterId);
 					
 					$.lblCollectedLetters.text = 'Bokstäver:  ' + foundJSON;
