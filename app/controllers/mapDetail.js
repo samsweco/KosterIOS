@@ -1,6 +1,6 @@
 Ti.include("geoFunctions.js");
 Ti.include("mapFunctions.js");
-Ti.include("SQL.js");
+Ti.include("collectionData.js");
 
 var args = arguments[0] || {};
 var trailName = args.title;
@@ -10,11 +10,6 @@ var zoomLat = args.zoomlat;
 var zoomLon = args.zoomlon;
 
 var menuDetailVisible = false;
-
-//-----------------------------------------------------------
-// Hämtar trailsCollection
-//-----------------------------------------------------------
-var trailsCollection = getTrailsCollection();
 
 //-----------------------------------------------------------
 // Onload

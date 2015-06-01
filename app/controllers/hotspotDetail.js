@@ -1,4 +1,6 @@
 Ti.include("SQL.js");
+Ti.include("collectionData.js");
+
 var args = arguments[0] || {};
 
 $.lblHotspotName.text = args.title || "Name";
@@ -6,33 +8,18 @@ $.lblHotspotInfoTxt.text = args.infoTxt || "Info";
 var hotspotId = args.id || "Id";
 var picId = args.filename || "filename";
 
-setPics();
-
-//-----------------------------------------------------------
-// Sätter bilder till bildspelet
-//-----------------------------------------------------------
-function setPics() {
-	try {
-		selectHotspotPics();
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Sevärdheter");
-	}
-}
+selectHotspotPics();
 
 //-----------------------------------------------------------
 // Hämtar bilder för bildspelet
 //-----------------------------------------------------------
 function selectHotspotPics() {
 	try {
-var mediaCollection = getMediaCollection();
-		mediaCollection.fetch({
-			query : query6 + hotspotId + '"'
-		});
-		var jsonMedia = mediaCollection.toJSON();
+		var picMediaJSON = returnSpecificPics(hotspotId);
 
-		for (var i = 0; i < jsonMedia.length; i++) {
+		for (var i = 0; i < picMediaJSON.length; i++) {
 			var img_view = Ti.UI.createView({
-				backgroundImage : "/pics/" + jsonMedia[i].filename,
+				backgroundImage : "/pics/" + picMediaJSON[i].filename,
 				height : '200dp',
 				width : '300dp',
 				top : '0dp'
@@ -41,7 +28,7 @@ var mediaCollection = getMediaCollection();
 			var lblImgTxt = Ti.UI.createLabel({
 				left : '3dp',
 				top : '0dp',
-				text : jsonMedia[i].img_txt,
+				text : picMediaJSON[i].img_txt,
 				color : 'white',
 				font : {
 					fontSize : '12dp',

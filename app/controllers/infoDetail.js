@@ -41,7 +41,7 @@ function showinfoDetails(info) {
 // sätter alla items i listan
 //-----------------------------------------------------------
 function setRowData() {
-	// try {
+	try {
 		var tableViewData = [];
 		var urlList = returnUrlByInfoId(id);
 
@@ -77,9 +77,9 @@ function setRowData() {
 			$.tableView.height = 0;
 		}
 
-	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Informationssidan");
-	// }
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Informationssidan");
+	}
 }
 
 //-----------------------------------------------------------

@@ -178,7 +178,6 @@ function checkLetter(letterToCheck) {
 					
 					Alloy.Globals.jsonCollection[foundLetterId-1].found = 1;
 
-					// foundJSON.push(' ' + letterToCheck);
 					getFound();
 					foundLetterId++;
 					loadClue(foundLetterId);
@@ -193,10 +192,6 @@ function checkLetter(letterToCheck) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 	}
 }
-
-// function stepBack(){
-	// loadClue(foundLetterId-1);
-// }
 
 //-----------------------------------------------------------
 // Kontrollerar om man fått ihop alla bokstäver. Om man hittat / alla bokstäver göms och släcks rätt labels och textfields

@@ -1,6 +1,6 @@
 Ti.include("geoFunctions.js");
 Ti.include("mapFunctions.js");
-Ti.include("SQL.js");
+Ti.include("collectionData.js");
 
 var args = arguments[0] || {};
 var zoomedName = args.name;
@@ -8,11 +8,6 @@ var zoomColor = args.color;
 var zoomLat = args.zoomlat;
 
 var menuVisible = false;
-
-//-----------------------------------------------------------
-// Hämtar trailsCollection
-//-----------------------------------------------------------
-var trailsCollection = getTrailsCollection();
 
 //-----------------------------------------------------------
 // Onload-funktioner för kartan
@@ -35,21 +30,17 @@ function displayBigMap() {
 //-----------------------------------------------------------
 function showTrail(myId) {
 	try {
-		trailsCollection.fetch({
-			query : query11 + myId + '"'
-		});
-
-		var jsonObjTr = trailsCollection.toJSON();
+		var jsonObjTrail = returnSpecificTrail(myId);
 
 		var args = {
-			id : jsonObjTr[0].id,
+			id : jsonObjTrail[0].id,
 			title : myId,
-			length : jsonObjTr[0].length,
-			infoTxt : jsonObjTr[0].infoTxt,
-			area : jsonObjTr[0].area,
-			color : jsonObjTr[0].color,
-			zoomlat : jsonObjTr[0].zoomLat,
-			zoomlon : jsonObjTr[0].zoomLon
+			length : jsonObjTrail[0].length,
+			infoTxt : jsonObjTrail[0].infoTxt,
+			area : jsonObjTrail[0].area,
+			color : jsonObjTrail[0].color,
+			zoomlat : jsonObjTrail[0].zoomLat,
+			zoomlon : jsonObjTrail[0].zoomLon
 		};
 
 		var trailDetail = Alloy.createController("trailDetail", args).getView();

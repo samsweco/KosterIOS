@@ -67,40 +67,40 @@ var interactiveMap = MapModule.createView({
 //-----------------------------------------------------------
 // Metoder för att skapa collections
 //-----------------------------------------------------------
-function getHotspotCollection() {
-	var hotspotCollection = Alloy.Collections.hotspotModel;
-	return hotspotCollection;
-}
-
-function getMediaCollection() {
-	var mediaCollection = Alloy.Collections.mediaModel;
-	return mediaCollection;
-}
-
-function getTrailsCollection() {
-	var trailCollection = Alloy.Collections.trailsModel;
-	return trailCollection;
-}
-
-function getInfoCollection() {
-	var infoCollection = Alloy.Collections.infoModel;
-	return infoCollection;
-}
-
-function getJSONfiles() {
-	var jsonFileCollection = Alloy.Collections.jsonFilesModel;
-	return jsonFileCollection;
-}
-
-function getLetterCollection() {
-	var letterCollection = Alloy.Collections.letterModel;
-	return letterCollection;
-}
-
-function getInfoSpotCoordinatesCollection() {
-	var infospotCollection = Alloy.Collections.infospotCoordinatesModel;
-	return infospotCollection;
-}
+// function getHotspotCollection() {
+	// var hotspotCollection = Alloy.Collections.hotspotModel;
+	// return hotspotCollection;
+// }
+// 
+// function getMediaCollection() {
+	// var mediaCollection = Alloy.Collections.mediaModel;
+	// return mediaCollection;
+// }
+// 
+// function getTrailsCollection() {
+	// var trailCollection = Alloy.Collections.trailsModel;
+	// return trailCollection;
+// }
+// 
+// function getInfoCollection() {
+	// var infoCollection = Alloy.Collections.infoModel;
+	// return infoCollection;
+// }
+// 
+// function getJSONfiles() {
+	// var jsonFileCollection = Alloy.Collections.jsonFilesModel;
+	// return jsonFileCollection;
+// }
+// 
+// function getLetterCollection() {
+	// var letterCollection = Alloy.Collections.letterModel;
+	// return letterCollection;
+// }
+// 
+// function getInfoSpotCoordinatesCollection() {
+	// var infospotCollection = Alloy.Collections.infospotCoordinatesModel;
+	// return infospotCollection;
+// }
 
 //-----------------------------------------------------------
 // Felhantering

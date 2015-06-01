@@ -1,15 +1,7 @@
 Ti.include("SQL.js");
-var args = arguments[0] || {};
+Ti.include("collectionData.js");
 
-//-----------------------------------------------------------
-// Hämtar infoCollection
-//-----------------------------------------------------------
-try {
-	var infoCollection = getInfoCollection();
-	infoCollection.fetch();
-} catch(e) {
-	newError("Något gick fel när sidan skulle laddas, prova igen!", "Infolistan");
-}
+var args = arguments[0] || {};
 
 setRowData();
 
@@ -17,7 +9,7 @@ setRowData();
 // Visar info för valt item i listvyn
 //-----------------------------------------------------------
 function showinfoDetails(info) {
-	// try {
+	try {
 		var selectedInfo = info.row;
 		var args = {
 			name : selectedInfo.name,
@@ -29,10 +21,9 @@ function showinfoDetails(info) {
 
 		var infoDetail = Alloy.createController("infoDetail", args).getView();
 		infoDetail.open();
-	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Infolistan");
-	// }
-
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Infolistan");
+	}
 }
 
 //-----------------------------------------------------------
@@ -40,9 +31,8 @@ function showinfoDetails(info) {
 //-----------------------------------------------------------
 function setRowData() {
 	try {
-
 		var tableViewData = [];
-		var rows = infoCollection.toJSON();
+		var rows = returnAllInfo();
 
 		for (var i = 0; i < rows.length; i++) {
 			var row = Ti.UI.createTableViewRow({
@@ -97,27 +87,23 @@ function setRowData() {
 // Hämtar all info som ska läsas in i listan
 //-----------------------------------------------------------
 function getInfoDetails(e) {
-	// try {
+	try {
 		var id = e.rowData.id;
-		infoCollection.fetch({
-			query : query10 + id + '"'
-		});
-
-		var jsonObj = infoCollection.toJSON();
+		var infoObjJSON = returnSpecificInfo(id);
 
 		var infoText = {
-			name : jsonObj[0].name,
-			infoTxt : jsonObj[0].infoTxt,
+			name : infoObjJSON[0].name,
+			infoTxt : infoObjJSON[0].infoTxt,
 			id : id,
-			img : jsonObj[0].cover_img,
-			link : jsonObj[0].url,
-			desc : jsonObj[0].desc,
+			img : infoObjJSON[0].cover_img,
+			link : infoObjJSON[0].url,
+			desc : infoObjJSON[0].desc,
 		};
 
 		var infoDetail = Alloy.createController("infoDetail", infoText).getView();
 		Alloy.CFG.tabs.activeTab.open(infoDetail);
 
-	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Infolistan");
-	// }
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Infolistan");
+	}
 }
