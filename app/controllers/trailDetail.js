@@ -17,11 +17,20 @@ try {
 }
 
 if(args.title == 'Äventyrsleden'){
-	$.btnGame.show();
-	$.btnGame.height = '20dp';
+	$.btnSendTo.show();
+	$.btnSendTo.height = '20dp';
+	$.btnSendTo.title = 'Gå till bokstavsjakten!';
 	
-	$.btnGame.addEventListener('click', function(){
+	$.btnSendTo.addEventListener('click', function(){
 		Alloy.CFG.tabs.setActiveTab(3);
+	});
+} else if(args.title == 'Båtresan'){
+	$.btnSendTo.show();
+	$.btnSendTo.height = '20dp';
+	$.btnSendTo.title = 'Påminn vid sevärdhet';
+	
+	$.btnSendTo.addEventListener('click', function(){
+		getUserPos('boat');
 	});
 }
 

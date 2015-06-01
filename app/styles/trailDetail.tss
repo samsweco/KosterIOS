@@ -116,7 +116,7 @@
 	left: '15dp'
 }
 
-"#btnGame": {
+"#btnSendTo": {
 	visible: false,
 	height: 0,
 	top: '10dp',

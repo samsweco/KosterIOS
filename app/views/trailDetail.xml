@@ -29,7 +29,7 @@
 				<Label id="lblTrailInfo" class="lbltrailDetail">
 				</Label>
 			</View>
-			<Button id="btnGame">Gå till bokstavsjakten!</Button>
+			<Button id="btnSendTo"></Button>
 			<Label id="lblLangsVagen" text="Det här kan du se längs vägen:"></Label>
 			<View id="trail_hotspotView">
 				<TableView id="hotspotTable" onClick="sendToHotspot" />

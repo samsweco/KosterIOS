@@ -34,9 +34,11 @@ function getUserPos(type) {
 			if (type == 'hotspot') {
 				Ti.Geolocation.addEventListener('location', addHotspotLocation);
 			}
-
 			if (type == 'letter') {
 				Ti.Geolocation.addEventListener('location', addLetterLocation);
+			}
+			if (type == 'boat') {
+				Ti.Geolocation.addEventListener('location', addBoatLocation);
 			}
 
 	} catch(e) {
@@ -57,6 +59,12 @@ var addHotspotLocation = function(e) {
 	}
 };
 
+var addBoatLocation = function(e) {
+	if (!e.error) {
+		setUserPosition(e.coords, 'boat');
+	}
+};
+
 //-----------------------------------------------------------
 // Avbryter location-event
 //-----------------------------------------------------------
@@ -71,8 +79,13 @@ function stopGame() {
 	startOver();
 }
 
+function stopBoatGPS() {
+	Titanium.Geolocation.removeEventListener('location', addHotspotLocation);
+}
+
 Alloy.Globals.stopGPS = stopGPS;
 Alloy.Globals.stopGame = stopGame;
+Alloy.Globals.stopBoatGPS = stopBoatGPS;
 
 //-----------------------------------------------------------
 // Hämtar enhetens position och kontrollerar mot punkter
@@ -86,6 +99,8 @@ function setUserPosition(userCoordinates, type) {
 			userIsNearHotspot();
 		} else if (type == 'letter') {
 			userIsNearLetter();
+		} else if (type == 'boat') {
+			userOnBoatTrip();
 		}
 
 	} catch(e) {
@@ -186,6 +201,57 @@ function userIsNearHotspot() {
 				}
 			}
 		}
+
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - isNearPoint");
+	}
+}
+
+function userOnBoatTrip() {
+	try {
+		var boatdialog = Ti.UI.createAlertDialog();
+		
+		hotspotColl.fetch({
+			query : 'SELECT * FROM hotspotModel join hotspot_trailsModel on hotspotModel.id = hotspot_trailsModel.hotspotID where trailsID = 8'
+		});
+		var boatTripHotspots = hotspotColl.toJSON();
+
+		for (var b = 0; b < boatTripHotspots.length; b++) {
+			if (boatTripHotspots[b].alerted == 0) {
+	
+				var hotlat = boatTripHotspots[b].xkoord;
+				var hotlon = boatTripHotspots[b].ykoord;
+				var radius = boatTripHotspots[b].radie;
+
+				if (isInsideRadius(hotlat, hotlon, radius)) {
+					boatdialog.message = 'Nu börjar du närma dig ' + boatTripHotspots[b].name + '!';
+					boatdialog.buttonNames = ['Läs mer', 'Stäng'];
+
+					var hottitle = boatTripHotspots[b].name;
+					var infoText = boatTripHotspots[b].infoTxt;
+					var hotid = boatTripHotspots[b].id;
+
+					boatdialog.addEventListener('click', function(e) {
+						if (e.index == 0) {
+							var hotspotTxt = {
+								title : hottitle,
+								infoTxt : infoText,
+								id : hotid
+							};
+
+							var hotspotDetails = Alloy.createController("hotspotDetail", hotspotTxt).getView();
+							Alloy.CFG.tabs.activeTab.open(hotspotDetails);
+						}
+					});
+
+					boatdialog.show();
+					playSound();
+					boatTripHotspots[b].alerted = 1;					
+				}
+			}
+		}
+		
+		Alloy.Globals.stopBoatGPS();
 
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - isNearPoint");

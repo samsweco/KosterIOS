@@ -65,44 +65,6 @@ var interactiveMap = MapModule.createView({
 });
 
 //-----------------------------------------------------------
-// Metoder för att skapa collections
-//-----------------------------------------------------------
-// function getHotspotCollection() {
-	// var hotspotCollection = Alloy.Collections.hotspotModel;
-	// return hotspotCollection;
-// }
-// 
-// function getMediaCollection() {
-	// var mediaCollection = Alloy.Collections.mediaModel;
-	// return mediaCollection;
-// }
-// 
-// function getTrailsCollection() {
-	// var trailCollection = Alloy.Collections.trailsModel;
-	// return trailCollection;
-// }
-// 
-// function getInfoCollection() {
-	// var infoCollection = Alloy.Collections.infoModel;
-	// return infoCollection;
-// }
-// 
-// function getJSONfiles() {
-	// var jsonFileCollection = Alloy.Collections.jsonFilesModel;
-	// return jsonFileCollection;
-// }
-// 
-// function getLetterCollection() {
-	// var letterCollection = Alloy.Collections.letterModel;
-	// return letterCollection;
-// }
-// 
-// function getInfoSpotCoordinatesCollection() {
-	// var infospotCollection = Alloy.Collections.infospotCoordinatesModel;
-	// return infospotCollection;
-// }
-
-//-----------------------------------------------------------
 // Felhantering
 //-----------------------------------------------------------
 function newError(errorMsg, pageName) {
@@ -120,11 +82,16 @@ function newError(errorMsg, pageName) {
 //-----------------------------------------------------------
 Titanium.App.addEventListener('close', function() {
 	if(hotspotGPS){
-		Alloy.Globals.stopGPS;
+		Alloy.Globals.stopGPS();
 	} 
 });
 Titanium.App.addEventListener('close', function() {
 	if(interactiveGPS){
-		Alloy.Globals.stopGame;
+		Alloy.Globals.stopGame();
+	} 
+});
+Titanium.App.addEventListener('close', function() {
+	if(interactiveGPS){
+		Alloy.Globals.stopBoatGPS();
 	} 
 });
