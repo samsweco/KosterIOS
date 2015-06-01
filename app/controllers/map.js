@@ -53,15 +53,7 @@ function showTrail(myId) {
 //-----------------------------------------------------------
 // Eventlistener för klick på trail eller hotspot
 //-----------------------------------------------------------
-map.addEventListener('click', function(evt) {
-	if (evt.clicksource == 'rightButton') {
-		if (evt.annotation.name == 'hotspot') {
-			showHotspot(evt.annotation.id);
-		} else if (evt.annotation.name == 'trail') {
-			showTrail(evt.annotation.id);
-		}
-	}
-});
+map.addEventListener('click', evtListenMap);
 
 //-----------------------------------------------------------
 // Eventlistener för att stänga menyn vid klick på kartan
