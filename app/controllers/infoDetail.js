@@ -1,6 +1,7 @@
 Ti.include('SQL.js');
+Ti.include("collectionData.js");
+
 var args = arguments[0] || {};
-var urlCollection = Alloy.Collections.info_urlModel;
 
 try {
 	$.lblInfoTitle1.text = args.name || "Title";
@@ -40,17 +41,13 @@ function showinfoDetails(info) {
 // sätter alla items i listan
 //-----------------------------------------------------------
 function setRowData() {
-	try {
+	// try {
 		var tableViewData = [];
-		urlCollection.fetch({
-			query : query8 + id + '"'
-		});
+		var urlList = returnUrlByInfoId(id);
 
-		var urlJson = urlCollection.toJSON();
-
-		for (var i = 0; i < urlJson.length; i++) {
+		for (var i = 0; i < urlList.length; i++) {
 			var row = Ti.UI.createTableViewRow({
-				id : urlJson[i].id,
+				id : urlList[i].id,
 				height : '60dp',
 				top : '0dp',
 				hasChild : true
@@ -64,7 +61,7 @@ function setRowData() {
 					fontSize : '13dp',
 				},
 				color : '#0098C3',
-				text : urlJson[i].linkname
+				text : urlList[i].linkname
 			});
 
 			row.add(linkName);
@@ -80,9 +77,9 @@ function setRowData() {
 			$.tableView.height = 0;
 		}
 
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Informationssidan");
-	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Informationssidan");
+	// }
 }
 
 //-----------------------------------------------------------
@@ -92,17 +89,14 @@ function getLink(e) {
 	try {
 		var rowId = e.rowData.id;
 		
-		urlCollection.fetch({
-			query : query9 + rowId + '"'
-		});		
-		var jsonObj = urlCollection.toJSON();
+		var urlById = returnUrlById(rowId);
 		
 		if(rowId != 3 && rowId != 4){			
-			var web = jsonObj[0].url;
+			var web = urlById[0].url;
 			openLink(web); 
 		} else if(rowId == 3 || rowId == 4){
-			var txt = jsonObj[0].url;
-			var titl = jsonObj[0].linkname; 
+			var txt = urlById[0].url;
+			var titl = urlById[0].linkname; 
 			showRules(txt, titl);
 		} 	
 			

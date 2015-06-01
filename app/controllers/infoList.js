@@ -17,7 +17,7 @@ setRowData();
 // Visar info för valt item i listvyn
 //-----------------------------------------------------------
 function showinfoDetails(info) {
-	try {
+	// try {
 		var selectedInfo = info.row;
 		var args = {
 			name : selectedInfo.name,
@@ -29,9 +29,9 @@ function showinfoDetails(info) {
 
 		var infoDetail = Alloy.createController("infoDetail", args).getView();
 		infoDetail.open();
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Infolistan");
-	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Infolistan");
+	// }
 
 }
 
@@ -97,7 +97,7 @@ function setRowData() {
 // Hämtar all info som ska läsas in i listan
 //-----------------------------------------------------------
 function getInfoDetails(e) {
-	try {
+	// try {
 		var id = e.rowData.id;
 		infoCollection.fetch({
 			query : query10 + id + '"'
@@ -117,7 +117,7 @@ function getInfoDetails(e) {
 		var infoDetail = Alloy.createController("infoDetail", infoText).getView();
 		Alloy.CFG.tabs.activeTab.open(infoDetail);
 
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Infolistan");
-	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Infolistan");
+	// }
 }
