@@ -6,7 +6,14 @@ var media_Collection = Alloy.Collections.mediaModel;
 var trail_Collection = Alloy.Collections.trailsModel;
 var infoCoord_Collection = Alloy.Collections.infospotCoordinatesModel;
 var hotspot_Collection = Alloy.Collections.hotspotModel;
+var jsonfile_Collection = Alloy.Collections.jsonFilesModel;
+var letter_Collection = Alloy.Collections.letterModel;
+// var foundLetter_Collection = Alloy.Collections.foundLettersModel;
 
+
+//-----------------------------------------------------------
+// infoUrl
+//-----------------------------------------------------------
 function returnUrlById(urlId) {
 	info_urlCollection.fetch({
 		query : getUrlById + urlId + '"'
@@ -25,6 +32,10 @@ function returnUrlByInfoId(infoId) {
 	return urlJson;
 }
 
+
+//-----------------------------------------------------------
+// info
+//-----------------------------------------------------------
 function returnAllInfo() {
 	info_Collection.fetch();
 	var infoJson = info_Collection.toJSON();
@@ -41,6 +52,10 @@ function returnSpecificInfo(infoSpecId) {
 	return infoJson;
 }
 
+
+//-----------------------------------------------------------
+// media
+//-----------------------------------------------------------
 function returnSpecificPics(SpecPicId) {
 	media_Collection.fetch({
 		query : getImgsByHotspotId + SpecPicId + '"'
@@ -59,6 +74,10 @@ function returnSpecificTrailPics(trailId) {
 	return mediaJson;
 }
 
+
+//-----------------------------------------------------------
+// trail
+//-----------------------------------------------------------
 function returnTrails() {
 	trail_Collection.fetch();
 	var trailJson = trail_Collection.toJSON();
@@ -84,6 +103,10 @@ function returnSpecificTrailById(trailId) {
 	return trailJson;
 }
 
+
+//-----------------------------------------------------------
+// infoCoord
+//-----------------------------------------------------------
 function returnSpecificIconsByTrailId(iconTrailInfId) {
 	infoCoord_Collection.fetch({
 		query : getDistInfospotsByTrailId + iconTrailInfId + '"'
@@ -93,6 +116,28 @@ function returnSpecificIconsByTrailId(iconTrailInfId) {
 	return infoCoordJson;
 }
 
+function returnSpecificIconsByType(infoType) {
+	infoCoord_Collection.fetch({
+		query : getInfoCoordByType + infoType + '"'
+	});
+	var infoCoordJson = infoCoord_Collection.toJSON();
+
+	return infoCoordJson;
+}
+
+function returnIconsByTrailId(trailId) {
+	infoCoord_Collection.fetch({
+		query : getInfospotsByTrailId + trailId + '"'
+	});
+	var infoCoordJson = infoCoord_Collection.toJSON();
+
+	return infoCoordJson;
+}
+
+
+//-----------------------------------------------------------
+// hotspot
+//-----------------------------------------------------------
 function returnSpecificHotspotsByTrailId(trailId) {
 	hotspot_Collection.fetch({
 		query : getHotspotsByTrailId + trailId + '"'
@@ -102,3 +147,55 @@ function returnSpecificHotspotsByTrailId(trailId) {
 	return hotspotJson;
 }
 
+function returnHotspots() {
+	hotspot_Collection.fetch();
+	var hotspotJson = hotspot_Collection.toJSON();
+
+	return hotspotJson;
+}
+
+function returnSpecificHotspotsByName(name) {
+	hotspot_Collection.fetch({
+		query : getHotspotByName + name + '"'
+	});
+	var hotspotJson = hotspot_Collection.toJSON();
+
+	return hotspotJson;
+}
+
+
+//-----------------------------------------------------------
+// jsonFile
+//-----------------------------------------------------------
+function returnJsonFiles(id) {
+	jsonfile_Collection.fetch({
+			query : getJsonFileById + id + '"'
+		});
+	var jsonfileJson = jsonfile_Collection.toJSON();
+
+	return jsonfileJson;
+}
+
+
+//-----------------------------------------------------------
+// letters
+//-----------------------------------------------------------
+function returnLetters() {
+	letter_Collection.fetch();
+	var letterJson = letter_Collection.toJSON();
+
+	return letterJson;
+}
+
+
+//-----------------------------------------------------------
+// foundletters
+//-----------------------------------------------------------
+// function returnFoundLetters() {
+	// foundLetter_Collection.fetch({
+		// query : 'SELECT letter FROM foundLettersModel WHERE found = 1'
+	// });
+	// var foundLetterJson = foundLetter_Collection.toJSON();
+// 
+	// return foundLetterJson;
+// }
