@@ -187,15 +187,3 @@ function returnLetters() {
 	return letterJson;
 }
 
-
-//-----------------------------------------------------------
-// foundletters
-//-----------------------------------------------------------
-// function returnFoundLetters() {
-	// foundLetter_Collection.fetch({
-		// query : 'SELECT letter FROM foundLettersModel WHERE found = 1'
-	// });
-	// var foundLetterJson = foundLetter_Collection.toJSON();
-// 
-	// return foundLetterJson;
-// }
