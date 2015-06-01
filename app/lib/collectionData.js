@@ -8,7 +8,6 @@ var infoCoord_Collection = Alloy.Collections.infospotCoordinatesModel;
 var hotspot_Collection = Alloy.Collections.hotspotModel;
 var jsonfile_Collection = Alloy.Collections.jsonFilesModel;
 var letter_Collection = Alloy.Collections.letterModel;
-// var foundLetter_Collection = Alloy.Collections.foundLettersModel;
 
 
 //-----------------------------------------------------------
