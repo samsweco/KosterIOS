@@ -209,7 +209,9 @@ function userIsNearHotspot() {
 
 function userOnBoatTrip() {
 	try {
-		var boatdialog = Ti.UI.createAlertDialog();
+		var boatdialog = Ti.UI.createAlertDialog({
+			buttonNames : ['Läs mer', 'Stäng']
+		});
 		
 		hotspotColl.fetch({
 			query : 'SELECT * FROM hotspotModel join hotspot_trailsModel on hotspotModel.id = hotspot_trailsModel.hotspotID where trailsID = 8'
@@ -225,7 +227,6 @@ function userOnBoatTrip() {
 
 				if (isInsideRadius(hotlat, hotlon, radius)) {
 					boatdialog.message = 'Nu börjar du närma dig ' + boatTripHotspots[b].name + '!';
-					boatdialog.buttonNames = ['Läs mer', 'Stäng'];
 
 					var hottitle = boatTripHotspots[b].name;
 					var infoText = boatTripHotspots[b].infoTxt;
@@ -250,9 +251,6 @@ function userOnBoatTrip() {
 				}
 			}
 		}
-		
-		Alloy.Globals.stopBoatGPS();
-
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - isNearPoint");
 	}
