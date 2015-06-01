@@ -1,6 +1,7 @@
 // Ti.include("collectionData.js");
 
 var foundJSON = [];
+var alertedArray = [];
 
 //-----------------------------------------------------------
 // Hämtar hotspotCollection
@@ -207,6 +208,10 @@ function userIsNearHotspot() {
 	}
 }
 
+//-----------------------------------------------------------
+// På båtturen : kontrollerar om enheten är innanför en radie 
+// för en sevärdhet, sänder ut dialog om true
+//-----------------------------------------------------------
 function userOnBoatTrip() {
 	try {
 		var boatdialog = Ti.UI.createAlertDialog({
@@ -217,27 +222,28 @@ function userOnBoatTrip() {
 			query : 'SELECT * FROM hotspotModel join hotspot_trailsModel on hotspotModel.id = hotspot_trailsModel.hotspotID where trailsID = 8'
 		});
 		var boatTripHotspots = hotspotColl.toJSON();
+		Alloy.Globals.boatTripHotspots = boatTripHotspots;
 
-		for (var b = 0; b < boatTripHotspots.length; b++) {
-			if (boatTripHotspots[b].alerted == 0) {
+		for (var b = 0; b < Alloy.Globals.boatTripHotspots.length; b++) {
+			if (Alloy.Globals.boatTripHotspots[b].alerted == 0) {
 	
-				var hotlat = boatTripHotspots[b].xkoord;
-				var hotlon = boatTripHotspots[b].ykoord;
-				var radius = boatTripHotspots[b].radie;
+				var blat = Alloy.Globals.boatTripHotspots[b].xkoord;
+				var blon = Alloy.Globals.boatTripHotspots[b].ykoord;
+				var bradius = Alloy.Globals.boatTripHotspots[b].radie;
 
-				if (isInsideRadius(hotlat, hotlon, radius)) {
-					boatdialog.message = 'Nu börjar du närma dig ' + boatTripHotspots[b].name + '!';
+				if (isInsideRadius(blat, blon, bradius)) {
+					boatdialog.message = 'Nu börjar du närma dig ' + Alloy.Globals.boatTripHotspots[b].name + '!';
 
-					var hottitle = boatTripHotspots[b].name;
-					var infoText = boatTripHotspots[b].infoTxt;
-					var hotid = boatTripHotspots[b].id;
+					var htitle = Alloy.Globals.boatTripHotspots[b].name;
+					var iText = Alloy.Globals.boatTripHotspots[b].infoTxt;
+					var boatid = Alloy.Globals.boatTripHotspots[b].id;
 
 					boatdialog.addEventListener('click', function(e) {
 						if (e.index == 0) {
 							var hotspotTxt = {
-								title : hottitle,
-								infoTxt : infoText,
-								id : hotid
+								title : htitle,
+								infoTxt : iText,
+								id : boatid
 							};
 
 							var hotspotDetails = Alloy.createController("hotspotDetail", hotspotTxt).getView();
@@ -247,13 +253,35 @@ function userOnBoatTrip() {
 
 					boatdialog.show();
 					playSound();
-					boatTripHotspots[b].alerted = 1;					
+					Alloy.Globals.boatTripHotspots[b].alerted = 1;					
+				}
+			}
+		}
+		
+		checkIfAlerted();
+		
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - isNearPoint");
+	}
+}
+
+//-----------------------------------------------------------
+// Kontrollerar om en sevärdhet redan alert'ats
+//-----------------------------------------------------------
+function checkIfAlerted(){	
+	try {
+		for (var a = 0; a < Alloy.Globals.boatTripHotspots.length; a++) {
+			if (Alloy.Globals.boatTripHotspots[a].alerted == 1) {
+				alertedArray.push(coll);
+
+				if (alertedArray.length == 8) {
+					Alloy.Globals.stopBoatGPS();
 				}
 			}
 		}
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - isNearPoint");
-	}
+	}	
 }
 
 //-----------------------------------------------------------
