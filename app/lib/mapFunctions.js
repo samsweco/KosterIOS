@@ -40,6 +40,11 @@ function showMap(maptype) {
 	}
 }
 
+function reloadMap(){
+	map.removeAllAnnotations();
+	showMap(map);
+}
+
 //-----------------------------------------
 // Zoomar in kartan på en Detaljkarta
 //-----------------------------------------
