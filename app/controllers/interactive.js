@@ -3,7 +3,6 @@ Ti.include("mapFunctions.js");
 
 var args = arguments[0] || {};
 
-var foundLetterId = 1;
 var wrongWord = 0;
 var correctLetters = "A, T, R, Ö, N, N, E, M, O";
 
@@ -228,7 +227,6 @@ function allLetters() {
 			$.lblWord.show();
 			$.lblWord.height = '40dp';
 			
-
 			$.lblWelcome.text = 'Skriv ordet du bildat av bokstäverna!';
 			$.lblInfoText.text = 'Ledtråd: En svävande geléklump i havet.';
 		}
@@ -272,7 +270,7 @@ function checkWord() {
 		} else if(wrongWord == 3){
 			alertDialog.message = "Nu blev det fel. Vill du kontrollera dina bokstäver? Det här är de korrekta: " + correctLetters;
 			alertDialog.show();
-		} else {
+		} else if(wrongWord < 3){
 			alertDialog.message = "Försök igen! Du har snart klurat ut det!";
 			alertDialog.show();
 			wrongWord++;

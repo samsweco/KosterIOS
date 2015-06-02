@@ -93,8 +93,13 @@ function toInfo() {
 
 $.mapWin.addEventListener('blur', function() {
 	$.mapWin = null;
+	
+	
+	// rensar kartan
 	reloadMap();
 	Alloy.Globals.reloadMapMenu();
+	
+	
 });
 
 $.interactiveWin.addEventListener('blur', function() {

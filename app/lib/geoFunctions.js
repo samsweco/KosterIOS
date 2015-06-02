@@ -2,6 +2,7 @@
 
 var foundJSON = [];
 var alertedArray = [];
+var foundLetterId = 1;
 
 //-----------------------------------------------------------
 // Hämtar hotspotCollection
@@ -50,7 +51,7 @@ function getUserPos(type) {
 var addLetterLocation = function(e) {
 	if (!e.error) {
 		setUserPosition(e.coords, 'letter');
-		currentLocationFinder();
+		currentLocationFinder(interactiveMap);
 	}
 };
 
@@ -78,6 +79,7 @@ function stopGame() {
 	lettersModel.destroy();
 	foundLettersModel.destroy();
 	startOver();
+	interactiveGPS = false;
 }
 
 function stopBoatGPS() {
@@ -109,7 +111,7 @@ function setUserPosition(userCoordinates, type) {
 	}
 }
 
-function currentLocationFinder(){
+function currentLocationFinder(type){
     Titanium.Geolocation.getCurrentPosition(function(e){
         var currentRegion={
             latitude: e.coords.latitude,
@@ -119,7 +121,7 @@ function currentLocationFinder(){
             longitudeDelta: 0.002
         };
         
-        interactiveMap.setLocation(currentRegion);
+        type.setLocation(currentRegion);
     });
 }
 
@@ -303,25 +305,81 @@ function userIsNearLetter() {
 				var lon = Alloy.Globals.jsonCollection[isnear].longitude;
 				var letterradius = Alloy.Globals.jsonCollection[isnear].radius;
 				
-				if (isInsideRadius(lat, lon, letterradius)) {
-					var clue = Alloy.Globals.jsonCollection[isnear].clue;
-					
-					message.message = clue;
-					message.addEventListener('click', function(e) {
-						if (e.index == 0) {
+
+					if (isInsideRadius(lat, lon, letterradius)) {
+						var clue = Alloy.Globals.jsonCollection[isnear].clue;
+
+						message.message = clue;
+						message.addEventListener('click', function(e) {
+
+							if (e.index == 0) {
 								Alloy.CFG.tabs.setActiveTab(3);
 							}
 						});
 						message.show();
-					
+
 						Alloy.Globals.jsonCollection[isnear].alerted = 1;
 						playSound();
+
+						var letterId = Alloy.Globals.jsonCollection[isnear].id;
+						checkIfRight(letterId);
 					}
+
 				}	
 			}		
 		}
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", 'isNearPoint - letter');
+	}
+}
+
+function checkIfRight(id){
+	if ((foundJSON.length + 1) != id) {
+		
+		foundLettersModel.fetch({
+			'id' : (foundJSON.length + 1)
+		});
+
+		foundLettersModel.set({
+			'letter' : '_',
+			'found' : 1
+		});
+		
+		foundLettersModel.save();
+		
+	} else if(id - (foundJSON.length + 1) > 1) {
+		
+		var diff = id - (foundJSON.length + 1);
+		
+		var wrongmessage = Ti.UI.createAlertDialog({
+			title : 'Ojdå!',
+			buttonNames : ['Avsluta bokstavsjakten', 'Ge mig bokstäverna']
+		}); 
+		wrongmessage.message = 'Du har nu missat flera bokstäver. Vill du avsluta bokstavsjakten eller få bokstäverna så du kan fortsätt?';
+		
+		wrongmessage.addEventListener('click', function(e) {
+			if (e.index == 0) {
+				Alloy.Globals.stopGame();
+				// och en annan funktion som rensar sidan
+			} else {
+				var letterIndex = foundJSON.length+1;
+				
+				for(var i = 0; i < diff; i++){
+					foundLettersModel.fetch({
+						'id' : letterIndex
+					});
+
+					foundLettersModel.set({
+						'letter' : '_',
+						'found' : 1
+					});
+
+					foundLettersModel.save(); 
+					letterIndex++;
+				}	
+			}
+		});
+		wrongmessage.show();
 	}
 }
 
@@ -375,6 +433,8 @@ function getPosition(maptype) {
 			};
 			maptype.animate = true;
 			maptype.userLocation = true;
+			
+			currentLocationFinder(maptype);
 		}
 	});
 }
