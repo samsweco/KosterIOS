@@ -9,8 +9,6 @@ var zoomLat = args.zoomlat;
 
 var menuVisible = false;
 
-map.addEventListener('click', evtListenMap);
-
 //-----------------------------------------------------------
 // Onload-funktioner för kartan
 //-----------------------------------------------------------
@@ -55,9 +53,6 @@ function showTrail(myId) {
 //-----------------------------------------------------------
 // Eventlistener för klick på trail eller hotspot
 //-----------------------------------------------------------
-<<<<<<< Updated upstream
-// map.addEventListener('click', evtListenMap);
-=======
 map.addEventListener('click', function(evt){
 	if (evt.clicksource == 'rightButton') {
 		if (evt.annotation.name == 'hotspot') {
@@ -67,7 +62,6 @@ map.addEventListener('click', function(evt){
 		}
 	}
 });
->>>>>>> Stashed changes
 
 //-----------------------------------------------------------
 // Eventlistener för att stänga menyn vid klick på kartan
