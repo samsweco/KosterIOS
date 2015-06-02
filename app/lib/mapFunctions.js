@@ -40,6 +40,9 @@ function showMap(maptype) {
 	}
 }
 
+//-----------------------------------------------------------
+// Rensar kartan och laddar om pins
+//-----------------------------------------------------------
 function reloadMap(){
 	map.removeAllAnnotations();
 	showMap(map);

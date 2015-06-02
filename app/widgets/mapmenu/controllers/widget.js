@@ -185,6 +185,9 @@ function showTorrdass() {
 	}	
 }
 
+//-----------------------------------------------------------
+// Rensar menyn när man gått ur kartan
+//-----------------------------------------------------------
 function reloadMapMenu(){
 	farjelage = false; 
 	snorkel = false;
