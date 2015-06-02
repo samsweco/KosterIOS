@@ -60,7 +60,7 @@ function setRowData() {
 					left : '5dp',
 					top : '0dp',
 					font : {
-						fontSize : '12dp',
+						fontSize : '11dp',
 						fontFamily : 'Raleway-Light'
 					},
 					text : 'Sträcka : ' + trailRows[i].length + " km"
@@ -70,7 +70,7 @@ function setRowData() {
 					left : '5dp',
 					top : '0dp',
 					font : {
-						fontSize : '12dp',
+						fontSize : '11dp',
 						fontFamily : 'Raleway-Light'
 					},
 					text : trailRows[i].area
