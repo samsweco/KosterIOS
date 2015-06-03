@@ -6,7 +6,7 @@
 	},
 	height: Ti.UI.SIZE,
 	width: Ti.UI.SIZE,
-	top: '5dp',
+	top: '10dp',
 	left: '10dp'
 }
 
@@ -14,10 +14,16 @@
 	backgroundColor: 'white',
 	top: '10dp',
 	width: '80%',
-	height: Titanium.UI.FILL,
+	height: '80%',
 	borderRadius: 10,
 	left: '10%',
 	right: '10%',
 	opacity: 0.9,
 	layout: 'vertical'
+}
+
+"#welcome":{
+		font: {
+		fontFamily: 'Raleway-Medium'
+	},
 }
