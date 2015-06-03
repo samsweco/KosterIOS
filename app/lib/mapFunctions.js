@@ -1,7 +1,6 @@
 Ti.include("collectionData.js");
 
-var infospotArray = [];
-var markerHotspotArray = [];
+
 var markerSpecHotspotArray = [];
 var hotspotDetail;
 

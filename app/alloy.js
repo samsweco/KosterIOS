@@ -27,6 +27,9 @@ var menuMapVisible = false;
 var hotspotGPS = false;
 var interactiveGPS = false;
 
+var infospotArray = [];
+var markerHotspotArray = [];
+
 //-----------------------------------------------------------
 // Globala variabler för att visa och släcka infospots
 //-----------------------------------------------------------
