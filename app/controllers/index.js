@@ -96,8 +96,8 @@ $.mapWin.addEventListener('blur', function() {
 	
 	
 	// rensar kartan
-	reloadMap();
-	Alloy.Globals.reloadMapMenu();
+	// reloadMap();
+	// Alloy.Globals.reloadMapMenu();
 	
 	
 });

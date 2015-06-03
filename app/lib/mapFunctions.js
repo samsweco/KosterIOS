@@ -284,6 +284,9 @@ function displayAllMarkers() {
 	}
 }
 
+//-----------------------------------------------------------
+// Sätter region på kartan
+//-----------------------------------------------------------
 function setRegion(maptype) {
 	try {
 		maptype.region = {
