@@ -93,8 +93,8 @@ Alloy.Globals.stopBoatGPS = stopBoatGPS;
 //-----------------------------------------------------------
 function setUserPosition(userCoordinates, type) {
 	try {
-		gLat = userCoordinates.latitude;
-		gLon = userCoordinates.longitude;
+			gLat = userCoordinates.latitude;
+			gLon = userCoordinates.longitude;
 
 		if (type == 'hotspot') {
 			userIsNearHotspot();
@@ -147,7 +147,6 @@ function distanceM(latt, lonn, GlobalLat, GlobalLon) {
 //-----------------------------------------------------------
 function isInsideRadius(latti, lonni, rad) {
 	try {
-
 		var inside = false;
 		var distance = distanceM(latti, lonni, gLat, gLon);
 

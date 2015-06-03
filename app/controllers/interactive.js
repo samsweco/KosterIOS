@@ -82,12 +82,11 @@ function startInteractive() {
 	}
 }
 
-
 //-----------------------------------------------------------
 // Laddar in nästa ledtråd om man inte hittar bokstaven
 //-----------------------------------------------------------
 function toNextClue() {
-	// try {
+	try {
 		var nextDialog = Ti.UI.createAlertDialog({
 			title : 'Gå till nästa',
 			message : 'Är du säker på att du inte hittar bokstaven?',
@@ -116,25 +115,25 @@ function toNextClue() {
 		});
 
 		nextDialog.show();
-	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
-	// }
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
+	}
 }
 
 //-----------------------------------------------------------
 // Laddar in första ledtråden
 //-----------------------------------------------------------
 function loadClue(id) {
-	// try {
+	try {
 		if (id < 10){
 			$.lblWelcome.text = "Ledtråd " + id + ":";
 			$.lblInfoText.text = Alloy.Globals.jsonCollection[id - 1].clue; 
 		} else {
 			allLetters();
 		}
-	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
-	// }
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
+	}
 }
 
 Alloy.Globals.loadClue = loadClue;

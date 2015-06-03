@@ -188,25 +188,25 @@ function showTorrdass() {
 //-----------------------------------------------------------
 // Rensar menyn när man gått ur kartan
 //-----------------------------------------------------------
-function reloadMapMenu(){
-	farjelage = false; 
-	snorkel = false;
-	torrdass = false;
-	utsiktsplats = false;
-	rastplats = false;
-	taltplats = false;
-	badplats = false;
-	information = false;
-	eldplats = false;
-	
-	$.btnShowFarjelage.backgroundImage = '/images/grayfarjelage.png';
-	$.btnShowTaltplats.backgroundImage = '/images/graytaltplats.png';
-	$.btnShowEldplats.backgroundImage = '/images/grayeldplats.png';
-	$.btnShowSnorkelled.backgroundImage = '/images/graysnorkelled.png';
-	$.btnShowInformation.backgroundImage = '/images/grayinformation.png';
-	$.btnShowBadplats.backgroundImage = '/images/graybadplats.png';
-	$.btnShowRastplats.backgroundImage = '/images/grayrastplats.png';
-	$.btnShowUtsiktsplats.backgroundImage = '/images/grayutsiktsplats.png';
-	$.btnShowTorrdass.backgroundImage = '/images/graytorrdass.png';
-}
-Alloy.Globals.reloadMapMenu = reloadMapMenu;
+// function reloadMapMenu(){
+	// farjelage = false; 
+	// snorkel = false;
+	// torrdass = false;
+	// utsiktsplats = false;
+	// rastplats = false;
+	// taltplats = false;
+	// badplats = false;
+	// information = false;
+	// eldplats = false;
+// 	
+	// $.btnShowFarjelage.backgroundImage = '/images/grayfarjelage.png';
+	// $.btnShowTaltplats.backgroundImage = '/images/graytaltplats.png';
+	// $.btnShowEldplats.backgroundImage = '/images/grayeldplats.png';
+	// $.btnShowSnorkelled.backgroundImage = '/images/graysnorkelled.png';
+	// $.btnShowInformation.backgroundImage = '/images/grayinformation.png';
+	// $.btnShowBadplats.backgroundImage = '/images/graybadplats.png';
+	// $.btnShowRastplats.backgroundImage = '/images/grayrastplats.png';
+	// $.btnShowUtsiktsplats.backgroundImage = '/images/grayutsiktsplats.png';
+	// $.btnShowTorrdass.backgroundImage = '/images/graytorrdass.png';
+// }
+// Alloy.Globals.reloadMapMenu = reloadMapMenu;
