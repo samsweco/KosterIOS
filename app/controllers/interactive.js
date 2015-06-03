@@ -93,14 +93,12 @@ function toNextClue() {
 		nextDialog.addEventListener('click', function(e) {
 			if (e.index == 0) {
 				if (Alloy.Globals.jsonCollection[foundLetterId-1].found == 0) {					
-					// checkLetter(Alloy.Globals.jsonCollection[foundLetterId-1].letter);
-					
 					foundLettersModel.fetch({
 						'id' : (foundJSON.length + 1)
 					});
 
 					foundLettersModel.set({
-						'letter' : '_',
+						'letter' : '-',
 						'found' : 1
 					});
 		
