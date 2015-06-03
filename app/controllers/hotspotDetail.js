@@ -18,8 +18,8 @@ function selectHotspotPics() {
 		var picMediaJSON = returnSpecificPics(hotspotId);
 
 		for (var i = 0; i < picMediaJSON.length; i++) {
-			var img_view = Ti.UI.createView({
-				backgroundImage : "/pics/" + picMediaJSON[i].filename,
+			var img_view = Ti.UI.createImageView({
+				image : "/pics/" + picMediaJSON[i].filename,
 				height : '200dp',
 				width : '300dp',
 				top : '0dp'
