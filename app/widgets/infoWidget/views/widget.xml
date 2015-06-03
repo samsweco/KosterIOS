@@ -1,6 +1,6 @@
 <Alloy>
 	<ScrollView id="infoView">
 		<Label>Välkommen till Kosterhavets app!
-			Här kan du få information om hur du använder appe</Label>
+			Vill du ha påminnelser lämgs vägen när du närmar dig en sevärhet kan du gå in på kartan och välja "Påminndelse vid sevärdighet" i menyn.</Label>
 	</ScrollView>
 </Alloy>

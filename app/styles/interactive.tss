@@ -132,7 +132,7 @@
 	width: Titanium.UI.FILL,
 	top: '5dp',
 	font: {
-		fontSize: '16dp',
+		fontSize: '16dp', 
 		fontFamily: 'Raleway-Medium'
 	}
 }
@@ -141,24 +141,23 @@
 	visible: false,
 	font: {
 		fontFamily: 'Raleway-Light',
-		fontSize: '13dp'
+		fontSize: '13dp',
 	},
 	top: '2dp',
-	left: '15dp',
-	right: '15dp',
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
 	color: 'gray',
-	height : 0
+	height : '0dp'
 }
 
 "#nextClue": {
 	visible: false,
 	font: {
 		fontFamily: 'Raleway-Light',
-		fontSize: '13dp'
+		fontSize: '13dp',
 	},
-	left: '15dp',
-	top: 0,
-	height : 0
+	top: '0dp',
+	width: Titanium.UI.FILL,
+	height : '0dp'
 }
 
 "#viewNext": {
@@ -167,6 +166,6 @@
 	top: '5%',
 	left: '5dp',
 	bottom: '0dp',
-	width: '80%',
+	width: Titanium.UI.FILL,
 	layout: 'vertical'
 }
