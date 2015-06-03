@@ -63,6 +63,19 @@ function disHot(){
 }
 
 //-----------------------------------------------------------
+// Eventlistener för klick på hotspot
+//-----------------------------------------------------------
+var evtList = function(evt){
+	try {
+		if (evt.clicksource == 'rightButton') {
+			showHotspot(evt.annotation.id);
+		}
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Kartfunktioner");
+	}	
+};
+
+//-----------------------------------------------------------
 // Funktioner för att visa och stänga kartmenyn 
 //-----------------------------------------------------------
 function showMenu() {

@@ -60,19 +60,6 @@ function showDetailMap(maptype, id, name, color) {
 }
 
 //-----------------------------------------------------------
-// Eventlistener för klick på hotspot
-//-----------------------------------------------------------
-var evtList = function(evt){
-	try {
-		if (evt.clicksource == 'rightButton') {
-			showHotspot(evt.annotation.id);
-		}
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Kartfunktioner");
-	}	
-};
-
-//-----------------------------------------------------------
 // sätter en vald vandingsled
 //-----------------------------------------------------------
 function setSpecificRoute(maptype, id, name, color) {

@@ -81,7 +81,7 @@ function stopGame() {
 }
 
 function stopBoatGPS() {
-	Titanium.Geolocation.removeEventListener('location', addHotspotLocation);
+	Titanium.Geolocation.removeEventListener('location', addBoatLocation);
 }
 
 Alloy.Globals.stopGPS = stopGPS;
