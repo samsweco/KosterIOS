@@ -205,7 +205,7 @@ function showIcons() {
 function changeLabel(){
 	try {
 		if (args.title != 'Båtleden') {
-			$.lblLangsVagen.text = 'Det här kan du se längst vägen:';
+			$.lblLangsVagen.text = 'Det här kan du se längs vägen:';
 		} else {
 			$.lblLangsVagen.text = 'Det här kan du läsa om på båtresan:';
 		}
