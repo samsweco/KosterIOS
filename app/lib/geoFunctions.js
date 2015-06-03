@@ -76,9 +76,9 @@ function stopGPS() {
 
 function stopGame() {
 	Titanium.Geolocation.removeEventListener('location', addLetterLocation);
+	startOver();
 	lettersModel.destroy();
 	foundLettersModel.destroy();
-	startOver();
 	interactiveGPS = false;
 }
 
@@ -353,9 +353,9 @@ function checkIfRight(id){
 		
 		var wrongmessage = Ti.UI.createAlertDialog({
 			title : 'Ojdå!',
-			buttonNames : ['Avsluta bokstavsjakten', 'Ge mig bokstäverna']
+			buttonNames : ['Avsluta bokstavsjakten', 'Fortsätt leta efter nästa']
 		}); 
-		wrongmessage.message = 'Du har nu missat flera bokstäver. Vill du avsluta bokstavsjakten eller få bokstäverna så du kan fortsätt?';
+		wrongmessage.message = 'Du har nu missat flera bokstäver. Vill du avsluta bokstavsjakten eller fortsätta leta efter nästa bokstav?';
 		
 		wrongmessage.addEventListener('click', function(e) {
 			if (e.index == 0) {

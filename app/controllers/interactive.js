@@ -93,7 +93,21 @@ function toNextClue() {
 		nextDialog.addEventListener('click', function(e) {
 			if (e.index == 0) {
 				if (Alloy.Globals.jsonCollection[foundLetterId-1].found == 0) {					
-					checkLetter(Alloy.Globals.jsonCollection[foundLetterId-1].letter);
+					// checkLetter(Alloy.Globals.jsonCollection[foundLetterId-1].letter);
+					
+					foundLettersModel.fetch({
+						'id' : (foundJSON.length + 1)
+					});
+
+					foundLettersModel.set({
+						'letter' : '_',
+						'found' : 1
+					});
+		
+					foundLettersModel.save();
+					getFound();
+					foundLetterId++;
+					loadClue(foundLetterId);
 					$.lblCollectedLetters.text = 'Bokstäver:  ' + foundJSON;
 				}
 			}
@@ -265,7 +279,7 @@ function checkWord() {
 			$.lblWord.hide();
 			$.lblWord.height = 0;
 
-			stopGame();
+			Alloy.Globals.stopGame();
 			interactiveGPS = false;
 		} else if(wrongWord == 3){
 			alertDialog.message = "Nu blev det fel. Vill du kontrollera dina bokstäver? Det här är de korrekta: " + correctLetters;
