@@ -156,7 +156,7 @@ function openBoat(){
 function showInfo(){
 	if(!infoVisible){
 		$.widgetInfo.show();
-		$.widgetInfo.height = '80%';
+		$.widgetInfo.height = '75%';
 		infoVisible = true;
 	} else {
 		$.widgetInfo.hide();
