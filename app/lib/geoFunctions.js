@@ -332,31 +332,95 @@ function userIsNearLetter() {
 }
 
 //-----------------------------------------------------------
+// Kontrollerar om enheten är innanför en radie för en bokstav,
+// sänder ut dialog om true
+//-----------------------------------------------------------
+function userIsNearLetter() {
+	try {
+		for (var isnear = 0; isnear < Alloy.Globals.jsonCollection.length; isnear++) {
+			if (Alloy.Globals.jsonCollection[isnear].alerted == 0) {
+				if (Alloy.Globals.jsonCollection[isnear].found == 0) {
+
+					var lat = Alloy.Globals.jsonCollection[isnear].latitude;
+					var lon = Alloy.Globals.jsonCollection[isnear].longitude;
+					var letterradius = Alloy.Globals.jsonCollection[isnear].radius;
+
+					if (isInsideRadius(lat, lon, letterradius)) {
+						var letterId = Alloy.Globals.jsonCollection[isnear].id;
+
+						if (letterId == foundLetterId) {
+							alertLetter(Alloy.Globals.jsonCollection[isnear].clue);
+							Alloy.Globals.jsonCollection[isnear].alerted = 1;
+						} else {
+							checkIfRight(letterId);
+						}
+					}
+				}
+			}
+		}
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", 'isNearPoint - letter');
+	}
+}
+
+function alertLetter(clue) {
+	var message = Ti.UI.createAlertDialog({
+		title : 'Ny bokstav i närheten!',
+		buttonNames : ['Gå till bokstavsjakten', 'Stäng']
+	});
+
+	message.message = clue;
+	message.addEventListener('click', function(e) {
+		if (e.index == 0) {
+			Alloy.CFG.tabs.setActiveTab(3);
+		}
+	});
+	message.show();
+	playSound();
+}
+
+//-----------------------------------------------------------
 // Kontrollerar om användaren har missat någon bokstav
 //-----------------------------------------------------------
-function checkIfRight(id){
+function checkIfRight(id) {
 	try {
-		if ((foundJSON.length + 1) != id) {
-			foundLettersModel.fetch({
-				'id' : (foundJSON.length + 1)
+		var diff = id - foundLetterId;
+
+		var wrongmessage = Ti.UI.createAlertDialog({
+			title : 'Ojdå!'
+		});
+
+		if (diff == 1) {
+			foundLetterId++;
+			wrongmessage.buttonNames = ['Gå tillbaka och leta', 'Fortsätt leta efter nästa'];
+			wrongmessage.message = 'Du har nu missat en bokstav. Vill du gå tillbaka och leta efter den du missat eller fortsätta leta efter nästa bokstav?';
+
+			wrongmessage.addEventListener('click', function(e) {
+				if (e.index == 1) {
+					foundLettersModel.fetch({
+						'id' : (foundJSON.length + 1)
+					});
+
+					foundLettersModel.set({
+						'letter' : '-',
+						'found' : 1
+					});
+
+					foundLettersModel.save();
+				}
 			});
 
-			foundLettersModel.set({
-				'letter' : '-',
-				'found' : 1
-			});
+			Alloy.Globals.loadClue(foundLetterId);
+			alertLetter(Alloy.Globals.jsonCollection[foundLetterId].clue);
+			Alloy.Globals.jsonCollection[id].alerted = 1;
+			wrongmessage.show();
+			playSound();
 
-			foundLettersModel.save();
+		} else if (diff > 1) {
+			foundLetterId += diff;
+			wrongmessage.buttonNames = ['Gå tillbaka och hitta de andra', 'Fortsätt leta efter nästa'];
+			wrongmessage.message = 'Du har nu missat flera bokstäver. Vill du gå tillbaka och leta efter de du missat eller fortsätta leta efter nästa bokstav?';
 
-		} else if (id - (foundJSON.length + 1) > 1) {
-			var diff = id - (foundJSON.length + 1);
-
-			var wrongmessage = Ti.UI.createAlertDialog({
-				title : 'Ojdå!',
-				buttonNames : ['Gå tillbaka och hitta de andra', 'Fortsätt leta efter nästa'],
-				message : 'Du har nu missat flera bokstäver. Vill du gå tillbaka och leta efter de du missat eller fortsätta leta efter nästa bokstav?'
-			});
-			
 			wrongmessage.addEventListener('click', function(e) {
 				if (e.index == 1) {
 					var letterIndex = foundJSON.length + 1;
@@ -376,7 +440,12 @@ function checkIfRight(id){
 					}
 				}
 			});
+			
+			alertLetter(Alloy.Globals.jsonCollection[foundLetterId].clue);
+			Alloy.Globals.jsonCollection[id].alerted = 1;
+			Alloy.Globals.loadClue(foundLetterId);
 			wrongmessage.show();
+			playSound();
 		}
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", 'geofunctions - playsound');
