@@ -14,7 +14,7 @@
 	backgroundColor: 'white',
 	top: '10dp',
 	width: '80%',
-	height: '80%',
+	height: Titanium.UI.FILL,
 	borderRadius: 10,
 	left: '10%',
 	right: '10%',

@@ -360,6 +360,7 @@ function checkIfRight(id){
 		wrongmessage.addEventListener('click', function(e) {
 			if (e.index == 0) {
 				Alloy.Globals.stopGame();
+				alert('Avslutat');
 				// och en annan funktion som rensar sidan
 			} else {
 				var letterIndex = foundJSON.length+1;

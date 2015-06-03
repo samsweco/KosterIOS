@@ -71,8 +71,8 @@ function selectTrailPics() {
 		var mediaObjJSON = returnSpecificTrailPics(trailId);
 		
 		for (var i = 0; i < mediaObjJSON.length; i++) {
-			var img_view = Ti.UI.createView({
-				backgroundImage : "/pics/" + mediaObjJSON[i].filename,
+			var img_view = Ti.UI.createImageView({
+				image : "/pics/" + mediaObjJSON[i].filename,
 				height : '200dp',
 				width : '300dp',
 				top : '0dp'
