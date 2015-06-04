@@ -17,6 +17,8 @@ var menuDetailVisible = false;
 detailMap.removeAllAnnotations();
 showMapDetail();
 getSpecificIconsForTrail(trailId);
+displaySpecificMarkers(trailId, detailMap);
+	
 
 //-----------------------------------------------------------
 // Visar kartan
@@ -48,24 +50,24 @@ $.posSwitch1.addEventListener('change', function(e) {
 	}
 });
 
-//-----------------------------------------------------------
-// Switch för att visa hotspots på kartan
-//-----------------------------------------------------------
-function disHot(){
-	if ($.HotSwitch1.value == true) {
-		removeSpecHotspot();
-		displaySpecificMarkers(trailId, detailMap);
-		detailMap.addEventListener('click', evtList);	
-	} else {
-		detailMap.removeEventListener('click', evtList);
-		removeSpecHotspot();
-	}
-}
+// //-----------------------------------------------------------
+// // Switch för att visa hotspots på kartan
+// //-----------------------------------------------------------
+// function disHot(){
+	// if ($.HotSwitch1.value == true) {
+		// removeSpecHotspot();
+		// displaySpecificMarkers(trailId, detailMap);
+		// detailMap.addEventListener('click', evtList);	
+	// } else {
+		// detailMap.removeEventListener('click', evtList);
+		// removeSpecHotspot();
+	// }
+// }
 
 //-----------------------------------------------------------
 // Eventlistener för klick på hotspot
 //-----------------------------------------------------------
-var evtList = function(evt){
+var evtLists = function(evt){
 	try {
 		if (evt.clicksource == 'rightButton') {
 			showHotspot(evt.annotation.id);
@@ -75,6 +77,7 @@ var evtList = function(evt){
 	}	
 };
 
+detailMap.addEventListener('click', evtLists);
 //-----------------------------------------------------------
 // Funktioner för att visa och stänga kartmenyn 
 //-----------------------------------------------------------
