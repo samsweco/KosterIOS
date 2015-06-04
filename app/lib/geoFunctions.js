@@ -20,26 +20,34 @@ letterCollection.fetch();
 var letterJSON = letterCollection.toJSON();
 
 //-----------------------------------------------------------
+// Hämtar båtCollection
+//-----------------------------------------------------------
+hotspotColl.fetch({
+	query : 'SELECT * FROM hotspotModel join hotspot_trailsModel on hotspotModel.id = hotspot_trailsModel.hotspotID where trailsID = 8'
+});
+var boatTripHotspots = hotspotColl.toJSON();
+Alloy.Globals.boatTripHotspots = boatTripHotspots;
+
+//-----------------------------------------------------------
 // Hämtar användarens position och startar location-event
 // för påminnelser om sevärdheter eller bokstavsjakt
 //-----------------------------------------------------------
 function getUserPos(type) {
 	try {
-			Titanium.Geolocation.preferredProvider = Titanium.Geolocation.PROVIDER_GPS;
-			Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_NEAREST_TEN_METERS;
-			Titanium.Geolocation.pauseLocationUpdateAutomatically = true;
-			Titanium.Geolocation.distanceFilter = 3;
-		
+		Titanium.Geolocation.preferredProvider = Titanium.Geolocation.PROVIDER_GPS;
+		Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_NEAREST_TEN_METERS;
+		Titanium.Geolocation.pauseLocationUpdateAutomatically = true;
+		Titanium.Geolocation.distanceFilter = 3;
 
-			if (type == 'hotspot') {
-				Ti.Geolocation.addEventListener('location', addHotspotLocation);
-			}
-			if (type == 'letter') {
-				Ti.Geolocation.addEventListener('location', addLetterLocation);
-			}
-			if (type == 'boat') {
-				Ti.Geolocation.addEventListener('location', addBoatLocation);
-			}
+		if (type == 'hotspot') {
+			Ti.Geolocation.addEventListener('location', addHotspotLocation);
+		}
+		if (type == 'letter') {
+			Ti.Geolocation.addEventListener('location', addLetterLocation);
+		}
+		if (type == 'boat') {
+			Ti.Geolocation.addEventListener('location', addBoatLocation);
+		}
 
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - get current position GPS");
@@ -93,8 +101,8 @@ Alloy.Globals.stopBoatGPS = stopBoatGPS;
 //-----------------------------------------------------------
 function setUserPosition(userCoordinates, type) {
 	try {
-			gLat = userCoordinates.latitude;
-			gLon = userCoordinates.longitude;
+		gLat = userCoordinates.latitude;
+		gLon = userCoordinates.longitude;
 
 		if (type == 'hotspot') {
 			userIsNearHotspot();
@@ -109,18 +117,18 @@ function setUserPosition(userCoordinates, type) {
 	}
 }
 
-function currentLocationFinder(type){
-    Titanium.Geolocation.getCurrentPosition(function(e){
-        var currentRegion={
-            latitude: e.coords.latitude,
-            longitude: e.coords.longitude,
-            animate:true,
-            latitudeDelta: 0.002,
-            longitudeDelta: 0.002
-        };
-        
-        type.setLocation(currentRegion);
-    });
+function currentLocationFinder(type) {
+	Titanium.Geolocation.getCurrentPosition(function(e) {
+		var currentRegion = {
+			latitude : e.coords.latitude,
+			longitude : e.coords.longitude,
+			animate : true,
+			latitudeDelta : 0.002,
+			longitudeDelta : 0.002
+		};
+
+		type.setLocation(currentRegion);
+	});
 }
 
 //-----------------------------------------------------------
@@ -169,7 +177,7 @@ function userIsNearHotspot() {
 
 		for (var h = 0; h < Alloy.Globals.hotspotJSONobj.length; h++) {
 			if (Alloy.Globals.hotspotJSONobj[h].alerted == 0) {
-	
+
 				var hotlat = Alloy.Globals.hotspotJSONobj[h].xkoord;
 				var hotlon = Alloy.Globals.hotspotJSONobj[h].ykoord;
 				var radius = Alloy.Globals.hotspotJSONobj[h].radie;
@@ -208,7 +216,7 @@ function userIsNearHotspot() {
 }
 
 //-----------------------------------------------------------
-// På båtturen : kontrollerar om enheten är innanför en radie 
+// På båtturen : kontrollerar om enheten är innanför en radie
 // för en sevärdhet, sänder ut dialog om true
 //-----------------------------------------------------------
 function userOnBoatTrip() {
@@ -216,16 +224,10 @@ function userOnBoatTrip() {
 		var boatdialog = Ti.UI.createAlertDialog({
 			buttonNames : ['Läs mer', 'Stäng']
 		});
-		
-		hotspotColl.fetch({
-			query : 'SELECT * FROM hotspotModel join hotspot_trailsModel on hotspotModel.id = hotspot_trailsModel.hotspotID where trailsID = 8'
-		});
-		var boatTripHotspots = hotspotColl.toJSON();
-		Alloy.Globals.boatTripHotspots = boatTripHotspots;
 
 		for (var b = 0; b < Alloy.Globals.boatTripHotspots.length; b++) {
 			if (Alloy.Globals.boatTripHotspots[b].alerted == 0) {
-	
+
 				var blat = Alloy.Globals.boatTripHotspots[b].xkoord;
 				var blon = Alloy.Globals.boatTripHotspots[b].ykoord;
 				var bradius = Alloy.Globals.boatTripHotspots[b].radie;
@@ -252,13 +254,13 @@ function userOnBoatTrip() {
 
 					boatdialog.show();
 					playSound();
-					Alloy.Globals.boatTripHotspots[b].alerted = 1;					
+					Alloy.Globals.boatTripHotspots[b].alerted = 1;
 				}
 			}
 		}
-		
+
 		checkIfAlerted();
-		
+
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - isNearPoint");
 	}
@@ -267,7 +269,7 @@ function userOnBoatTrip() {
 //-----------------------------------------------------------
 // Kontrollerar om en sevärdhet redan alert'ats
 //-----------------------------------------------------------
-function checkIfAlerted(){	
+function checkIfAlerted() {
 	try {
 		for (var a = 0; a < Alloy.Globals.boatTripHotspots.length; a++) {
 			if (Alloy.Globals.boatTripHotspots[a].alerted == 1) {
@@ -280,7 +282,7 @@ function checkIfAlerted(){
 		}
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - isNearPoint");
-	}	
+	}
 }
 
 //-----------------------------------------------------------
@@ -292,16 +294,15 @@ function userIsNearLetter() {
 		var message = Ti.UI.createAlertDialog({
 			title : 'Ny bokstav i närheten!',
 			buttonNames : ['Gå till bokstavsjakten', 'Stäng']
-		}); 
+		});
 
 		for (var isnear = 0; isnear < Alloy.Globals.jsonCollection.length; isnear++) {
-			if (Alloy.Globals.jsonCollection[isnear].alerted == 0){
-				if (Alloy.Globals.jsonCollection[isnear].found == 0){
-				
-				var lat = Alloy.Globals.jsonCollection[isnear].latitude;
-				var lon = Alloy.Globals.jsonCollection[isnear].longitude;
-				var letterradius = Alloy.Globals.jsonCollection[isnear].radius;
-				
+			if (Alloy.Globals.jsonCollection[isnear].alerted == 0) {
+				if (Alloy.Globals.jsonCollection[isnear].found == 0) {
+
+					var lat = Alloy.Globals.jsonCollection[isnear].latitude;
+					var lon = Alloy.Globals.jsonCollection[isnear].longitude;
+					var letterradius = Alloy.Globals.jsonCollection[isnear].radius;
 
 					if (isInsideRadius(lat, lon, letterradius)) {
 						var clue = Alloy.Globals.jsonCollection[isnear].clue;
@@ -322,8 +323,8 @@ function userIsNearLetter() {
 						checkIfRight(letterId);
 					}
 
-				}	
-			}		
+				}
+			}
 		}
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", 'isNearPoint - letter');
@@ -439,7 +440,7 @@ function checkIfRight(id) {
 					}
 				}
 			});
-			
+
 			alertLetter(Alloy.Globals.jsonCollection[foundLetterId].clue);
 			Alloy.Globals.jsonCollection[id].alerted = 1;
 			Alloy.Globals.loadClue(foundLetterId);
@@ -477,7 +478,7 @@ function addClueZone() {
 			var zoneAnnotation = MapModule.createAnnotation({
 				latitude : zoneJSON[c].latitude,
 				longitude : zoneJSON[c].longitude,
-				image : '/images/' + (c+1) + 'green.png'
+				image : '/images/' + (c + 1) + 'green.png'
 			});
 
 			interactiveMap.addAnnotation(zoneAnnotation);
@@ -501,7 +502,7 @@ function getPosition(maptype) {
 			};
 			maptype.animate = true;
 			maptype.userLocation = true;
-			
+
 			currentLocationFinder(maptype);
 		}
 	});
@@ -553,4 +554,5 @@ function startOver() {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - startOver");
 	}
 }
+
 Alloy.Globals.startOver = startOver;
