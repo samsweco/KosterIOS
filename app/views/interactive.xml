@@ -29,7 +29,7 @@
 				
 				<View id="viewNext">
 					<Label id="lblnextClue">Hittar du ingen bokstav?</Label>
-					<Button id="nextClue" onClick="toNextClue">Klicka här för att gå till nästa ledtråd.</Button>
+					<Button id="nextClue">Klicka här för att gå till nästa ledtråd.</Button>
 				</View>
 			</View>
 		</ScrollView>

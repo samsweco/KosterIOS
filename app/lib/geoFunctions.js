@@ -12,9 +12,9 @@ Alloy.Globals.hotspotJSONobj = hotspotJSONobj;
 //-----------------------------------------------------------
 var lettersModel = Alloy.Models.letterModel;
 
-function setNoLetter() {
+function setNoLetter(lid) {
 			lettersModel.fetch({
-			'id' : (getLength() + 1)
+			'id' : lid
 		});
 
 		lettersModel.set({
@@ -23,11 +23,8 @@ function setNoLetter() {
 		});
 
 		lettersModel.save();
-  
-}
-
-function getLength(){
-	return fetchFoundLettersCol().length;
+		foundLetterId++; 
+		
 }
 
 function setLetterOne(letterId, letter) {
@@ -38,6 +35,22 @@ function setLetterOne(letterId, letter) {
 	lettersModel.set({
 		'letter' : letter,
 		'found' : 1
+	});
+	lettersModel.save();
+}
+
+
+function getLength(){
+	return fetchFoundLettersCol().length;
+}
+
+function setAlertedOne(letterId) {
+	lettersModel.fetch({
+		'id' : letterId
+	});
+
+	lettersModel.set({
+		'alerted' : 1
 	});
 	lettersModel.save();
 }
@@ -60,6 +73,14 @@ function fetchUnFoundLettersCol() {
 	var letterCollection = Alloy.Collections.letterModel;
 	letterCollection.fetch({
 		query : 'SELECT * FROM letterModel WHERE found = 0'
+	});
+	return letterCollection.toJSON();
+}
+
+function fetchOneLetter(lId){
+	var letterCollection = Alloy.Collections.letterModel;
+	letterCollection.fetch({
+		query : 'SELECT * FROM letterModel WHERE id =' + lId + '"'
 	});
 	return letterCollection.toJSON();
 }
@@ -349,12 +370,15 @@ function userIsNearLetter() {
 
 					if (letterId == foundLetterId) {
 						alertLetter(col[p].clue);
+						setAlertedOne(letterId);
 					} else {
 						checkIfRight(letterId);
 					}
 				}
 			}
 		}
+		
+		
 	// } catch(e) {
 		// newError("Något gick fel när sidan skulle laddas, prova igen!", 'isNearPoint - letter');
 	// }
@@ -381,8 +405,10 @@ function alertLetter(clue) {
 //-----------------------------------------------------------
 function checkIfRight(lId) {
 	try {
+		
 		Alloy.Globals.loadClue(foundLetterId);
-		alertLetter(letterJSON[foundLetterId].clue);
+		var clue = fetchOneLetter(lId);
+		alertLetter(clue);
 		playSound();
 
 	} catch(e) {

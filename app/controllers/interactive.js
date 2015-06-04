@@ -70,10 +70,11 @@ function startInteractive() {
 	}
 }
 
+
 //-----------------------------------------------------------
 // Laddar in nästa ledtråd om man inte hittar bokstaven
 //-----------------------------------------------------------
-function toNextClue() {
+function toNextClue(lId) {
 	try {
 		var nextDialog = Ti.UI.createAlertDialog({
 			title : 'Gå till nästa',
@@ -83,17 +84,17 @@ function toNextClue() {
 
 		nextDialog.addEventListener('click', function(e) {
 			if (e.index == 0) {
-					setNoLetter();
-					
-					$.lblCollectedLetters.text ='Bokstäver: ';
-					var found = fetchFoundLettersCol();
-					foundLetterId++;
+				
+					setNoLetter(lId);
 					loadClue(foundLetterId);
+					
+					//$.lblCollectedLetters.text ='Bokstäver: ';
+					var found = fetchFoundLettersCol();
 					
 					for(var i = 0; i < found.length; i++){
 						$.lblCollectedLetters.text += found[i].letter;
+						Ti.API.info(found[i].letter);
 					}	
-				
 			}
 		});
 
@@ -102,6 +103,10 @@ function toNextClue() {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 	}
 }
+
+$.nextClue.addEventListener('click', function(e){
+	toNextClue(foundLetterId+1);
+});
 
 //-----------------------------------------------------------
 // Laddar in första ledtråden
