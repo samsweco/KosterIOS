@@ -17,6 +17,10 @@ var lat = null;
 var lon = null;
 var foundId = 1;
 var nextId = 1;
+var foundJSON = [];
+var alertedArray = [];
+var foundLetterId = 1;
+var letterJSON;
 
 var globalTrailID = 0;
 var word = 'ÖRONMANET';

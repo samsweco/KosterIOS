@@ -6,18 +6,6 @@ var args = arguments[0] || {};
 var wrongWord = 0;
 var correctLetters = "A, T, R, Ö, N, N, E, M, O";
 
-//-----------------------------------------------------------
-// Hämtar letterCollection
-//-----------------------------------------------------------
-try {
-	var letterColl = Alloy.Collections.letterModel;
-	letterColl.fetch();
-	jsonCollection = letterColl.toJSON();
-	Alloy.Globals.jsonCollection = jsonCollection;
-} catch(e) {
-	newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
-}
-
 displayMap();
 
 //-----------------------------------------------------------
@@ -61,7 +49,6 @@ function startInteractive() {
 		$.lblLetters.height = '40dp';
 
 		$.lblCollectedLetters.show();
-		$.lblCollectedLetters.text = 'Bokstäver: ';
 
 		$.viewNext.show();
 		$.viewNext.height = '50dp';
@@ -96,22 +83,17 @@ function toNextClue() {
 
 		nextDialog.addEventListener('click', function(e) {
 			if (e.index == 0) {
-				if (Alloy.Globals.jsonCollection[foundLetterId - 1].found == 0) {
-					foundLettersModel.fetch({
-						'id' : (foundJSON.length + 1)
-					});
-
-					foundLettersModel.set({
-						'letter' : '-',
-						'found' : 1
-					});
-
-					foundLettersModel.save();
-					getFound();
+					setNoLetter();
+					
+					$.lblCollectedLetters.text ='Bokstäver: ';
+					var found = fetchFoundLettersCol();
 					foundLetterId++;
 					loadClue(foundLetterId);
-					$.lblCollectedLetters.text = 'Bokstäver:  ' + foundJSON;
-				}
+					
+					for(var i = 0; i < found.length; i++){
+						$.lblCollectedLetters.text += found[i].letter;
+					}	
+				
 			}
 		});
 
@@ -125,10 +107,11 @@ function toNextClue() {
 // Laddar in första ledtråden
 //-----------------------------------------------------------
 function loadClue(id) {
+	var col = fetchAllLetters();
 	try {
 		if (id < 10) {
 			$.lblWelcome.text = "Ledtråd " + id + ":";
-			$.lblInfoText.text = Alloy.Globals.jsonCollection[id - 1].clue;
+			$.lblInfoText.text = col[id - 1].clue;
 		} else {
 			allLetters();
 		}
@@ -158,7 +141,7 @@ function sendLetter() {
 // 1 i letterModel och läser upp nästa ledtråd
 //-----------------------------------------------------------
 function checkLetter(letterToCheck) {
-	try {
+	// try {
 		var messageDialog = Ti.UI.createAlertDialog();
 
 		if (letterToCheck.length > 1) {
@@ -182,31 +165,24 @@ function checkLetter(letterToCheck) {
 				if (e.index == 0) {
 					$.txtLetter.value = '';
 
-					foundLettersModel.fetch({
-						'id' : foundLetterId
-					});
+					 setLetterOne(foundLetterId, letterToCheck);
 
-					foundLettersModel.set({
-						'letter' : letterToCheck,
-						'found' : 1
-					});
-					foundLettersModel.save();
-
-					Alloy.Globals.jsonCollection[foundLetterId - 1].found = 1;
-
-					getFound();
+					$.lblCollectedLetters.text ='Bokstäver: ';
+					var found = fetchFoundLettersCol();
 					foundLetterId++;
 					loadClue(foundLetterId);
-
-					$.lblCollectedLetters.text = 'Bokstäver:  ' + foundJSON;
+					
+					for(var i = 0; i < found.length; i++){
+						$.lblCollectedLetters.text += found[i].letter;
+					}		
 				}
 			});
 
 			messageDialog.show();
 		}
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
-	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
+	// }
 }
 
 //-----------------------------------------------------------
@@ -214,7 +190,7 @@ function checkLetter(letterToCheck) {
 // alla bokstäver göms och släcks rätt labels och textfields
 //-----------------------------------------------------------
 function allLetters() {
-	try {
+	// try {
 		if (foundLetterId > 9) {
 			$.txtLetter.hide();
 			$.txtLetter.height = 0;
@@ -248,16 +224,16 @@ function allLetters() {
 			$.lblWelcome.text = 'Skriv ordet du bildat av bokstäverna!';
 			$.lblInfoText.text = 'Ledtråd: En svävande geléklump i havet.';
 		}
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
-	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
+	// }
 }
 
 //-----------------------------------------------------------
 // Kontrollerar det inskickade ordet mot "facit"
 //-----------------------------------------------------------
 function checkWord() {
-	try {
+	// try {
 		var check = $.txtWord.value;
 		var checkword = check.toUpperCase();
 		var alertDialog = Ti.UI.createAlertDialog({
@@ -293,9 +269,9 @@ function checkWord() {
 			alertDialog.show();
 			wrongWord++;
 		}
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
-	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
+	// }
 }
 
 Titanium.App.addEventListener('close', function() {
