@@ -13,13 +13,12 @@ try {
 	var letterColl = Alloy.Collections.letterModel;
 	letterColl.fetch();
 	jsonCollection = letterColl.toJSON();
-	Alloy.Globals.jsonCollection = jsonCollection;	
+	Alloy.Globals.jsonCollection = jsonCollection;
 } catch(e) {
 	newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 }
 
 displayMap();
-
 
 //-----------------------------------------------------------
 // Visar kartan med de olika sevärdheterna och ledtrådsplupparna
@@ -29,7 +28,7 @@ function displayMap() {
 		$.showFamilyTrail.add(showDetailMap(interactiveMap, 7, 'Äventyrsleden', 'purple'));
 		addClueZone();
 		displaySpecificMarkers(7, interactiveMap);
-		interactiveMap.addEventListener('click', function(evt){
+		interactiveMap.addEventListener('click', function(evt) {
 			if (evt.clicksource == 'rightButton') {
 				showHotspot(evt.annotation.id);
 			}
@@ -42,41 +41,43 @@ function displayMap() {
 //-----------------------------------------------------------
 // Startar bokstavsjakten, gömmer och visar rätt labels
 //-----------------------------------------------------------
-function startInteractive() {		
+function startInteractive() {
 	try {
-		if (Ti.Geolocation.locationServicesEnabled) {
-
-			$.btnStartQuiz.hide();
-			$.btnStartQuiz.height = 0;
-
-			$.txtLetter.show();
-			$.txtLetter.height = '40dp';
-
-			$.lblLetters.show();
-			$.lblLetters.height = '40dp';
-
-			$.lblCollectedLetters.show();
-			$.lblCollectedLetters.text = 'Bokstäver: ';
-
-			$.viewNext.show();
-			$.viewNext.height = '50dp';
-			
-			$.lblnextClue.show();
-			$.lblnextClue.height = '25dp';
-			
-			$.nextClue.show();
-			$.nextClue.height = '25dp';
-			
-			$.horizontalView.show();
-			$.horizontalView.height = Ti.UI.SIZE;
-
-			getUserPos('letter');
-			loadClue(foundLetterId);
-			interactiveGPS = true;
-
-		} else {
-			alert('Tillåt gpsen för att få , tack');
+		if (!Ti.Geolocation.locationServicesEnabled) {
+			var alertDialog = Ti.UI.createAlertDialog({
+				title : 'Påminnelser',
+				message : 'Tillåt gpsen för att kunna få påminnelser när du närmar dig en bokstav!'
+			});
+			alertDialog.show();
 		}
+
+		$.btnStartQuiz.hide();
+		$.btnStartQuiz.height = 0;
+
+		$.txtLetter.show();
+		$.txtLetter.height = '40dp';
+
+		$.lblLetters.show();
+		$.lblLetters.height = '40dp';
+
+		$.lblCollectedLetters.show();
+		$.lblCollectedLetters.text = 'Bokstäver: ';
+
+		$.viewNext.show();
+		$.viewNext.height = '50dp';
+
+		$.lblnextClue.show();
+		$.lblnextClue.height = '25dp';
+
+		$.nextClue.show();
+		$.nextClue.height = '25dp';
+
+		$.horizontalView.show();
+		$.horizontalView.height = Ti.UI.SIZE;
+
+		getUserPos('letter');
+		loadClue(foundLetterId);
+		interactiveGPS = true;
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 	}
@@ -95,7 +96,7 @@ function toNextClue() {
 
 		nextDialog.addEventListener('click', function(e) {
 			if (e.index == 0) {
-				if (Alloy.Globals.jsonCollection[foundLetterId-1].found == 0) {					
+				if (Alloy.Globals.jsonCollection[foundLetterId - 1].found == 0) {
 					foundLettersModel.fetch({
 						'id' : (foundJSON.length + 1)
 					});
@@ -104,7 +105,7 @@ function toNextClue() {
 						'letter' : '-',
 						'found' : 1
 					});
-		
+
 					foundLettersModel.save();
 					getFound();
 					foundLetterId++;
@@ -125,9 +126,9 @@ function toNextClue() {
 //-----------------------------------------------------------
 function loadClue(id) {
 	try {
-		if (id < 10){
+		if (id < 10) {
 			$.lblWelcome.text = "Ledtråd " + id + ":";
-			$.lblInfoText.text = Alloy.Globals.jsonCollection[id - 1].clue; 
+			$.lblInfoText.text = Alloy.Globals.jsonCollection[id - 1].clue;
 		} else {
 			allLetters();
 		}
@@ -135,7 +136,6 @@ function loadClue(id) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 	}
 }
-
 Alloy.Globals.loadClue = loadClue;
 
 //-----------------------------------------------------------
@@ -165,23 +165,23 @@ function checkLetter(letterToCheck) {
 			messageDialog.message = "Man får bara skriva in en bokstav.";
 			messageDialog.title = 'Ojdå, nu blev det fel';
 			messageDialog.buttonNames = ['Stäng'];
-			
+
 			messageDialog.show();
 		} else if (letterToCheck.length < 1 && letterToCheck.length == " ") {
 			messageDialog.message = "Man måste skriva in en bokstav.";
 			messageDialog.title = 'Ojdå, nu blev det fel';
 			messageDialog.buttonNames = ['Stäng'];
-			
+
 			messageDialog.show();
 		} else {
 			messageDialog.message = "Vill du spara bokstaven " + letterToCheck + " och gå vidare till nästa ledtråd?";
 			messageDialog.title = 'Bra, du hittade en bokstav!';
 			messageDialog.buttonNames = ['Ja, jag vill spara!', 'Stäng'];
-			
+
 			messageDialog.addEventListener('click', function(e) {
 				if (e.index == 0) {
 					$.txtLetter.value = '';
-					
+
 					foundLettersModel.fetch({
 						'id' : foundLetterId
 					});
@@ -191,18 +191,18 @@ function checkLetter(letterToCheck) {
 						'found' : 1
 					});
 					foundLettersModel.save();
-					
-					Alloy.Globals.jsonCollection[foundLetterId-1].found = 1;
+
+					Alloy.Globals.jsonCollection[foundLetterId - 1].found = 1;
 
 					getFound();
 					foundLetterId++;
 					loadClue(foundLetterId);
-					
+
 					$.lblCollectedLetters.text = 'Bokstäver:  ' + foundJSON;
 				}
-			}); 
+			});
 
-			messageDialog.show(); 
+			messageDialog.show();
 		}
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
@@ -210,40 +210,41 @@ function checkLetter(letterToCheck) {
 }
 
 //-----------------------------------------------------------
-// Kontrollerar om man fått ihop alla bokstäver. Om man hittat / alla bokstäver göms och släcks rätt labels och textfields
+// Kontrollerar om man fått ihop alla bokstäver. Om man hittat 
+// alla bokstäver göms och släcks rätt labels och textfields
 //-----------------------------------------------------------
 function allLetters() {
 	try {
-		if (foundLetterId > 9) { 			
+		if (foundLetterId > 9) {
 			$.txtLetter.hide();
 			$.txtLetter.height = 0;
-			
+
 			$.lblLetters.hide();
 			$.lblLetters.height = 0;
-			
+
 			$.horizontalView.hide();
 			$.horizontalView.height = 0;
-			
+
 			$.viewNext.hide();
 			$.viewNext.height = 0;
-			
+
 			$.lblnextClue.hide();
 			$.lblnextClue.height = 0;
-			
+
 			$.nextClue.hide();
 			$.nextClue.height = 0;
-			
+
 			$.btnStartQuiz.height = 0;
-			
+
 			$.wordView.show();
 			$.wordView.height = '80dp';
-			
+
 			$.txtWord.show();
 			$.txtWord.height = '40dp';
 
 			$.lblWord.show();
 			$.lblWord.height = '40dp';
-			
+
 			$.lblWelcome.text = 'Skriv ordet du bildat av bokstäverna!';
 			$.lblInfoText.text = 'Ledtråd: En svävande geléklump i havet.';
 		}
@@ -269,25 +270,25 @@ function checkWord() {
 			$.lblWelcome.fontSize = '30dp';
 
 			$.lblInfoText.text = "Du hittade det rätta ordet!";
-			
+
 			$.lblCollectedLetters.text = '';
 			$.lblCollectedLetters.hide();
 
 			$.wordView.hide();
 			$.wordView.height = 0;
-			
+
 			$.txtWord.hide();
 			$.txtWord.height = 0;
-			
+
 			$.lblWord.hide();
 			$.lblWord.height = 0;
 
 			Alloy.Globals.stopGame();
 			interactiveGPS = false;
-		} else if(wrongWord == 3){
+		} else if (wrongWord == 3) {
 			alertDialog.message = "Nu blev det fel. Vill du kontrollera dina bokstäver? Det här är de korrekta: " + correctLetters;
 			alertDialog.show();
-		} else if(wrongWord < 3){
+		} else if (wrongWord < 3) {
 			alertDialog.message = "Försök igen! Du har snart klurat ut det!";
 			alertDialog.show();
 			wrongWord++;
@@ -307,4 +308,4 @@ var cleanup = function() {
 	$.interactiveWin = null;
 };
 
-$.interactiveWin.addEventListener('close', cleanup);
+$.interactiveWin.addEventListener('close', cleanup); 
