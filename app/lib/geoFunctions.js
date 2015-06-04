@@ -23,7 +23,8 @@ function setNoLetter(lid) {
 		});
 
 		lettersModel.save();
-		foundLetterId++; 
+		// foundLetterId++; 
+		
 		
 }
 
@@ -383,6 +384,28 @@ function userIsNearLetter() {
 		// newError("Något gick fel när sidan skulle laddas, prova igen!", 'isNearPoint - letter');
 	// }
 }
+//-----------------------------------------------------------
+// Kontrollerar om användaren har missat någon bokstav
+//-----------------------------------------------------------
+function checkIfRight(lId) {
+	try {
+		letId = lId;
+		var dif = (lId - foundLetterId);
+		
+		for(var i = 0; i<dif; i++){
+			setNoLetter(lId);
+			lId++;
+		}
+		
+		Alloy.Globals.loadClue(foundLetterId+dif);
+	//	var clue = fetchOneLetter(lId);
+		// alertLetter(clue[0].clue);
+		// playSound();
+
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", 'geofunctions - wrong');
+	}
+}
 
 function alertLetter(clue) {
 	var message = Ti.UI.createAlertDialog({
@@ -398,22 +421,6 @@ function alertLetter(clue) {
 	});
 	message.show();
 	playSound();
-}
-
-//-----------------------------------------------------------
-// Kontrollerar om användaren har missat någon bokstav
-//-----------------------------------------------------------
-function checkIfRight(lId) {
-	try {
-		
-		Alloy.Globals.loadClue(foundLetterId);
-		var clue = fetchOneLetter(lId);
-		alertLetter(clue);
-		playSound();
-
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", 'geofunctions - wrong');
-	}
 }
 
 //-----------------------------------------------------------
