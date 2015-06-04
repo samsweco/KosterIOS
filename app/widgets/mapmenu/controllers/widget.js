@@ -1,6 +1,10 @@
 Ti.include("geoFunctions.js");
 Ti.include("mapFunctions.js");
 
+if(hotspotGPS){
+	$.geoSwitch.value = true;
+}
+
 //-----------------------------------------------------------
 // Switch för att aktivera location-event för hotspots/sevärdheter
 //-----------------------------------------------------------

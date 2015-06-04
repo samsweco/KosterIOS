@@ -19,6 +19,9 @@ showMapDetail();
 getSpecificIconsForTrail(trailId);
 displaySpecificMarkers(trailId, detailMap);
 	
+if(hotspotGPS){
+	$.geoSwitch1.value = true;
+}
 
 //-----------------------------------------------------------
 // Visar kartan
@@ -33,9 +36,11 @@ function showMapDetail() {
 $.geoSwitch1.addEventListener('change', function(e) {
 	if ($.geoSwitch1.value == true) {
 		getUserPos('hotspot');
+		hotspotGPS = true;
 	}
 	if($.geoSwitch1.value == false){
 		stopGPS();
+		hotspotGPS = false;
 	}
 });
 
