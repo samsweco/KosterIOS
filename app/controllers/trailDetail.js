@@ -25,14 +25,19 @@ if(args.title == 'Äventyrsleden'){
 		Alloy.CFG.tabs.setActiveTab(3);
 	});
 } else if(args.title == 'Båtresan'){
-	$.btnSendTo.show();
-	$.btnSendTo.height = '20dp';
-	$.btnSendTo.title = 'Påminn vid sevärdhet';
-	
-	$.btnSendTo.addEventListener('click', function(){
-		getUserPos('boat');
-	});
+	$.boatSwitch.show();
+	$.boatSwitch.height = '30dp';
+	$.lblBoat.show();
+	$.lblBoat.height = '30dp';
 }
+
+$.boatSwitch.addEventListener('change', function() {
+	if ($.boatSwitch.value == true) {
+		getUserPos('boat');
+	} else {
+		Alloy.Globals.stopBoatGPS();
+	}
+});
 
 //-----------------------------------------------------------
 // Onload

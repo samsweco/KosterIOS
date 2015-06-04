@@ -5,6 +5,7 @@
 	<Collection src="letterModel" />
 	<Model src="letterModel" />
 	<Model src="foundLettersModel" />
+	
 	<Window id="hikeDetailWin" backButtonTitle="Tillbaka" exitOnClose="true">
 		<RightNavButton>
 			<Button id="btnShowOnMap" onClick="zoomMapTrail">
@@ -18,6 +19,10 @@
 			<View id="horizontalView">
 				<View id="iconrow">
 				</View>
+			</View>
+			<View id="btnHorizontalView">
+				<Label id="lblBoat" text="Påminnelse vid sevärdheter"></Label>
+				<Switch id="boatSwitch" class="switch" value="false" titleOn="På" titleOff="Av"></Switch>
 			</View>
 			<View class="lbls">
 				<Label id="lblTrailName" class="lbltrailDetail">

@@ -122,3 +122,26 @@
 	top: '10dp',
 	left: '15dp'
 }
+
+"#btnHorizontalView": {
+	layout : 'horizontal',
+	height : Titanium.UI.SIZE,
+	width: Titanium.UI.SIZE
+}
+
+"#boatSwitch": {
+	visible : false,
+	height : 0,
+	left: '10dp'
+}
+
+"#lblBoat": {
+	visible : false,
+	height : 0,
+	color: 'black',
+	left: '15dp',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Raleway-Medium'
+	}
+}

@@ -21,6 +21,8 @@ displaySpecificMarkers(trailId, detailMap);
 	
 if(hotspotGPS){
 	$.geoSwitch1.value = true;
+} else {
+	$.geoSwitch1.value = false;
 }
 
 //-----------------------------------------------------------
@@ -116,7 +118,7 @@ function closeDetailMenu(){
 	$.destroy();
 	$.off();
 	$.detailwin = null;
-	detailMap.removeEventListener('click', evtList);
+	detailMap.removeEventListener('click', evtLists);
 };
 
 $.detailwin.addEventListener('close', cleanup);
