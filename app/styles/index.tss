@@ -98,5 +98,5 @@
 	height: 0,
 	top: '30dp',
 	visible: false,
-	width: Titanium.UI.SIZE
+	width: Titanium.UI.FILL
 }

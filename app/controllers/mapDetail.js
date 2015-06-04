@@ -101,7 +101,7 @@ detailMap.addEventListener('singletap', function() {
 	}
 });
 function showDetailMenu(){
-	$.widgetView.height = '117dp';
+	$.widgetView.height = '90dp';
 }
 function closeDetailMenu(){
 	$.widgetView.height = '0dp';
