@@ -149,7 +149,7 @@ function openBoat(){
 function showInfo(){
 	if(!infoVisible){
 		$.widgetInfo.show();
-		$.widgetInfo.height = '80%';
+		$.widgetInfo.height = '87%';
 		infoVisible = true;
 	} else {
 		$.widgetInfo.hide();

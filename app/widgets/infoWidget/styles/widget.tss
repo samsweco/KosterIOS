@@ -13,7 +13,7 @@
 "#infoView": {
 	top: 0,
 	width: Titanium.UI.FILL,
-	height: '95%',
+	height: '97%',
 	left: '5%',
 	right: '15%',
 	layout: 'vertical'
