@@ -31,6 +31,7 @@
 					
 				</View>	
 				<View id="widgetInfo">
+					<Button id="closeBtn" backgroundImage="/images/closeBurger.png" onClick="closeInfo" />
 					<Widget id="infoW" src="infoWidget" name="widget"></Widget>
 				</View>			
 			</Window>

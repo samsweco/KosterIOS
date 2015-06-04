@@ -149,7 +149,7 @@ function openBoat(){
 function showInfo(){
 	if(!infoVisible){
 		$.widgetInfo.show();
-		$.widgetInfo.height = '75%';
+		$.widgetInfo.height = '80%';
 		infoVisible = true;
 	} else {
 		$.widgetInfo.hide();
@@ -157,3 +157,10 @@ function showInfo(){
 		infoVisible = false;
 	}
 }
+
+function closeInfo(){
+	$.widgetInfo.hide();
+	$.widgetInfo.height = 0;
+	infoVisible = false;
+}
+

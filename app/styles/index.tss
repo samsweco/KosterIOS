@@ -97,6 +97,16 @@
 "#widgetInfo": {
 	height: 0,
 	top: '30dp',
-	visible: false,
-	width: Titanium.UI.FILL
+	width: '90%',
+	opacity: 0.9,
+	borderRadius: 10,
+	backgroundColor: 'white',
+	visible: false
+}
+
+"#closeBtn": {
+	right: '10dp',
+	top: '10dp',
+	width: '20dp',
+	height: '20dp'
 }
