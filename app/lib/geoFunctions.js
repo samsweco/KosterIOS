@@ -65,6 +65,19 @@ function setLetterOne(letterId, letter) {
 	//	lettersModel.destroy();
 }
 
+function setLetterZero(letterId) {
+	lettersModel.fetch({
+		'id' : letterId
+	});
+
+	lettersModel.set({
+		'letter' : null,
+		'found' : 0
+	});
+	lettersModel.save();
+	//	lettersModel.destroy();
+}
+
 function getLength() {
 	return fetchFoundLettersCol().length;
 }
@@ -357,7 +370,8 @@ function userIsNearLetter() {
 						alertLetter(col[p].clue);
 						setAlertedOne(letterId);
 					} else {
-						checkIfRight(letterId);
+						// checkIfRight(letterId);
+						alert("Du har kanske missat en bokstav? Gå tillbaka eller tryck ifatt ledtrådarna till rätt nummer.");
 					}
 				}
 			}
@@ -469,20 +483,10 @@ function getPosition(maptype) {
 // Sparar till found 0 och tömmer bokstäverna så man kan spela igen
 //-----------------------------------------------------------
 function startOver() {
+	var col = fetchAllLetters();
 	try {
-		for (var lid = 0; lid < foundJSON.length; lid++) {
-			var letterid = lid + 1;
-
-			lettersModel.fetch({
-				'id' : letterid
-			});
-
-			lettersModel.set({
-				'letter' : null,
-				'found' : 0
-			});
-
-			lettersModel.save();
+		for (var i = 0; i < col.length; i++) {;	
+			setLetterZero(col[i].id);
 		}
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - startOver");
