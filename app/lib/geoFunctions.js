@@ -1,4 +1,3 @@
-
 //-----------------------------------------------------------
 // Hämtar hotspotCollection
 //-----------------------------------------------------------
@@ -13,19 +12,18 @@ Alloy.Globals.hotspotJSONobj = hotspotJSONobj;
 var lettersModel = Alloy.Models.letterModel;
 
 function setNoLetter(lid) {
-			lettersModel.fetch({
-			'id' : lid
-		});
+	lettersModel.fetch({
+		'id' : lid
+	});
 
-		lettersModel.set({
-			'letter' : '-',
-			'found' : 1
-		});
+	lettersModel.set({
+		'letter' : '-',
+		'found' : 1
+	});
 
-		lettersModel.save();
-		// foundLetterId++; 
-		
-		
+	lettersModel.save();
+	// foundLetterId++;
+
 }
 
 function setLetterOne(letterId, letter) {
@@ -39,11 +37,10 @@ function setLetterOne(letterId, letter) {
 		'found' : 1
 	});
 	lettersModel.save();
-//	lettersModel.destroy();
+	//	lettersModel.destroy();
 }
 
-
-function getLength(){
+function getLength() {
 	return fetchFoundLettersCol().length;
 }
 
@@ -80,7 +77,7 @@ function fetchUnFoundLettersCol() {
 	return letterCollection.toJSON();
 }
 
-function fetchOneLetter(lId){
+function fetchOneLetter(lId) {
 	var letterCollection = Alloy.Collections.letterModel;
 	letterCollection.fetch({
 		query : 'SELECT * FROM letterModel WHERE id =' + lId + '"'
@@ -169,19 +166,19 @@ Alloy.Globals.stopBoatGPS = stopBoatGPS;
 //-----------------------------------------------------------
 function setUserPosition(userCoordinates, type) {
 	// try {
-		gLat = userCoordinates.latitude;
-		gLon = userCoordinates.longitude;
+	gLat = userCoordinates.latitude;
+	gLon = userCoordinates.longitude;
 
-		if (type == 'hotspot') {
-			userIsNearHotspot();
-		} else if (type == 'letter') {
-			userIsNearLetter();
-		} else if (type == 'boat') {
-			userOnBoatTrip();
-		}
+	if (type == 'hotspot') {
+		userIsNearHotspot();
+	} else if (type == 'letter') {
+		userIsNearLetter();
+	} else if (type == 'boat') {
+		userOnBoatTrip();
+	}
 
 	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - set userPosition");
+	// newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - set userPosition");
 	// }
 }
 
@@ -359,32 +356,33 @@ function checkIfAlerted() {
 //-----------------------------------------------------------
 function userIsNearLetter() {
 	// try {
-		var col = fetchUnFoundLettersCol();
+	var col = fetchUnFoundLettersCol();
 
-		for (var p = 0; p < col.length; p++) {
-			if (col[p].alerted == 0 && col[p].found == 0) {
+	for (var p = 0; p < col.length; p++) {
+		if (col[p].alerted == 0 && col[p].found == 0) {
 
-				var lat = col[p].latitude;
-				var lon = col[p].longitude;
-				var letterradius = col[p].radius;
+			var lat = col[p].latitude;
+			var lon = col[p].longitude;
+			var letterradius = col[p].radius;
 
-				if (isInsideRadius(lat, lon, letterradius)) {
-					var letterId = col[p].id;
+			if (isInsideRadius(lat, lon, letterradius)) {
+				var letterId = col[p].id;
 
-					if (letterId == foundLetterId) {
-						alertLetter(col[p].clue);
-						setAlertedOne(letterId);
-					} else {
-						checkIfRight(letterId);
-					}
+				if (letterId == foundLetterId) {
+					alertLetter(col[p].clue);
+					setAlertedOne(letterId);
+				} else {
+					checkIfRight(letterId);
 				}
 			}
 		}
-			
+	}
+
 	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", 'isNearPoint - letter');
+	// newError("Något gick fel när sidan skulle laddas, prova igen!", 'isNearPoint - letter');
 	// }
 }
+
 //-----------------------------------------------------------
 // Kontrollerar om användaren har missat någon bokstav
 //-----------------------------------------------------------
@@ -392,16 +390,18 @@ function checkIfRight(lId) {
 	try {
 		letId = lId;
 		var dif = (lId - foundLetterId);
-		
-		for(var i = 0; i<dif; i++){
+
+		for (var i = 0; i < dif; i++) {
 			setNoLetter(lId);
 			lId++;
 		}
-		
-		Alloy.Globals.loadClue(foundLetterId+dif);
-	//	var clue = fetchOneLetter(lId);
+
+		Alloy.Globals.loadClue(foundLetterId + dif);
+		alertLetter(lId.clue);
+		setAlertedOne(lId);
+		//	var clue = fetchOneLetter(lId);
 		// alertLetter(clue[0].clue);
-		// playSound();
+		playSound();
 
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", 'geofunctions - wrong');
@@ -479,7 +479,6 @@ function getPosition(maptype) {
 		}
 	});
 }
-
 
 //-----------------------------------------------------------
 // Sparar till found 0 och tömmer bokstäverna så man kan spela igen
