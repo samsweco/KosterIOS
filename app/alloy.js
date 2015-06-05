@@ -21,6 +21,7 @@ var foundJSON = [];
 var alertedArray = [];
 var foundLetterId = 1;
 var letterJSON;
+var alerted = false;
 
 var globalTrailID = 0;
 var word = 'ÖRONMANET';

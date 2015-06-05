@@ -48,6 +48,7 @@ function setNoLetter(lid) {
 	});
 
 	lettersModel.save();
+	alerted = false;
 	// foundLetterId++;
 
 }
@@ -62,6 +63,7 @@ function setLetterOne(letterId, letter) {
 		'found' : 1
 	});
 	lettersModel.save();
+	alerted = false;
 	//	lettersModel.destroy();
 }
 
@@ -354,9 +356,7 @@ function alertOnHotspot(hottitle, infoText, hotid) {
 //-----------------------------------------------------------
 function userIsNearLetter() {
 	try {
-		var alerted = false;
 		var col = fetchUnFoundLettersCol();
-
 		for (var p = 0; p < col.length; p++) {
 			if (col[p].alerted == 0 && col[p].found == 0) {
 
@@ -373,7 +373,14 @@ function userIsNearLetter() {
 					} else {
 						// checkIfRight(letterId);
 						if (!alerted) {
-							alert("Du kanske har missat en bokstav? Gå tillbaka eller tryck ifatt ledtrådarna till rätt nummer.");
+							
+							var letteralert = Ti.UI.createAlertDialog({
+								title : 'Har du missat en bokstav?',
+								message : 'Du kanske har missat en bokstav? Gå tillbaka eller tryck ifatt ledtrådarna till rätt nummer.',
+								buttonNames : ['OK']
+							});
+							
+							letteralert.show();
 							// col[p].alerted == 1;
 							alerted = true;
 						}

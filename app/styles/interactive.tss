@@ -8,6 +8,16 @@
 	}
 }
 
+"#lblHelp" : {
+		top: '5dp',
+	left: '15dp',
+	right: '15dp',
+	font: {
+		fontSize: '12dp',
+		fontFamily: 'Raleway-Light'
+	}
+}
+
 "#btnShowCorrect" : {
 	visible: false,
 	font: {

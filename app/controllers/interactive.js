@@ -97,7 +97,7 @@ function toNextClue(lId) {
 	try {
 		var nextDialog = Ti.UI.createAlertDialog({
 			title : 'Gå till nästa',
-			message : 'Är du säker på att du inte hittar bokstaven?',
+			message : 'Är du säker på att du vill visa nästa ledtråd?',
 			buttonNames : ['Ja, visa nästa ledtråd', 'Stäng']
 		});
 
