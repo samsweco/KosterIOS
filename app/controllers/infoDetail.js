@@ -169,6 +169,7 @@ function showRules(infTxt, linktitle){
 				fontSize : '14dp',
 				fontFamily : 'Raleway-Light'
 			},
+			color : 'black',
 			text : infTxt
 		});
 
