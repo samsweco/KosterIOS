@@ -58,6 +58,18 @@ function startInteractive() {
 
 		$.nextClue.show();
 		$.nextClue.height = '25dp';
+		
+		$.lbls1.hide();
+		$.lbls1.height = 0;
+		
+		$.lbls2.hide();
+		$.lbls2.height = 0;
+		
+		$.lbls3.hide();
+		$.lbls3.height = 0;
+		
+		$.lbls4.hide();
+		$.lbls4.height = 0;
 
 		$.horizontalView.show();
 		$.horizontalView.height = Ti.UI.SIZE;

@@ -8,6 +8,7 @@
 	}
 }
 
+
 "#interactiveWin": {
 	layout: 'vertical',
 	height : Titanium.UI.FILL
