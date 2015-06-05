@@ -9,13 +9,20 @@
 }
 
 "#btnShowCorrect" : {
-	height : 0,
-	visible : false
+	visible: false,
+	font: {
+		fontFamily: 'Raleway-Light',
+		fontSize: '13dp',
+	},
+	top: '0dp',
+	width: Titanium.UI.FILL,
+	height : '0dp'
 }
 
 "#lblCorrectLetters":{
 	height : 0,
-	visible : false
+	visible : false,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
 }
 
 
@@ -180,4 +187,40 @@
 	bottom: '0dp',
 	width: Titanium.UI.FILL,
 	layout: 'vertical'
+}
+
+"#lbls1" : {
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
+	font: {
+		fontSize: '14dp'
+	} ,
+	right: '20dp',
+	left: '20dp'
+}
+
+"#lbls2" : {
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
+	font: {
+		fontSize: '14dp'
+	},
+	rigth: '20dp',
+	left: '20dp'
+}
+
+"#lbls3" : {
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
+	font: {
+		fontSize: '14dp'
+	},
+	right: '20dp',
+	left: '20dp'
+}
+
+"#lbls4" : {
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	font: {
+		fontSize : '14dp'
+	},
+	right: '20dp',
+	left: '20dp'
 }
