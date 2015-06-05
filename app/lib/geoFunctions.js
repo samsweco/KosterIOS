@@ -374,7 +374,7 @@ function userIsNearLetter() {
 						// checkIfRight(letterId);
 						if (!alerted) {
 							alert("Du kanske har missat en bokstav? Gå tillbaka eller tryck ifatt ledtrådarna till rätt nummer.");
-							col[p].alerted == 1;
+							// col[p].alerted == 1;
 							alerted = true;
 						}
 					}
