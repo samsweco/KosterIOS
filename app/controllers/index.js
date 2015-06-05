@@ -118,7 +118,7 @@ function showMapMenu() {
 	if(!menuMapVisible){
 		Alloy.Globals.openMenu();
 		menuMapVisible = true;
-		$.btnShowMenu.image = '/images/closeBurger.png';
+		$.btnShowMenu.image = '/images/downarrow.png';
 	}else{
 		Alloy.Globals.closeMenu();
 		menuMapVisible = false;
