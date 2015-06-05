@@ -81,7 +81,7 @@ function newError(errorMsg, pageName) {
 		er.myObject = pageName;
 		throw er;
 	} catch (e) {
-		alert("Error:[" + e.message + "] has occured on " + e.myObject + " page.");
+		alert("Error:[" + e.message + "] has occured on " + e.myObject);
 	}
 }
 
