@@ -29,6 +29,7 @@ function setNoLetter(lid) {
 }
 
 function setLetterOne(letterId, letter) {
+
 	lettersModel.fetch({
 		'id' : letterId
 	});
@@ -38,6 +39,7 @@ function setLetterOne(letterId, letter) {
 		'found' : 1
 	});
 	lettersModel.save();
+//	lettersModel.destroy();
 }
 
 
@@ -378,8 +380,7 @@ function userIsNearLetter() {
 				}
 			}
 		}
-		
-		
+			
 	// } catch(e) {
 		// newError("Något gick fel när sidan skulle laddas, prova igen!", 'isNearPoint - letter');
 	// }
