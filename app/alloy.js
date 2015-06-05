@@ -30,6 +30,7 @@ var menuMapVisible = false;
 
 var hotspotGPS = false;
 var interactiveGPS = false;
+var boatGPS = false;
 
 var infospotArray = [];
 var markerHotspotArray = [];
@@ -88,17 +89,17 @@ function newError(errorMsg, pageName) {
 // Avsluta GPS när man stänger appen
 //-----------------------------------------------------------
 Titanium.App.addEventListener('close', function() {
+	
+	gLat = null;
+	gLon = null;
+	
 	if(hotspotGPS){
 		Alloy.Globals.stopGPS();
 	} 
-});
-Titanium.App.addEventListener('close', function() {
 	if(interactiveGPS){
 		Alloy.Globals.stopGame();
 	} 
-});
-Titanium.App.addEventListener('close', function() {
-	if(interactiveGPS){
+	if(boatGPS){
 		Alloy.Globals.stopBoatGPS();
-	} 
+	}
 });

@@ -33,8 +33,10 @@ if(args.title == 'Äventyrsleden'){
 $.boatSwitch.addEventListener('change', function() {
 	if ($.boatSwitch.value == true) {
 		getUserPos('boat');
+		boatGPS = true;
 	} else {
 		Alloy.Globals.stopBoatGPS();
+		boatGPS = false;
 	}
 });
 
