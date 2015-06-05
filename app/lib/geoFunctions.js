@@ -354,6 +354,7 @@ function alertOnHotspot(hottitle, infoText, hotid) {
 //-----------------------------------------------------------
 function userIsNearLetter() {
 	try {
+		var alerted = false;
 		var col = fetchUnFoundLettersCol();
 
 		for (var p = 0; p < col.length; p++) {
@@ -371,7 +372,11 @@ function userIsNearLetter() {
 						setAlertedOne(letterId);
 					} else {
 						// checkIfRight(letterId);
-						alert("Du har kanske missat en bokstav? Gå tillbaka eller tryck ifatt ledtrådarna till rätt nummer.");
+						if (!alerted) {
+							alert("Du kanske har missat en bokstav? Gå tillbaka eller tryck ifatt ledtrådarna till rätt nummer.");
+							col[p].alerted == 1;
+							alerted = true;
+						}
 					}
 				}
 			}
@@ -485,7 +490,7 @@ function getPosition(maptype) {
 function startOver() {
 	var col = fetchAllLetters();
 	try {
-		for (var i = 0; i < col.length; i++) {;	
+		for (var i = 0; i < col.length; i++) {;
 			setLetterZero(col[i].id);
 		}
 	} catch(e) {
@@ -493,4 +498,4 @@ function startOver() {
 	}
 }
 
-Alloy.Globals.startOver = startOver;
+//Alloy.Globals.startOver = startOver;
