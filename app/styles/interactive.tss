@@ -9,7 +9,9 @@
 }
 
 "#lblHelp" : {
-		top: '5dp',
+	visible : false,
+	height : 0,
+	top: '5dp',
 	left: '15dp',
 	right: '15dp',
 	font: {

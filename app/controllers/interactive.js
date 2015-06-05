@@ -12,7 +12,7 @@ displayMap();
 // Visar kartan med de olika sevärdheterna och ledtrådsplupparna
 //-----------------------------------------------------------
 function displayMap() {
-	try {
+	// try {
 		$.showFamilyTrail.add(showDetailMap(interactiveMap, 7, 'Äventyrsleden', 'purple'));
 		addClueZone();
 		displaySpecificMarkers(7, interactiveMap);
@@ -21,16 +21,16 @@ function displayMap() {
 				showHotspot(evt.annotation.id);
 			}
 		});
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
-	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
+	// }
 }
 
 //-----------------------------------------------------------
 // Startar bokstavsjakten, gömmer och visar rätt labels
 //-----------------------------------------------------------
 function startInteractive() {
-	try {
+	// try {
 		if (!Ti.Geolocation.locationServicesEnabled) {
 			var alertDialog = Ti.UI.createAlertDialog({
 				title : 'Påminnelser',
@@ -77,9 +77,9 @@ function startInteractive() {
 		getUserPos('letter');
 		loadClue(foundLetterId);
 		interactiveGPS = true;
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
-	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
+	// }
 }
 
 function showCorrectLetters(){
@@ -94,7 +94,7 @@ function showCorrectLetters(){
 // Laddar in nästa ledtråd om man inte hittar bokstaven
 //-----------------------------------------------------------
 function toNextClue(lId) {
-	try {
+	// try {
 		var nextDialog = Ti.UI.createAlertDialog({
 			title : 'Gå till nästa',
 			message : 'Är du säker på att du vill visa nästa ledtråd?',
@@ -110,9 +110,9 @@ function toNextClue(lId) {
 		});
 
 		nextDialog.show();
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
-	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
+	// }
 }
 
 $.nextClue.addEventListener('click', function(e) {
@@ -124,16 +124,16 @@ $.nextClue.addEventListener('click', function(e) {
 //-----------------------------------------------------------
 function loadClue(id) {
 	var col = fetchAllLetters();
-	try {
+	// try {
 		if (id < 10) {
 			$.lblWelcome.text = "Ledtråd " + id + ":";
 			$.lblInfoText.text = col[id - 1].clue;
 		} else {
 			allLetters();
 		}
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
-	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
+	// }
 }
 
 Alloy.Globals.loadClue = loadClue;
@@ -143,14 +143,14 @@ Alloy.Globals.loadClue = loadClue;
 // bokstäverna i en label
 //-----------------------------------------------------------
 function sendLetter() {
-	try {
+	// try {
 		var letter = $.txtLetter.value;
 		var sendletter = letter.toUpperCase();
 
 		checkLetter(sendletter);
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
-	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
+	// }
 }
 
 //-----------------------------------------------------------
@@ -285,13 +285,9 @@ function checkWord() {
 
 		Alloy.Globals.stopGame();
 		interactiveGPS = false;
-	} else if (wrongWord == 3) {
-		alertDialog.message = "Nu blev det fel. Vill du kontrollera dina bokstäver? Det här är de korrekta: " + correctLetters;
-		alertDialog.show();
-	} else if (wrongWord < 3) {
+	} else {
 		alertDialog.message = "Försök igen! Du har snart klurat ut det!";
 		alertDialog.show();
-		wrongWord++;
 	}
 	// } catch(e) {
 	// newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
