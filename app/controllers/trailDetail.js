@@ -1,4 +1,3 @@
-// Ti.include("SQL.js");
 Ti.include("mapFunctions.js");
 Ti.include("collectionData.js");
 

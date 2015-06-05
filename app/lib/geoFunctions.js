@@ -1,10 +1,36 @@
 //-----------------------------------------------------------
 // Hämtar hotspotCollection
 //-----------------------------------------------------------
-var hotspotColl = Alloy.Collections.hotspotModel;
-hotspotColl.fetch();
-var hotspotJSONobj = hotspotColl.toJSON();
-Alloy.Globals.hotspotJSONobj = hotspotJSONobj;
+var hotspotsModel = Alloy.Models.hotspotModel;
+
+function returnHotspotsToAlert() {
+	var hotspotColl = Alloy.Collections.hotspotModel;
+	hotspotColl.fetch({
+		query : 'SELECT * FROM hotspotModel WHERE alerted = 0'
+	});
+
+	return hotspotColl.toJSON();
+}
+
+function setHotspotAlerted(id) {
+	hotspotsModel.fetch({
+		'id' : id
+	});
+
+	hotspotsModel.set({
+		'alerted' : 1
+	});
+	hotspotsModel.save();
+}
+
+function returnBoatHotspots() {
+	var hotspotColl = Alloy.Collections.hotspotModel;
+	hotspotColl.fetch({
+		query : 'SELECT * FROM hotspotModel join hotspot_trailsModel on hotspotModel.id = hotspot_trailsModel.hotspotID where trailsID = 8'
+	});
+
+	return hotspotColl.toJSON();
+}
 
 //-----------------------------------------------------------
 // Hämtar letterCollection och letterModel
@@ -27,7 +53,6 @@ function setNoLetter(lid) {
 }
 
 function setLetterOne(letterId, letter) {
-
 	lettersModel.fetch({
 		'id' : letterId
 	});
@@ -84,15 +109,6 @@ function fetchOneLetter(lId) {
 	});
 	return letterCollection.toJSON();
 }
-
-//-----------------------------------------------------------
-// Hämtar båtCollection
-//-----------------------------------------------------------
-hotspotColl.fetch({
-	query : 'SELECT * FROM hotspotModel join hotspot_trailsModel on hotspotModel.id = hotspot_trailsModel.hotspotID where trailsID = 8'
-});
-var boatTripHotspots = hotspotColl.toJSON();
-Alloy.Globals.boatTripHotspots = boatTripHotspots;
 
 //-----------------------------------------------------------
 // Hämtar användarens position och startar location-event
@@ -237,47 +253,28 @@ function isInsideRadius(latti, lonni, rad) {
 // sänder ut dialog om true
 //-----------------------------------------------------------
 function userIsNearHotspot() {
-	try {
-		var dialog = Ti.UI.createAlertDialog();
+	// try {
+	var hotspotsToLoop = returnHotspotsToAlert();
+	
+	for (var h = 0; h < hotspotsToLoop.length; h++) {
 
-		for (var h = 0; h < Alloy.Globals.hotspotJSONobj.length; h++) {
-			if (Alloy.Globals.hotspotJSONobj[h].alerted == 0) {
+		//Kommer väl aldrig hämta om och fatta att alerted är 0?
+		if(hotspotsToLoop[h].alerted == 0){
+			var hotlat = hotspotsToLoop[h].xkoord;
+			var hotlon = hotspotsToLoop[h].ykoord;
+			var radius = hotspotsToLoop[h].radie;
 
-				var hotlat = Alloy.Globals.hotspotJSONobj[h].xkoord;
-				var hotlon = Alloy.Globals.hotspotJSONobj[h].ykoord;
-				var radius = Alloy.Globals.hotspotJSONobj[h].radie;
-
-				if (isInsideRadius(hotlat, hotlon, radius)) {
-					dialog.message = 'Nu börjar du närma dig ' + Alloy.Globals.hotspotJSONobj[h].name + '!';
-					dialog.buttonNames = ['Läs mer', 'Stäng'];
-
-					var hottitle = Alloy.Globals.hotspotJSONobj[h].name;
-					var infoText = Alloy.Globals.hotspotJSONobj[h].infoTxt;
-					var hotid = Alloy.Globals.hotspotJSONobj[h].id;
-
-					dialog.addEventListener('click', function(e) {
-						if (e.index == 0) {
-							var hotspotTxt = {
-								title : hottitle,
-								infoTxt : infoText,
-								id : hotid
-							};
-
-							var hotspotDetails = Alloy.createController("hotspotDetail", hotspotTxt).getView();
-							Alloy.CFG.tabs.activeTab.open(hotspotDetails);
-						}
-					});
-
-					dialog.show();
-					playSound();
-					Alloy.Globals.hotspotJSONobj[h].alerted = 1;
-				}
+			if (isInsideRadius(hotlat, hotlon, radius)) {
+				alertOnHotspot(hotspotsToLoop[h].name, hotspotsToLoop[h].infoTxt, hotspotsToLoop[h].id);
+				setHotspotAlerted(hotspotsToLoop[h].id);
 			}
-		}
+		}	
 
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - isNearPoint");
 	}
+
+	// } catch(e) {
+	// newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - isNearPoint");
+	// }
 }
 
 //-----------------------------------------------------------
@@ -290,58 +287,23 @@ function userOnBoatTrip() {
 			buttonNames : ['Läs mer', 'Stäng']
 		});
 
-		for (var b = 0; b < Alloy.Globals.boatTripHotspots.length; b++) {
-			if (Alloy.Globals.boatTripHotspots[b].alerted == 0) {
+		var boatHotspots = returnBoatHotspots();
 
-				var blat = Alloy.Globals.boatTripHotspots[b].xkoord;
-				var blon = Alloy.Globals.boatTripHotspots[b].ykoord;
-				var bradius = Alloy.Globals.boatTripHotspots[b].radie;
+		for (var b = 0; b < boatHotspots.length; b++) {
+			if (boatHotspots[b].alerted == 0) {
+
+				var blat = boatHotspots[b].xkoord;
+				var blon = boatHotspots[b].ykoord;
+				var bradius = boatHotspots[b].radie;
 
 				if (isInsideRadius(blat, blon, bradius)) {
-					boatdialog.message = 'Nu börjar du närma dig ' + Alloy.Globals.boatTripHotspots[b].name + '!';
+					alertOnHotspot(boatHotspots[b].name, boatHotspots[b].infoTxt, boatHotspots[b].id);
+					boatHotspots[b].alerted = 1;
 
-					var htitle = Alloy.Globals.boatTripHotspots[b].name;
-					var iText = Alloy.Globals.boatTripHotspots[b].infoTxt;
-					var boatid = Alloy.Globals.boatTripHotspots[b].id;
-
-					boatdialog.addEventListener('click', function(e) {
-						if (e.index == 0) {
-							var hotspotTxt = {
-								title : htitle,
-								infoTxt : iText,
-								id : boatid
-							};
-
-							var hotspotDetails = Alloy.createController("hotspotDetail", hotspotTxt).getView();
-							Alloy.CFG.tabs.activeTab.open(hotspotDetails);
-						}
-					});
-
-					boatdialog.show();
-					playSound();
-					Alloy.Globals.boatTripHotspots[b].alerted = 1;
-				}
-			}
-		}
-
-		checkIfAlerted();
-
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - isNearPoint");
-	}
-}
-
-//-----------------------------------------------------------
-// Kontrollerar om en sevärdhet redan alert'ats
-//-----------------------------------------------------------
-function checkIfAlerted() {
-	try {
-		for (var a = 0; a < Alloy.Globals.boatTripHotspots.length; a++) {
-			if (Alloy.Globals.boatTripHotspots[a].alerted == 1) {
-				alertedArray.push(coll);
-
-				if (alertedArray.length == 8) {
-					Alloy.Globals.stopBoatGPS();
+					alertedArray.push(boatTripHotspots[b].name);
+					if (alertedArray.length == 8) {
+						Alloy.Globals.stopBoatGPS();
+					}
 				}
 			}
 		}
@@ -349,6 +311,49 @@ function checkIfAlerted() {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - isNearPoint");
 	}
 }
+
+function alertOnHotspot(hottitle, infoText, hotid) {
+	var dialog = Ti.UI.createAlertDialog({
+		message : 'Nu börjar du närma dig ' + hottitle + '!',
+		buttonNames : ['Läs mer', 'Stäng']
+	});
+
+	dialog.addEventListener('click', function(e) {
+		if (e.index == 0) {
+			var hotspotTxt = {
+				title : hottitle,
+				infoTxt : infoText,
+				id : hotid
+			};
+
+			var hotspotDetails = Alloy.createController("hotspotDetail", hotspotTxt).getView();
+			Alloy.CFG.tabs.activeTab.open(hotspotDetails);
+		}
+	});
+
+	dialog.show();
+	playSound();
+}
+
+//
+// //-----------------------------------------------------------
+// // Kontrollerar om en sevärdhet redan alert'ats
+// //-----------------------------------------------------------
+// function checkIfAlerted() {
+// try {
+// for (var a = 0; a < boatHotspots.length; a++) {
+// if (boatHotspots[a].alerted == 1) {
+// alertedArray.push(coll);
+//
+// if (alertedArray.length == 8) {
+// Alloy.Globals.stopBoatGPS();
+// }
+// }
+// }
+// } catch(e) {
+// newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - isNearPoint");
+// }
+// }
 
 //-----------------------------------------------------------
 // Kontrollerar om enheten är innanför en radie för en bokstav,

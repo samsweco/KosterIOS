@@ -126,18 +126,24 @@
 "#btnHorizontalView": {
 	layout : 'horizontal',
 	height : Titanium.UI.SIZE,
-	width: Titanium.UI.SIZE
+	width: Titanium.UI.FILL
 }
 
 "#boatSwitch": {
 	visible : false,
 	height : 0,
-	left: '10dp'
+	left: '5dp'
+}
+
+"#switchView": {
+	height: Titanium.UI.SIZE,
+	width: Titanium.UI.SIZE
 }
 
 "#lblBoat": {
 	visible : false,
 	height : 0,
+	width: Titanium.UI.SIZE,
 	color: 'black',
 	left: '15dp',
 	font: {

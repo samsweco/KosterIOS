@@ -6,6 +6,7 @@
 	<Collection src="letterModel" />
 	<Model src="letterModel" />
 	<Model src="foundLettersModel" />
+	<Model src="hotspotModel" />
 	<Collection src="infospotCoordinatesModel" />
 	
 	<Window id="detailwin" backButtonTitle="Tillbaka" exitOnClose="true">
