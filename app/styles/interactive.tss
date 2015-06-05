@@ -8,6 +8,16 @@
 	}
 }
 
+"#btnShowCorrect" : {
+	height : 0,
+	visible : false
+}
+
+"#lblCorrectLetters":{
+	height : 0,
+	visible : false
+}
+
 
 "#interactiveWin": {
 	layout: 'vertical',
@@ -20,6 +30,7 @@
 }
 
 "#wordView": {
+	layout : 'vertical',
 	visible: false,
 	height: '0dp'
 }
@@ -98,7 +109,7 @@
 
 "#wordView":{
 	top: '0dp',
-	layout: 'horizontal',
+	layout: 'vertical',
 	visible: false,
 	height: '0dp'
 }

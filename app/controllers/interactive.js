@@ -82,6 +82,14 @@ function startInteractive() {
 	}
 }
 
+function showCorrectLetters(){
+	$.lblCorrectLetters.show();
+	$.lblCorrectLetters.height = '40dp';
+	$.lblCorrectLetters.text = correctLetters;
+	$.btnShowCorrect.hide();
+	$.btnShowCorrect.height = 0;
+}
+
 //-----------------------------------------------------------
 // Laddar in nästa ledtråd om man inte hittar bokstaven
 //-----------------------------------------------------------
@@ -226,7 +234,7 @@ function allLetters() {
 		$.btnStartQuiz.height = 0;
 
 		$.wordView.show();
-		$.wordView.height = '80dp';
+		$.wordView.height = Ti.UI.SIZE;
 
 		$.txtWord.show();
 		$.txtWord.height = '40dp';
@@ -236,6 +244,9 @@ function allLetters() {
 
 		$.lblWelcome.text = 'Skriv ordet du bildat av bokstäverna!';
 		$.lblInfoText.text = 'Ledtråd: En svävande geléklump i havet.';
+		
+		$.btnShowCorrect.show();
+		$.btnShowCorrect.height = '40dp';
 	}
 	// } catch(e) {
 	// newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
