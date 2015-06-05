@@ -118,9 +118,11 @@ function showMapMenu() {
 	if(!menuMapVisible){
 		Alloy.Globals.openMenu();
 		menuMapVisible = true;
+		$.btnShowMenu.image = '/images/closeBurger.png';
 	}else{
 		Alloy.Globals.closeMenu();
 		menuMapVisible = false;
+		$.btnShowMenu.image = '/images/hamburger.png';
 	}
 }
 
