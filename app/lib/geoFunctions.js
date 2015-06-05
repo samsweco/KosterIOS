@@ -181,21 +181,21 @@ Alloy.Globals.stopBoatGPS = stopBoatGPS;
 // Hämtar enhetens position och kontrollerar mot punkter
 //-----------------------------------------------------------
 function setUserPosition(userCoordinates, type) {
-	// try {
-	gLat = userCoordinates.latitude;
-	gLon = userCoordinates.longitude;
+	try {
+		gLat = userCoordinates.latitude;
+		gLon = userCoordinates.longitude;
 
-	if (type == 'hotspot') {
-		userIsNearHotspot();
-	} else if (type == 'letter') {
-		userIsNearLetter();
-	} else if (type == 'boat') {
-		userOnBoatTrip();
+		if (type == 'hotspot') {
+			userIsNearHotspot();
+		} else if (type == 'letter') {
+			userIsNearLetter();
+		} else if (type == 'boat') {
+			userOnBoatTrip();
+		}
+
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - set userPosition");
 	}
-
-	// } catch(e) {
-	// newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - set userPosition");
-	// }
 }
 
 function currentLocationFinder(type) {
@@ -253,28 +253,28 @@ function isInsideRadius(latti, lonni, rad) {
 // sänder ut dialog om true
 //-----------------------------------------------------------
 function userIsNearHotspot() {
-	// try {
-	var hotspotsToLoop = returnHotspotsToAlert();
-	
-	for (var h = 0; h < hotspotsToLoop.length; h++) {
+	try {
+		var hotspotsToLoop = returnHotspotsToAlert();
 
-		//Kommer väl aldrig hämta om och fatta att alerted är 0?
-		if(hotspotsToLoop[h].alerted == 0){
-			var hotlat = hotspotsToLoop[h].xkoord;
-			var hotlon = hotspotsToLoop[h].ykoord;
-			var radius = hotspotsToLoop[h].radie;
+		for (var h = 0; h < hotspotsToLoop.length; h++) {
 
-			if (isInsideRadius(hotlat, hotlon, radius)) {
-				alertOnHotspot(hotspotsToLoop[h].name, hotspotsToLoop[h].infoTxt, hotspotsToLoop[h].id);
-				setHotspotAlerted(hotspotsToLoop[h].id);
+			//Kommer väl aldrig hämta om och fatta att alerted är 0?
+			if (hotspotsToLoop[h].alerted == 0) {
+				var hotlat = hotspotsToLoop[h].xkoord;
+				var hotlon = hotspotsToLoop[h].ykoord;
+				var radius = hotspotsToLoop[h].radie;
+
+				if (isInsideRadius(hotlat, hotlon, radius)) {
+					alertOnHotspot(hotspotsToLoop[h].name, hotspotsToLoop[h].infoTxt, hotspotsToLoop[h].id);
+					setHotspotAlerted(hotspotsToLoop[h].id);
+				}
 			}
-		}	
 
+		}
+
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - nearHotspot");
 	}
-
-	// } catch(e) {
-	// newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - isNearPoint");
-	// }
 }
 
 //-----------------------------------------------------------
@@ -308,7 +308,7 @@ function userOnBoatTrip() {
 			}
 		}
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - isNearPoint");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - nearBoatspot");
 	}
 }
 
@@ -335,57 +335,37 @@ function alertOnHotspot(hottitle, infoText, hotid) {
 	playSound();
 }
 
-//
-// //-----------------------------------------------------------
-// // Kontrollerar om en sevärdhet redan alert'ats
-// //-----------------------------------------------------------
-// function checkIfAlerted() {
-// try {
-// for (var a = 0; a < boatHotspots.length; a++) {
-// if (boatHotspots[a].alerted == 1) {
-// alertedArray.push(coll);
-//
-// if (alertedArray.length == 8) {
-// Alloy.Globals.stopBoatGPS();
-// }
-// }
-// }
-// } catch(e) {
-// newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - isNearPoint");
-// }
-// }
-
 //-----------------------------------------------------------
 // Kontrollerar om enheten är innanför en radie för en bokstav,
 // sänder ut dialog om true
 //-----------------------------------------------------------
 function userIsNearLetter() {
-	// try {
-	var col = fetchUnFoundLettersCol();
+	try {
+		var col = fetchUnFoundLettersCol();
 
-	for (var p = 0; p < col.length; p++) {
-		if (col[p].alerted == 0 && col[p].found == 0) {
+		for (var p = 0; p < col.length; p++) {
+			if (col[p].alerted == 0 && col[p].found == 0) {
 
-			var lat = col[p].latitude;
-			var lon = col[p].longitude;
-			var letterradius = col[p].radius;
+				var lat = col[p].latitude;
+				var lon = col[p].longitude;
+				var letterradius = col[p].radius;
 
-			if (isInsideRadius(lat, lon, letterradius)) {
-				var letterId = col[p].id;
+				if (isInsideRadius(lat, lon, letterradius)) {
+					var letterId = col[p].id;
 
-				if (letterId == foundLetterId) {
-					alertLetter(col[p].clue);
-					setAlertedOne(letterId);
-				} else {
-					checkIfRight(letterId);
+					if (letterId == foundLetterId) {
+						alertLetter(col[p].clue);
+						setAlertedOne(letterId);
+					} else {
+						checkIfRight(letterId);
+					}
 				}
 			}
 		}
-	}
 
-	// } catch(e) {
-	// newError("Något gick fel när sidan skulle laddas, prova igen!", 'isNearPoint - letter');
-	// }
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", 'isNearPoint - letter');
+	}
 }
 
 //-----------------------------------------------------------
