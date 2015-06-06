@@ -373,30 +373,31 @@ function userIsNearLetter() {
 					var letterclue = col[p].clue;
 
 					if (letterId == foundLetterId) {
-						alertLetter(letterclue);
+						alertLetter(letterclue, letterId);
 						setAlertedOne(letterId);
-					} else {
-						// checkIfRight(letterId);
-						if (!alerted) {
-
-							var letteralert = Ti.UI.createAlertDialog({
-								title : 'Har du missat en bokstav?',
-								message : 'Du kanske har missat en bokstav? Gå tillbaka eller tryck ifatt ledtrådarna till rätt nummer.',
-								buttonNames : ['Gå tillbaka och hitta förra', 'Stäng']
-							});
-							
-							letteralert.addEventListener('click', function(evt){
-								if(evt.index == 1){
-									alertLetter(letterclue);
-									setAlertedOne(letterId);
-								}
-							});
-
-							letteralert.show();
-							// col[p].alerted == 1;
-							alerted = true;
-						}
-					}
+					} 
+					// else {
+						// // checkIfRight(letterId);
+						// if (!alerted) {
+// 
+							// var letteralert = Ti.UI.createAlertDialog({
+								// title : 'Har du missat en bokstav?',
+								// message : 'Du kanske har missat en bokstav? Gå tillbaka eller tryck ifatt ledtrådarna till rätt nummer.',
+								// buttonNames : ['Gå tillbaka och hitta förra', 'Stäng']
+							// });
+// 							
+							// letteralert.addEventListener('click', function(evt){
+								// if(evt.index == 1){
+									// alertLetter(letterclue, letterId);
+									// setAlertedOne(letterId);
+								// }
+							// });
+// 
+							// letteralert.show();
+							// // col[p].alerted == 1;
+							// alerted = true;
+						// }
+					// }
 				}
 			}
 		}
@@ -409,40 +410,41 @@ function userIsNearLetter() {
 //-----------------------------------------------------------
 // Kontrollerar om användaren har missat någon bokstav
 //-----------------------------------------------------------
-function checkIfRight(lId) {
-	try {
-		letId = lId;
-		var dif = (lId - foundLetterId);
+// function checkIfRight(lId) {
+	// try {
+		// letId = lId;
+		// var dif = (lId - foundLetterId);
+// 
+		// for (var i = 0; i < dif; i++) {
+			// setNoLetter(lId);
+			// lId++;
+		// }
+// 
+		// Alloy.Globals.loadClue(foundLetterId + dif);
+		// alertLetter(lId.clue);
+		// setAlertedOne(lId);
+		// //	var clue = fetchOneLetter(lId);
+		// // alertLetter(clue[0].clue);
+		// playSound();
+// 
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", 'geofunctions - wrong');
+	// }
+// }
 
-		for (var i = 0; i < dif; i++) {
-			setNoLetter(lId);
-			lId++;
-		}
-
-		Alloy.Globals.loadClue(foundLetterId + dif);
-		alertLetter(lId.clue);
-		setAlertedOne(lId);
-		//	var clue = fetchOneLetter(lId);
-		// alertLetter(clue[0].clue);
-		playSound();
-
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", 'geofunctions - wrong');
-	}
-}
-
-function alertLetter(clue) {
+function alertLetter(clue, id) {
 	var message = Ti.UI.createAlertDialog({
-		title : 'Ny bokstav i närheten!',
-		buttonNames : ['Gå till bokstavsjakten', 'Stäng']
+		title : 'Nu börjar du närma dig bokstav nr ' + id + '!',
+		buttonNames : ['Gå till bokstavsjakten', 'Stäng'],
+		message : clue
 	});
 
-	message.message = clue;
 	message.addEventListener('click', function(e) {
 		if (e.index == 0) {
 			Alloy.CFG.tabs.setActiveTab(3);
 		}
 	});
+	
 	message.show();
 	playSound();
 }
