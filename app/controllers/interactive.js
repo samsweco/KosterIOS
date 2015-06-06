@@ -74,7 +74,9 @@ function setInteractiveViews() {
 		letter_view.add(clueTxt);
 		backgroundView.add(letter_view);
 
-		$.slides.scrollIndicatorStyle = Ti.UI.iPhone.ActivityIndicatorStyle.PLAIN; // .ScrollIndicatorStyle.WHITE;
+		$.slides.pagingControlColor = '#FCAF17';
+		//$.slides.pagingControlColor = 'white';
+		//Ti.UI.iPhone.ActivityIndicatorStyle.PLAIN; // .ScrollIndicatorStyle.WHITE;
 		$.slides.addView(backgroundView);
 	}
 	// } catch(e) {
