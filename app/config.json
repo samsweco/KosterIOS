@@ -9,6 +9,7 @@
     "os:mobileweb": {},
     "dependencies": {
         "mapmenu": "1.0",
-        "infoWidget": "1.0"
+        "infoWidget": "1.0",
+        "interactiveWidget": "1.0"
     }
 }

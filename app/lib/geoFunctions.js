@@ -63,7 +63,7 @@ function setLetterOne(letterId, letter) {
 		'found' : 1
 	});
 	lettersModel.save();
-	alerted = false;
+//	alerted = false;
 	//	lettersModel.destroy();
 }
 

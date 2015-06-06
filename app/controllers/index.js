@@ -30,7 +30,7 @@ function toMap() {
 }
 
 function toInteractive() {
-	try {
+	// try {
 		var interactive = Alloy.createController('interactive').getView();
 		$.interactiveWin.add(interactive);
 
@@ -43,9 +43,9 @@ function toInteractive() {
 		});
 
 		$.interactiveWin.titleControl = interacwinTitle;
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Förstasidan");
-	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Förstasidan");
+	// }
 }
 
 function toTrails() {
