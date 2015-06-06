@@ -283,7 +283,6 @@ function userIsNearHotspot() {
 					setHotspotAlerted(hotspotsToLoop[h].id);
 				}
 			}
-
 		}
 
 	} catch(e) {
@@ -376,28 +375,6 @@ function userIsNearLetter() {
 						alertLetter(letterclue, letterId);
 						setAlertedOne(letterId);
 					} 
-					// else {
-						// // checkIfRight(letterId);
-						// if (!alerted) {
-// 
-							// var letteralert = Ti.UI.createAlertDialog({
-								// title : 'Har du missat en bokstav?',
-								// message : 'Du kanske har missat en bokstav? Gå tillbaka eller tryck ifatt ledtrådarna till rätt nummer.',
-								// buttonNames : ['Gå tillbaka och hitta förra', 'Stäng']
-							// });
-// 							
-							// letteralert.addEventListener('click', function(evt){
-								// if(evt.index == 1){
-									// alertLetter(letterclue, letterId);
-									// setAlertedOne(letterId);
-								// }
-							// });
-// 
-							// letteralert.show();
-							// // col[p].alerted == 1;
-							// alerted = true;
-						// }
-					// }
 				}
 			}
 		}
@@ -406,31 +383,6 @@ function userIsNearLetter() {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", 'isNearPoint - letter');
 	}
 }
-
-//-----------------------------------------------------------
-// Kontrollerar om användaren har missat någon bokstav
-//-----------------------------------------------------------
-// function checkIfRight(lId) {
-	// try {
-		// letId = lId;
-		// var dif = (lId - foundLetterId);
-// 
-		// for (var i = 0; i < dif; i++) {
-			// setNoLetter(lId);
-			// lId++;
-		// }
-// 
-		// Alloy.Globals.loadClue(foundLetterId + dif);
-		// alertLetter(lId.clue);
-		// setAlertedOne(lId);
-		// //	var clue = fetchOneLetter(lId);
-		// // alertLetter(clue[0].clue);
-		// playSound();
-// 
-	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", 'geofunctions - wrong');
-	// }
-// }
 
 function alertLetter(clue, id) {
 	var message = Ti.UI.createAlertDialog({
