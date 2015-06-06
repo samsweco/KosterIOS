@@ -161,9 +161,29 @@ function toNextClue() {
 	// }
 }
 
-// $.nextClue.addEventListener('click', function(e) {
-// toNextClue(foundLetterId);
+// $.slides.addEventListener('scroll', function(e) {
+	// nr = $.slides.currentPage;
+	// Ti.API.info(nr);
+	// interactiveMap.removeAllAnnotations();
+	// addOneZone(nr);
 // });
+// 
+// function addOneZone(nr) {
+	// try {
+		// var zoneJSON = fetchAllLetters();
+// 
+		// var zoneAnnotation = MapModule.createAnnotation({
+			// latitude : zoneJSON[nr].latitude,
+			// longitude : zoneJSON[nr].longitude,
+			// image : '/images/' + (nr + 1) + 'green.png'
+		// });
+// 
+		// interactiveMap.addAnnotation(zoneAnnotation);
+		// //	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - addClueZone");
+	// }
+// }
 
 //-----------------------------------------------------------
 // Efter bokstaven validerats läses den upp bland de andra
@@ -209,7 +229,7 @@ function checkLetter(letterToCheck) {
 					setLetterOne(unFound[0].id, letterToCheck);
 					foundLetterId++;
 					setLabelText();
-				} 
+				}
 			}
 		});
 

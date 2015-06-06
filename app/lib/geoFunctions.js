@@ -77,8 +77,6 @@ function setLetterZero(letterId) {
 		'found' : 0
 	});
 	lettersModel.save();
-	
-	Ti.API.info('setZero :: ' + JSON.stringify(lettersModel));
 }
 
 function getLength() {
