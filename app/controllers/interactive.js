@@ -162,27 +162,27 @@ function toNextClue() {
 }
 
 // $.slides.addEventListener('scroll', function(e) {
-	// nr = $.slides.currentPage;
-	// Ti.API.info(nr);
-	// interactiveMap.removeAllAnnotations();
-	// addOneZone(nr);
+// nr = $.slides.currentPage;
+// Ti.API.info(nr);
+// interactiveMap.removeAllAnnotations();
+// addOneZone(nr);
 // });
-// 
+//
 // function addOneZone(nr) {
-	// try {
-		// var zoneJSON = fetchAllLetters();
-// 
-		// var zoneAnnotation = MapModule.createAnnotation({
-			// latitude : zoneJSON[nr].latitude,
-			// longitude : zoneJSON[nr].longitude,
-			// image : '/images/' + (nr + 1) + 'green.png'
-		// });
-// 
-		// interactiveMap.addAnnotation(zoneAnnotation);
-		// //	}
-	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - addClueZone");
-	// }
+// try {
+// var zoneJSON = fetchAllLetters();
+//
+// var zoneAnnotation = MapModule.createAnnotation({
+// latitude : zoneJSON[nr].latitude,
+// longitude : zoneJSON[nr].longitude,
+// image : '/images/' + (nr + 1) + 'green.png'
+// });
+//
+// interactiveMap.addAnnotation(zoneAnnotation);
+// //	}
+// } catch(e) {
+// newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - addClueZone");
+// }
 // }
 
 //-----------------------------------------------------------
@@ -246,27 +246,28 @@ function setLabelText() {
 
 	for (var i = 0; i < found.length; i++) {
 		$.lblCollectedLetters.text += found[i].letter;
+		
+		if (found[i].id == 9) {
+			$.wordClue.show();
+			$.wordClue.height = Ti.UI.SIZE;
+			$.wordClueLbl.show();
+			$.wordClueLbl.height = Ti.UI.SIZE;
+			$.sendWord.show();
+			$.sendWord.height = '40dp';
+			$.txtLetter.value = '';
+			$.btnShowCorrect.show();
+			$.btnShowCorrect.height = '30dp';
+
+			$.clueSlideView.height = 0;
+			$.sendOneLetter.height = 0;
+			$.sendOneLetter.hide();
+			$.lblnextClue.hide();
+			$.lblnextClue.height = 0;
+			$.nextClue.hide();
+			$.nextClue.height = 0;
+		}
 	}
 
-	if (foundLetterId > 9) {
-		$.wordClue.show();
-		$.wordClue.height = Ti.UI.SIZE;
-		$.wordClueLbl.show();
-		$.wordClueLbl.height = Ti.UI.SIZE;
-		$.sendWord.show();
-		$.sendWord.height = '40dp';
-		$.txtLetter.value = '';
-		$.btnShowCorrect.show();
-		$.btnShowCorrect.height = '30dp';
-
-		$.clueSlideView.height = 0;
-		$.sendOneLetter.height = 0;
-		$.sendOneLetter.hide();
-		$.lblnextClue.hide();
-		$.lblnextClue.height = 0;
-		$.nextClue.hide();
-		$.nextClue.height = 0;
-	}
 }
 
 //-----------------------------------------------------------
