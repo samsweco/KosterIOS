@@ -14,10 +14,14 @@
 			<ScrollableView id="slides" scrollType="horizontal" showPagingControl="true" />
 		</View>
 		<View id="lettersView">
-			<TextField id="txtLetter" ></TextField>
+			<Label id="wordClue">Skriv ordet du bildat av bokstäverna!</Label>
+			<Label id="wordClueLbl">Ledtråd: En svävande geléklump i havet.</Label>
+			<TextField id="txtLetter"></TextField>
 			<Button id="sendOneLetter" onClick="sendLetter">Skicka bokstav</Button>
 			<Button id="sendWord" onClick="checkWord">Skicka ordet</Button>
 			<Label id="lblCollectedLetters">Bokstäver:</Label>
+			<Button id="btnShowCorrect" onClick="showCorrectLetters">Visa de korrekta bokstäverna</Button>
+			<Label id="lblCorrectLetters"></Label>
 			<Label id="lblnextClue">Hittar du ingen bokstav?</Label>
 			<Button id="nextClue" onClick="toNextClue">Klicka här för att se den.</Button>
 		</View>

@@ -1,3 +1,6 @@
+// "#slides": {
+	// indicatorStyle : Titanium.UI.iPhone.ScrollIndicatorStyle.WHITE
+// }
 
 "#clueSlideView": {
 	height : '0',
@@ -50,11 +53,11 @@
 	height: '0dp'
 }
 
-// "#lblCorrectLetters":{
-	// height: 0,
-	// visible: false,
-	// textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
-// }
+"#lblCorrectLetters":{
+	height: 0,
+	visible: false,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
+}
 
 "#lblCorrectLetters":{
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
@@ -109,6 +112,31 @@
 	left: '19dp'
 }
 
+"#wordClue": {
+	visible: false,
+	height: 0,
+	top: '5dp',
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	font: {
+		fontFamily: 'Raleway-Medium',
+		fontSize: '16dp'
+	},
+	color: '#FCAF17',
+	left: '19dp'
+}
+
+"#wordClueLbl": {
+	visible: false,
+	height: 0,
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	font: {
+		fontFamily: 'Raleway-Light',
+		fontSize: '14dp'
+	},
+	right: '20dp',
+	left: '20dp'
+}
+
 "#lblLetters": {
 	visible: false,
 	height: '0dp',
@@ -122,17 +150,10 @@
 	}
 }
 
-// "#txtLetter": {
-	// top: '2dp',
-	// left: '15%',
-	// right: '15%',
-	// height: '0dp',
-	// visible: false,
-	// tintColor: 'blue',
-	// borderWidth: '1dp',
-	// borderRadius: '5dp',
-	// width: Titanium.UI.FILL
-// }
+"#txtLetter": {
+	top: '20dp',
+	height: '30dp'
+}
 
 "#txtLetter": {
 	top: '2dp',
@@ -144,19 +165,20 @@
 	width: Titanium.UI.FILL
 }
 
-// "#lblCollectedLetters": {
-	// visible: false,
-	// left: '20dp',
-	// right: '15dp',
-	// width: Titanium.UI.FILL,
-	// top: '0dp',
-	// font:
-	// {
-		// fontFamily: 'Raleway-Light',
-		// fontSize: '17dp'
-	// },
-	// color: '#FCAF17'
-// }
+"#lblCollectedLetters": {
+	visible: false,
+	left: '20dp',
+	right: '15dp',
+	width: Titanium.UI.FILL,
+	top: '0dp',
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	font:
+	{
+		fontFamily: 'Raleway-Light',
+		fontSize: '17dp'
+	},
+	color: '#FCAF17'
+}
 
 "#lblCollectedLetters": {
 	left: '20dp',
@@ -218,7 +240,7 @@
 		fontFamily: 'Raleway-Light',
 		fontSize: '13dp'
 	},
-	top: '2dp',
+	// top: '2dp',
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
 	color: 'gray',
 }
@@ -229,7 +251,14 @@
 		fontSize: '13dp'
 	},
 	top: '0dp',
-	width: Titanium.UI.FILL,
+	width: Titanium.UI.FILL
+}
+
+"#sendOneLetter": {
+	font: {
+		fontFamily: 'Raleway-Medium',
+		fontSize: '16dp'
+	}
 }
 
 "#viewNext": {
@@ -245,6 +274,7 @@
 "#lbls1": {
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
 	font: {
+		fontFamily: 'Raleway-Light',
 		fontSize: '12dp'
 	} ,
 	right: '20dp',
@@ -254,6 +284,7 @@
 "#lbls2": {
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
 	font: {
+		fontFamily: 'Raleway-Light',
 		fontSize: '12dp'
 	},
 	rigth: '20dp',
@@ -263,6 +294,7 @@
 "#lbls3": {
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
 	font: {
+		fontFamily: 'Raleway-Light',
 		fontSize: '12dp'
 	},
 	right: '20dp',
@@ -272,6 +304,7 @@
 "#lbls4": {
 	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
 	font: {
+		fontFamily: 'Raleway-Light',
 		fontSize: '12dp'
 	},
 	right: '20dp',
