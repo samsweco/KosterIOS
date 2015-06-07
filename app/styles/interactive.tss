@@ -275,7 +275,7 @@
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
 	font: {
 		fontFamily: 'Raleway-Light',
-		fontSize: '12dp'
+		fontSize: '14dp'
 	} ,
 	right: '20dp',
 	left: '20dp'
@@ -285,7 +285,7 @@
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
 	font: {
 		fontFamily: 'Raleway-Light',
-		fontSize: '12dp'
+		fontSize: '14dp'
 	},
 	rigth: '20dp',
 	left: '20dp'
@@ -295,7 +295,7 @@
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
 	font: {
 		fontFamily: 'Raleway-Light',
-		fontSize: '12dp'
+		fontSize: '14dp'
 	},
 	right: '20dp',
 	left: '20dp'
@@ -305,7 +305,7 @@
 	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
 	font: {
 		fontFamily: 'Raleway-Light',
-		fontSize: '12dp'
+		fontSize: '14dp'
 	},
 	right: '20dp',
 	left: '20dp'

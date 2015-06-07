@@ -350,7 +350,7 @@ function displaySpecificMarkers(id, maptype) {
 //-----------------------------------------------------------
 // Hämtar ikoner till vald vandringsled
 //-----------------------------------------------------------
-function getSpecificIconsForTrail(id) {
+function getSpecificIconsForTrail(id, maptype) {
 	try {
 		var specificMarkerArray = [];
 
@@ -367,7 +367,7 @@ function getSpecificIconsForTrail(id) {
 			specificMarkerArray.push(specificinfoMarker);
 		}
 
-		detailMap.addAnnotations(specificMarkerArray);
+		maptype.addAnnotations(specificMarkerArray);
 
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - getIcons");

@@ -116,10 +116,10 @@ function fetchUnFoundLettersCol() {
 	return letterCollection.toJSON();
 }
 
-function fetchOneLetter(lId) {
+function fetchOneLetter(lId) {	
 	var letterCollection = Alloy.Collections.letterModel;
 	letterCollection.fetch({
-		query : 'SELECT * FROM letterModel WHERE id =' + lId + '"'
+		query : 'SELECT * FROM letterModel WHERE id =' + lId 
 	});
 	return letterCollection.toJSON();
 }
@@ -433,6 +433,19 @@ function addClueZone() {
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - addClueZone");
 	}
+}
+function addSpecificClueZone(id){	
+	var letterZone = fetchOneLetter(id);
+	
+	Ti.API.info(JSON.stringify(letterZone[0]));
+
+	var clueAnnotation = MapModule.createAnnotation({
+		latitude : letterZone[0].latitude,
+		longitude : letterZone[0].longitude,
+		image : '/images/' + id + 'green.png'
+	});
+
+	interactiveMap.addAnnotation(clueAnnotation);
 }
 
 //-----------------------------------------------------------

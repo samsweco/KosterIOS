@@ -16,7 +16,7 @@ var menuDetailVisible = false;
 //-----------------------------------------------------------
 detailMap.removeAllAnnotations();
 showMapDetail();
-getSpecificIconsForTrail(trailId);
+getSpecificIconsForTrail(trailId, detailMap);
 displaySpecificMarkers(trailId, detailMap);
 	
 if(hotspotGPS){

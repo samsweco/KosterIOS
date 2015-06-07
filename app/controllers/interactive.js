@@ -17,6 +17,7 @@ function displayMap() {
 	$.showFamilyTrail.add(showDetailMap(interactiveMap, 7, 'Äventyrsleden', 'purple'));
 	addClueZone();
 	displaySpecificMarkers(7, interactiveMap);
+	getSpecificIconsForTrail(7, interactiveMap);
 	interactiveMap.addEventListener('click', function(evt) {
 		if (evt.clicksource == 'rightButton') {
 			showHotspot(evt.annotation.id);
@@ -26,6 +27,17 @@ function displayMap() {
 	// newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 	// }
 }
+
+$.slides.addEventListener('scrollend', function(e){
+	interactiveMap.removeAllAnnotations();
+	
+	var clueIndex = ($.slides.getCurrentPage() + 1);
+	addSpecificClueZone(clueIndex);
+	displaySpecificMarkers(7, interactiveMap);
+	getSpecificIconsForTrail(7, interactiveMap);
+	
+	Ti.API.info(clueIndex);
+});
 
 setInteractiveViews();
 function setInteractiveViews() {
@@ -95,15 +107,18 @@ function startInteractive() {
 			message : 'Tillåt gpsen för att kunna få påminnelser när du närmar dig en bokstav!',
 			buttonNames : ['OK']
 		});
-		alertDialog.show();
-
-		setView();
-	} else {
-		setView();
+		alertDialog.show();	
 	}
-
+	
+	setView();
 	getUserPos('letter');
 	interactiveGPS = true;
+	
+	interactiveMap.removeAllAnnotations();
+	addSpecificClueZone(1);
+	displaySpecificMarkers(7, interactiveMap);
+	getSpecificIconsForTrail(7, interactiveMap);
+	
 	// } catch(e) {
 	// newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 	// }
