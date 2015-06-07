@@ -319,6 +319,10 @@ function checkWord() {
 	});
 
 	if (checkword == word) {
+		interactiveMap.removeAllAnnotations();
+		displaySpecificMarkers(7, interactiveMap);
+		getSpecificIconsForTrail(7, interactiveMap);
+		
 		$.sendWord.hide();
 		$.sendWord.height = 0;
 		$.txtLetter.hide();
@@ -327,6 +331,10 @@ function checkWord() {
 		$.wordClue.height = 0;
 		$.wordClueLbl.hide();
 		$.wordClueLbl.height = 0;
+		$.btnShowCorrect.hide();
+		$.btnShowCorrect.height = 0;
+		$.lblCorrectLetters.hide();
+		$.lblCorrectLetters.height = 0;
 
 		$.lblCollectedLetters.text = 'Bra jobbat! Du hittade det rätta ordet!';
 		$.lblCollectedLetters.fontFamily = 'Raleway-Medium';
