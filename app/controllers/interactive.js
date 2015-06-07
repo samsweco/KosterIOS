@@ -47,7 +47,7 @@ function setInteractiveViews() {
 	for (var i = 0; i < letterJSON.length; i++) {
 		var letter_view = Ti.UI.createView({
 			height : '100%',
-			width : Ti.UI.FILL,
+			width : '85%',
 			top : '0dp',
 			layout : 'vertical'
 		});
@@ -68,8 +68,7 @@ function setInteractiveViews() {
 			text : letterJSON[i].clue,
 			color : 'black',
 			font : {
-				fontSize : 14,
-				fontStyle : 'italic',
+				fontSize : '14dp',
 				textAlign : Ti.UI.TEXT_ALIGNMENT_CENTER,
 				fontFamily : 'Raleway-Light'
 			}
@@ -81,10 +80,32 @@ function setInteractiveViews() {
 			height : Ti.UI.SIZE,
 			width : Ti.UI.SIZE
 		});
+		
+		var horizontalView = Ti.UI.createView({
+			height : '100%',
+			width : Ti.UI.FILL,
+			top : '0dp',
+			layout : 'horizontal'
+		});
+		var leftArrow = Ti.UI.createImageView({
+			left: 0,
+			top: '15dp',
+			image: '/images/leftarrow.png'
+		});
+		var rightArrow = Ti.UI.createImageView({
+			right: 0,
+			top: '15dp',
+			image: '/images/arrow.png'
+		});
 
 		letter_view.add(clueTitle);
 		letter_view.add(clueTxt);
-		backgroundView.add(letter_view);
+		
+		horizontalView.add(leftArrow);
+		horizontalView.add(letter_view);
+		horizontalView.add(rightArrow);
+		
+		backgroundView.add(horizontalView);
 
 		$.slides.pagingControlColor = '#FCAF17';
 		//$.slides.pagingControlColor = 'white';
