@@ -366,13 +366,22 @@ function userIsNearLetter() {
 				var letterradius = col[p].radius;
 
 				if (isInsideRadius(lat, lon, letterradius)) {
+					
+					Ti.API.info('innanför');
+					
 					var letterId = col[p].id;
 					var letterclue = col[p].clue;
+					
+					alertLetter(letterclue, letterId);
+					setAlertedOne(letterId);
 
-					if (letterId == foundLetterId) {
-						alertLetter(letterclue, letterId);
-						setAlertedOne(letterId);
-					} 
+					//
+					// gör detta att den bara alertar om man går åt rätt håll? 
+					//
+					// if (letterId == foundLetterId) {
+						// alertLetter(letterclue, letterId);
+						// setAlertedOne(letterId);
+					// } 
 				}
 			}
 		}
@@ -383,19 +392,19 @@ function userIsNearLetter() {
 }
 
 function alertLetter(clue, id) {
-	var message = Ti.UI.createAlertDialog({
-		title : 'Nu börjar du närma dig bokstav nr ' + id + '!',
+	var letterMessage = Ti.UI.createAlertDialog({
+		title : 'Nu närmar du dig bokstav nr' + id + '!',
 		buttonNames : ['Gå till bokstavsjakten', 'Stäng'],
-		message : clue
+		message : 'Ledtråd: ' + clue
 	});
 
-	message.addEventListener('click', function(e) {
+	letterMessage.addEventListener('click', function(e) {
 		if (e.index == 0) {
 			Alloy.CFG.tabs.setActiveTab(3);
 		}
 	});
 	
-	message.show();
+	letterMessage.show();
 	playSound();
 }
 
@@ -436,8 +445,6 @@ function addClueZone() {
 }
 function addSpecificClueZone(id){	
 	var letterZone = fetchOneLetter(id);
-	
-	Ti.API.info(JSON.stringify(letterZone[0]));
 
 	var clueAnnotation = MapModule.createAnnotation({
 		latitude : letterZone[0].latitude,

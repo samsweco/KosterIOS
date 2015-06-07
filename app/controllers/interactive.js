@@ -35,8 +35,6 @@ $.slides.addEventListener('scrollend', function(e){
 	addSpecificClueZone(clueIndex);
 	displaySpecificMarkers(7, interactiveMap);
 	getSpecificIconsForTrail(7, interactiveMap);
-	
-	Ti.API.info(clueIndex);
 });
 
 setInteractiveViews();
@@ -107,9 +105,9 @@ function setInteractiveViews() {
 		
 		backgroundView.add(horizontalView);
 
-		$.slides.pagingControlColor = '#FCAF17';
-		//$.slides.pagingControlColor = 'white';
-		//Ti.UI.iPhone.ActivityIndicatorStyle.PLAIN; // .ScrollIndicatorStyle.WHITE;
+		$.slides.pagingControlColor = '#fed077';
+		// $.slides.pagingControlColor = '#FCAF17';
+		// $.slides.pagingControlColor = 'white';
 		$.slides.addView(backgroundView);
 	}
 	// } catch(e) {
