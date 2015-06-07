@@ -97,6 +97,9 @@ function setAlertedOne(letterId) {
 function fetchAllLetters() {
 	var letterCollection = Alloy.Collections.letterModel;
 	letterCollection.fetch();
+	
+	Ti.API.info(JSON.stringify(letterCollection));
+	
 	return letterCollection.toJSON();
 }
 
@@ -121,6 +124,9 @@ function fetchOneLetter(lId) {
 	letterCollection.fetch({
 		query : 'SELECT * FROM letterModel WHERE id =' + lId 
 	});
+	
+	Ti.API.info(JSON.stringify(letterCollection));
+	
 	return letterCollection.toJSON();
 }
 
@@ -393,7 +399,7 @@ function userIsNearLetter() {
 
 function alertLetter(clue, id) {
 	var letterMessage = Ti.UI.createAlertDialog({
-		title : 'Du närmar dig bokstav nr' + id + '!',
+		title : 'Du närmar dig bokstav nummer ' + id + '!',
 		buttonNames : ['Gå till bokstavsjakten', 'Stäng'],
 		message : 'Ledtråd: ' + clue
 	});
@@ -444,11 +450,12 @@ function addClueZone() {
 	}
 }
 function addSpecificClueZone(id){	
-	var letterZone = fetchOneLetter(id);
+	var zoneColl = fetchAllLetters();
+	var letterZone = zoneColl[id-1];
 
 	var clueAnnotation = MapModule.createAnnotation({
-		latitude : letterZone[0].latitude,
-		longitude : letterZone[0].longitude,
+		latitude : letterZone.latitude,
+		longitude : letterZone.longitude,
 		image : '/images/' + id + 'green.png'
 	});
 
