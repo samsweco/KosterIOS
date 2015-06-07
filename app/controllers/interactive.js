@@ -173,7 +173,7 @@ function showCorrectLetters() {
 function toNextClue() {
 	// try {
 	var nextDialog = Ti.UI.createAlertDialog({
-		title : 'Visa försvunnen bokstav?',
+		message : 'Visa försvunnen bokstav?',
 		buttonNames : ['Ja, visa!', 'Stäng']
 	});
 
