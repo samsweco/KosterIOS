@@ -393,7 +393,7 @@ function userIsNearLetter() {
 
 function alertLetter(clue, id) {
 	var letterMessage = Ti.UI.createAlertDialog({
-		title : 'Nu närmar du dig bokstav nr' + id + '!',
+		title : 'Du närmar dig bokstav nr' + id + '!',
 		buttonNames : ['Gå till bokstavsjakten', 'Stäng'],
 		message : 'Ledtråd: ' + clue
 	});
