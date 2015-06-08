@@ -98,8 +98,6 @@ function fetchAllLetters() {
 	var letterCollection = Alloy.Collections.letterModel;
 	letterCollection.fetch();
 	
-	Ti.API.info(JSON.stringify(letterCollection));
-	
 	return letterCollection.toJSON();
 }
 
@@ -124,8 +122,6 @@ function fetchOneLetter(lId) {
 	letterCollection.fetch({
 		query : 'SELECT * FROM letterModel WHERE id =' + lId 
 	});
-	
-	Ti.API.info(JSON.stringify(letterCollection));
 	
 	return letterCollection.toJSON();
 }
@@ -185,7 +181,7 @@ function stopGPS() {
 function stopGame() {
 	Titanium.Geolocation.removeEventListener('location', addLetterLocation);
 	startOver();
-	lettersModel.destroy();
+	// lettersModel.destroy();
 	interactiveGPS = false;
 }
 

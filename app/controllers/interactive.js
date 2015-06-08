@@ -28,9 +28,9 @@ function displayMap() {
 	// }
 }
 
-$.slides.addEventListener('scrollend', function(e){
+$.slides.addEventListener('scrollend', function(e) {
 	interactiveMap.removeAllAnnotations();
-	
+
 	var clueIndex = ($.slides.getCurrentPage() + 1);
 	addSpecificClueZone(clueIndex);
 	displaySpecificMarkers(7, interactiveMap);
@@ -78,7 +78,7 @@ function setInteractiveViews() {
 			height : Ti.UI.SIZE,
 			width : Ti.UI.SIZE
 		});
-		
+
 		var horizontalView = Ti.UI.createView({
 			height : '100%',
 			width : Ti.UI.FILL,
@@ -86,23 +86,23 @@ function setInteractiveViews() {
 			layout : 'horizontal'
 		});
 		var leftArrow = Ti.UI.createImageView({
-			left: 0,
-			top: '15dp',
-			image: '/images/leftarrow.png'
+			left : 0,
+			top : '15dp',
+			image : '/images/leftarrow.png'
 		});
 		var rightArrow = Ti.UI.createImageView({
-			right: 0,
-			top: '15dp',
-			image: '/images/arrow.png'
+			right : 0,
+			top : '15dp',
+			image : '/images/arrow.png'
 		});
 
 		letter_view.add(clueTitle);
 		letter_view.add(clueTxt);
-		
+
 		horizontalView.add(leftArrow);
 		horizontalView.add(letter_view);
 		horizontalView.add(rightArrow);
-		
+
 		backgroundView.add(horizontalView);
 
 		$.slides.pagingControlColor = '#fed077';
@@ -126,18 +126,18 @@ function startInteractive() {
 			message : 'Tillåt gpsen för att kunna få påminnelser när du närmar dig en bokstav!',
 			buttonNames : ['OK']
 		});
-		alertDialog.show();	
+		alertDialog.show();
 	}
-	
+
 	setView();
 	getUserPos('letter');
 	interactiveGPS = true;
-	
+
 	interactiveMap.removeAllAnnotations();
 	addSpecificClueZone(1);
 	displaySpecificMarkers(7, interactiveMap);
 	getSpecificIconsForTrail(7, interactiveMap);
-	
+
 	// } catch(e) {
 	// newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 	// }
@@ -157,9 +157,10 @@ function setView() {
 
 function checkIfStarted() {
 	var started = fetchFoundLettersCol();
-	if (started.length > 0) {
+	
+	if (started.length > 0){ 
 		setView();
-	}
+	} 
 }
 
 function showCorrectLetters() {
@@ -280,7 +281,7 @@ function setLabelText() {
 
 	for (var i = 0; i < found.length; i++) {
 		$.lblCollectedLetters.text += found[i].letter;
-		
+
 		if (found[i].id == 9) {
 			$.wordClue.show();
 			$.wordClue.height = Ti.UI.SIZE;
@@ -320,7 +321,7 @@ function checkWord() {
 		interactiveMap.removeAllAnnotations();
 		displaySpecificMarkers(7, interactiveMap);
 		getSpecificIconsForTrail(7, interactiveMap);
-		
+
 		$.sendWord.hide();
 		$.sendWord.height = 0;
 		$.txtLetter.hide();

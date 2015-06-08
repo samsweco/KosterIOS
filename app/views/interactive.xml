@@ -9,57 +9,75 @@
 	<Collection src="foundLettersModel" />
 	<Collection src="infospotCoordinatesModel" />
 	<ScrollView id="interactiveWin">
-		<View id="showFamilyTrail"></View>
+		<View id="showFamilyTrail">
+		</View>
 		<View id="clueSlideView">
 			<ScrollableView id="slides" scrollType="horizontal" showPagingControl="true" />
 		</View>
 		<View id="lettersView">
-			<Label id="wordClue">Skriv ordet du bildat av bokstäverna!</Label>
-			<Label id="wordClueLbl">Ledtråd: En svävande geléklump i havet.</Label>
-			<TextField id="txtLetter"></TextField>
-			<Button id="sendOneLetter" onClick="sendLetter">Skicka bokstav</Button>
-			<Button id="sendWord" onClick="checkWord">Skicka ordet</Button>
-			<Label id="lblCollectedLetters">Bokstäver:</Label>
-			<Button id="btnShowCorrect" onClick="showCorrectLetters">Visa de korrekta bokstäverna</Button>
-			<Label id="lblCorrectLetters"></Label>
-			<Label id="lblnextClue">Hittar du ingen bokstav?</Label>
-			<Button id="nextClue" onClick="toNextClue">Klicka här för att se den.</Button>
+			<Label id="wordClue">
+				Skriv ordet du bildat av bokstäverna!
+			</Label>
+			<Label id="wordClueLbl">
+				Ledtråd: En svävande geléklump i havet.
+			</Label>
+			<TextField id="txtLetter">
+			</TextField>
+			<Button id="sendOneLetter" onClick="sendLetter">
+				Skicka bokstav
+			</Button>
+			<Button id="sendWord" onClick="checkWord">
+				Skicka ordet
+			</Button>
+			<Label id="lblCollectedLetters">
+				Bokstäver:
+			</Label>
+			<Button id="btnShowCorrect" onClick="showCorrectLetters">
+				Visa de korrekta bokstäverna
+			</Button>
+			<Label id="lblCorrectLetters">
+			</Label>
+			<Label id="lblnextClue">
+				Hittar du ingen bokstav?
+			</Label>
+			<Button id="nextClue" onClick="toNextClue">
+				Klicka här för att se den.
+			</Button>
 		</View>
 		<View id="hideView">
-		<Label id="lblWelcome" text="Välkommen till bokstavsjakten!"></Label>
-		<Label id="lblInfoText" >Vandra äventyrslingan och leta efter de 9 bokstäverna som finns gömda längs leden! </Label>
-		<Label id="lbls1">
-		Längs vägen kommer du få ledtrådar som hjälper dig finna bokstäverna.
-		</Label>
-		<Label id="lbls2">
-		När du hittat alla bokstäver kan du försöka lista ut det hemliga ordet.
-		</Label>
-		<Label id="lbls3">
-		Du kan se bokstävernas ungefärliga läge och nummer med hjälp av de gröna cirklarna.
-		</Label>
-		<Label id="lbls4">
-		Om du råkar gå förbi en bokstav eller inte hittar den kan du ändå gå vidare till nästa ledtråd. Ifall detta inträffar kan du se de korrekta bokstäverna i slutet av slingan.
-		</Label>
-		
-		<Button id="btnStartQuiz" onClick="startInteractive">Starta bokstavsjakten!</Button>
+			<Label id="lblWelcome">Välkommen till bokstavsjakten!
+			</Label>
+			<Label id="lblInfoText" >
+				Vandra äventyrslingan och leta efter de 9 bokstäverna som finns gömda längs leden!
+			</Label>
+			<Label id="lbls1">
+				Längs vägen kommer du få ledtrådar som hjälper dig finna bokstäverna.
+			</Label>
+			<Label id="lbls2">
+				När du hittat alla bokstäver kan du försöka lista ut det hemliga ordet.
+			</Label>
+			<Label id="lbls3">
+				Du kan se bokstävernas ungefärliga läge och nummer med hjälp av de gröna cirklarna.
+			</Label>
+			<Label id="lbls4">
+				Om du råkar gå förbi en bokstav eller inte hittar den kan du ändå gå vidare till nästa ledtråd. Ifall detta inträffar kan du se de korrekta bokstäverna i slutet av slingan.
+			</Label>
+			<Button id="btnStartQuiz" onClick="startInteractive">
+				Starta bokstavsjakten!
+			</Button>
 		</View>
-
-		<!-- 
-
+		<!--
 		<View id="horizontalView">
 		<TextField id="txtLetter"></TextField>
 		<Button id="lblLetters" onClick="sendLetter">Skicka bokstav!</Button>
 		</View>
-
 		<Label id="lblCollectedLetters" text="Bokstäver: "></Label>
-
 		<View id="wordView">
 		<TextField id="txtWord"></TextField>
 		<Button id="lblWord" onClick="checkWord">Skicka ord!</Button>
 		<Button id="btnShowCorrect" onClick="showCorrectLetters">Visa de korrekta bokstäverna</Button>
 		<Label id="lblCorrectLetters"></Label>
 		</View>
-
 		<View id="viewNext">
 		<Label id="lblnextClue">Missade du eller hittar du ingen bokstav?</Label>
 		<Button id="nextClue">Klicka här för att gå till nästa ledtråd.</Button>
