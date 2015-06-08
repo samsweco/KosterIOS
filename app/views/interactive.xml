@@ -15,6 +15,7 @@
 		<View id="clueSlideView">
 			<ScrollableView id="slides" scrollType="horizontal" showPagingControl="true" />
 		</View>
+		<Label id="lblScroll">Scrolla mellan ledtrådarna</Label>
 		<View id="lettersView">
 			<Label id="wordClue">
 				Skriv ordet du bildat av bokstäverna!

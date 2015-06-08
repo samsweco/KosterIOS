@@ -84,31 +84,41 @@ function setInteractiveViews() {
 				width : Ti.UI.SIZE
 			});
 
-			var horizontalView = Ti.UI.createView({
-				height : '100%',
-				width : Ti.UI.FILL,
-				top : '0dp',
-				layout : 'horizontal'
-			});
-			var leftArrow = Ti.UI.createImageView({
-				left : 0,
-				top : '15dp',
-				image : '/images/leftarrow.png'
-			});
-			var rightArrow = Ti.UI.createImageView({
-				right : 0,
-				top : '15dp',
-				image : '/images/arrow.png'
-			});
+			// var horizontalView = Ti.UI.createView({
+				// height : '100%',
+				// width : Ti.UI.FILL,
+				// top : '0dp',
+				// layout : 'horizontal'
+			// });
 
 			letter_view.add(clueTitle);
 			letter_view.add(clueTxt);
 
-			horizontalView.add(leftArrow);
-			horizontalView.add(letter_view);
-			horizontalView.add(rightArrow);
-
-			backgroundView.add(horizontalView);
+			// if(letterJSON[i].id != 1){
+				// var leftArrow = Ti.UI.createImageView({
+					// left : 0,
+					// top : '15dp',
+					// image : '/images/leftarrow.png'
+				// });
+// 				
+				// horizontalView.add(leftArrow);
+			// } else {
+				// letter_view.left = '18dp';
+			// }
+			
+			// horizontalView.add(letter_view);
+			
+			// if(letterJSON[i].id != 9){
+				// var rightArrow = Ti.UI.createImageView({
+					// right : 0,
+					// top : '15dp',
+					// image : '/images/arrow.png'
+				// });
+// 				
+				// horizontalView.add(rightArrow);
+			// }
+			
+			backgroundView.add(letter_view);
 
 			$.slides.pagingControlColor = '#fed077';
 			$.slides.addView(backgroundView);
@@ -149,6 +159,8 @@ function startInteractive() {
 function setView() {
 	try {
 		setLabelText();
+		$.lblScroll.show();
+		$.lblScroll.heigh = Ti.UI.SIZE;
 		$.clueSlideView.height = '25%';
 		$.clueSlideView.show();
 		$.lettersView.height = Ti.UI.SIZE;
@@ -293,6 +305,8 @@ function setLabelText() {
 				$.lblnextClue.height = 0;
 				$.nextClue.hide();
 				$.nextClue.height = 0;
+				$.lblScroll.hide();
+				$.lblScroll.height = 0;
 			}
 		}
 	} catch(e) {

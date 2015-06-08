@@ -233,3 +233,14 @@
 	right: '20dp',
 	left: '20dp'
 }
+
+"#lblScroll": {
+	color: 'gray',
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	font: {
+		fontFamily: 'Raleway-Light',
+		fontSize: '12dp'
+	},
+	visible: false, 
+	height: 0
+}
