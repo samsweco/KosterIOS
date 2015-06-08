@@ -1,127 +1,4 @@
-//-----------------------------------------------------------
-// Hämtar hotspotCollection
-//-----------------------------------------------------------
-var hotspotsModel = Alloy.Models.hotspotModel;
 
-function returnHotspotsToAlert() {
-	var hotspotColl = Alloy.Collections.hotspotModel;
-	hotspotColl.fetch({
-		query : 'SELECT * FROM hotspotModel WHERE alerted = 0'
-	});
-
-	return hotspotColl.toJSON();
-}
-
-function setHotspotAlerted(id) {
-	hotspotsModel.fetch({
-		'id' : id
-	});
-
-	hotspotsModel.set({
-		'alerted' : 1
-	});
-	hotspotsModel.save();
-}
-
-function returnBoatHotspots() {
-	var hotspotColl = Alloy.Collections.hotspotModel;
-	hotspotColl.fetch({
-		query : 'SELECT * FROM hotspotModel join hotspot_trailsModel on hotspotModel.id = hotspot_trailsModel.hotspotID where trailsID = 8'
-	});
-
-	return hotspotColl.toJSON();
-}
-
-//-----------------------------------------------------------
-// Hämtar letterCollection och letterModel
-//-----------------------------------------------------------
-var lettersModel = Alloy.Models.letterModel;
-
-function setNoLetter(lid) {
-	lettersModel.fetch({
-		'id' : lid
-	});
-
-	lettersModel.set({
-		'letter' : '-',
-		'found' : 1
-	});
-
-	lettersModel.save();
-	alerted = false;
-
-}
-
-function setLetterOne(letterId, letter) {
-	lettersModel.fetch({
-		'id' : letterId
-	});
-
-	lettersModel.set({
-		'letter' : letter,
-		'found' : 1
-	});
-	lettersModel.save();
-}
-
-function setLetterZero(letterId) {
-	lettersModel.fetch({
-		'id' : letterId
-	});
-
-	lettersModel.set({
-		'found' : 0,
-		'alerted' : 0
-	});
-	lettersModel.save();
-}
-
-function getLength() {
-	return fetchFoundLettersCol().length;
-}
-
-function setAlertedOne(letterId) {
-	lettersModel.fetch({
-		'id' : letterId
-	});
-
-	lettersModel.set({
-		'alerted' : 1
-	});
-	lettersModel.save();
-}
-
-function fetchAllLetters() {
-	var letterCollection = Alloy.Collections.letterModel;
-	letterCollection.fetch();
-
-	return letterCollection.toJSON();
-}
-
-function fetchFoundLettersCol() {
-	var letterCollection = Alloy.Collections.letterModel;
-	letterCollection.fetch({
-		query : 'SELECT * FROM letterModel WHERE found = 1'
-	});
-	return letterCollection.toJSON();
-}
-
-function fetchUnFoundLettersCol() {
-	var letterCollection = Alloy.Collections.letterModel;
-	letterCollection.fetch({
-		query : 'SELECT * FROM letterModel WHERE found = 0'
-	});
-	return letterCollection.toJSON();
-}
-
-function fetchOneLetter(lId) {
-	var letterCollection = Alloy.Collections.letterModel;
-	letterCollection.fetch({
-		query : 'SELECT * FROM letterModel WHERE id =' + lId
-	});
-
-	return letterCollection.toJSON();
-}
 
 //-----------------------------------------------------------
 // Hämtar användarens position och startar location-event
@@ -177,7 +54,7 @@ function stopGPS() {
 
 function stopGame() {
 	Titanium.Geolocation.removeEventListener('location', addLetterLocation);
-	startOver();
+	// startOver();
 	interactiveGPS = false;
 }
 
@@ -470,16 +347,4 @@ function getPosition(maptype) {
 	});
 }
 
-//-----------------------------------------------------------
-// Sparar till found 0 och tömmer bokstäverna så man kan spela igen
-//-----------------------------------------------------------
-function startOver() {
-	var col = fetchFoundLettersCol();
-	try {
-		for (var i = 0; i < col.length; i++) {;
-			setLetterZero(col[i].id);
-		}
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - startOver");
-	}
-}
+

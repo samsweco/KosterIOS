@@ -11,6 +11,122 @@ var letter_Collection = Alloy.Collections.letterModel;
 
 
 //-----------------------------------------------------------
+// Hämtar hotspotCollection
+//-----------------------------------------------------------
+var hotspotsModel = Alloy.Models.hotspotModel;
+
+function returnHotspotsToAlert() {
+	var hotspotColl = Alloy.Collections.hotspotModel;
+	hotspotColl.fetch({
+		query : 'SELECT * FROM hotspotModel WHERE alerted = 0'
+	});
+
+	return hotspotColl.toJSON();
+}
+
+function setHotspotAlerted(id) {
+	hotspotsModel.fetch({
+		'id' : id
+	});
+
+	hotspotsModel.set({
+		'alerted' : 1
+	});
+	hotspotsModel.save();
+}
+
+function returnBoatHotspots() {
+	var hotspotColl = Alloy.Collections.hotspotModel;
+	hotspotColl.fetch({
+		query : 'SELECT * FROM hotspotModel join hotspot_trailsModel on hotspotModel.id = hotspot_trailsModel.hotspotID where trailsID = 8'
+	});
+
+	return hotspotColl.toJSON();
+}
+
+//-----------------------------------------------------------
+// Hämtar letterCollection och letterModel
+//-----------------------------------------------------------
+var lettersModel = Alloy.Models.letterModel;
+
+function setLetterOne(fId, fLetter){
+	lettersModel.fetch({
+		'id' : fId
+	});
+	Ti.API.info('Hämtar id: '+ fId);
+	lettersModel.set({
+		'found' : 1,
+		'letter' : fLetter
+	});
+	Ti.API.info('Sätter id: '+ fLetter);
+	
+	lettersModel.save();
+	Ti.API.info(JSON.stringify(lettersModel));
+}
+
+function setLetterZero(letterId) {
+	lettersModel.fetch({
+		'id' : letterId
+	});
+
+	lettersModel.set({
+		'found' : 0,
+		'alerted' : 0,
+		'foundLetter' : null
+	});
+	lettersModel.save();
+}
+// 
+// function getLength() {
+	// return fetchFoundLettersCol().length;
+// }
+
+function setAlertedOne(letterId) {
+	lettersModel.fetch({
+		'id' : letterId
+	});
+
+	lettersModel.set({
+		'alerted' : 1
+	});
+	lettersModel.save();
+}
+
+function fetchAllLetters() {
+//	var letterCollection = Alloy.Collections.letterModel;
+	letter_Collection.fetch();
+
+	return letter_Collection.toJSON();
+}
+
+function fetchFoundLettersCol() {
+//	var letterCollection = Alloy.Collections.letterModel;
+	letter_Collection.fetch({
+		query : 'SELECT * FROM letterModel WHERE found = 1'
+	});
+	return letter_Collection.toJSON();
+	
+	Ti.API.info('fetching: '+JSON.stringify(letter_Collection));
+}
+
+function fetchUnFoundLettersCol() {
+//	var letterCollection = Alloy.Collections.letterModel;
+	letter_Collection.fetch({
+		query : 'SELECT * FROM letterModel WHERE found = 0'
+	});
+	return letter_Collection.toJSON();
+}
+
+function fetchOneLetter(lId) {
+//	var letterCollection = Alloy.Collections.letterModel;
+	letter_Collection.fetch({
+		query : 'SELECT * FROM letterModel WHERE id =' + lId
+	});
+
+	return letter_Collection.toJSON();
+}
+
+//-----------------------------------------------------------
 // infoUrl
 //-----------------------------------------------------------
 function returnUrlById(urlId) {

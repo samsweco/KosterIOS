@@ -33,7 +33,6 @@
 				Skicka ordet
 			</Button>
 			<Label id="lblCollectedLetters">
-				Bokstäver:
 			</Label>
 			<Button id="btnShowCorrect" onClick="showCorrectLetters">
 				Visa de korrekta bokstäverna

@@ -1,5 +1,6 @@
 Ti.include("geoFunctions.js");
 Ti.include("mapFunctions.js");
+Ti.include("collectionData.js");
 
 var args = arguments[0] || {};
 
@@ -196,8 +197,6 @@ function toNextClue() {
 
 				$.txtLetter.value = '';
 				$.txtLetter.value = lostLetter;
-				
-				foundLetterId++;
 			}
 		});
 		
@@ -247,6 +246,7 @@ function checkLetter(letterToCheck) {
 			messageDialog.addEventListener('click', function(e) {
 				if (e.index == 0) {
 					var unFound = fetchUnFoundLettersCol();
+					
 					if (unFound.length > 0) {
 						setLetterOne(unFound[0].id, letterToCheck);
 						foundLetterId++;
@@ -264,10 +264,14 @@ function checkLetter(letterToCheck) {
 
 function setLabelText() {
 	try {
+		
+		Ti.API.info('sätter lblText');
 		var found = fetchFoundLettersCol();
+		Ti.API.info(JSON.stringify(found));
 		$.lblCollectedLetters.text = 'Bokstäver: ';
 
 		for (var i = 0; i < found.length; i++) {
+			Ti.API.info(found[i].letter);
 			$.lblCollectedLetters.text += found[i].letter;
 
 			if (found[i].id == 9) {
@@ -334,7 +338,8 @@ function checkWord() {
 			$.lblCollectedLetters.fontSize = '16dp';
 
 			Alloy.Globals.stopGame();
-			interactiveGPS = false;
+			startOver();
+			//interactiveGPS = false;
 		} else {
 			alertDialog.message = "Försök igen! Du har snart klurat ut det!";
 			alertDialog.show();
@@ -346,7 +351,22 @@ function checkWord() {
 
 Titanium.App.addEventListener('close', function() {
 	Alloy.Globals.stopGame();
+	startOver();
 });
+
+//-----------------------------------------------------------
+// Sparar till found 0 och tömmer bokstäverna så man kan spela igen
+//-----------------------------------------------------------
+function startOver() {
+	var col = fetchFoundLettersCol();
+	try {
+		for (var i = 0; i < col.length; i++) {;
+			setLetterZero(col[i].id);
+		}
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - startOver");
+	}
+}
 
 var cleanup = function() {
 	$.destroy();
