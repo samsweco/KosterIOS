@@ -84,39 +84,8 @@ function setInteractiveViews() {
 				width : Ti.UI.SIZE
 			});
 
-			// var horizontalView = Ti.UI.createView({
-				// height : '100%',
-				// width : Ti.UI.FILL,
-				// top : '0dp',
-				// layout : 'horizontal'
-			// });
-
 			letter_view.add(clueTitle);
 			letter_view.add(clueTxt);
-
-			// if(letterJSON[i].id != 1){
-				// var leftArrow = Ti.UI.createImageView({
-					// left : 0,
-					// top : '15dp',
-					// image : '/images/leftarrow.png'
-				// });
-// 				
-				// horizontalView.add(leftArrow);
-			// } else {
-				// letter_view.left = '18dp';
-			// }
-			
-			// horizontalView.add(letter_view);
-			
-			// if(letterJSON[i].id != 9){
-				// var rightArrow = Ti.UI.createImageView({
-					// right : 0,
-					// top : '15dp',
-					// image : '/images/arrow.png'
-				// });
-// 				
-				// horizontalView.add(rightArrow);
-			// }
 			
 			backgroundView.add(letter_view);
 
@@ -179,19 +148,21 @@ function checkIfStarted() {
 	try {
 		var started = fetchFoundLettersCol();
 
-		if (started.length > 0 && started.length <9) {
+		if (started.length > 0){ //&& started.length <9) {
 			setView();
-		} else if(started.length == 9){
-			$.hideView.hide();
-			$.hideView.height = 0;
-			$.clueSlideView.hide();
-			$.clueSlideView.height = 0;
-			$.lettersView.hide();
-			$.lettersView.height = 0;
-			
-			$.lblFinishedGame.show();
-			$.lblFinishedGame.height = Ti.UI.SIZE;
-		}
+		} 
+		
+		// else if(started.length == 9){
+			// $.hideView.hide();
+			// $.hideView.height = 0;
+			// $.clueSlideView.hide();
+			// $.clueSlideView.height = 0;
+			// $.lettersView.hide();
+			// $.lettersView.height = 0;
+// 			
+			// $.lblFinishedGame.show();
+			// $.lblFinishedGame.height = Ti.UI.SIZE;
+		// }
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 	}
@@ -216,19 +187,21 @@ function toNextClue() {
 			message : 'Visa försvunnen bokstav?',
 			buttonNames : ['Ja, visa!', 'Stäng']
 		});
-
-		nextDialog.show();
-
+		
 		nextDialog.addEventListener('click', function(e) {
 			if (e.index == 0) {
-				var lost = fetchUnFoundLettersCol();
+				var lost = fetchOneLetter(foundLetterId);
 				lostLetter = lost[0].letter;
 				lostId = lost[0].id;
 
 				$.txtLetter.value = '';
 				$.txtLetter.value = lostLetter;
+				
+				foundLetterId++;
 			}
 		});
+		
+		nextDialog.show();	
 
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");

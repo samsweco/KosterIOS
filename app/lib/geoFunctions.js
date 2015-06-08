@@ -70,8 +70,8 @@ function setLetterZero(letterId) {
 	});
 
 	lettersModel.set({
-		'letter' : null,
-		'found' : 0
+		'found' : 0,
+		'alerted' : 0
 	});
 	lettersModel.save();
 }
@@ -177,6 +177,7 @@ function stopGPS() {
 
 function stopGame() {
 	Titanium.Geolocation.removeEventListener('location', addLetterLocation);
+	startOver();
 	interactiveGPS = false;
 }
 
@@ -467,4 +468,18 @@ function getPosition(maptype) {
 			maptype.userLocation = true;
 		}
 	});
+}
+
+//-----------------------------------------------------------
+// Sparar till found 0 och tömmer bokstäverna så man kan spela igen
+//-----------------------------------------------------------
+function startOver() {
+	var col = fetchFoundLettersCol();
+	try {
+		for (var i = 0; i < col.length; i++) {;
+			setLetterZero(col[i].id);
+		}
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - startOver");
+	}
 }
