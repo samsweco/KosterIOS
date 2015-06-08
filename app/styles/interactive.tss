@@ -1,23 +1,19 @@
-// "#slides": {
-	// indicatorStyle : Titanium.UI.iPhone.ScrollIndicatorStyle.WHITE
-// }
-
 "#clueSlideView": {
-	height : '0',
-	visible : false
+	height: '0',
+	visible: false
 }
 
 "#lettersView":{
-	layout : 'vertical',
-	top : '10dp',
-	height :0,
-	width : Titanium.UI.FILL,
-	visible : false
+	layout: 'vertical',
+	top: '10dp',
+	height: 0,
+	width: Titanium.UI.FILL,
+	visible: false
 }
 
-"#sendWord" : {
-	visible : false,
-	height : 0
+"#sendWord": {
+	visible: false,
+	height: 0
 }
 
 "Label": {
@@ -242,7 +238,7 @@
 	},
 	// top: '2dp',
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
-	color: 'gray',
+	color: 'gray'
 }
 
 "#nextClue": {

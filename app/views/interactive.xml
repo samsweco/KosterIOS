@@ -8,6 +8,7 @@
 	<Model src="foundLettersModel" />
 	<Collection src="foundLettersModel" />
 	<Collection src="infospotCoordinatesModel" />
+	
 	<ScrollView id="interactiveWin">
 		<View id="showFamilyTrail">
 		</View>
@@ -66,22 +67,5 @@
 				Starta bokstavsjakten!
 			</Button>
 		</View>
-		<!--
-		<View id="horizontalView">
-		<TextField id="txtLetter"></TextField>
-		<Button id="lblLetters" onClick="sendLetter">Skicka bokstav!</Button>
-		</View>
-		<Label id="lblCollectedLetters" text="Bokstäver: "></Label>
-		<View id="wordView">
-		<TextField id="txtWord"></TextField>
-		<Button id="lblWord" onClick="checkWord">Skicka ord!</Button>
-		<Button id="btnShowCorrect" onClick="showCorrectLetters">Visa de korrekta bokstäverna</Button>
-		<Label id="lblCorrectLetters"></Label>
-		</View>
-		<View id="viewNext">
-		<Label id="lblnextClue">Missade du eller hittar du ingen bokstav?</Label>
-		<Button id="nextClue">Klicka här för att gå till nästa ledtråd.</Button>
-		</View>
-		</View> -->
 	</ScrollView>
 </Alloy>
