@@ -56,7 +56,7 @@ function setLetterOne(fId, fLetter){
 	Ti.API.info('Hämtar id: '+ fId);
 	lettersModel.set({
 		'found' : 1,
-		'letter' : fLetter
+		'f_l' : fLetter
 	});
 	Ti.API.info('Sätter id: '+ fLetter);
 	
@@ -72,7 +72,7 @@ function setLetterZero(letterId) {
 	lettersModel.set({
 		'found' : 0,
 		'alerted' : 0,
-		'foundLetter' : null
+		'f_l' : null
 	});
 	lettersModel.save();
 }

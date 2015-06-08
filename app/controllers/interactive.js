@@ -271,8 +271,8 @@ function setLabelText() {
 		$.lblCollectedLetters.text = 'Bokstäver: ';
 
 		for (var i = 0; i < found.length; i++) {
-			Ti.API.info(found[i].letter);
-			$.lblCollectedLetters.text += found[i].letter;
+			Ti.API.info(found[i].f_l);
+			$.lblCollectedLetters.text += found[i].f_l;
 
 			if (found[i].id == 9) {
 				$.wordClue.show();
