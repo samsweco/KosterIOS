@@ -49,7 +49,6 @@ function setNoLetter(lid) {
 
 	lettersModel.save();
 	alerted = false;
-	// foundLetterId++;
 
 }
 
@@ -63,8 +62,6 @@ function setLetterOne(letterId, letter) {
 		'found' : 1
 	});
 	lettersModel.save();
-	//	alerted = false;
-	//	lettersModel.destroy();
 }
 
 function setLetterZero(letterId) {
@@ -375,14 +372,6 @@ function userIsNearLetter() {
 
 					alertLetter(letterclue, letterId);
 					setAlertedOne(letterId);
-
-					//
-					// gör detta att den bara alertar om man går åt rätt håll?
-					//
-					// if (letterId == foundLetterId) {
-					// alertLetter(letterclue, letterId);
-					// setAlertedOne(letterId);
-					// }
 				}
 			}
 		}
@@ -494,5 +483,3 @@ function startOver() {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - startOver");
 	}
 }
-
-//Alloy.Globals.startOver = startOver;
