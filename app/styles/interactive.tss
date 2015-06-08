@@ -116,12 +116,7 @@
 }
 
 "#txtLetter": {
-	top: '20dp',
-	height: '30dp'
-}
-
-"#txtLetter": {
-	top: '2dp',
+	top: '10dp',
 	left: '15%',
 	right: '15%',
 	tintColor: 'blue',
@@ -243,4 +238,16 @@
 	},
 	visible: false, 
 	height: 0
+}
+
+"#lblFinishedGame": {
+	visible: false,
+	height: 0,
+	top: '10dp',
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	font: {
+		fontFamily: 'Raleway-Light',
+		fontSize: '18dp'
+	},
+	color: '#FCAF17'
 }

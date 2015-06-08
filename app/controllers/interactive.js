@@ -179,8 +179,18 @@ function checkIfStarted() {
 	try {
 		var started = fetchFoundLettersCol();
 
-		if (started.length > 0) {
+		if (started.length > 0 && started.length <9) {
 			setView();
+		} else if(started.length == 9){
+			$.hideView.hide();
+			$.hideView.height = 0;
+			$.clueSlideView.hide();
+			$.clueSlideView.height = 0;
+			$.lettersView.hide();
+			$.lettersView.height = 0;
+			
+			$.lblFinishedGame.show();
+			$.lblFinishedGame.height = Ti.UI.SIZE;
 		}
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
@@ -320,7 +330,9 @@ function setLabelText() {
 function checkWord() {
 	try {
 		var check = $.txtLetter.value;
-		var checkword = check.toUpperCase();
+		var bigword = check.toUpperCase();
+		var checkword = bigword.split(" ",1);
+		
 		var alertDialog = Ti.UI.createAlertDialog({
 			buttonNames : ['Stäng'],
 			title : "Fel ord"

@@ -15,6 +15,7 @@
 		<View id="clueSlideView">
 			<ScrollableView id="slides" scrollType="horizontal" showPagingControl="true" />
 		</View>
+		<Label id="lblFinishedGame">Du har redan hittat ordet: Öronmanet</Label>
 		<Label id="lblScroll">Scrolla mellan ledtrådarna</Label>
 		<View id="lettersView">
 			<Label id="wordClue">
