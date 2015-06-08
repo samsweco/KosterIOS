@@ -1,5 +1,5 @@
 "#clueSlideView": {
-	height: '0',
+	height: 0,
 	visible: false
 }
 
@@ -80,7 +80,7 @@
 }
 
 "#lblWelcome": {
-	top: '5dp',
+	top: 0,
 	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
 	font: {
 		fontFamily: 'Raleway-Medium',
@@ -237,7 +237,8 @@
 		fontSize: '12dp'
 	},
 	visible: false, 
-	height: 0
+	height: 0,
+	top: 0
 }
 
 "#lblFinishedGame": {
