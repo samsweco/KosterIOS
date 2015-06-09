@@ -277,7 +277,7 @@ function checkLetter(letterToCheck) {
 			var unFound = fetchUnFoundLettersCol();
 
 			if (unFound.length > 0) {
-				setLetterOne(unFound[0].id, letterToCheck);
+				setLetterOne(unFound[0].id);
 				foundLetterId++;
 				setLabelText();
 
