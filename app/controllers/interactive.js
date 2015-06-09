@@ -242,7 +242,8 @@ function sendLetter() {
 function checkLetter(letterToCheck) {
 	try {
 		var messageDialog = Ti.UI.createAlertDialog();
-		var correctLetter = fetchOneLetter(foundLetterId);
+		var fetchLetter = fetchOneLetter(foundLetterId);
+		var correctLetter = fetchLetter[0].letter;
 		
 		Ti.API.info('CorrectLetter: ' + JSON.stringify(correctLetter) + ' och foundId: ' + foundLetterId);
 
@@ -298,14 +299,10 @@ function checkLetter(letterToCheck) {
 
 function setLabelText() {
 	try {
-
-		Ti.API.info('sätter lblText');
 		var found = fetchFoundLettersCol();
-		Ti.API.info(JSON.stringify(found));
 		$.lblCollectedLetters.text = 'Bokstäver: ';
 
 		for (var i = 0; i < found.length; i++) {
-			Ti.API.info(found[i].f_l);
 			$.lblCollectedLetters.text += found[i].f_l;
 
 			if (found[i].id == 9) {

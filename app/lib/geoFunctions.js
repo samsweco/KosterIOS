@@ -93,8 +93,8 @@ function currentLocationFinder(type) {
 			latitude : e.coords.latitude,
 			longitude : e.coords.longitude,
 			animate : true,
-			latitudeDelta : 0.003,
-			longitudeDelta : 0.003
+			latitudeDelta : 0.004,
+			longitudeDelta : 0.004
 		};
 
 		type.setLocation(currentRegion);
@@ -301,7 +301,7 @@ function addClueZone() {
 			var zoneAnnotation = MapModule.createAnnotation({
 				latitude : zoneJSON[c].latitude,
 				longitude : zoneJSON[c].longitude,
-				image : '/images/' + (c + 1) + 'green.png'
+				image : '/images/' + (c + 1) + 'red.png'
 			});
 
 			interactiveMap.addAnnotation(zoneAnnotation);
@@ -322,7 +322,7 @@ function addSpecificClueZone(id) {
 		});
 		
 		if(letterZone.found == 0){
-			clueAnnotation.image = '/images/red.png';
+			clueAnnotation.image = '/images/' + id + 'red.png';
 		} else {
 			clueAnnotation.image = '/images/' + id + 'green.png';
 		}

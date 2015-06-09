@@ -120,7 +120,9 @@ function fetchOneLetter(lId) {
 	letter_Collection.fetch({
 		query : 'SELECT * FROM letterModel WHERE id =' + lId
 	});
-
+	
+	Ti.API.info(JSON.stringify(letter_Collection));
+	
 	return letter_Collection.toJSON();
 }
 
