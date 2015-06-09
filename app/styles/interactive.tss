@@ -129,7 +129,7 @@
 	visible: false,
 	left: '20dp',
 	right: '15dp',
-	width: Titanium.UI.FILL,
+	width: Titanium.UI.SIZE,
 	top: '0dp',
 	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
 	font:
@@ -137,7 +137,8 @@
 		fontFamily: 'Raleway-Light',
 		fontSize: '17dp'
 	},
-	color: '#FCAF17'
+	color: '#FCAF17',
+	backgroundColor : 'green'
 }
 
 "#lblCollectedLetters": {

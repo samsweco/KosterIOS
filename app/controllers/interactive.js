@@ -87,7 +87,7 @@ function setInteractiveViews() {
 
 			letter_view.add(clueTitle);
 			letter_view.add(clueTxt);
-			
+
 			backgroundView.add(letter_view);
 
 			$.slides.pagingControlColor = '#fed077';
@@ -148,26 +148,42 @@ function setView() {
 function checkIfStarted() {
 	try {
 		var started = fetchFoundLettersCol();
-
-		if (started.length > 0){ //&& started.length <9) {
+		var next_id = started.length;
+		if (next_id > 0 && next_id < 9) {
 			setView();
-		} 
-		
-		// else if(started.length == 9){
-			// $.hideView.hide();
-			// $.hideView.height = 0;
-			// $.clueSlideView.hide();
-			// $.clueSlideView.height = 0;
-			// $.lettersView.hide();
-			// $.lettersView.height = 0;
-// 			
-			// $.lblFinishedGame.show();
-			// $.lblFinishedGame.height = Ti.UI.SIZE;
-		// }
+			foundLetterId = next_id + 1;
+		} else if (started.length == 9) {
+			setLabelText();
+			setLastView();
+
+		}
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 	}
 
+}
+
+function setLastView() {
+	$.hideView.hide();
+	$.hideView.height = 0;
+	$.clueSlideView.hide();
+	$.clueSlideView.height = 0;
+	$.lettersView.show();
+	$.lettersView.height = Ti.UI.SIZE;
+	$.sendOneLetter.hide();
+	$.sendOneLetter.height = 0;
+	$.lblnextClue.hide();
+	$.lblnextClue.height = 0;
+	$.nextClue.hide();
+	$.nextClue.height = 0;
+	$.wordClue.show();
+	$.wordClue.height = Ti.UI.SIZE;
+	$.wordClueLbl.show();
+	$.wordClueLbl.height = Ti.UI.SIZE;
+	$.sendWord.show();
+	$.sendWord.height = '30dp';
+	$.lblCollectedLetters.show();
+	$.lblCollectedLetters.height = Ti.UI.SIZE;
 }
 
 function showCorrectLetters() {
@@ -188,7 +204,7 @@ function toNextClue() {
 			message : 'Visa försvunnen bokstav?',
 			buttonNames : ['Ja, visa!', 'Stäng']
 		});
-		
+
 		nextDialog.addEventListener('click', function(e) {
 			if (e.index == 0) {
 				var lost = fetchOneLetter(foundLetterId);
@@ -199,8 +215,8 @@ function toNextClue() {
 				$.txtLetter.value = lostLetter;
 			}
 		});
-		
-		nextDialog.show();	
+
+		nextDialog.show();
 
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
@@ -246,7 +262,7 @@ function checkLetter(letterToCheck) {
 			messageDialog.addEventListener('click', function(e) {
 				if (e.index == 0) {
 					var unFound = fetchUnFoundLettersCol();
-					
+
 					if (unFound.length > 0) {
 						setLetterOne(unFound[0].id, letterToCheck);
 						foundLetterId++;
@@ -264,7 +280,7 @@ function checkLetter(letterToCheck) {
 
 function setLabelText() {
 	try {
-		
+
 		Ti.API.info('sätter lblText');
 		var found = fetchFoundLettersCol();
 		Ti.API.info(JSON.stringify(found));
@@ -308,8 +324,8 @@ function checkWord() {
 	try {
 		var check = $.txtLetter.value;
 		var bigword = check.toUpperCase();
-		var checkword = bigword.split(" ",1);
-		
+		var checkword = bigword.split(" ", 1);
+
 		var alertDialog = Ti.UI.createAlertDialog({
 			buttonNames : ['Stäng'],
 			title : "Fel ord"
