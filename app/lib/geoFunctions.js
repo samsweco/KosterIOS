@@ -54,7 +54,6 @@ function stopGPS() {
 
 function stopGame() {
 	Titanium.Geolocation.removeEventListener('location', addLetterLocation);
-	// startOver();
 	interactiveGPS = false;
 }
 
@@ -313,22 +312,23 @@ function addClueZone() {
 
 function addSpecificClueZone(id) {
 	try {
-		var zoneColl = fetchAllLetters();
-		var letterZone = zoneColl[id - 1];
+		if(id > 10){
+			var zoneColl = fetchAllLetters();
+			var letterZone = zoneColl[id - 1];
 
-		var clueAnnotation = MapModule.createAnnotation({
-			latitude : letterZone.latitude,
-			longitude : letterZone.longitude
-		});
-		
-		if(letterZone.found == 0){
-			clueAnnotation.image = '/images/' + id + 'red.png';
-		} else {
-			clueAnnotation.image = '/images/' + id + 'green.png';
+			var clueAnnotation = MapModule.createAnnotation({
+				latitude : letterZone.latitude,
+				longitude : letterZone.longitude
+			});
+
+			if (letterZone.found == 0) {
+				clueAnnotation.image = '/images/' + id + 'red.png';
+			} else {
+				clueAnnotation.image = '/images/' + id + 'green.png';
+			}
+
+			interactiveMap.addAnnotation(clueAnnotation); 
 		}
-
-		interactiveMap.addAnnotation(clueAnnotation);
-
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - addClueZone");
 	}

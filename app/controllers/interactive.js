@@ -4,7 +4,6 @@ Ti.include("collectionData.js");
 
 var args = arguments[0] || {};
 
-var wrongWord = 0;
 var correctLetters = "A, T, R, Ö, N, N, E, M, O";
 
 displayMap();
@@ -120,7 +119,6 @@ function startInteractive() {
 		addSpecificClueZone(1);
 		displaySpecificMarkers(7, interactiveMap);
 		getSpecificIconsForTrail(7, interactiveMap);
-
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 	}
@@ -245,8 +243,6 @@ function checkLetter(letterToCheck) {
 		var fetchLetter = fetchOneLetter(foundLetterId);
 		var correctLetter = fetchLetter[0].letter;
 		
-		Ti.API.info('CorrectLetter: ' + JSON.stringify(correctLetter) + ' och foundId: ' + foundLetterId);
-
 		if (letterToCheck.length > 1) {
 			messageDialog.message = "Man får bara skriva in en bokstav.";
 			messageDialog.title = 'Ojdå, nu blev det fel';

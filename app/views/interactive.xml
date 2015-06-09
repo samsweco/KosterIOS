@@ -14,7 +14,6 @@
 			<ScrollableView id="slides" scrollType="horizontal" showPagingControl="true" />
 		</View>
 		<Label id="lblScroll">Scrolla mellan ledtrådarna</Label>
-		<Label id="lblFinishedGame">Du har redan hittat ordet: Öronmanet</Label>
 		<View id="lettersView">
 			<Label id="wordClue">Skriv ordet du bildat av bokstäverna!</Label>
 			<Label id="wordClueLbl">Ledtråd: En svävande geléklump i havet.</Label>
