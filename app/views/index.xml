@@ -6,7 +6,6 @@
 	<Collection src="letterModel" />
 	<Model src="letterModel" />
 	<Model src="hotspotModel" />
-	<Model src="foundLettersModel" />
 	<Collection src="infospotCoordinatesModel" />
 	
 	<TabGroup id="tabs" backgroundColor="#fff" height="100%" tintColor="#0098C3" fontFamily="Raleway-Medium">

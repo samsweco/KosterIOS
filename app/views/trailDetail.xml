@@ -4,7 +4,6 @@
 	<Collection src="infospotCoordinatesModel" />
 	<Collection src="letterModel" />
 	<Model src="letterModel" />
-	<Model src="foundLettersModel" />
 	
 	<Window id="hikeDetailWin" backButtonTitle="Tillbaka" exitOnClose="true">
 		<RightNavButton>

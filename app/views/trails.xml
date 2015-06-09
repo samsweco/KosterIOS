@@ -1,11 +1,11 @@
 <Alloy>
 	<Collection src="trailsModel" />
-		<Collection src="hotspotModel" />
+	<Collection src="hotspotModel" />
 	<Collection src="infospot_trailsModel"/>
 	<Collection src="infospotCoordinatesModel"/>
 	<Collection src="letterModel" />
 	<Model src="letterModel" />
-	<Model src="foundLettersModel" />
+	
 	<View class="container" onClose="destroyModel">
 		<ScrollView class="headView" scrollType="vertical">
 			<TableView id="table" onClick="showTrailDetails">

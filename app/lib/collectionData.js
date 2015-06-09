@@ -70,10 +70,6 @@ function setLetterZero(letterId) {
 	});
 	lettersModel.save();
 }
-// 
-// function getLength() {
-	// return fetchFoundLettersCol().length;
-// }
 
 function setAlertedOne(letterId) {
 	lettersModel.fetch({
@@ -87,14 +83,12 @@ function setAlertedOne(letterId) {
 }
 
 function fetchAllLetters() {
-//	var letterCollection = Alloy.Collections.letterModel;
 	letter_Collection.fetch();
 
 	return letter_Collection.toJSON();
 }
 
 function fetchFoundLettersCol() {
-//	var letterCollection = Alloy.Collections.letterModel;
 	letter_Collection.fetch({
 		query : 'SELECT * FROM letterModel WHERE found = 1'
 	});
@@ -104,7 +98,6 @@ function fetchFoundLettersCol() {
 }
 
 function fetchUnFoundLettersCol() {
-//	var letterCollection = Alloy.Collections.letterModel;
 	letter_Collection.fetch({
 		query : 'SELECT * FROM letterModel WHERE found = 0'
 	});
@@ -112,7 +105,6 @@ function fetchUnFoundLettersCol() {
 }
 
 function fetchOneLetter(lId) {
-//	var letterCollection = Alloy.Collections.letterModel;
 	letter_Collection.fetch({
 		query : 'SELECT * FROM letterModel WHERE id =' + lId
 	});

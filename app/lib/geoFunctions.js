@@ -312,7 +312,7 @@ function addClueZone() {
 
 function addSpecificClueZone(id) {
 	try {
-		if(id > 10){
+		if(id < 10){
 			var zoneColl = fetchAllLetters();
 			var letterZone = zoneColl[id - 1];
 

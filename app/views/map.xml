@@ -6,7 +6,6 @@
 	<Collection src="infospotCoordinatesModel" />
 	<Collection src="letterModel" />
 	<Model src="letterModel" />
-	<Model src="foundLettersModel" />
 	<Model src="hotspotModel" />
 	
 	<View id="headMapView" class="container">

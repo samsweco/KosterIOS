@@ -57,20 +57,6 @@ $.posSwitch1.addEventListener('change', function(e) {
 	}
 });
 
-// //-----------------------------------------------------------
-// // Switch för att visa hotspots på kartan
-// //-----------------------------------------------------------
-// function disHot(){
-	// if ($.HotSwitch1.value == true) {
-		// removeSpecHotspot();
-		// displaySpecificMarkers(trailId, detailMap);
-		// detailMap.addEventListener('click', evtList);	
-	// } else {
-		// detailMap.removeEventListener('click', evtList);
-		// removeSpecHotspot();
-	// }
-// }
-
 //-----------------------------------------------------------
 // Eventlistener för klick på hotspot
 //-----------------------------------------------------------

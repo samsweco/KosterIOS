@@ -15,7 +15,7 @@ try {
 	newError("Något gick fel när sidan skulle laddas, prova igen!", "trailDetail - set labels");
 }
 
-if(args.title == 'Äventyrsleden'){
+if(args.title == 'Äventyrsslingan'){
 	$.btnSendTo.show();
 	$.btnSendTo.height = '20dp';
 	$.btnSendTo.title = 'Gå till bokstavsjakten!';

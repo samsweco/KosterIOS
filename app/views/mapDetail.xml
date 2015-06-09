@@ -5,7 +5,6 @@
 	<Collection src="hotspot_trailsModel" />
 	<Collection src="letterModel" />
 	<Model src="letterModel" />
-	<Model src="foundLettersModel" />
 	<Model src="hotspotModel" />
 	<Collection src="infospotCoordinatesModel" />
 	

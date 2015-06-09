@@ -5,9 +5,8 @@
 	<Collection src="hotspot_trailsModel" />
 	<Collection src="letterModel" />
 	<Model src="letterModel" />
-	<Model src="foundLettersModel" />
-	<Collection src="foundLettersModel" />
 	<Collection src="infospotCoordinatesModel" />
+	
 	<ScrollView id="interactiveWin">
 		<View id="showFamilyTrail"></View>
 		<View id="clueSlideView">
@@ -21,8 +20,6 @@
 			<Button id="sendOneLetter" onClick="sendLetter">Skicka bokstav</Button>
 			<Button id="sendWord" onClick="checkWord">Skicka ordet</Button>
 			<Label id="lblCollectedLetters"></Label>
-			<Button id="btnShowCorrect" onClick="showCorrectLetters">Visa de korrekta bokstäverna</Button>
-			<Label id="lblCorrectLetters"></Label>
 			<Label id="lblnextClue">Hittar du ingen bokstav?</Label>
 			<Button id="nextClue" onClick="toNextClue">Klicka här för att se den.</Button>
 		</View>
