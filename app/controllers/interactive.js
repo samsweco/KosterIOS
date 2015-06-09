@@ -269,7 +269,13 @@ function checkLetter(letterToCheck) {
 						setLetterOne(unFound[0].id, letterToCheck);
 						foundLetterId++;
 						setLabelText();
+						
+						
+						interactiveMap.removeAllAnnotations();
+						displaySpecificMarkers(7, interactiveMap);
+						getSpecificIconsForTrail(7, interactiveMap);
 						$.slides.currentPage = unFound[0].id;
+						addSpecificClueZone(foundLetterId);
 					}
 				}
 			});
