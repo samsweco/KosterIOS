@@ -42,7 +42,6 @@ $.slides.addEventListener('scrollend', function(e) {
 	}
 });
 
-
 setInteractiveViews();
 
 function setInteractiveViews() {
@@ -243,44 +242,54 @@ function sendLetter() {
 function checkLetter(letterToCheck) {
 	try {
 		var messageDialog = Ti.UI.createAlertDialog();
+		var correctLetter = fetchOneLetter(foundLetterId);
+		
+		Ti.API.info('CorrectLetter: ' + JSON.stringify(correctLetter) + ' och foundId: ' + foundLetterId);
 
 		if (letterToCheck.length > 1) {
 			messageDialog.message = "Man får bara skriva in en bokstav.";
 			messageDialog.title = 'Ojdå, nu blev det fel';
-			messageDialog.buttonNames = ['Stäng'];
+			messageDialog.buttonNames = ['OK'];
 
 			messageDialog.show();
 		} else if (letterToCheck.length < 1 && letterToCheck.length == " ") {
 			messageDialog.message = "Man måste skriva in en bokstav.";
 			messageDialog.title = 'Ojdå, nu blev det fel';
-			messageDialog.buttonNames = ['Stäng'];
+			messageDialog.buttonNames = ['OK'];
+
+			messageDialog.show();
+		} else if (letterToCheck != correctLetter) {
+			messageDialog.message = "Är du säker på att " + letterToCheck + ' var rätt bokstav för ledtråd ' + foundLetterId + '? Kontrollera att du inte gått förbi en bokstav.';
+			messageDialog.title = 'Kontrollera bokstav';
+			messageDialog.buttonNames = ['OK'];
 
 			messageDialog.show();
 		} else {
-			messageDialog.message = "Vill du spara bokstaven " + letterToCheck + "?";
-			messageDialog.title = 'Bra, du hittade en bokstav!';
-			messageDialog.buttonNames = ['Ja, jag vill spara!', 'Stäng'];
+			// messageDialog.message = "Vill du spara bokstaven " + letterToCheck + "?";
+			// messageDialog.title = 'Bra, du hittade en bokstav!';
+			// messageDialog.buttonNames = ['Ja, jag vill spara!', 'Stäng'];
+			//
+			// messageDialog.addEventListener('click', function(e) {
+			// if (e.index == 0) {
+			//
+			// }
+			// });
+			//
+			// messageDialog.show();
 
-			messageDialog.addEventListener('click', function(e) {
-				if (e.index == 0) {
-					var unFound = fetchUnFoundLettersCol();
+			var unFound = fetchUnFoundLettersCol();
 
-					if (unFound.length > 0) {
-						setLetterOne(unFound[0].id, letterToCheck);
-						foundLetterId++;
-						setLabelText();
-						
-						
-						interactiveMap.removeAllAnnotations();
-						displaySpecificMarkers(7, interactiveMap);
-						getSpecificIconsForTrail(7, interactiveMap);
-						$.slides.currentPage = unFound[0].id;
-						addSpecificClueZone(foundLetterId);
-					}
-				}
-			});
+			if (unFound.length > 0) {
+				setLetterOne(unFound[0].id, letterToCheck);
+				foundLetterId++;
+				setLabelText();
 
-			messageDialog.show();
+				interactiveMap.removeAllAnnotations();
+				displaySpecificMarkers(7, interactiveMap);
+				getSpecificIconsForTrail(7, interactiveMap);
+				$.slides.currentPage = unFound[0].id;
+				addSpecificClueZone(foundLetterId);
+			}
 		}
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
