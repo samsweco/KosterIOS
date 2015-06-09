@@ -9,12 +9,12 @@ var hotspot_Collection = Alloy.Collections.hotspotModel;
 var jsonfile_Collection = Alloy.Collections.jsonFilesModel;
 var letter_Collection = Alloy.Collections.letterModel;
 
+var hotspotsModel = Alloy.Models.hotspotModel;
+var lettersModel = Alloy.Models.letterModel;
 
 //-----------------------------------------------------------
 // Hämtar hotspotCollection
 //-----------------------------------------------------------
-var hotspotsModel = Alloy.Models.hotspotModel;
-
 function returnHotspotsToAlert() {
 	var hotspotColl = Alloy.Collections.hotspotModel;
 	hotspotColl.fetch({
@@ -47,8 +47,6 @@ function returnBoatHotspots() {
 //-----------------------------------------------------------
 // Hämtar letterCollection och letterModel
 //-----------------------------------------------------------
-var lettersModel = Alloy.Models.letterModel;
-
 function setLetterOne(fId, fLetter){
 	lettersModel.fetch({
 		'id' : fId
