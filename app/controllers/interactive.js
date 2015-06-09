@@ -42,6 +42,7 @@ $.slides.addEventListener('scrollend', function(e) {
 	}
 });
 
+
 setInteractiveViews();
 
 function setInteractiveViews() {
@@ -152,10 +153,11 @@ function checkIfStarted() {
 		if (next_id > 0 && next_id < 9) {
 			setView();
 			foundLetterId = next_id + 1;
+			$.slides.currentPage = foundLetterId;
+			addSpecificClueZone(foundLetterId);
 		} else if (started.length == 9) {
 			setLabelText();
 			setLastView();
-
 		}
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
@@ -267,6 +269,7 @@ function checkLetter(letterToCheck) {
 						setLetterOne(unFound[0].id, letterToCheck);
 						foundLetterId++;
 						setLabelText();
+						$.slides.currentPage = unFound[0].id;
 					}
 				}
 			});
