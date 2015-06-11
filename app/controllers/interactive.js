@@ -4,7 +4,6 @@ Ti.include("collectionData.js");
 
 var args = arguments[0] || {};
 
-
 displayMap();
 checkIfStarted();
 
@@ -29,12 +28,10 @@ function displayMap() {
 
 $.slides.addEventListener('scrollend', function(e) {
 	try {
-		interactiveMap.removeAllAnnotations();
+		removeClueZones();
 
 		var clueIndex = ($.slides.getCurrentPage() + 1);
 		addSpecificClueZone(clueIndex);
-		displaySpecificMarkers(7, interactiveMap);
-		getSpecificIconsForTrail(7, interactiveMap);
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 	}
@@ -56,7 +53,7 @@ function setInteractiveViews() {
 
 			var clueTitle = Ti.UI.createLabel({
 				top : '10dp',
-				left: '0dp',
+				left : '0dp',
 				text : 'Ledtråd ' + (i + 1),
 				color : '#FCAF17',
 				font : {
@@ -67,7 +64,7 @@ function setInteractiveViews() {
 
 			var clueTxt = Ti.UI.createLabel({
 				top : '5dp',
-				left: '0dp',
+				left : '0dp',
 				text : letterJSON[i].clue,
 				color : 'black',
 				font : {
@@ -147,7 +144,11 @@ function checkIfStarted() {
 		if (next_id > 0 && next_id < 9) {
 			setView();
 			foundLetterId = next_id + 1;
-			$.slides.currentPage = foundLetterId;
+			$.slides.currentPage = foundLetterId-1;
+			
+			interactiveMap.removeAllAnnotations();
+			displaySpecificMarkers(7, interactiveMap);
+			getSpecificIconsForTrail(7, interactiveMap);
 			addSpecificClueZone(foundLetterId);
 		} else if (started.length == 9) {
 			setLabelText();
@@ -227,7 +228,7 @@ function checkLetter(letterToCheck) {
 		var messageDialog = Ti.UI.createAlertDialog();
 		var fetchLetter = fetchOneLetter(foundLetterId);
 		var correctLetter = fetchLetter[0].letter;
-		
+
 		if (letterToCheck.length > 1) {
 			messageDialog.message = "Man får bara skriva in en bokstav.";
 			messageDialog.title = 'Ojdå, nu blev det fel';
@@ -254,9 +255,7 @@ function checkLetter(letterToCheck) {
 				foundLetterId++;
 				setLabelText();
 
-				interactiveMap.removeAllAnnotations();
-				displaySpecificMarkers(7, interactiveMap);
-				getSpecificIconsForTrail(7, interactiveMap);
+				removeClueZones();
 				$.slides.currentPage = unFound[0].id;
 				addSpecificClueZone(foundLetterId);
 			}
@@ -271,8 +270,8 @@ function setLabelText() {
 		var found = fetchFoundLettersCol();
 		$.lblCollectedLetters.text = 'Bokstäver: ';
 
-		for (var i = 0; i < found.length; i++) {
-			$.lblCollectedLetters.text += found[i].f_l;
+		for (var i = 0; i < found.length; i++) {			
+			$.lblCollectedLetters.text += found[i].letter;
 
 			if (found[i].id == 9) {
 				$.wordClue.show();
@@ -314,9 +313,7 @@ function checkWord() {
 		});
 
 		if (checkword == word) {
-			interactiveMap.removeAllAnnotations();
-			displaySpecificMarkers(7, interactiveMap);
-			getSpecificIconsForTrail(7, interactiveMap);
+			removeClueZones();
 
 			$.sendWord.hide();
 			$.sendWord.height = 0;

@@ -35,6 +35,7 @@ var boatGPS = false;
 
 var infospotArray = [];
 var markerHotspotArray = [];
+var clueZoneArray = [];
 
 //-----------------------------------------------------------
 // Globala variabler för att visa och släcka infospots

@@ -93,8 +93,6 @@ function fetchFoundLettersCol() {
 		query : 'SELECT * FROM letterModel WHERE found = 1'
 	});
 	return letter_Collection.toJSON();
-	
-	Ti.API.info('fetching: '+JSON.stringify(letter_Collection));
 }
 
 function fetchUnFoundLettersCol() {
@@ -108,9 +106,6 @@ function fetchOneLetter(lId) {
 	letter_Collection.fetch({
 		query : 'SELECT * FROM letterModel WHERE id =' + lId
 	});
-	
-	Ti.API.info(JSON.stringify(letter_Collection));
-	
 	return letter_Collection.toJSON();
 }
 
