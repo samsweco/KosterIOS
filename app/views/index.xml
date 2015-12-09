@@ -10,9 +10,9 @@
 	
 	<TabGroup id="tabs" backgroundColor="#fff" height="100%" tintColor="#0098C3" fontFamily="Raleway-Medium">
 		<Tab id="koster" class="tabbar" title="Hem" icon="/images/kosterStarMenu.png" >
-			<Window id="koster" backgroundImage="/pics/front.png" navBarHidden="true">								
+			<Window id="koster" backgroundImage="/images/front.png" navBarHidden="true">								
 				<View id="frontView" class="headView">
-					<ImageView class="imgKoster" image="/pics/kosterhavet_logga.png"></ImageView>
+					<ImageView class="imgKoster" image="/images/kosterhavet_logga.png"></ImageView>
 					<View id="lblView">
 						<Label id="firstLbl" class="lblFrontText">Välkommen till Kosterhavet!</Label>
 						<Label id="secondLbl" class="lblFrontText">Upptäck den vackra naturen i Kosterhavet och ta en promenad bland klapperstensfält och strandängar.</Label>

@@ -5,7 +5,7 @@ var args = arguments[0] || {};
 
 try {
 	$.lblInfoTitle1.text = args.name || "Title";
-	$.infoImg.image = "/pics/" + args.img;
+	$.infoImg.image = "/images/" + args.img;
 	$.lblInfoText.text = args.infoTxt;
 	var id = args.id;
 

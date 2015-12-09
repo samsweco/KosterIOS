@@ -54,7 +54,7 @@ function setRowData() {
 				height : '70dp',
 				width : '115dp',
 				left : '5dp',
-				image : "/pics/" + rows[i].cover_img,
+				image : "/images/" + rows[i].cover_img,
 				top : '10dp'
 			});
 

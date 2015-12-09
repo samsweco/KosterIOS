@@ -78,11 +78,14 @@ function selectTrailPics() {
 		
 		for (var i = 0; i < mediaObjJSON.length; i++) {
 			var img_view = Ti.UI.createImageView({
-				image : "/pics/" + mediaObjJSON[i].filename,
+				image : '/images/'+ mediaObjJSON[i].filename +'.png',
+			//	url: '/images/' + mediaObjJSON[i].filename,
 				height : '200dp',
 				width : '300dp',
 				top : '0dp'
 			});
+			
+			//Titanium.API.info(img_view.image);
 
 			var lblImgTxt = Ti.UI.createLabel({
 				left : '3dp',
@@ -134,7 +137,7 @@ function LoadHotspotList() {
 			var img = Ti.UI.createImageView({
 				height : '70dp',
 				width : '115dp',
-				image : '/pics/' + tableRow[i].cover_pic,
+				image : '/images/' + tableRow[i].cover_pic,
 				left : '15dp',
 				top : '10dp'
 			});

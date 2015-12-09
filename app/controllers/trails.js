@@ -34,7 +34,7 @@ function setRowData() {
 				var img = Ti.UI.createImageView({
 					height : '70dp',
 					width : '115dp',
-					image : '/pics/' + trailRows[i].cover_img,
+					image : '/images/' + trailRows[i].cover_img,
 					left : '5dp',
 					top : '10dp'
 				});
