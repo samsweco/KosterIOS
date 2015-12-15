@@ -100,9 +100,8 @@ function getInfoDetails(e) {
 			desc : infoObjJSON[0].desc,
 		};
 
-		var infoDetail = Alloy.createController("infoDetail", infoText).getView();
-		Alloy.CFG.tabs.activeTab.open(infoDetail);
-
+		var infoDetail = Alloy.createController("infoDetail", infoText).getView();//.open();
+		$.infoNav.openWindow(infoDetail);
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Infolistan");
 	}

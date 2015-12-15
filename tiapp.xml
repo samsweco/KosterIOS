@@ -1,95 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ti:app xmlns:ti="http://ti.appcelerator.org">
-    <id>com.kostervandring.ios</id>
-    <name>Kosterhavet</name>
-    <version>1.1</version>
-    <publisher>Sweco</publisher>
-    <url>http://www.sweco.se</url>
-    <description>Kostervandring </description>
-    <copyright>2015 by Sweco Position</copyright>
-    <icon>appicon.png</icon>
-    <fullscreen>false</fullscreen>
-    <navbar-hidden>false</navbar-hidden>
-    <analytics>true</analytics>
-    <guid>e7466da0-e0d6-4cc3-848d-e4df7a8648b4</guid>
-    <property name="ti.ui.defaultunit" type="string">dp</property>
-    <ios>
-        <plist>
-            <dict>
-                <key>NSLocationAlwaysUsageDescription</key>
-                <string>
+<ti:app 
+  xmlns:ti="http://ti.appcelerator.org">
+  <id>com.kostervandring.ios</id>
+  <name>Kosterhavet</name>
+  <version>1.1</version>
+  <publisher>Sweco</publisher>
+  <url>http://www.sweco.se</url>
+  <description>Kostervandring </description>
+  <copyright>2015 by Sweco Position</copyright>
+  <icon>appicon.png</icon>
+  <fullscreen>false</fullscreen>
+  <navbar-hidden>false</navbar-hidden>
+  <analytics>true</analytics>
+  <guid>b32a5b1c-0370-49e8-9111-e964da893320</guid>
+  <property name="ti.ui.defaultunit" type="string">dp</property>
+  <ios>
+    <plist>
+      <dict>
+        <key>NSLocationAlwaysUsageDescription</key>
+        <string>
 					Godkänn användandet av platstjänster för att kunna använda appen.
                 </string>
-                <key>UISupportedInterfaceOrientations~iphone</key>
-                <array>
-                    <string>UIInterfaceOrientationPortrait</string>
-                </array>
-                <key>UISupportedInterfaceOrientations~ipad</key>
-                <array>
-                    <string>UIInterfaceOrientationPortrait</string>
-                    <string>UIInterfaceOrientationPortraitUpsideDown</string>
-                    <string>UIInterfaceOrientationLandscapeLeft</string>
-                    <string>UIInterfaceOrientationLandscapeRight</string>
-                </array>
-                <key>UIRequiresPersistentWiFi</key>
-                <false/>
-                <key>UIPrerenderedIcon</key>
-                <false/>
-                <key>UIStatusBarHidden</key>
-                <false/>
-                <key>UIStatusBarStyle</key>
-                <string>UIStatusBarStyleDefault</string>
-            </dict>
-        </plist>
-    </ios>
-    <!-- <android xmlns:android="http://schemas.android.com/apk/res/android">
-			<manifest> -->
-    <!-- Allows the API to download data from Google Map servers -->
-    <!-- <uses-permission android:name="android.permission.INTERNET"/> -->
-    <!-- Allows the API to cache data -->
-    <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/> -->
-    <!-- Use GPS for device location -->
-    <!-- <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/> -->
-    <!-- Use Wi-Fi or mobile connection for device location -->
-    <!-- <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/> -->
-    <!-- Allows the API to access Google web-based services -->
-    <!-- <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/> -->
-    <!-- Specify OpenGL ES 2.0 as a requirement -->
-    <!-- <uses-feature android:glEsVersion="0x00020000" android:required="true"/> -->
-    <!-- Replace com.domain.appid with your application ID -->
-    <!-- <uses-permission android:name="com.Kostervandring.permission.MAPS_RECEIVE"/>
-				<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-				<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-				<permission
-				android:name="com.Kostervandring.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
-				<application> -->
-    <!-- Replace "PASTE YOUR GOOGLE MAPS API KEY HERE" with the Google API key you obtained -->
-    <!-- <meta-data
-					android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyBuHC59LJ7S2fwPg8bbIv-QcWGX_SR8jAk"/>
-				</application>
-			</manifest>
-		</android> -->
-    <mobileweb>
-        <precache/>
-        <splash>
-            <enabled>true</enabled>
-            <inline-css-images>true</inline-css-images>
-        </splash>
-        <theme>default</theme>
-    </mobileweb>
-    <modules>
-        <module platform="iphone">ti.map</module>
-        <module platform="android">ti.map</module>
-    </modules>
-    <deployment-targets>
-        <target device="android">false</target>
-        <target device="blackberry">false</target>
-        <target device="ipad">false</target>
-        <target device="iphone">true</target>
-        <target device="mobileweb">false</target>
-    </deployment-targets>
-    <sdk-version>3.5.1.GA</sdk-version>
-    <plugins>
-        <plugin version="1.0">ti.alloy</plugin>
-    </plugins>
+        <key>UISupportedInterfaceOrientations~iphone</key>
+        <array>
+          <string>UIInterfaceOrientationPortrait</string>
+        </array>
+        <key>UISupportedInterfaceOrientations~ipad</key>
+        <array>
+          <string>UIInterfaceOrientationPortrait</string>
+          <string>UIInterfaceOrientationPortraitUpsideDown</string>
+          <string>UIInterfaceOrientationLandscapeLeft</string>
+          <string>UIInterfaceOrientationLandscapeRight</string>
+        </array>
+        <key>UIRequiresPersistentWiFi</key>
+        <false/>
+        <key>UIPrerenderedIcon</key>
+        <false/>
+        <key>UIStatusBarHidden</key>
+        <false/>
+        <key>UIStatusBarStyle</key>
+        <string>UIStatusBarStyleDefault</string>
+      </dict>
+    </plist>
+  </ios>
+  <!-- <android 
+  xmlns:android="http://schemas.android.com/apk/res/android"><manifest> -->
+  <!-- Allows the API to download data from Google Map servers -->
+  <!-- <uses-permission android:name="android.permission.INTERNET"/> -->
+  <!-- Allows the API to cache data -->
+  <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/> -->
+  <!-- Use GPS for device location -->
+  <!-- <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/> -->
+  <!-- Use Wi-Fi or mobile connection for device location -->
+  <!-- <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/> -->
+  <!-- Allows the API to access Google web-based services -->
+  <!-- <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/> -->
+  <!-- Specify OpenGL ES 2.0 as a requirement -->
+  <!-- <uses-feature android:glEsVersion="0x00020000" android:required="true"/> -->
+  <!-- Replace com.domain.appid with your application ID -->
+  <!-- <uses-permission android:name="com.Kostervandring.permission.MAPS_RECEIVE"/><uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/><uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/><permission
+				android:name="com.Kostervandring.permission.MAPS_RECEIVE" android:protectionLevel="signature"/><application> -->
+  <!-- Replace "PASTE YOUR GOOGLE MAPS API KEY HERE" with the Google API key you obtained -->
+  <!-- <meta-data
+					android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyBuHC59LJ7S2fwPg8bbIv-QcWGX_SR8jAk"/></application></manifest></android> -->
+  <mobileweb>
+    <precache/>
+    <splash>
+      <enabled>true</enabled>
+      <inline-css-images>true</inline-css-images>
+    </splash>
+    <theme>default</theme>
+  </mobileweb>
+  <modules>
+    <module platform="iphone">ti.map</module>
+    <module platform="android">ti.map</module>
+  </modules>
+  <deployment-targets>
+    <target device="android">false</target>
+    <target device="blackberry">false</target>
+    <target device="ipad">false</target>
+    <target device="iphone">true</target>
+    <target device="mobileweb">false</target>
+  </deployment-targets>
+  <sdk-version>5.0.2.GA</sdk-version>
+  <plugins>
+    <plugin version="1.0">ti.alloy</plugin>
+  </plugins>
+  <property name="appc-app-id" type="string">566fea5e09a318db4e7d5d08</property>
 </ti:app>

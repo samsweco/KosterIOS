@@ -1,8 +1,8 @@
 <Alloy>
 	<Collection src="info_urlModel"></Collection>
 	<Collection src="letterModel" />
-	
-	<Window id="infoDetail" backButtonTitle="Tillbaka">
+
+	<Window id="infoDetail" backButtonTitle="Tillbaka" exitOnClose="true">
 		<ScrollView class="container" scrollType="vertical" showVerticalScrollIndicator="true">
 			<View id="slideView">
 				<ImageView id="infoImg"></ImageView>
@@ -17,5 +17,6 @@
 				</TableView>
 			</View>
 		</ScrollView>
+		<Widget src="menu" name="widget"></Widget>
 	</Window>
 </Alloy>

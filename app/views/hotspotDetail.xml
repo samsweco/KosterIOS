@@ -12,5 +12,6 @@
 			<Label id="lblHotspotName" ></Label>
 			<Label id="lblHotspotInfoTxt" ></Label>
 		</ScrollView>
+		<Widget src="menu" name="widget"></Widget>
 	</Window>
 </Alloy>

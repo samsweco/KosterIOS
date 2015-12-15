@@ -1,0 +1,37 @@
+"#menuContainerView" : {
+backgroundColor : '#3B3D3D',
+height : Titanium.UI.SIZE,
+layout : 'vertical',
+bottom : '0px',
+height : '20dp',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Raleway-Medium'
+	},
+}
+
+"#lbl_menu_close" : {
+	visible : false,
+	height : '0dp',
+	backgroundColor : '#3B3D3D',
+	font : {
+		fontSize: '16dp',
+		color: '#FCAF17',
+		fontFamily: 'Raleway-Medium'
+	}
+}
+
+'#lbl_menu_open' : {
+	visible : true, 
+	height : '20dp',	
+	backgroundColor : '#3B3D3D',
+	font : {
+		fontSize: '16dp',
+		color: '#FCAF17',
+		fontFamily: 'Raleway-Medium'
+	}
+}
+
+'.tblRow' : {	
+	height : '30dp'
+}

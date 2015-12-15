@@ -6,6 +6,9 @@
 	<Collection src="letterModel" />
 	<Model src="letterModel" />
 	
+	<NavigationWindow id="trailNav" platform="ios">
+	<Window id="trailWindow">
+		
 	<View class="container" onClose="destroyModel">
 		<ScrollView class="headView" scrollType="vertical">
 			<TableView id="table" onClick="showTrailDetails">
@@ -13,4 +16,7 @@
 			</TableView>
 		</ScrollView>
 	</View>
+	<Widget src="menu" name="widget"></Widget>
+	</Window>
+	</NavigationWindow>
 </Alloy>

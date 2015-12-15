@@ -1,56 +1,18 @@
 <Alloy>
+	<Collection src="mediaModel" />
 	<Collection src="hotspotModel" />
-	<Collection src="trailsModel" />
-	<Collection src="jsonFilesModel" />
-	<Collection src="hotspot_trailsModel" />
+	<Collection src="infospotCoordinatesModel" />
+	<Collection src="trailsModel"/>
 	<Collection src="letterModel" />
 	<Model src="letterModel" />
-	<Model src="hotspotModel" />
-	<Collection src="infospotCoordinatesModel" />
-	
-	<TabGroup id="tabs" backgroundColor="#fff" height="100%" tintColor="#0098C3" fontFamily="Raleway-Medium">
-		<Tab id="koster" class="tabbar" title="Hem" icon="/images/kosterStarMenu.png" >
-			<Window id="koster" backgroundImage="/images/front.png" navBarHidden="true">								
-				<View id="frontView" class="headView">
+			<Window id="koster" class="container" backgroundImage="/images/front.png">
+				<View class="headView">
 					<ImageView class="imgKoster" image="/images/kosterhavet_logga.png"></ImageView>
 					<View id="lblView">
 						<Label id="firstLbl" class="lblFrontText">Välkommen till Kosterhavet!</Label>
-						<Label id="secondLbl" class="lblFrontText">Upptäck den vackra naturen i Kosterhavet och ta en promenad bland klapperstensfält och strandängar.</Label>
-					</View>
-					
-					<View id="horiView">
-						<View id="boatBtnView" onClick="openBoat">
-							<ImageView id="boatPikto" image="/images/farjelage.png"></ImageView>
-							<Label id="btnBoat">Båtresan</Label>
-						</View>
-						<View id="appBtnView" onClick="showInfo">
-							<ImageView id="btnAboutPic" image="/images/smartphone-icon.png"></ImageView>
-							<Label id="btnAbout">Om appen</Label>
-						</View>
-					</View>
-					
-				</View>	
-				<View id="widgetInfo">
-					<Button id="closeBtn" backgroundImage="/images/closeBurger.png" onClick="closeInfo" />
-					<Widget id="infoW" src="infoWidget" name="widget"></Widget>
-				</View>			
+						<Label id="secondLbl" class="lblFrontText">Upptäck den vackra naturen i Kosterhavet och ta en promenad bland klapperstensfält och strandängar.</Label>					
+					</View>					
+				</View>		
+				<Widget src="menu" name="widget"></Widget>
 			</Window>
-		</Tab>
-		<Tab id="hikeTab" class="tabbar" title="Vandra" icon="/images/hikeMenu.png">
-			<Window id="hikeWin" onOpen="toTrails" />
-		</Tab>
-		<Tab id="maptab" class="tabbar" title="Karta" icon="/images/mapMenu.png">
-			<Window id="mapWin" onOpen="toMap">
-				<RightNavButton>
-					<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMapMenu" />
-				</RightNavButton>
-			</Window>
-		</Tab>
-		<Tab id="interactive" class="tabbar" title="Bokstavsjakt" icon="/images/quizMenu.png">
-			<Window id="interactiveWin" title="Bokstavsjakt" onOpen="toInteractive" />
-		</Tab>
-		<Tab id="info" class="tabbar" title="Info" icon="/images/infoMenu.png">
-			<Window id="infoWin" title="Information" onOpen="toInfo" />
-		</Tab>
-	</TabGroup>
 </Alloy>

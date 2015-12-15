@@ -62,7 +62,7 @@ function zoomMapTrail() {
 		};
 		
 		var mapDetail = Alloy.createController("mapDetail", trail).getView();
-		Alloy.CFG.tabs.activeTab.open(mapDetail);
+		$.trailDetailNav.openWindow(mapDetail);
 		cleanup();
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled - zoomMapTrail");

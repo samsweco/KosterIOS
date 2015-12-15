@@ -7,6 +7,7 @@
 	<Model src="letterModel" />
 	<Collection src="infospotCoordinatesModel" />
 	
+	<Window id="interactiveWindow">
 	<ScrollView id="interactiveWin">
 		<View id="showFamilyTrail"></View>
 		<View id="clueSlideView">
@@ -32,5 +33,7 @@
 			<Label id="lbls4">Om du råkar gå förbi en bokstav eller inte hittar den kan du ändå gå vidare till nästa ledtråd. Ifall detta inträffar kan du se de korrekta bokstäverna i slutet av slingan.</Label>
 			<Button id="btnStartQuiz" onClick="startInteractive">Starta bokstavsjakten!</Button>
 		</View>
-	</ScrollView>
+	</ScrollView>				
+		<Widget src="menu" name="widget"></Widget>
+	</Window>
 </Alloy>

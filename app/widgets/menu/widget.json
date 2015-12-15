@@ -1,6 +1,6 @@
 {
-	"id": "infoWidget",
-	"name": "infoWidget",
+	"id": "menu",
+	"name": "menu",
 	"description" : "",
 	"author": "",
 	"version": "1.0",
@@ -9,5 +9,5 @@
 	"min-alloy-version": "1.0",
 	"min-titanium-version":"2.1",
 	"tags":"",
-	"platforms":"ios"
+	"platforms":"android"
 }

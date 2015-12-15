@@ -8,11 +8,19 @@
 	<Model src="letterModel" />
 	<Model src="hotspotModel" />
 	
+	<NavigationWindow id="infoNav" platform="ios">
+	<Window id="mapWindow">
+		<RightNavButton>
+			<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMapMenu" />
+		</RightNavButton>
 	<View id="headMapView" class="container">
 		<View id="mapView"></View>
 		
+		<Widget src="menu" name="widget"></Widget>
 		<View id="widgetView">
 			<Widget src="mapmenu" name="widget"></Widget>
 		</View>
 	</View>
+	</Window>
+	</NavigationWindow>
 </Alloy>

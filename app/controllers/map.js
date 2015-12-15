@@ -73,9 +73,9 @@ map.addEventListener('singletap', function() {
 	}
 });
 
-//-----------------------------------------------------------
-// Funktioner för att visa och stänga kartmenyn 
-//-----------------------------------------------------------
+// //-----------------------------------------------------------
+// // Funktioner för att visa och stänga kartmenyn 
+// //-----------------------------------------------------------
 function openMenu(){
 	$.widgetView.height = '190dp';
 }
@@ -85,3 +85,18 @@ function closeMenu(){
 	$.widgetView.height = '0dp';
 }
 Alloy.Globals.closeMenu = closeMenu;
+
+//-----------------------------------------------------------
+// Öppnar och stänger menyn på "stora kartan"
+//-----------------------------------------------------------
+function showMapMenu() {
+	if(!menuMapVisible){
+		openMenu();
+		menuMapVisible = true;
+	}else{
+		closeMenu();
+		menuMapVisible = false;
+	}
+}
+
+

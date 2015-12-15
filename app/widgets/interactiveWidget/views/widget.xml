@@ -1,5 +1,0 @@
-<Alloy>
-	<View id="clueSlideView">
-		<ScrollableView id="slides" scrollType="horizontal" showPagingControl="true" />
-	</View>
-</Alloy>

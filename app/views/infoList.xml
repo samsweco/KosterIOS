@@ -1,12 +1,25 @@
 <Alloy>
+	<Collection src="mediaModel" />
+	<Collection src="hotspotModel" />
 	<Collection src="infoModel" />
+	<Collection src="info_urlModel" />
+	<Collection src="infospotCoordinatesModel" />
 	<Collection src="letterModel" />
+	<Model src="letterModel" />
 	
-	<View>
+	<NavigationWindow id="infoNav" platform="ios">
+	<Window id="infoWindow">
+
+	<View class="container">
 		<ScrollView class="headView" scrollType="vertical">
 			<TableView id="table" onClick="getInfoDetails">
-				<TableViewRow class="row" onClick="getInfoDetails" />
+				<TableViewRow class="row" />
 			</TableView>
 		</ScrollView>
-	</View>
+	
+	</View>					
+		<Widget src="menu" name="widget"></Widget>
+		
+	</Window>
+	</NavigationWindow>
 </Alloy>
