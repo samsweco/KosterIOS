@@ -2,7 +2,11 @@
 	<Collection src="info_urlModel"></Collection>
 	<Collection src="letterModel" />
 
+	<NavigationWindow id="navInfoDetail" platform="ios" navBarHidden="true">
 	<Window id="infoDetail" backButtonTitle="Tillbaka" exitOnClose="true">
+		<RightNavButton>
+			<Button id="btnCloseInfoWindow" image="/images/closeBurger.png" onClick="closeInfoWindow" />
+		</RightNavButton>
 		<ScrollView class="container" scrollType="vertical" showVerticalScrollIndicator="true">
 			<View id="slideView">
 				<ImageView id="infoImg"></ImageView>
@@ -19,4 +23,5 @@
 		</ScrollView>
 		<Widget src="menu" name="widget"></Widget>
 	</Window>
+	</NavigationWindow>
 </Alloy>

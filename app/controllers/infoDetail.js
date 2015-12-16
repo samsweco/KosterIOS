@@ -117,7 +117,7 @@ function openLink(link) {
 		window.backButtonTitle = "Tillbaka";
 
 		window.add(webview);
-		Alloy.CFG.tabs.activeTab.open(window);
+		$.navInfoDetail.openWindow(window);
 
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Informationssidan");
@@ -178,11 +178,15 @@ function showRules(infTxt, linktitle){
 		infoScrollRules.add(viewen);
 		infoWindowRules.add(infoScrollRules);
 
-		Alloy.CFG.tabs.activeTab.open(infoWindowRules);
+		$.navInfoDetail.openWindow(infoWindowRules);
 
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Informationssidan");
 	}
+}
+
+function closeInfoWindow(){
+	$.navInfoDetail.close();
 }
 
 var cleanup = function() {
