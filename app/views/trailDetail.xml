@@ -7,6 +7,10 @@
 	
 	<NavigationWindow id="trailDetailNav" platform="ios">
 	<Window id="hikeDetailWin" exitOnClose="true">	
+		<RightNavButton>
+			<Button id="btnCloseWindow" image="/images/closeBurger.png" onClick="closeWindow" />
+		</RightNavButton>
+		
 		<ScrollView class="headView">
 			<View id="slideView">
 				<ScrollableView id="slideShowTrails" scrollType="horizontal" showPagingControl="true" />
