@@ -81,7 +81,7 @@ function openMainMenu() {
 		mainMenuOpen = true;
 		
 		$.lbl_menu_close.visible = true;
-		$.lbl_menu_close.height = '30dp';
+		$.lbl_menu_close.height = '35dp';
 		$.lbl_menu_open.height = '0dp';	
 		$.lbl_menu_open.visible = false;	
 	} else {
@@ -91,10 +91,10 @@ function openMainMenu() {
 
 function closeMainMenu() {
 	if(mainMenuOpen){
-		$.menuContainerView.height = '30dp';
+		$.menuContainerView.height = '35dp';
 		$.lbl_menu_close.visible = false;
 		$.lbl_menu_close.height = '0dp';
-		$.lbl_menu_open.height = '30dp';	
+		$.lbl_menu_open.height = '35dp';	
 		$.lbl_menu_open.visible = true;	
 		
 		mainMenuOpen = false;

@@ -2,7 +2,7 @@
 height : Titanium.UI.SIZE,
 layout : 'vertical',
 bottom : '0px',
-height : '20dp',
+height : '35dp',
 opacity : 0.95, 
 	font: {
 		fontSize: '14dp',
@@ -26,7 +26,7 @@ opacity : 0.95,
 
 '#lbl_menu_open' : {
 	visible : true, 
-	height : '25dp',
+	height : '35dp',
 	backgroundColor: 'white',
 	width: '100%',
 	opacity: 0.95,
@@ -40,4 +40,10 @@ opacity : 0.95,
 
 '.tblRow' : {	
 	height : '30dp'
+}
+
+"#line": {
+	height: '5px',
+	width: '100%',
+	backgroundColor: 'gray'
 }

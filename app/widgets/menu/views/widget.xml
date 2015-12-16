@@ -1,5 +1,6 @@
 <Alloy>
 	<View id="menuContainerView">
+		<View id="line"></View>
 			<Label id="lbl_menu_open" text="Öppna Meny" onClick="openMainMenu"></Label>
 			<Label id="lbl_menu_close" text="Stäng Meny" onClick="closeMainMenu"></Label>
 				<TableView id="table" onClick="navigate">
