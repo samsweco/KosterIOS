@@ -1,18 +1,19 @@
+<?xml version="1.0"?>
 <Alloy>
-	<Collection src="mediaModel" />
-	<Collection src="hotspotModel" />
-	<Collection src="infospotCoordinatesModel" />
+	<Collection src="mediaModel"/>
+	<Collection src="hotspotModel"/>
+	<Collection src="infospotCoordinatesModel"/>
 	<Collection src="trailsModel"/>
-	<Collection src="letterModel" />
-	<Model src="letterModel" />
-			<Window id="koster" class="container" backgroundImage="/images/front.png">
-				<View class="headView">
-					<ImageView class="imgKoster" image="/images/kosterhavet_logga.png"></ImageView>
-					<View id="lblView">
-						<Label id="firstLbl" class="lblFrontText">Välkommen till Kosterhavet!</Label>
-						<Label id="secondLbl" class="lblFrontText">Upptäck den vackra naturen i Kosterhavet och ta en promenad bland klapperstensfält och strandängar.</Label>					
-					</View>					
-				</View>		
-				<Widget src="menu" name="widget"></Widget>
-			</Window>
+	<Collection src="letterModel"/>
+	<Model src="letterModel"/>
+	<Window id="koster" class="container" backgroundImage="/images/front.png" onBlur="closeWindow">
+		<View class="headView">
+			<ImageView class="imgKoster" image="/images/kosterhavet_logga.png"/>
+			<View id="lblView">
+				<Label id="firstLbl" class="lblFrontText">V&#xE4;lkommen till Kosterhavet!</Label>
+				<Label id="secondLbl" class="lblFrontText">Uppt&#xE4;ck den vackra naturen i Kosterhavet och ta en promenad bland klapperstensf&#xE4;lt och strand&#xE4;ngar.</Label>
+			</View>
+		</View>
+		<Widget src="menu" name="widget"/>
+	</Window>
 </Alloy>

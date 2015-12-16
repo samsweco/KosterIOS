@@ -9,14 +9,13 @@
 	<Model src="hotspotModel" />
 	
 	<NavigationWindow id="infoNav" platform="ios">
-	<Window id="mapWindow">
-		<RightNavButton>
-			<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMapMenu" />
-		</RightNavButton>
+	<Window id="mapWindow" title="Karta">
 	<View id="headMapView" class="container">
 		<View id="mapView"></View>
 		
+		<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMapMenu" />
 		<Widget src="menu" name="widget"></Widget>
+		
 		<View id="widgetView">
 			<Widget src="mapmenu" name="widget"></Widget>
 		</View>

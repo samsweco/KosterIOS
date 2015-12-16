@@ -19,15 +19,22 @@ if(args.title == 'Äventyrsslingan'){
 	$.btnSendTo.show();
 	$.btnSendTo.height = '20dp';
 	$.btnSendTo.title = 'Gå till bokstavsjakten!';
+	$.hikeDetailWin.navBarHidden = 'true';
 	
 	$.btnSendTo.addEventListener('click', function(){
-		Alloy.CFG.tabs.setActiveTab(3);
+		// Alloy.CFG.tabs.setActiveTab(3);
+		var sendToInteractive = Alloy.createController("interactive").getView().open();
 	});
 } else if(args.title == 'Båtresan'){
 	$.boatSwitch.show();
 	$.boatSwitch.height = '30dp';
 	$.lblBoat.show();
 	$.lblBoat.height = '30dp';
+	
+	$.hikeDetailWin.title = 'Båtresan';
+	$.trailDetailNav.navbarHidden = 'true';
+} else {
+	$.trailDetailNav.navBarHidden = 'true';
 }
 
 $.boatSwitch.addEventListener('change', function() {
@@ -175,13 +182,24 @@ function LoadHotspotList() {
 }
 
 //-----------------------------------------------------------
-// Öppnar detaljvy med vald hotspot - klickad på i kartvyn
+// Öppnar hotspotDetail med info om vald hotspot
 //-----------------------------------------------------------
-function sendToHotspot(e) {
+function showHotspotDetail(e) {		
 	try {
-		showHotspot(e.rowData.id);
+		var jsonObjHot = returnSpecificHotspotsByName(e.rowData.id);
+
+		var hotspotTxt = {
+			title : jsonObjHot[0].name,
+			infoTxt : jsonObjHot[0].infoTxt,
+			id : jsonObjHot[0].id
+		};
+
+		var hotDet = Alloy.createController("hotspotDetail", hotspotTxt).getView();
+		$.trailDetailNav.openWindow(hotDet);
+		
+		hotspotDetail = null;
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled - SendToHotspot");
+		newError("Något gick fel när sidan skulle laddas, prova igen!");
 	}
 }
 
@@ -223,6 +241,9 @@ function changeLabel(){
 	}
 }
  
+function closeWindow(){
+	$.trailDetailNav.close();
+}
 
  var cleanup = function() {
 	$.destroy();

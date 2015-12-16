@@ -5,6 +5,9 @@
 	<Collection src="letterModel" />
 	
 	<Window id="hotspotWin" backButtonTitle="Tillbaka" exitOnClose="true">
+		<!-- <RightNavButton>
+			<Button id="btnCloseHotspot" image="/images/closeBurger.png" onClick="closeHotspot" />
+		</RightNavButton> -->
 		<ScrollView id="hotspotView" class="headView" scrollType="vertical">
 			<View id="slideView">
 				<ScrollableView id="slideShowHotspotDetail" showPagingControl="true"/>

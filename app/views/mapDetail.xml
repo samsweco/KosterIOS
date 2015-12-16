@@ -10,17 +10,18 @@
 	
 	<Window id="detailwin" backButtonTitle="Tillbaka" exitOnClose="true">
 		<RightNavButton>
-			<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMenu" />
+			<Button id="btnCloseWindow" image="/images/closeBurger.png" onClick="closeMap" />
 		</RightNavButton>
-		<View id="mapDetailView"></View>
+		<View id="mapDetailView">	
+		</View>
+		
+		<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMenu" />
+		
+		<Widget src="menu" name="widget"></Widget>
+		
 		<View id="widgetView">
 			<View id="settingsView">
 				<View id="hotspotSwitchView" class="settingsHorizontalView">
-					<!-- <ImageView image="/images/hotspotflag.png"></ImageView>
-					<Label id="lblHotspot" text="Visa sevärdheter"></Label>
-					<View class="switchClass">
-						<Switch id="HotSwitch1" class="switch" value="false" titleOn="På" titleOff="Av" onChange="disHot"></Switch>
-					</View> -->
 				</View>
 				<View id="gpsSwitchView" class="settingsHorizontalView">
 					<ImageView image="/images/sound.png"></ImageView>
@@ -38,6 +39,6 @@
 				</View>
 			</View>
 		</View>
-		<Widget src="menu" name="widget"></Widget>
+		
 	</Window>
 </Alloy>

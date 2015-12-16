@@ -7,7 +7,7 @@
 	<Model src="letterModel" />
 	<Collection src="infospotCoordinatesModel" />
 	
-	<Window id="interactiveWindow">
+	<Window id="interactiveWindow" title="Bokstavsjakten">
 	<ScrollView id="interactiveWin">
 		<View id="showFamilyTrail"></View>
 		<View id="clueSlideView">

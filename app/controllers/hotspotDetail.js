@@ -56,10 +56,11 @@ function selectHotspotPics() {
 	}
 }
 
-var cleanup = function() {
-	$.destroy();
-	$.off();
+$.hotspotWin.addEventListener('onblur', function(){
 	$.hotspotWin = null;
-};
+});
 
-$.hotspotWin.addEventListener('close', cleanup);
+function closeHotspot(){
+	$.hotspotWin.close();
+}
+

@@ -15,10 +15,11 @@ function navigate(e) {
 				// //Engelskt språk
 				// break;
 			// }
-			// case home_row : {
-				// //Navigera till Index
-				// break;
-			// }
+			case "home_row" : {
+				//Navigera till Index
+				var home = Alloy.createController('index').getView().open();
+				break;
+			}
 			// 			
 			// case hotspots_row : {
 				// break;
@@ -57,7 +58,7 @@ function navigate(e) {
 				 color : 'boat'
 				 };
 				  
-			 	var trailDetail = Alloy.createController("trailDetail", args).getView().open();			
+			 	var trailDetail = Alloy.createController("trailDetail", args).getView().open();
 				break;
 			}
 			// case show_hot_row : {

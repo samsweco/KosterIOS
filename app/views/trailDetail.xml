@@ -6,19 +6,13 @@
 	<Model src="letterModel" />
 	
 	<NavigationWindow id="trailDetailNav" platform="ios">
-	<Window id="hikeDetailWin" backButtonTitle="Tillbaka" exitOnClose="true">
-		<RightNavButton>
-			<Button id="btnShowOnMap" onClick="zoomMapTrail">
-				Visa led på karta
-			</Button> 
-		</RightNavButton>
-		<ScrollView class="headView" scrollType="vertical">
+	<Window id="hikeDetailWin" exitOnClose="true">	
+		<ScrollView class="headView">
 			<View id="slideView">
 				<ScrollableView id="slideShowTrails" scrollType="horizontal" showPagingControl="true" />
 			</View>
 			<View id="horizontalView">
-				<View id="iconrow">
-				</View>
+				<View id="iconrow"></View>
 			</View>
 			<View class="lbls">
 				<Label id="lblTrailName" class="lbltrailDetail">
@@ -30,6 +24,9 @@
 				<Label id="lblTrailInfo" class="lbltrailDetail">
 				</Label>
 			</View>
+			<Button id="btnShowOnMap" onClick="zoomMapTrail">
+				Visa led på karta
+			</Button> 
 			<Button id="btnSendTo"></Button>
 			<View id="btnHorizontalView">
 				<Label id="lblBoat" text="Påminnelse vid sevärdheter"></Label>
@@ -39,7 +36,7 @@
 			</View>
 			<Label id="lblLangsVagen" text="Det här kan du se längs vägen:"></Label>
 			<View id="trail_hotspotView">
-				<TableView id="hotspotTable" onClick="sendToHotspot" />
+				<TableView id="hotspotTable" onClick="showHotspotDetail" />
 			</View>
 		</ScrollView>
 		<Widget src="menu" name="widget"></Widget>

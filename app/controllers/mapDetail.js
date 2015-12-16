@@ -25,6 +25,10 @@ if(hotspotGPS){
 	$.geoSwitch1.value = false;
 }
 
+if(trailId == 8){
+	$.detailwin.navBarHidden = '';
+} 
+
 //-----------------------------------------------------------
 // Visar kartan
 //-----------------------------------------------------------
@@ -98,6 +102,10 @@ function showDetailMenu(){
 }
 function closeDetailMenu(){
 	$.widgetView.height = '0dp';
+}
+
+function closeMap(){
+	$.detailwin.close();
 }
 
  var cleanup = function() {

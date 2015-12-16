@@ -2,6 +2,10 @@
 	fontFamily: 'Raleway-Medium'
 }
 
+"#mapWindow": {
+	backgroundColor: 'white'
+}
+
 "#mapView": {
 	height: '100%',
 	width: '100%'
@@ -17,19 +21,7 @@
 	bottom : 0
 }
 
-"#viewMessage": {
-	height : '50dp',
-	width : Ti.UI.SIZE,
-	backgroundColor : 'white',
-	opacity : 0.5,
-	visible: true
-}
-
-"#lblMessage": {
-	color: 'black',
-	font: {
-		fontFamily: 'Raleway-Light',
-		fontSize: 14
-	},
-	textAlign: 'center'
+"#btnShowMenu": {
+	top: '30px',
+	right: '30px'
 }

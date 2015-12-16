@@ -16,6 +16,10 @@
 	opacity : 0.8
 }
 
+"#btnShowMenu": {
+	top: '30px',
+	right: '30px'
+}
 
 ".settingsHorizontalView": {
 	top: '5dp',
