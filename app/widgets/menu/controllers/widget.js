@@ -1,5 +1,6 @@
-
-
+Ti.include("/geoFunctions.js");
+Ti.include("/mapFunctions.js");
+Ti.include("/collectionData.js");
 
 //-----------------------------------------------------------
 // Metoder för navigeringen
@@ -100,3 +101,17 @@ function closeMainMenu() {
 		mainMenuOpen = false;
 		}	
 	}
+
+//-----------------------------------------------------------
+// Startar och avslutar location-event för hotspots/sevärdheter
+//-----------------------------------------------------------
+$.geoSwitchHotspot.addEventListener('change', function(e) {
+	if ($.geoSwitchHotspot.value == true) {
+		Alloy.Globals.getUserPos('hotspot');
+		hotspotGPS = true;
+	}
+	if($.geoSwitchHotspot.value == false){
+		Alloy.Globals.stopGPS();
+		hotspotGPS = false;
+	}
+});

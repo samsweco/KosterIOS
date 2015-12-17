@@ -21,7 +21,7 @@
 		
 		<View id="widgetView">
 			<View id="settingsView">
-				<View id="hotspotSwitchView" class="settingsHorizontalView">
+				<!-- <View id="hotspotSwitchView" class="settingsHorizontalView">
 				</View>
 				<View id="gpsSwitchView" class="settingsHorizontalView">
 					<ImageView image="/images/sound.png"></ImageView>
@@ -29,7 +29,7 @@
 					<View class="switchClass">
 						<Switch id="geoSwitch1" class="switch" value="false" titleOn="På" titleOff="Av"></Switch>
 					</View>
-				</View>
+				</View> -->
 				<View id="myposSwitchView" class="settingsHorizontalView">
 					<ImageView image="/images/locationarrow.png"></ImageView>
 					<Label id="lblSetMypos" text="Visa min position"></Label>

@@ -11,7 +11,7 @@
                 		<ImageView image="/images/sound.png"></ImageView>
                 		<Label class="lblSetGPSListener" text="Påminnelser"></Label>
 						<View class="switchClass">
-							<Switch id="geoSwitch1" class="switch" value="false" titleOn="På" titleOff="Av"></Switch>
+							<Switch id="geoSwitchBoat" class="switch" value="false" titleOn="På" titleOff="Av"></Switch>
 						</View>
 					</View>
 				</TableViewRow>
@@ -21,7 +21,7 @@
                 		<ImageView image="/images/sound.png"></ImageView>
                 		<Label class="lblSetGPSListener" text="Påminnelser"></Label>
 						<View class="switchClass">
-							<Switch id="geoSwitch1" class="switch" value="false" titleOn="På" titleOff="Av"></Switch>
+							<Switch id="geoSwitchHotspot" class="switch" value="false" titleOn="På" titleOff="Av"></Switch>
 						</View>
 					</View>
                 </TableViewRow>
