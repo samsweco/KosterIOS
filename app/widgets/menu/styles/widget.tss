@@ -39,11 +39,37 @@ opacity : 0.95,
 }
 
 '.tblRow' : {	
-	height : '30dp'
+	height : '40dp'
+}
+
+"#hotspots_row":{
+	layout: 'vertical'
+}
+
+"#boat_row":{
+	layout: 'vertical'
 }
 
 "#line": {
 	height: '5px',
 	width: '100%',
 	backgroundColor: 'gray'
+}
+
+".switchView": {
+	layout: 'horizontal',
+	witdh: '55%',
+	left: '45%'
+}
+
+".lblSetGPSListener": {
+	left: '10px',
+	font: {
+		fontFamily: 'Raleway-Medium',
+		fontSize: 13
+	}
+}
+
+".switch": {
+	left: '10px'
 }

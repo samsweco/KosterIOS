@@ -10,10 +10,12 @@
 	
 	<NavigationWindow id="infoNav" platform="ios">
 	<Window id="mapWindow" title="Karta">
+		<RightNavButton>
+			<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMapMenu" />
+		</RightNavButton>
 	<View id="headMapView" class="container">
 		<View id="mapView"></View>
 		
-		<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMapMenu" />
 		<Widget src="menu" name="widget"></Widget>
 		
 		<View id="widgetView">

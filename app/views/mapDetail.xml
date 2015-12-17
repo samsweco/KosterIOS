@@ -9,13 +9,13 @@
 	<Collection src="infospotCoordinatesModel" />
 	
 	<Window id="detailwin" backButtonTitle="Tillbaka" exitOnClose="true">
-		<!-- <RightNavButton>
-			<Button id="btnCloseWindow" image="/images/closeBurger.png" onClick="closeMap" />
-		</RightNavButton> -->
+		<RightNavButton>
+			<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMenu" />
+		</RightNavButton>
 		<View id="mapDetailView">	
 		</View>
 		
-		<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMenu" />
+		<!-- <Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMenu" /> -->
 		
 		<Widget src="menu" name="widget"></Widget>
 		

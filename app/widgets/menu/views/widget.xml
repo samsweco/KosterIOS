@@ -4,16 +4,29 @@
 			<Label id="lbl_menu_open" text="Öppna Meny" onClick="openMainMenu"></Label>
 			<Label id="lbl_menu_close" text="Stäng Meny" onClick="closeMainMenu"></Label>
 				<TableView id="table" onClick="navigate">
-                <TableViewRow title="Svenska / Engelska" id="sv_row" class="tblRow" />
                 <TableViewRow title="Hem" id="home_row" class="tblRow"/>
-                <TableViewRow title="Båtresan" id="boat_row" class="tblRow"/>
+                <TableViewRow title="Information" id="info_row" class="tblRow"/>
+                <TableViewRow title="Båtresan" id="boat_row" class="tblRow">
+                <View class="switchView">
+                		<ImageView image="/images/sound.png"></ImageView>
+                		<Label class="lblSetGPSListener" text="Påminnelser"></Label>
+						<View class="switchClass">
+							<Switch id="geoSwitch1" class="switch" value="false" titleOn="På" titleOff="Av"></Switch>
+						</View>
+					</View>
+				</TableViewRow>
                 <TableViewRow title="Vandringsleder" id="trails_row" class="tblRow"/>
-                <TableViewRow title="Sevärdheter" id="hotspots_row"class="tblRow"/>
-                <TableViewRow title="Karta" id="map_row" class="tblRow"/>             
-                <TableViewRow title="Info" id="info_row" class="tblRow"/>
+                <TableViewRow title="Sevärdheter" id="hotspots_row"class="tblRow">
+                	<View class="switchView">
+                		<ImageView image="/images/sound.png"></ImageView>
+                		<Label class="lblSetGPSListener" text="Påminnelser"></Label>
+						<View class="switchClass">
+							<Switch id="geoSwitch1" class="switch" value="false" titleOn="På" titleOff="Av"></Switch>
+						</View>
+					</View>
+                </TableViewRow>
+                <TableViewRow title="Karta" id="map_row" class="tblRow"/>
                 <TableViewRow title="Bokstavsjakten" id="interactive_row" class="tblRow"/>
-                <TableViewRow title="Visa sevärdheter på kartan" id="show_hot_row" class="tblRow"/>
-                <TableViewRow title="Påmminelse vid sevärdhet" id="notification_row" class="tblRow"/>
         </TableView>
 	</View>
 </Alloy>
