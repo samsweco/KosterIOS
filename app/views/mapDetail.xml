@@ -8,28 +8,24 @@
 	<Model src="hotspotModel" />
 	<Collection src="infospotCoordinatesModel" />
 	
-	<Window id="detailwin" backButtonTitle="Tillbaka" exitOnClose="true">
+	<NavigationWindow id="mapNav" platform="ios" navBarHidden="true">
+	<Window id="detailwin" exitOnClose="true">
 		<RightNavButton>
 			<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMenu" />
 		</RightNavButton>
+		<LeftNavButton>
+			<Button id="btnCloseWindow" onClick="closeMap">
+				Tillbaka
+			</Button>
+		</LeftNavButton>
+		
 		<View id="mapDetailView">	
 		</View>
-		
-		<!-- <Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMenu" /> -->
 		
 		<Widget src="menu" name="widget"></Widget>
 		
 		<View id="widgetView">
 			<View id="settingsView">
-				<!-- <View id="hotspotSwitchView" class="settingsHorizontalView">
-				</View>
-				<View id="gpsSwitchView" class="settingsHorizontalView">
-					<ImageView image="/images/sound.png"></ImageView>
-					<Label id="lblSetGPS" text="Påminnelse vid sevärdheter"></Label>
-					<View class="switchClass">
-						<Switch id="geoSwitch1" class="switch" value="false" titleOn="På" titleOff="Av"></Switch>
-					</View>
-				</View> -->
 				<View id="myposSwitchView" class="settingsHorizontalView">
 					<ImageView image="/images/locationarrow.png"></ImageView>
 					<Label id="lblSetMypos" text="Visa min position"></Label>
@@ -41,4 +37,5 @@
 		</View>
 		
 	</Window>
+	</NavigationWindow>
 </Alloy>

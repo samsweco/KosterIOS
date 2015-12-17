@@ -32,10 +32,7 @@ if(args.title == 'Äventyrsslingan'){
 	$.lblBoat.height = '30dp';
 	
 	$.hikeDetailWin.title = 'Båtresan';
-	$.trailDetailNav.navbarHidden = 'true';
-} else {
-	$.trailDetailNav.navBarHidden = 'true';
-}
+} 
 
 $.boatSwitch.addEventListener('change', function() {
 	if ($.boatSwitch.value == true) {

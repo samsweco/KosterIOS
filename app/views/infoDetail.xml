@@ -3,10 +3,13 @@
 	<Collection src="letterModel" />
 
 	<NavigationWindow id="navInfoDetail" platform="ios" navBarHidden="true">
-	<Window id="infoDetail" backButtonTitle="Tillbaka" exitOnClose="true">
-		<RightNavButton>
-			<Button id="btnCloseInfoWindow" image="/images/closeBurger.png" onClick="closeInfoWindow" />
-		</RightNavButton>
+	<Window id="infoDetail" exitOnClose="true">
+		<LeftNavButton>
+			<Button id="btnCloseWindow" onClick="closeInfoWindow">
+				Tillbaka
+			</Button>
+		</LeftNavButton>
+		
 		<ScrollView class="container" scrollType="vertical" showVerticalScrollIndicator="true">
 			<View id="slideView">
 				<ImageView id="infoImg"></ImageView>

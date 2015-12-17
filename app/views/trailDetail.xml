@@ -5,11 +5,13 @@
 	<Collection src="letterModel" />
 	<Model src="letterModel" />
 	
-	<NavigationWindow id="trailDetailNav" platform="ios">
-	<Window id="hikeDetailWin" exitOnClose="true">	
-		<RightNavButton>
-			<Button id="btnCloseWindow" image="/images/closeBurger.png" onClick="closeWindow" />
-		</RightNavButton>
+	<NavigationWindow id="trailDetailNav" platform="ios" navBarHidden="true">
+	<Window id="hikeDetailWin" exitOnClose="true">
+		<LeftNavButton>
+			<Button id="btnCloseWindow" onClick="closeWindow">
+				Tillbaka
+			</Button>
+		</LeftNavButton>
 		
 		<ScrollView class="headView">
 			<View id="slideView">

@@ -25,13 +25,6 @@
 					<Switch id="hotspotSwitch" class="switch" value="false"></Switch>
 				</View>
 			</View>
-			<!-- <View id="gpsSwitchView" class="settingsHorizontalView">
-				<ImageView image="/images/sound.png"></ImageView>
-				<Label id="lblSetGPS" text="Påminnelse vid sevärdheter"></Label>
-				<View id="v2">
-					<Switch id="geoSwitch" class="switch" value="false" titleOn="På" titleOff="Av"></Switch>
-				</View>
-			</View> -->
 			<View id="myposSwitchView" class="settingsHorizontalView">
 				<ImageView image="/images/locationarrow.png"></ImageView>
 				<Label id="lblSetMypos" text="Visa min position"></Label>

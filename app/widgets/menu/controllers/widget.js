@@ -115,3 +115,9 @@ $.geoSwitchHotspot.addEventListener('change', function(e) {
 		hotspotGPS = false;
 	}
 });
+
+if(hotspotGPS){
+	$.geoSwitchHotspot.value = true;
+} else {
+	$.geoSwitchHotspot.value = false;
+}
