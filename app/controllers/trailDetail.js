@@ -25,13 +25,18 @@ if(args.title == 'Äventyrsslingan'){
 		// Alloy.CFG.tabs.setActiveTab(3);
 		var sendToInteractive = Alloy.createController("interactive").getView().open();
 	});
-} else if(args.title == 'Båtresan'){
+} 
+
+if(args.title == 'Båtresan'){
 	$.boatSwitch.show();
 	$.boatSwitch.height = '30dp';
 	$.lblBoat.show();
 	$.lblBoat.height = '30dp';
 	
-	$.hikeDetailWin.title = 'Båtresan';
+	$.hikeDetailWin.title = 'Båtresan';	
+	
+	$.hikeDetailWin.navBarHidden = true;
+	
 } 
 
 $.boatSwitch.addEventListener('change', function() {

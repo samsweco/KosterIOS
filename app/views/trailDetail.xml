@@ -12,7 +12,7 @@
 				Tillbaka
 			</Button>
 		</LeftNavButton>
-		
+		<View>
 		<ScrollView class="headView">
 			<View id="slideView">
 				<ScrollableView id="slideShowTrails" scrollType="horizontal" showPagingControl="true" />
@@ -46,6 +46,7 @@
 			</View>
 		</ScrollView>
 		<Widget src="menu" name="widget"></Widget>
+		</View>
 	</Window>
 	</NavigationWindow>
 </Alloy>
