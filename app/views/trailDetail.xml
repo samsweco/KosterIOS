@@ -7,11 +7,11 @@
 	
 	<NavigationWindow id="trailDetailNav" platform="ios" navBarHidden="true">
 	<Window id="hikeDetailWin" exitOnClose="true">
-		<LeftNavButton>
+		<!-- <LeftNavButton>
 			<Button id="btnCloseWindow" onClick="closeWindow">
 				Tillbaka
 			</Button>
-		</LeftNavButton>
+		</LeftNavButton> -->
 		<View>
 		<ScrollView class="headView">
 			<View id="slideView">

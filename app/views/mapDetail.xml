@@ -11,7 +11,8 @@
 	<NavigationWindow id="mapNav" platform="ios" navBarHidden="true">
 	<Window id="detailwin" exitOnClose="true">
 		<RightNavButton>
-			<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMenu" />
+			<Button id="btnShowPosition" image="/images/locationarrow.png" onClick="showUserPosition" />
+			
 		</RightNavButton>
 		<LeftNavButton>
 			<Button id="btnCloseWindow" onClick="closeMap">
@@ -23,18 +24,6 @@
 		</View>
 		
 		<Widget src="menu" name="widget"></Widget>
-		
-		<View id="widgetView">
-			<View id="settingsView">
-				<View id="myposSwitchView" class="settingsHorizontalView">
-					<ImageView image="/images/locationarrow.png"></ImageView>
-					<Label id="lblSetMypos" text="Visa min position"></Label>
-					<View class="switchClass">
-						<Switch id="posSwitch1" class="switch" value="false" titleOn="På" titleOff="Av"></Switch>
-					</View>
-				</View>
-			</View>
-		</View>
 		
 	</Window>
 	</NavigationWindow>

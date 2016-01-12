@@ -12,7 +12,7 @@ try {
 	var trailId = args.id;
 	globalTrailID = trailId;
 } catch(e) {
-	newError("Något gick fel när sidan skulle laddas, prova igen!", "trailDetail - set labels");
+	newError("Något gick fel när sidan skulle laddas, prova igen!");
 }
 
 if(args.title == 'Äventyrsslingan'){
@@ -22,7 +22,6 @@ if(args.title == 'Äventyrsslingan'){
 	$.hikeDetailWin.navBarHidden = 'true';
 	
 	$.btnSendTo.addEventListener('click', function(){
-		// Alloy.CFG.tabs.setActiveTab(3);
 		var sendToInteractive = Alloy.createController("interactive").getView().open();
 	});
 } 
@@ -34,10 +33,16 @@ if(args.title == 'Båtresan'){
 	$.lblBoat.height = '30dp';
 	
 	$.hikeDetailWin.title = 'Båtresan';	
+} else {
+	var btnBack = Ti.UI.createButton({
+		title : 'Tillbaka'
+	});
+	btnBack.addEventListener('click', function(e) {
+        closeWindow();
+    });
 	
-	$.hikeDetailWin.navBarHidden = true;
-	
-} 
+	$.hikeDetailWin.leftNavButton = btnBack;
+}
 
 $.boatSwitch.addEventListener('change', function() {
 	if ($.boatSwitch.value == true) {
@@ -88,13 +93,10 @@ function selectTrailPics() {
 		for (var i = 0; i < mediaObjJSON.length; i++) {
 			var img_view = Ti.UI.createImageView({
 				image : '/images/'+ mediaObjJSON[i].filename +'.png',
-			//	url: '/images/' + mediaObjJSON[i].filename,
 				height : '200dp',
 				width : '300dp',
 				top : '0dp'
 			});
-			
-			//Titanium.API.info(img_view.image);
 
 			var lblImgTxt = Ti.UI.createLabel({
 				left : '3dp',

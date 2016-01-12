@@ -9,6 +9,8 @@ var trailId = args.id;
 var zoomLat = args.zoomlat;
 var zoomLon = args.zoomlon;
 
+var showingPosition = false;
+
 var menuDetailVisible = false;
 
 //-----------------------------------------------------------
@@ -34,13 +36,15 @@ function showMapDetail() {
 //-----------------------------------------------------------
 // Switch för att visa användarens position på kartan
 //-----------------------------------------------------------
-$.posSwitch1.addEventListener('change', function(e) {
-	if ($.posSwitch1.value == true) {
+function showUserPosition(){
+	if (showingPosition == false) {
 		getPosition(detailMap);
+		showingPosition = true;
 	} else {
 		detailMap.userLocation = false;
+		showingPosition = false;
 	}
-});
+}
 
 //-----------------------------------------------------------
 // Öppnar hotspotDetail med info om vald hotspot

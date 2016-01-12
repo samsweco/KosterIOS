@@ -9,7 +9,7 @@
 				Tillbaka
 			</Button>
 		</LeftNavButton>
-		
+		<View>
 		<ScrollView class="container" scrollType="vertical" showVerticalScrollIndicator="true">
 			<View id="slideView">
 				<ImageView id="infoImg"></ImageView>
@@ -25,6 +25,7 @@
 			</View>
 		</ScrollView>
 		<Widget src="menu" name="widget"></Widget>
+		</View>
 	</Window>
 	</NavigationWindow>
 </Alloy>
