@@ -34,8 +34,10 @@
 }
 
 ".headView": {
+	top: 0,
 	layout: 'vertical',
-	backgroundColor: 'white'
+	backgroundColor: 'white',
+	height: '93%'
 }
 
 "#lblHotspotName": {

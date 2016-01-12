@@ -10,7 +10,8 @@
 ".headView": {
 	layout: 'vertical',
 	width: Titanium.UI.FILL,
-	top: '0dp'
+	top: '0dp',
+	height: '93%'
 }
 
 ".row": {

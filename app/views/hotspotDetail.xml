@@ -10,6 +10,7 @@
 				Tillbaka
 			</Button>
 		</LeftNavButton>
+		<View>
 		<ScrollView id="hotspotView" class="headView" scrollType="vertical">
 			<View id="slideView">
 				<ScrollableView id="slideShowHotspotDetail" showPagingControl="true"/>
@@ -18,5 +19,6 @@
 			<Label id="lblHotspotInfoTxt" ></Label>
 		</ScrollView>
 		<Widget src="menu" name="widget"></Widget>
+		</View>
 	</Window>
 </Alloy>

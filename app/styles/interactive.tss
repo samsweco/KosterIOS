@@ -52,8 +52,9 @@
 }
 
 "#interactiveWin": {
+	top: 0,
 	layout: 'vertical',
-	height: Titanium.UI.FILL
+	height: '93%'
 }
 
 "#hideView": {

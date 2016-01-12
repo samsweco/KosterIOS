@@ -19,7 +19,7 @@ if(args.title == 'Äventyrsslingan'){
 	$.btnSendTo.show();
 	$.btnSendTo.height = '20dp';
 	$.btnSendTo.title = 'Gå till bokstavsjakten!';
-	$.hikeDetailWin.navBarHidden = 'true';
+	//$.hikeDetailWin.navBarHidden = 'true';
 	
 	$.btnSendTo.addEventListener('click', function(){
 		var sendToInteractive = Alloy.createController("interactive").getView().open();

@@ -7,13 +7,8 @@
 	
 	<NavigationWindow id="trailDetailNav" platform="ios" navBarHidden="true">
 	<Window id="hikeDetailWin" exitOnClose="true">
-		<!-- <LeftNavButton>
-			<Button id="btnCloseWindow" onClick="closeWindow">
-				Tillbaka
-			</Button>
-		</LeftNavButton> -->
 		<View>
-		<ScrollView class="headView">
+		<ScrollView id="headView">
 			<View id="slideView">
 				<ScrollableView id="slideShowTrails" scrollType="horizontal" showPagingControl="true" />
 			</View>

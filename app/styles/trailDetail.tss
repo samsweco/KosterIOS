@@ -8,8 +8,11 @@
 }
 
 "#headView": {
-	height: '90%',
-	scrollType: 'vertical'
+	top: 0,
+	height: '93%',
+	scrollType: 'vertical',
+	layout: 'vertical',
+	backgroundColor: 'white'
 }
 
 "Window": {
@@ -82,11 +85,6 @@
 	height: Titanium.UI.SIZE
 }
 
-".headView": {
-	layout: 'vertical',
-	backgroundColor: 'white'
-}
-
 "#lblTrailInfo": {
 	left: '15dp',
 	padding: '5dp',
@@ -103,7 +101,7 @@
 		fontSize: '16dp',
 		fontFamily: 'Raleway-Medium'
 	},
-	top: '10dp'
+	top: '15dp'
 }
 
 "#iconrow": {
@@ -124,8 +122,8 @@
 "#btnSendTo": {
 	visible: false,
 	height: 0,
-	top: '10dp',
-	left: '15dp'
+	top: '3dp'
+	//left: '15dp'
 }
 
 "#btnHorizontalView": {
@@ -155,4 +153,8 @@
 		fontSize: '14dp',
 		fontFamily: 'Raleway-Medium'
 	}
+}
+
+"#btnShowOnMap": {
+	top: '8dp'
 }

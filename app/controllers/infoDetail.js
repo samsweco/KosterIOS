@@ -133,8 +133,17 @@ function showRules(infTxt, linktitle){
 			layout : 'vertical',
 			top : '0dp',
 			backgroundColor : 'white',
-			backButtonTitle : "Tillbaka"
+			backButtonTitle : 'Tillbaka'
 		});
+		
+		// var btnBack = Ti.UI.createButton({
+			// title: 'Tillbaka'
+		// });
+		// btnBack.addEventListener('click', function(e) {
+        	// closeInfoWindow();
+    	// });
+//     	
+    	// infoWindowRules.leftNavButton = btnBack;
 
 		var infoScrollRules = Ti.UI.createScrollView({
 			showVerticalScrollIndicator : true,
