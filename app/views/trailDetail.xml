@@ -29,12 +29,6 @@
 				Visa led på karta
 			</Button> 
 			<Button id="btnSendTo"></Button>
-			<View id="btnHorizontalView">
-				<Label id="lblBoat" text="Påminnelse vid sevärdheter"></Label>
-				<View id="switchView">
-					<Switch id="boatSwitch" class="switch" value="false" titleOn="På" titleOff="Av"></Switch>
-				</View>
-			</View>
 			<Label id="lblLangsVagen" text="Det här kan du se längs vägen:"></Label>
 			<View id="trail_hotspotView">
 				<TableView id="hotspotTable" onClick="showHotspotDetail" />

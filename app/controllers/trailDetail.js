@@ -19,7 +19,6 @@ if(args.title == 'Äventyrsslingan'){
 	$.btnSendTo.show();
 	$.btnSendTo.height = '20dp';
 	$.btnSendTo.title = 'Gå till bokstavsjakten!';
-	//$.hikeDetailWin.navBarHidden = 'true';
 	
 	$.btnSendTo.addEventListener('click', function(){
 		var sendToInteractive = Alloy.createController("interactive").getView().open();
@@ -27,11 +26,6 @@ if(args.title == 'Äventyrsslingan'){
 } 
 
 if(args.title == 'Båtresan'){
-	$.boatSwitch.show();
-	$.boatSwitch.height = '30dp';
-	$.lblBoat.show();
-	$.lblBoat.height = '30dp';
-	
 	$.hikeDetailWin.title = 'Båtresan';	
 } else {
 	var btnBack = Ti.UI.createButton({
@@ -43,16 +37,6 @@ if(args.title == 'Båtresan'){
 	
 	$.hikeDetailWin.leftNavButton = btnBack;
 }
-
-$.boatSwitch.addEventListener('change', function() {
-	if ($.boatSwitch.value == true) {
-		getUserPos('boat');
-		boatGPS = true;
-	} else {
-		Alloy.Globals.stopBoatGPS();
-		boatGPS = false;
-	}
-});
 
 //-----------------------------------------------------------
 // Onload

@@ -114,7 +114,15 @@ function openLink(link) {
 			url : link
 		});
 		var window = Titanium.UI.createWindow();
-		window.backButtonTitle = "Tillbaka";
+
+		var btnUrlBack = Ti.UI.createButton({
+			title: 'Tillbaka'
+		});
+		btnUrlBack.addEventListener('click', function(e) {
+        	window.close();
+    	});
+    	
+    	window.leftNavButton = btnUrlBack;
 
 		window.add(webview);
 		$.navInfoDetail.openWindow(window);
@@ -132,18 +140,18 @@ function showRules(infTxt, linktitle){
 		var infoWindowRules = Ti.UI.createWindow({
 			layout : 'vertical',
 			top : '0dp',
-			backgroundColor : 'white',
-			backButtonTitle : 'Tillbaka'
+			backgroundColor : 'white'
+			// backButtonTitle : 'Tillbaka'
 		});
 		
-		// var btnBack = Ti.UI.createButton({
-			// title: 'Tillbaka'
-		// });
-		// btnBack.addEventListener('click', function(e) {
-        	// closeInfoWindow();
-    	// });
-//     	
-    	// infoWindowRules.leftNavButton = btnBack;
+		var btnBack = Ti.UI.createButton({
+			title: 'Tillbaka'
+		});
+		btnBack.addEventListener('click', function(e) {
+        	infoWindowRules.close();
+    	});
+    	
+    	infoWindowRules.leftNavButton = btnBack;
 
 		var infoScrollRules = Ti.UI.createScrollView({
 			showVerticalScrollIndicator : true,

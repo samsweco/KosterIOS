@@ -121,3 +121,13 @@ if(hotspotGPS){
 } else {
 	$.geoSwitchHotspot.value = false;
 }
+
+$.geoSwitchBoat.addEventListener('change', function() {
+	if ($.geoSwitchBoat.value == true) {
+		getUserPos('boat');
+		boatGPS = true;
+	} else {
+		Alloy.Globals.stopBoatGPS();
+		boatGPS = false;
+	}
+});
