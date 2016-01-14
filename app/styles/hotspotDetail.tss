@@ -58,3 +58,24 @@
 		fontSize: '14dp'
 	}
 }
+
+"#btnShowMap": {
+	top: '5dp',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Raleway-Medium'
+	}
+}
+
+"#showHotspotMap": {
+	height: 0,
+	width: '95%',
+	top: '20%'
+}
+
+"#mapView": {
+	height: '10%',
+	witdh: '90%',
+	top: '10dp',
+	backgroundColor: '#f5f5f5'
+}

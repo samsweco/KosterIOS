@@ -17,6 +17,11 @@
 			</View>
 			<Label id="lblHotspotName" ></Label>
 			<Label id="lblHotspotInfoTxt" ></Label>
+			
+			<View id="mapView">
+				<Button id="btnShowMap" onClick="showHotspotDetailMap" title="Visa sevärdhet på karta"></Button>
+				<View id="showHotspotMap"/>
+			</View>
 		</ScrollView>
 		<Widget src="menu" name="widget"></Widget>
 		</View>

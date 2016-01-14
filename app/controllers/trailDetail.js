@@ -179,7 +179,9 @@ function showHotspotDetail(e) {
 		var hotspotTxt = {
 			title : jsonObjHot[0].name,
 			infoTxt : jsonObjHot[0].infoTxt,
-			id : jsonObjHot[0].id
+			id : jsonObjHot[0].id,
+			x : jsonObjHot[0].xkoord,
+			y : jsonObjHot[0].ykoord
 		};
 
 		var hotDet = Alloy.createController("hotspotDetail", hotspotTxt).getView();

@@ -239,6 +239,32 @@ function showHotspot(myId) {
 }
 
 //-----------------------------------------------------------
+// Skapar karta för en specifik hotspot
+//-----------------------------------------------------------
+function showHotspotOnMap(lat, longi) {		
+	try {
+		hotspotMap.region = {
+			latitude : lat,
+			longitude : longi,
+			latitudeDelta : 0.009,
+			longitudeDelta : 0.009
+		};
+		
+		var specifikHotspotMarker = MapModule.createAnnotation({
+			latitude : lat,
+			longitude : longi,
+			image : '/images/hot-icon-azure.png'
+		});
+		
+		hotspotMap.addAnnotation(specifikHotspotMarker);
+		
+		return hotspotMap;
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - showHotspot");
+	}
+}
+
+//-----------------------------------------------------------
 // Visar markers för hotspots
 //-----------------------------------------------------------
 function displayAllMarkers() {

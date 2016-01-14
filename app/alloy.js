@@ -73,7 +73,12 @@ var interactiveMap = MapModule.createView({
 	width : Ti.UI.FILL,
 	userLocation : true
 });
-
+var hotspotMap = MapModule.createView({
+	mapType : MapModule.HYBRID_TYPE,
+	height : '100%',
+	width : Ti.UI.FILL,
+	userLocation : true
+});
 //-----------------------------------------------------------
 // Felhantering
 //-----------------------------------------------------------
