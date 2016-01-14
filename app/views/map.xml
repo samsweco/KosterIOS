@@ -8,7 +8,7 @@
 	<Model src="letterModel" />
 	<Model src="hotspotModel" />
 	
-	<NavigationWindow id="infoNav" platform="ios">
+	<NavigationWindow id="mapNav" platform="ios">
 	<Window id="mapWindow" title="Karta">
 		<RightNavButton>
 			<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMapMenu" />

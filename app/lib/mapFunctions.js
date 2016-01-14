@@ -216,27 +216,27 @@ function displayTrailMarkers(maptype) {
 	}
 }
 
-//-----------------------------------------------------------
-// Öppnar hotspotDetail med info om vald hotspot
-//-----------------------------------------------------------
-function showHotspot(myId) {		
-	try {
-		var jsonObjHot = returnSpecificHotspotsByName(myId);
-
-		var hotspotTxt = {
-			title : jsonObjHot[0].name,
-			infoTxt : jsonObjHot[0].infoTxt,
-			id : jsonObjHot[0].id
-		};
-
-		var hotDet = Alloy.createController("hotspotDetail", hotspotTxt).getView();
-		Alloy.CFG.tabs.activeTab.open(hotDet);
-		
-		hotspotDetail = null;
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - showHotspot");
-	}
-}
+// //-----------------------------------------------------------
+// // Öppnar hotspotDetail med info om vald hotspot
+// //-----------------------------------------------------------
+// function showHotspot(myId) {		
+	// try {
+		// var jsonObjHot = returnSpecificHotspotsByName(myId);
+// 
+		// var hotspotTxt = {
+			// title : jsonObjHot[0].name,
+			// infoTxt : jsonObjHot[0].infoTxt,
+			// id : jsonObjHot[0].id
+		// };
+// 
+		// var hotDet = Alloy.createController("hotspotDetail", hotspotTxt).getView();
+		// Alloy.CFG.tabs.activeTab.open(hotDet);
+// 		
+		// hotspotDetail = null;
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - showHotspot");
+	// }
+// }
 
 //-----------------------------------------------------------
 // Skapar karta för en specifik hotspot

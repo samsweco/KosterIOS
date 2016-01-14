@@ -44,7 +44,7 @@ function showTrail(myId) {
 		};
 
 		var trailDetail = Alloy.createController("trailDetail", args).getView();
-		Alloy.CFG.tabs.activeTab.open(trailDetail);
+		$.mapNav.openWindow(trailDetail);
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Kartan");
 	}
@@ -60,11 +60,13 @@ function showHotspotDet(hotId) {
 		var hotspotTxt = {
 			title : jsonObjHot[0].name,
 			infoTxt : jsonObjHot[0].infoTxt,
-			id : jsonObjHot[0].id
+			id : jsonObjHot[0].id,
+			x : jsonObjHot[0].xkoord,
+			y : jsonObjHot[0].ykoord
 		};
 
 		var hotDet = Alloy.createController("hotspotDetail", hotspotTxt).getView();
-		$.infoNav.openWindow(hotDet);
+		$.mapNav.openWindow(hotDet);
 		
 		hotspotDetail = null;
 	} catch(e) {
@@ -76,6 +78,8 @@ function showHotspotDet(hotId) {
 // Eventlistener för klick på trail eller hotspot
 //-----------------------------------------------------------
 map.addEventListener('click', function(evt){
+	closeMenu();
+	
 	if (evt.clicksource == 'rightButton') {
 		if (evt.annotation.name == 'hotspot') {
 			showHotspotDet(evt.annotation.id);
@@ -88,23 +92,22 @@ map.addEventListener('click', function(evt){
 //-----------------------------------------------------------
 // Eventlistener för att stänga menyn vid klick på kartan
 //-----------------------------------------------------------
-map.addEventListener('singletap', function() {
-	if(menuMapVisible){
-		closeMenu();
-		menuMapVisible = false; 
-	}
+map.addEventListener('singletap', function(e) {
+	closeMenu();
 });
 
-// //-----------------------------------------------------------
-// // Funktioner för att visa och stänga kartmenyn 
-// //-----------------------------------------------------------
+//-----------------------------------------------------------
+// Funktioner för att visa och stänga kartmenyn 
+//-----------------------------------------------------------
 function openMenu(){
 	$.widgetView.height = '190dp';
+	menuMapVisible = true;
 }
 Alloy.Globals.openMenu = openMenu;
 
 function closeMenu(){
 	$.widgetView.height = '0dp';
+	menuMapVisible = false;
 }
 Alloy.Globals.closeMenu = closeMenu;
 
