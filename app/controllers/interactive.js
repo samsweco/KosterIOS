@@ -125,7 +125,7 @@ function setView() {
 		setLabelText();
 		$.lblScroll.show();
 		$.lblScroll.heigh = Ti.UI.SIZE;
-		$.clueSlideView.height = '30%';
+		$.clueSlideView.height = '25%';
 		$.clueSlideView.show();
 		$.lettersView.height = Ti.UI.SIZE;
 		$.lettersView.show();

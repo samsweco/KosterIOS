@@ -78,7 +78,7 @@ var mainMenuOpen = false;
 
 function openMainMenu() {
 	if (!mainMenuOpen) {
-		$.menuContainerView.height = '60%';
+		$.menuContainerView.height = '61%';
 		mainMenuOpen = true;
 		
 		$.lbl_menu_close.visible = true;

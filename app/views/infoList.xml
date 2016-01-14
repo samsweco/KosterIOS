@@ -1,25 +1,22 @@
 <Alloy>
-	<Collection src="mediaModel" />
-	<Collection src="hotspotModel" />
-	<Collection src="infoModel" />
-	<Collection src="info_urlModel" />
-	<Collection src="infospotCoordinatesModel" />
-	<Collection src="letterModel" />
-	<Model src="letterModel" />
+	<Collection src="mediaModel"/>
+	<Collection src="hotspotModel"/>
+	<Collection src="infoModel"/>
+	<Collection src="info_urlModel"/>
+	<Collection src="infospotCoordinatesModel"/>
+	<Collection src="letterModel"/>
+	<Model src="letterModel"/>
 	
 	<NavigationWindow id="infoNav" platform="ios">
-	<Window id="infoWindow" title="Turistinformation">
-
-	<View class="container">
-		<ScrollView class="headView" scrollType="vertical">
-			<TableView id="table" onClick="getInfoDetails">
-				<TableViewRow class="row" />
-			</TableView>
-		</ScrollView>
-	
-	</View>					
-		<Widget src="menu" name="widget"></Widget>
-		
-	</Window>
+		<Window id="infoWindow" title="Turistinformation">
+			<View class="container">
+				<ScrollView class="headView" scrollType="vertical">
+					<TableView id="table" onClick="getInfoDetails">
+						<TableViewRow class="row"/>
+					</TableView>
+				</ScrollView>
+			</View>
+			<Widget src="menu" name="widget"/>
+		</Window>
 	</NavigationWindow>
 </Alloy>
