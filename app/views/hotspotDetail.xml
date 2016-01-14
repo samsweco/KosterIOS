@@ -3,6 +3,8 @@
 	<Collection src="hotspotModel"></Collection>
 	<Model src="letterModel" />
 	<Collection src="letterModel" />
+	<Collection src="hotspot_trailsModel" />
+	<Collection src="jsonFilesModel"></Collection>
 	
 	<Window id="hotspotWin" exitOnClose="true">
 		<LeftNavButton>

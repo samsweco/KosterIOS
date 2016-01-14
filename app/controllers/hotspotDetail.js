@@ -14,9 +14,8 @@ selectHotspotPics();
 
 var mapShowing = false;
 
-function showHotspotDetailMap(){
-	var map = showHotspotOnMap(latitude, longitude);
-	map.animate = true;
+function showHotspotDetailMap(){	
+	var map = showHotspotOnMap(latitude, longitude, hotspotId);
 	
 	$.showHotspotMap.add(map);
 	

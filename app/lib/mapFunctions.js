@@ -161,7 +161,10 @@ function createMapRoutes(maptype, file, name, color) {
 			maptype.addRoute(MapModule.createRoute(route));
 		}
 		
-		maptype.region = calculateMapRegion(coordArray);
+		if(maptype != hotspotMap){
+			maptype.region = calculateMapRegion(coordArray);
+		}
+		
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - createMapRoute");
 	}
@@ -216,32 +219,10 @@ function displayTrailMarkers(maptype) {
 	}
 }
 
-// //-----------------------------------------------------------
-// // Öppnar hotspotDetail med info om vald hotspot
-// //-----------------------------------------------------------
-// function showHotspot(myId) {		
-	// try {
-		// var jsonObjHot = returnSpecificHotspotsByName(myId);
-// 
-		// var hotspotTxt = {
-			// title : jsonObjHot[0].name,
-			// infoTxt : jsonObjHot[0].infoTxt,
-			// id : jsonObjHot[0].id
-		// };
-// 
-		// var hotDet = Alloy.createController("hotspotDetail", hotspotTxt).getView();
-		// Alloy.CFG.tabs.activeTab.open(hotDet);
-// 		
-		// hotspotDetail = null;
-	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - showHotspot");
-	// }
-// }
-
 //-----------------------------------------------------------
 // Skapar karta för en specifik hotspot
 //-----------------------------------------------------------
-function showHotspotOnMap(lat, longi) {		
+function showHotspotOnMap(lat, longi, hotspotId) {		
 	try {
 		hotspotMap.region = {
 			latitude : lat,
@@ -258,9 +239,36 @@ function showHotspotOnMap(lat, longi) {
 		
 		hotspotMap.addAnnotation(specifikHotspotMarker);
 		
+		getHotspotTrails(hotspotId);
 		return hotspotMap;
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - showHotspot");
+	}
+}
+
+//-----------------------------------------------------------
+// Markerar ut specifika vandringsleder som hör till en hotspot
+//-----------------------------------------------------------
+function getHotspotTrails(hotId){
+	try {
+		
+		var trailIdList = returnSpecificTrailsByHotspotId(hotId);
+		var jsonList = [];
+		
+		for(var tl = 0; tl < trailIdList.length; tl++){
+			var specTrail = returnSpecificTrailById(trailIdList[tl].trailsID);
+			
+			for(var st = 0; st < specTrail.length; st++){
+				jsonList.push(specTrail[st]);
+			}
+		}
+		
+		for(var jl = 0; jl < jsonList.length; jl++){
+			setSpecificRoute(hotspotMap, jsonList[jl].id, jsonList[jl].name, jsonList[jl].color);
+		}
+		
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - get hotspot trails");
 	}
 }
 

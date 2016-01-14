@@ -75,6 +75,7 @@ var interactiveMap = MapModule.createView({
 });
 var hotspotMap = MapModule.createView({
 	mapType : MapModule.HYBRID_TYPE,
+	animate : true,
 	height : '100%',
 	width : Ti.UI.FILL,
 	userLocation : true
