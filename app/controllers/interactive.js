@@ -141,6 +141,7 @@ function checkIfStarted() {
 	try {
 		var started = fetchFoundLettersCol();
 		var next_id = started.length;
+		
 		if (next_id > 0 && next_id < 9) {
 			setView();
 			foundLetterId = next_id + 1;

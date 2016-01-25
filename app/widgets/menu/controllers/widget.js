@@ -62,6 +62,11 @@ function navigate(e) {
 			 	var trailDetail = Alloy.createController("trailDetail", args).getView().open();
 				break;
 			}
+			case "newsfeed_row" : {
+				//Navigera till Instagramflöde
+				var newsfeed = Alloy.createController('newsfeed').getView().open();
+				break;
+			}
 			// case show_hot_row : {
 				// //Visa sevärdheter på kartan
 				// break;

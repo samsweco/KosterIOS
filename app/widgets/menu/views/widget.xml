@@ -27,6 +27,7 @@
                 </TableViewRow>
                 <TableViewRow title="Karta" id="map_row" class="tblRow"/>
                 <TableViewRow title="Bokstavsjakten" id="interactive_row" class="tblRow"/>
+                <TableViewRow title="Nyheter på Kosteröarna" id="newsfeed_row" class="tblRow"/>
         </TableView>
 	</View>
 </Alloy>

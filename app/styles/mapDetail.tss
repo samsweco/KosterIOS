@@ -1,3 +1,7 @@
+"Window": {
+	backgroundColor: 'white'
+}
+
 ".container": {
 	layout: 'vertical'
 }

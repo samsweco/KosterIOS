@@ -1,3 +1,7 @@
+"Window": {
+	backgroundColor: 'white'
+}
+
 "font": {
 	fontFamily: 'Raleway-Medium'
 }

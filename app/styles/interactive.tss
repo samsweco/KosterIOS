@@ -1,3 +1,7 @@
+"Window": {
+	backgroundColor: 'white'
+}
+
 "#clueSlideView": {
 	height: 0,
 	visible: false
