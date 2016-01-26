@@ -2,7 +2,7 @@
 	backgroundColor: 'white'
 }
 
-".headView": {
+".container": {
 	layout: 'vertical',
 	top: '0dp',
 	height: '93%'
