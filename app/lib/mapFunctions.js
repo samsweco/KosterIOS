@@ -237,6 +237,7 @@ function showHotspotOnMap(lat, longi, hotspotId) {
 			image : '/images/hot-icon-azure.png'
 		});
 		
+		hotspotMap.removeAllAnnotations();
 		hotspotMap.addAnnotation(specifikHotspotMarker);
 		
 		getHotspotTrails(hotspotId);
