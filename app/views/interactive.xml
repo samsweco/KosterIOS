@@ -8,7 +8,7 @@
 	<Collection src="infospotCoordinatesModel"/>
 	
 	<NavigationWindow id="interNav" platform="ios" navBarHidden="true">
-		<Window id="interactiveWindow" title="Bokstavsjakten">
+		<Window id="interactiveWindow">
 			<ScrollView id="interactiveWin">
 				<View id="showFamilyTrail"/>
 				<View id="clueSlideView">

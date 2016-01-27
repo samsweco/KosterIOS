@@ -12,6 +12,18 @@ var menuVisible = false;
 displayBigMap();
 
 //-----------------------------------------------------------
+// Sätter label med rätt font som windowtitle
+//-----------------------------------------------------------
+var windowTitle = Ti.UI.createLabel({
+	text: "Karta",
+	font: {
+		fontSize: '17dp',
+		fontFamily: 'Raleway-Medium'
+	}
+});
+$.mapWindow.titleControl = windowTitle;
+
+//-----------------------------------------------------------
 // Visar kartan
 //-----------------------------------------------------------
 function displayBigMap() {

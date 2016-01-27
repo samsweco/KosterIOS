@@ -9,6 +9,18 @@ checkIfStarted();
 setInteractiveViews();
 
 //-----------------------------------------------------------
+// Sätter label med rätt font som windowtitle
+//-----------------------------------------------------------
+var windowTitle = Ti.UI.createLabel({
+	text: "Bokstavsjakten",
+	font: {
+		fontSize: '17dp',
+		fontFamily: 'Raleway-Medium'
+	}
+});
+$.interactiveWindow.titleControl = windowTitle;
+
+//-----------------------------------------------------------
 // Visar kartan med de olika sevärdheterna och ledtrådsplupparna
 //-----------------------------------------------------------
 function displayMap() {

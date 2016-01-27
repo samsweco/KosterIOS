@@ -13,3 +13,9 @@ var webview = Titanium.UI.createWebView({
 
 $.newsfeedView.add(webview);
 
+//-----------------------------------------------------------
+// Funktion för att stänga och rensa sida när man stänger sidan
+//-----------------------------------------------------------
+function closeFeedWindow(){
+	$.newsfeedWindow.close();
+}

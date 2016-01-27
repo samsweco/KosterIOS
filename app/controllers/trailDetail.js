@@ -34,14 +34,21 @@ if(args.title == 'Äventyrsslingan'){
 	});
 } 
 if(args.title == 'Båtresan'){
-	$.hikeDetailWin.title = 'Båtresan';
+	var windowTitle = Ti.UI.createLabel({
+		text: "Båtresan",
+		font: {
+			fontSize: '17dp',
+			fontFamily: 'Raleway-Medium'
+		}
+	});
+	$.hikeDetailWin.titleControl = windowTitle;
 	$.btnShowOnMap.title = "Visa på karta";	
 } else {
 	var btnBack = Ti.UI.createButton({
 		title : 'Tillbaka'
 	});
 	btnBack.addEventListener('click', function(e) {
-        closeWindow();
+        $.trailDetailNav.close();
     });
 	
 	$.hikeDetailWin.leftNavButton = btnBack;
@@ -249,8 +256,8 @@ function changeLabel(){
 //-----------------------------------------------------------
 // Funktion för att stänga och rensa sida när man stänger sidan
 //-----------------------------------------------------------
-function closeWindow(){
-	$.trailDetailNav.close();
+function closeTrdWindow(){
+	$.hikeDetailWin.close();
 }
 
  var cleanup = function() {

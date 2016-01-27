@@ -6,6 +6,18 @@ var args = arguments[0] || {};
 setRowData();
 
 //-----------------------------------------------------------
+// Sätter label med rätt font som windowtitle
+//-----------------------------------------------------------
+var windowTitle = Ti.UI.createLabel({
+	text: "Turistinformation",
+	font: {
+		fontSize: '17dp',
+		fontFamily: 'Raleway-Medium'
+	}
+});
+$.infoWindow.titleControl = windowTitle;
+
+//-----------------------------------------------------------
 // Visar info för valt item i listvyn
 //-----------------------------------------------------------
 function showinfoDetails(info) {

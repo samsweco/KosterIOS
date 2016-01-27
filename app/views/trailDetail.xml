@@ -6,7 +6,7 @@
 	<Model src="letterModel" />
 	
 	<NavigationWindow id="trailDetailNav" platform="ios" navBarHidden="true">
-		<Window id="hikeDetailWin" exitOnClose="true">
+		<Window id="hikeDetailWin" exitOnClose="true" onClose="closeTrdWindow">
 			<RightNavButton>
 				<Button id="btnShowOnMap" onClick="zoomMapTrail"></Button>
 			</RightNavButton>

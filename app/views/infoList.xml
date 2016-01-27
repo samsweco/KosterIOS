@@ -8,7 +8,7 @@
 	<Model src="letterModel"/>
 	
 	<NavigationWindow id="infoNav" platform="ios">
-		<Window id="infoWindow" title="Turistinformation" onClose="closeInfoWindow">
+		<Window id="infoWindow" onClose="closeInfoWindow">
 			<View class="container">
 				<ScrollView id="headView" class="container" scrollType="vertical">
 					<TableView id="table" onClick="getInfoDetails">

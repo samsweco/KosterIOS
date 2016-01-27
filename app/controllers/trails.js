@@ -5,6 +5,18 @@ var args = arguments[0] || {};
 setRowData();
 
 //-----------------------------------------------------------
+// Sätter label med rätt font som windowtitle
+//-----------------------------------------------------------
+var windowTitle = Ti.UI.createLabel({
+	text: "Vandringsleder",
+	font: {
+		fontSize: '17dp',
+		fontFamily: 'Raleway-Medium'
+	}
+});
+$.trailWindow.titleControl = windowTitle;
+
+//-----------------------------------------------------------
 // Läser in data till alla listitems
 //-----------------------------------------------------------
 function setRowData() {
