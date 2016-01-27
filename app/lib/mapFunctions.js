@@ -43,6 +43,16 @@ function showMap(maptype) {
 //-----------------------------------------------------------
 function reloadMap(){
 	map.removeAllAnnotations();
+	farjelage = false;
+	snorkel = false;
+	torrdass = false;
+	utsiktsplats = false;
+	rastplats = false;
+	taltplats = false;
+	badplats = false;
+	information = false;
+	eldplats = false;
+	
 	showMap(map);
 }
 
