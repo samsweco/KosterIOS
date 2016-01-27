@@ -15,6 +15,15 @@ try {
 	newError("Något gick fel när sidan skulle laddas, prova igen!");
 }
 
+selectTrailPics();
+LoadHotspotList();
+showIcons();
+changeLabel();
+
+//-----------------------------------------------------------
+// Kontrollerar vilken led man öppnat och sätter specifika 
+// attribut osv utifrån det
+//-----------------------------------------------------------
 if(args.title == 'Äventyrsslingan'){
 	$.btnSendTo.show();
 	$.btnSendTo.height = '20dp';
@@ -24,9 +33,9 @@ if(args.title == 'Äventyrsslingan'){
 		var sendToInteractive = Alloy.createController("interactive").getView().open();
 	});
 } 
-
 if(args.title == 'Båtresan'){
-	$.hikeDetailWin.title = 'Båtresan';	
+	$.hikeDetailWin.title = 'Båtresan';
+	$.btnShowOnMap.title = "Visa på karta";	
 } else {
 	var btnBack = Ti.UI.createButton({
 		title : 'Tillbaka'
@@ -36,15 +45,8 @@ if(args.title == 'Båtresan'){
     });
 	
 	$.hikeDetailWin.leftNavButton = btnBack;
+	$.btnShowOnMap.title = "Visa led på karta";
 }
-
-//-----------------------------------------------------------
-// Onload
-//-----------------------------------------------------------
-selectTrailPics();
-LoadHotspotList();
-showIcons();
-changeLabel();
 
 //-----------------------------------------------------------
 // Hämtar info för den vandringsled som ska öppnas i detaljvy
@@ -61,7 +63,7 @@ function zoomMapTrail() {
 		
 		var mapDetail = Alloy.createController("mapDetail", trail).getView();
 		$.trailDetailNav.openWindow(mapDetail);
-		cleanup();
+		
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled - zoomMapTrail");
 	}	
@@ -234,16 +236,19 @@ function showIcons() {
 //-----------------------------------------------------------
 function changeLabel(){
 	try {
-		if (args.title != 'Båtleden') {
-			$.lblLangsVagen.text = 'Det här kan du se längs vägen:';
+		if (args.title == "Båtleden") {
+			$.lblLangsVagen.text = "Det här kan du läsa om på båtresan:";
 		} else {
-			$.lblLangsVagen.text = 'Det här kan du läsa om på båtresan:';
+			$.lblLangsVagen.text = "Det här kan du se längs vägen:";
 		}
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled");
 	}
 }
  
+//-----------------------------------------------------------
+// Funktion för att stänga och rensa sida när man stänger sidan
+//-----------------------------------------------------------
 function closeWindow(){
 	$.trailDetailNav.close();
 }

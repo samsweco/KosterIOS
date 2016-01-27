@@ -106,3 +106,19 @@ function getInfoDetails(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Infolistan");
 	}
 }
+
+//-----------------------------------------------------------
+// Funktioner för att stänga sidan helt när man öppnar en annan
+//-----------------------------------------------------------
+
+function closeInfoWindow(){
+	$.infoNav.close();
+}
+
+var cleanup = function() {
+	$.destroy();
+	$.off();
+	$.infoDetail = null;
+};
+
+$.infoWindow.addEventListener('onclose', cleanup);

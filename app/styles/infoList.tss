@@ -4,14 +4,12 @@
 
 ".container": {
 	layout: 'vertical',
-	top: '0dp'
-}
-
-".headView": {
-	layout: 'vertical',
-	width: Titanium.UI.FILL,
 	top: '0dp',
 	height: '93%'
+}
+
+"#headView": {
+	width: Titanium.UI.FIL
 }
 
 ".row": {

@@ -2,61 +2,8 @@
 	backgroundColor: 'white'
 }
 
-".container": {
-	layout: 'vertical'
-}
-
 "#mapDetailView": {
 	height: '100%',
 	width: '100%',
 	layout: 'vertical'
-}
-
-"#widgetView": {
-	height: '0dp',
-	width: Titanium.UI.FILL,
-	bottom: 0,
-	backgroundColor : 'white',
-	opacity : 0.8
-}
-
-"#btnShowMenu": {
-	top: '30px',
-	right: '30px'
-}
-
-".settingsHorizontalView": {
-	top: '5dp',
-	layout: 'horizontal',
-	height: Titanium.UI.SIZE,
-	width: Titanium.UI.FILL,
-	left: '6%'
-}
-
-"#settingsView": {
-	layout: 'vertical',
-	top: '5dp',
-	height: Titanium.UI.SIZE,
-	width: Titanium.UI.FILL,
-	bottom: 0
-}
-
-".switch": {
-	right: '13dp',
-	height: Titanium.UI.FILL,
-	width: Titanium.UI.FILL,
-	opacity : 1
-}
-
-".switchClass": {
-	height: '30dp',
-	width: Titanium.UI.SIZE,
-	opacity : 1
-}
-
-"Label": {
-	left : '5dp',
-	font: {
-		fontFamily: 'Raleway-Medium'
-	}
 }

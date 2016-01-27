@@ -6,19 +6,19 @@
 	<Collection src="hotspot_trailsModel" />
 	<Collection src="jsonFilesModel"></Collection>
 	
-	<Window id="hotspotWin" exitOnClose="true">
+	<Window id="hotspotWin" onBlur="closeHotspot" class="container">
 		<LeftNavButton>
 			<Button id="btnCloseWindow" onClick="closeHotspot">
 				Tillbaka
 			</Button>
 		</LeftNavButton>
 		<View>
-		<ScrollView id="hotspotView" class="headView" scrollType="vertical">
+		<ScrollView id="hotspotView" class="container" scrollType="vertical">
 			<View id="slideView">
 				<ScrollableView id="slideShowHotspotDetail" showPagingControl="true"/>
 			</View>
-			<Label id="lblHotspotName" ></Label>
-			<Label id="lblHotspotInfoTxt" ></Label>
+			<Label id="lblHotspotName"></Label>
+			<Label id="lblHotspotInfoTxt"></Label>
 			
 			<View id="mapView">
 				<Button id="btnShowMap" onClick="showHotspotDetailMap" title="Visa sevärdhet på karta"></Button>

@@ -6,6 +6,7 @@ var args = arguments[0] || {};
 
 displayMap();
 checkIfStarted();
+setInteractiveViews();
 
 //-----------------------------------------------------------
 // Visar kartan med de olika sevärdheterna och ledtrådsplupparna
@@ -26,6 +27,32 @@ function displayMap() {
 	}
 }
 
+//-----------------------------------------------------------
+// Öppnar hotspotDetail med info om vald hotspot
+//-----------------------------------------------------------
+function showHotspot(name) {
+	try {
+		var jsonObjHot = returnSpecificHotspotsByName(name);
+
+		var hotspotTxt = {
+			title : name,
+			infoTxt : jsonObjHot[0].infoTxt,
+			id : jsonObjHot[0].id,
+			x : jsonObjHot[0].xkoord,
+			y : jsonObjHot[0].ykoord
+		};
+
+		var hotspotDetail = Alloy.createController("hotspotDetail", hotspotTxt).getView();
+		$.interNav.openWindow(hotspotDetail);
+
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Interactiv - showHotspot");
+	}
+}
+
+//-----------------------------------------------------------
+// Kontrollerar antalet funna bokstäver när det inte går att skrolla mer
+//-----------------------------------------------------------
 $.slides.addEventListener('scrollend', function(e) {
 	try {
 		removeClueZones();
@@ -37,8 +64,9 @@ $.slides.addEventListener('scrollend', function(e) {
 	}
 });
 
-setInteractiveViews();
-
+//-----------------------------------------------------------
+// Fyller scrollviewn med ledtrådar
+//-----------------------------------------------------------
 function setInteractiveViews() {
 	try {
 		var letterJSON = fetchAllLetters();
@@ -101,7 +129,7 @@ function startInteractive() {
 		if (!Ti.Geolocation.locationServicesEnabled) {
 			var alertDialog = Ti.UI.createAlertDialog({
 				title : 'Påminnelser',
-				message : 'Tillåt gpsen för att kunna få påminnelser när du närmar dig en bokstav!',
+				message : 'Tillåt appen att se din position för att kunna få påminnelser när du närmar dig en bokstav! Gå in på platstjänster i dina inställningar.',
 				buttonNames : ['OK']
 			});
 			alertDialog.show();
@@ -120,60 +148,76 @@ function startInteractive() {
 	}
 }
 
+//-----------------------------------------------------------
+// Gömmer och visar rätt vyer när man startar
+//-----------------------------------------------------------
 function setView() {
 	try {
-		setLabelText();
-		$.lblScroll.show();
-		$.lblScroll.heigh = Ti.UI.SIZE;
-		$.clueSlideView.height = '25%';
-		$.clueSlideView.show();
-		$.lettersView.height = Ti.UI.SIZE;
-		$.lettersView.show();
-		$.hideView.hide();
-		$.hideView.height = 0;
+	setLabelText();
+	$.lblScroll.show();
+	$.lblScroll.heigh = Ti.UI.SIZE;
+	$.clueSlideView.height = '25%';
+	$.clueSlideView.show();
+	$.lettersView.height = Ti.UI.SIZE;
+	$.lettersView.show();
+	$.hideView.hide();
+	$.hideView.height = 0;
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
+	newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 	}
 
 }
 
+//-----------------------------------------------------------
+// Kontrollerar om man redan startat bokstavsjakten och sätter
+// scrollview'n till rätt ledtråd utifrån hur många bokstäver
+// man redan hittat
+//-----------------------------------------------------------
 function checkIfStarted() {
 	try {
-		var started = fetchFoundLettersCol();
-		var next_id = started.length;
-		
-		if (next_id > 0 && next_id < 9) {
-			setView();
-			foundLetterId = next_id + 1;
-			$.slides.currentPage = foundLetterId-1;
-			
-			interactiveMap.removeAllAnnotations();
-			displaySpecificMarkers(7, interactiveMap);
-			getSpecificIconsForTrail(7, interactiveMap);
-			addSpecificClueZone(foundLetterId);
-		} else if (started.length == 9) {
-			setLabelText();
-			setLastView();
-		}
+	var started = fetchFoundLettersCol();
+	var next_id = started.length;
+
+	if (next_id > 0 && next_id < 9) {
+		setView();
+		foundLetterId = next_id + 1;
+		$.slides.currentPage = foundLetterId - 1;
+
+		interactiveMap.removeAllAnnotations();
+		displaySpecificMarkers(7, interactiveMap);
+		getSpecificIconsForTrail(7, interactiveMap);
+		addSpecificClueZone(foundLetterId);
+	} else if (started.length == 9) {
+		setLabelText();
+		setLastView();
+	}
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
+	newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 	}
 
 }
 
+//-----------------------------------------------------------
+// Gämmer och visar rätt element när alla bokstäver är inne
+//-----------------------------------------------------------
 function setLastView() {
 	$.hideView.hide();
 	$.hideView.height = 0;
 	$.clueSlideView.hide();
 	$.clueSlideView.height = 0;
+
 	$.lettersView.show();
 	$.lettersView.height = Ti.UI.SIZE;
+
+	// Göm "skriv in bokstavs"-element
 	$.sendOneLetter.hide();
 	$.sendOneLetter.height = 0;
-	$.lblnextClue.hide();
-	$.lblnextClue.height = 0;
 	$.nextClue.hide();
 	$.nextClue.height = 0;
+	$.lblScroll.hide();
+	$.lblScroll.heigh = 0;
+
+	// Visa "skriv in ord"-element
 	$.wordClue.show();
 	$.wordClue.height = Ti.UI.SIZE;
 	$.wordClueLbl.show();
@@ -184,6 +228,9 @@ function setLastView() {
 	$.lblCollectedLetters.height = Ti.UI.SIZE;
 }
 
+//-----------------------------------------------------------
+// Hämtar rätt bokstav och visar nästa ledtråd
+//-----------------------------------------------------------
 function toNextClue() {
 	try {
 		var nextDialog = Ti.UI.createAlertDialog({
@@ -194,11 +241,20 @@ function toNextClue() {
 		nextDialog.addEventListener('click', function(e) {
 			if (e.index == 0) {
 				var lost = fetchOneLetter(foundLetterId);
-				lostLetter = lost[0].letter;
-				lostId = lost[0].id;
 
-				$.txtLetter.value = '';
-				$.txtLetter.value = lostLetter;
+				if (lost != null) {
+					lostLetter = lost[0].letter;
+					lostId = lost[0].id;
+
+					$.txtLetter.value = '';
+					$.txtLetter.value = lostLetter;
+				} else {
+					var errorDialog = Ti.UI.createAlertDialog({
+						message : 'Du har redan hittat alla bokstäver. Starta om appen och testa igen!',
+						buttonNames : ['Stäng']
+					});
+				}
+
 			}
 		});
 
@@ -224,78 +280,82 @@ function sendLetter() {
 	}
 }
 
+//-----------------------------------------------------------
+// Kontrollerar att man skrivit in rätt bokstav
+//-----------------------------------------------------------
 function checkLetter(letterToCheck) {
 	try {
-		var messageDialog = Ti.UI.createAlertDialog();
-		var fetchLetter = fetchOneLetter(foundLetterId);
-		var correctLetter = fetchLetter[0].letter;
+	var messageDialog = Ti.UI.createAlertDialog();
+	var fetchLetter = fetchOneLetter(foundLetterId);
+	var correctLetter = fetchLetter[0].letter;
 
-		if (letterToCheck.length > 1) {
-			messageDialog.message = "Man får bara skriva in en bokstav.";
-			messageDialog.title = 'Ojdå, nu blev det fel';
-			messageDialog.buttonNames = ['OK'];
+	if (letterToCheck.length > 1) {
+		messageDialog.message = "Man får bara skriva in en bokstav.";
+		messageDialog.title = 'Ojdå, nu blev det fel';
+		messageDialog.buttonNames = ['OK'];
 
-			messageDialog.show();
-		} else if (letterToCheck.length < 1 && letterToCheck.length == " ") {
-			messageDialog.message = "Man måste skriva in en bokstav.";
-			messageDialog.title = 'Ojdå, nu blev det fel';
-			messageDialog.buttonNames = ['OK'];
+		messageDialog.show();
+	} else if (letterToCheck.length < 1 && letterToCheck.length == " ") {
+		messageDialog.message = "Man måste skriva in en bokstav.";
+		messageDialog.title = 'Ojdå, nu blev det fel';
+		messageDialog.buttonNames = ['OK'];
 
-			messageDialog.show();
-		} else if (letterToCheck != correctLetter) {
-			messageDialog.message = "Är du säker på att " + letterToCheck + ' var rätt bokstav för ledtråd ' + foundLetterId + '? Kontrollera att du inte gått förbi en bokstav.';
-			messageDialog.title = 'Kontrollera bokstav';
-			messageDialog.buttonNames = ['OK'];
+		messageDialog.show();
+	} else if (letterToCheck != correctLetter) {
+		messageDialog.message = "Är du säker på att " + letterToCheck + ' var rätt bokstav för ledtråd ' + foundLetterId + '? Kontrollera att du inte gått förbi en bokstav.';
+		messageDialog.title = 'Kontrollera bokstav';
+		messageDialog.buttonNames = ['OK'];
 
-			messageDialog.show();
-		} else {
-			var unFound = fetchUnFoundLettersCol();
+		messageDialog.show();
+	} else {
+		var unFound = fetchUnFoundLettersCol();
 
-			if (unFound.length > 0) {
-				setLetterOne(unFound[0].id);
-				foundLetterId++;
-				setLabelText();
+		if (unFound.length > 0) {
+			setLetterOne(unFound[0].id);
+			foundLetterId++;
+			setLabelText();
 
-				removeClueZones();
-				$.slides.currentPage = unFound[0].id;
-				addSpecificClueZone(foundLetterId);
-			}
+			removeClueZones();
+			$.slides.currentPage = unFound[0].id;
+			addSpecificClueZone(foundLetterId);
 		}
+	}
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
+	newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 	}
 }
 
+//-----------------------------------------------------------
+// Adderar bokstaven till labeln med de funna bokstäverna
+//-----------------------------------------------------------
 function setLabelText() {
 	try {
-		var found = fetchFoundLettersCol();
-		$.lblCollectedLetters.text = 'Bokstäver: ';
+	var found = fetchFoundLettersCol();
+	$.lblCollectedLetters.text = 'Bokstäver: ';
 
-		for (var i = 0; i < found.length; i++) {			
-			$.lblCollectedLetters.text += found[i].letter;
+	for (var i = 0; i < found.length; i++) {
+		$.lblCollectedLetters.text += found[i].letter;
 
-			if (found[i].id == 9) {
-				$.wordClue.show();
-				$.wordClue.height = Ti.UI.SIZE;
-				$.wordClueLbl.show();
-				$.wordClueLbl.height = Ti.UI.SIZE;
-				$.sendWord.show();
-				$.sendWord.height = '40dp';
-				$.txtLetter.value = '';
+		if (found[i].id == 9) {
+			$.wordClue.show();
+			$.wordClue.height = Ti.UI.SIZE;
+			$.wordClueLbl.show();
+			$.wordClueLbl.height = Ti.UI.SIZE;
+			$.sendWord.show();
+			$.sendWord.height = '40dp';
+			$.txtLetter.value = '';
 
-				$.clueSlideView.height = 0;
-				$.sendOneLetter.height = 0;
-				$.sendOneLetter.hide();
-				$.lblnextClue.hide();
-				$.lblnextClue.height = 0;
-				$.nextClue.hide();
-				$.nextClue.height = 0;
-				$.lblScroll.hide();
-				$.lblScroll.height = 0;
-			}
+			$.clueSlideView.height = 0;
+			$.sendOneLetter.height = 0;
+			$.sendOneLetter.hide();
+			$.nextClue.hide();
+			$.nextClue.height = 0;
+			$.lblScroll.hide();
+			$.lblScroll.height = 0;
 		}
+	}
 	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
+	newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 	}
 }
 
@@ -331,7 +391,6 @@ function checkWord() {
 
 			Alloy.Globals.stopGame();
 			startOver();
-			//interactiveGPS = false;
 		} else {
 			alertDialog.message = "Försök igen! Du har snart klurat ut det!";
 			alertDialog.show();
@@ -341,7 +400,10 @@ function checkWord() {
 	}
 }
 
-Titanium.App.addEventListener('close', function() {
+//-----------------------------------------------------------
+// Avslutar bokstavsjakten när användaren stänger av appen
+//-----------------------------------------------------------
+Titanium.App.addEventListener('onclose', function() {
 	Alloy.Globals.stopGame();
 	startOver();
 });
@@ -360,10 +422,15 @@ function startOver() {
 	}
 }
 
-var cleanup = function() {
-	$.destroy();
-	$.off();
-	$.interactiveWin = null;
-};
-
-$.interactiveWin.addEventListener('close', cleanup);
+// //-----------------------------------------------------------
+// // Funktion för att stänga och rensa sida när man stänger sidan
+// //
+// // SKA VI HA DETTA? STÄNGER AV JAKTEN ISF JU??
+// //-----------------------------------------------------------
+// var cleanup = function() {
+// $.destroy();
+// $.off();
+// $.interactiveWin = null;
+// };
+//
+// $.interactiveWin.addEventListener('close', cleanup);

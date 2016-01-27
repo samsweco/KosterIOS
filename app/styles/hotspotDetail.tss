@@ -1,22 +1,11 @@
-"Label": {
-	left: 15,
-	right: 15,
-	font: {
-		fontSize: '12dp',
-		fontFamily: 'Raleway-Light'
-	}
-}
-
-"Window": {
-	backgroundColor: 'white',
-	layout: 'vertical'
-}
-
 ".container": {
 	layout: 'vertical',
 	top: '0dp',
-	backgroundColor: 'white',
-	height: '100%'
+	backgroundColor: 'white'
+}
+
+"#hotspotView": {
+	height: '93%'
 }
 
 "#slideView": {
@@ -31,13 +20,6 @@
 	width: '300dp',
 	height: '235dp',
 	backgroundColor: 'black'
-}
-
-".headView": {
-	top: 0,
-	layout: 'vertical',
-	backgroundColor: 'white',
-	height: '93%'
 }
 
 "#lblHotspotName": {
@@ -55,7 +37,8 @@
 	top: '5dp',
 	right: '15dp',
 	font: {
-		fontSize: '14dp'
+		fontSize: '14dp',
+		fontFamily: 'Raleway-Light'
 	}
 }
 

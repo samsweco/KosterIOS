@@ -2,17 +2,17 @@
 	height: '100%'
 }
 
+".headView": {
+	layout: 'vertical',
+	backgroundColor: 'transparent',
+	height: '100%'
+}
+
 ".imgKoster": {
 	top: '7%',
 	center: '50%',
 	height: '90dp',
 	width: Titanium.UI.SIZE
-}
-
-".headView": {
-	layout: 'vertical',
-	backgroundColor: 'transparent',
-	height: '100%'
 }
 
 ".lblFrontText": {

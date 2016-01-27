@@ -1,28 +1,11 @@
-"Window": {
-	backgroundColor: 'white',
-	layout: 'vertical'
-}
-
-"#lblInfoText": {
-	top: '5dp',
-	left: '15dp',
-	right: '15dp',
-	font: {
-		fontSize: '14dp',
-		fontFamily: 'Raleway-Light'
-	}
-}
-
 ".container": {
 	layout: 'vertical',
 	top: '0dp',
-	backgroundColor: 'white',
-	height: '93%'
+	backgroundColor: 'white'
 }
 
-"#infoImg": {
-	width: '300dp',
-	height: '200dp'
+"#infoDetailView": {
+	height: '93%'
 }
 
 "#slideView": {
@@ -31,9 +14,16 @@
 	width: '100%'
 }
 
-".headView": {
-	layout: 'vertical',
-	backgroundColor: 'white'
+"#linkView": {
+	layout: 'horizontal',
+	top: '5dp',
+	borderColor: "#e8e8e8",
+	borderWidth: '1dp',
+	height: Titanium.UI.SIZE
+}
+
+"#tableView": {
+	height: Titanium.UI.SIZE
 }
 
 "#lblInfoTitle1": {
@@ -47,18 +37,14 @@
 	}
 }
 
-"#linkView": {
-	layout: 'horizontal',
+"#lblInfoText": {
 	top: '5dp',
-	borderColor: "#e8e8e8",
-	borderWidth: '1dp',
-	height: Titanium.UI.SIZE
-}
-
-"#slideView": {
-	backgroundColor: '#000000',
-	height: '225dp',
-	width: '100%'
+	left: '15dp',
+	right: '15dp',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Raleway-Light'
+	}
 }
 
 "#lblLink": {
@@ -72,6 +58,7 @@
 	visible: false
 }
 
-"#tableView": {
-	height: Titanium.UI.SIZE
+"#infoImg": {
+	width: '300dp',
+	height: '200dp'
 }

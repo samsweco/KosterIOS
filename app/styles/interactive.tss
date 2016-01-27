@@ -1,5 +1,21 @@
+// -------------
+// VIEWS & WINDOW
+// -------------
+
 "Window": {
 	backgroundColor: 'white'
+}
+
+"#interactiveWin": {
+	top: 0,
+	layout: 'vertical',
+	height: '93%',
+	backgroundColor: 'white'
+}
+
+"#showFamilyTrail": {
+	height: '45%',
+	width: Titanium.UI.FILL
 }
 
 "#clueSlideView": {
@@ -15,49 +31,6 @@
 	visible: false
 }
 
-"#sendWord": {
-	visible: false,
-	height: 0
-}
-
-"Label": {
-	top: '5dp',
-	left: '15dp',
-	right: '15dp',
-	font: {
-		fontSize: '14dp',
-		fontFamily: 'Raleway-Light'
-	}
-}
-
-"#btnShowCorrect": {
-	visible: false,
-	font: {
-		fontFamily: 'Raleway-Light',
-		fontSize: '13dp'
-	},
-	top: '0dp',
-	width: Titanium.UI.FILL,
-	height: '0dp'
-}
-
-"#lblCorrectLetters":{
-	height: 0,
-	visible: false,
-	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
-}
-
-"#lblCorrectLetters":{
-	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
-}
-
-"#interactiveWin": {
-	top: 0,
-	layout: 'vertical',
-	height: '93%',
-	backgroundColor: 'white'
-}
-
 "#hideView": {
 	layout: 'vertical',
 	height: Titanium.UI.SIZE
@@ -70,6 +43,43 @@
 	visible: false
 }
 
+// -------------
+// LABELS
+// -------------
+
+"Label": {
+	top: '5dp',
+	left: '15dp',
+	right: '15dp',
+	font: {
+		fontSize: '14dp',
+		fontFamily: 'Raleway-Light'
+	}
+}
+
+".label": {
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
+	font: {
+		fontFamily: 'Raleway-Light',
+		fontSize: '14dp'
+	} ,
+	right: '20dp',
+	left: '20dp'
+}
+
+"#lblScroll": {
+	color: 'gray',
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	font: {
+		fontFamily: 'Raleway-Light',
+		fontSize: '12dp'
+	},
+	visible: false,
+	height: 0,
+	top: 0,
+	bottom: '10dp'
+}
+
 "#lblInfoText": {
 	top: '5dp',
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
@@ -78,11 +88,6 @@
 	} ,
 	right: '20dp',
 	left: '20dp'
-}
-
-"#showFamilyTrail": {
-	height: '45%',
-	width: Titanium.UI.FILL
 }
 
 "#lblWelcome": {
@@ -132,26 +137,10 @@
 }
 
 "#lblCollectedLetters": {
-	visible: false,
-	left: '20dp',
-	right: '15dp',
-	width: Titanium.UI.SIZE,
-	top: '0dp',
-	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
-	font:
-	{
-		fontFamily: 'Raleway-Light',
-		fontSize: '17dp'
-	},
-	color: '#FCAF17',
-	backgroundColor : 'green'
-}
-
-"#lblCollectedLetters": {
 	left: '20dp',
 	right: '15dp',
 	width: Titanium.UI.FILL,
-	top: '0dp',
+	top: '5dp',
 	font:
 	{
 		fontFamily: 'Raleway-Light',
@@ -159,6 +148,10 @@
 	},
 	color: '#FCAF17'
 }
+
+// -------------
+// BUTTONS
+// -------------
 
 "#btnStartQuiz": {
 	height: '40dp',
@@ -170,22 +163,12 @@
 	}
 }
 
-"#lblnextClue": {
-	font: {
-		fontFamily: 'Raleway-Light',
-		fontSize: '13dp'
-	},
-	top: '6dp',
-	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
-	color: 'gray'
-}
-
 "#nextClue": {
 	font: {
 		fontFamily: 'Raleway-Light',
 		fontSize: '13dp'
 	},
-	top: '0dp',
+	top: '10dp',
 	height: Titanium.UI.SIZE,
 	width: Titanium.UI.FILL
 }
@@ -197,36 +180,7 @@
 	}
 }
 
-".label": {
-	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
-	font: {
-		fontFamily: 'Raleway-Light',
-		fontSize: '14dp'
-	} ,
-	right: '20dp',
-	left: '20dp'
-}
-
-"#lblScroll": {
-	color: 'gray',
-	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-	font: {
-		fontFamily: 'Raleway-Light',
-		fontSize: '12dp'
-	},
-	visible: false, 
-	height: 0,
-	top: 0
-}
-
-"#lblFinishedGame": {
+"#sendWord": {
 	visible: false,
-	height: 0,
-	top: '10dp',
-	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-	font: {
-		fontFamily: 'Raleway-Light',
-		fontSize: '18dp'
-	},
-	color: '#FCAF17'
+	height: 0
 }

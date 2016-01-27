@@ -10,18 +10,16 @@ var zoomLat = args.zoomlat;
 var zoomLon = args.zoomlon;
 
 var showingPosition = false;
-
 var menuDetailVisible = false;
 
-//-----------------------------------------------------------
-// Onload
-//-----------------------------------------------------------
 detailMap.removeAllAnnotations();
 showMapDetail();
 getSpecificIconsForTrail(trailId, detailMap);
 displaySpecificMarkers(trailId, detailMap);
 	
-
+//-----------------------------------------------------------
+// Om man öppnar detaljvy för båtleden ska navBar'en synas
+//-----------------------------------------------------------
 if(trailId == 8){
 	$.detailwin.navBarHidden = '';
 } 
@@ -85,38 +83,12 @@ var evtLists = function(evt){
 detailMap.addEventListener('click', evtLists);
 
 //-----------------------------------------------------------
-// Funktioner för att visa och stänga kartmenyn 
+// Funktion för att stänga och rensa sida när man stänger sidan
 //-----------------------------------------------------------
-function showMenu() {
-	try {
-		if(!menuDetailVisible){
-			showDetailMenu();
-			menuDetailVisible = true;
-		}else {
-			closeDetailMenu();
-			menuDetailVisible = false;
-		}		
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Detaljkartan");
-	}
-}
-detailMap.addEventListener('singletap', function() {
-	if(menuDetailVisible){
-		closeDetailMenu();
-		menuDetailVisible = false;
-	}
-});
-function showDetailMenu(){
-	$.widgetView.height = '90dp';
-}
-function closeDetailMenu(){
-	$.widgetView.height = '0dp';
-}
-
-function closeMap(){
-	$.mapNav.close();
-}
-
+ function closeMap(){
+ 	$.mapNav.close();
+ }
+ 
  var cleanup = function() {
 	$.destroy();
 	$.off();

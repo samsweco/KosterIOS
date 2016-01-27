@@ -9,9 +9,6 @@ var zoomLat = args.zoomlat;
 
 var menuVisible = false;
 
-//-----------------------------------------------------------
-// Onload-funktioner för kartan
-//-----------------------------------------------------------
 displayBigMap();
 
 //-----------------------------------------------------------
@@ -122,6 +119,13 @@ function showMapMenu() {
 		closeMenu();
 		menuMapVisible = false;
 	}
+}
+
+//-----------------------------------------------------------
+// Funktion för att rensa kartan när man stänger den
+//-----------------------------------------------------------
+function closeBigMap(){
+	reloadMap();
 }
 
 

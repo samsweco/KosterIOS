@@ -7,33 +7,40 @@
 	<Model src="letterModel"/>
 	<Collection src="infospotCoordinatesModel"/>
 	
-	<Window id="interactiveWindow" title="Bokstavsjakten">
-		<ScrollView id="interactiveWin">
-			<View id="showFamilyTrail"/>
-			<View id="clueSlideView">
-				<ScrollableView id="slides" scrollType="horizontal" showPagingControl="true"/>
-			</View>
-			<Label id="lblScroll">Scrolla mellan ledtr&#xE5;darna</Label>
-			<View id="lettersView">
-				<Label id="wordClue">Skriv ordet du bildat av bokst&#xE4;verna!</Label>
-				<Label id="wordClueLbl">Ledtr&#xE5;d: En sv&#xE4;vande gel&#xE9;klump i havet.</Label>
-				<TextField id="txtLetter"/>
-				<Button id="sendOneLetter" onClick="sendLetter">Skicka bokstav</Button>
-				<Button id="sendWord" onClick="checkWord">Skicka ordet</Button>
-				<Label id="lblCollectedLetters"/>
-				<Label id="lblnextClue">Hittar du ingen bokstav?</Label>
-				<Button id="nextClue" onClick="toNextClue">Klicka h&#xE4;r f&#xF6;r att se den.</Button>
-			</View>
-			<View id="hideView">
-				<Label id="lblWelcome">V&#xE4;lkommen till bokstavsjakten!</Label>
-				<Label id="lblInfoText">Vandra &#xE4;ventyrslingan och leta efter de 9 bokst&#xE4;verna som finns g&#xF6;mda l&#xE4;ngs leden!</Label>
-				<Label class="label">L&#xE4;ngs v&#xE4;gen kommer du f&#xE5; ledtr&#xE5;dar som hj&#xE4;lper dig finna bokst&#xE4;verna.</Label>
-				<Label class="label">N&#xE4;r du hittat alla bokst&#xE4;ver kan du f&#xF6;rs&#xF6;ka lista ut det hemliga ordet.</Label>
-				<Label class="label">Du kan se bokst&#xE4;vernas ungef&#xE4;rliga l&#xE4;ge och nummer med hj&#xE4;lp av de r&#xF6;da cirklarna. N&#xE4;r du hittat en bokstav blir cirkeln f&#xF6;r den bokstaven gr&#xF6;n.</Label>
-				<Label class="label">Om du r&#xE5;kar g&#xE5; f&#xF6;rbi en bokstav eller inte hittar den kan du &#xE4;nd&#xE5; g&#xE5; vidare till n&#xE4;sta ledtr&#xE5;d. Ifall detta intr&#xE4;ffar kan du se de korrekta bokst&#xE4;verna i slutet av slingan.</Label>
-				<Button id="btnStartQuiz" onClick="startInteractive">Starta bokstavsjakten!</Button>
-			</View>
-		</ScrollView>
-		<Widget src="menu" name="widget"/>
-	</Window>
+	<NavigationWindow id="interNav" platform="ios" navBarHidden="true">
+		<Window id="interactiveWindow" title="Bokstavsjakten">
+			<ScrollView id="interactiveWin">
+				<View id="showFamilyTrail"/>
+				<View id="clueSlideView">
+					<View>
+						<ScrollableView id="slides" scrollType="horizontal" showPagingControl="true"/>
+					</View>
+				</View>
+				<Label id="lblScroll" text="Scrolla mellan ledtrådarna"></Label>
+				<View id="lettersView">
+					<!-- Skriv in rätt ord -->
+					<Label id="wordClue" text="Skriv ordet du bildat av bokstäverna!"></Label>
+					<Label id="wordClueLbl" text="Ledtråd: En svävande geléklump i havet."></Label>
+					<TextField id="txtLetter"/>
+					<Button id="sendWord" onClick="checkWord" title="Skicka ordet"></Button>
+
+					<!-- Skriv in rätt bokstav -->
+					<Button id="sendOneLetter" onClick="sendLetter" title="Skicka bokstav"></Button>
+					<Label id="lblCollectedLetters"/>
+					<Button id="nextClue" onClick="toNextClue" title="Klicka här om du inte hittar bokstaven."></Button>
+				</View>
+				<View id="hideView">
+					<!-- Välkomstvy -->
+					<Label id="lblWelcome" text="Välkommen till bokstavsjakten!"></Label>
+					<Label id="lblInfoText" text="Vandra äventyrslingan och leta efter de 9 bokstäverna som finns gömda längs leden!"></Label>
+					<Label class="label" text="Längs vägen kommer du få ledtrådar som hjälper dig finna bokstäverna."></Label>
+					<Label class="label" text="När du hittat alla bokstäver kan du försöka lista ut det hemliga ordet."></Label>
+					<Label class="label" text="Du kan se bokstävernas ungefärliga läge och nummer med hjälp av de ruda cirklarna. När du hittat en bokstav blir cirkeln för den bokstaven grön."></Label>
+					<Label class="label" text="Om du inte hittar bokstaven kan du få hjälp i appen genom att klicka på en knapp som ger dig den korrekta bokstaven. "></Label>
+					<Button id="btnStartQuiz" onClick="startInteractive" title="Starta bokstavsjakten!"></Button>
+				</View>
+			</ScrollView>
+			<Widget src="menu" name="widget"/>
+		</Window>
+	</NavigationWindow>
 </Alloy>

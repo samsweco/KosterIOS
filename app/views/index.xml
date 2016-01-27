@@ -6,12 +6,13 @@
 	<Collection src="trailsModel"/>
 	<Collection src="letterModel"/>
 	<Model src="letterModel"/>
+	
 	<Window id="koster" class="container" backgroundImage="/images/front.png" onBlur="closeWindow">
 		<View class="headView">
 			<ImageView class="imgKoster" image="/images/kosterhavet_logga.png"/>
 			<View id="lblView">
-				<Label id="firstLbl" class="lblFrontText">V&#xE4;lkommen till Kosterhavet!</Label>
-				<Label id="secondLbl" class="lblFrontText">Uppt&#xE4;ck den vackra naturen i Kosterhavet och ta en promenad bland klapperstensf&#xE4;lt och strand&#xE4;ngar.</Label>
+				<Label id="firstLbl" class="lblFrontText" text="Välkommen till Kosterhavet!"></Label>
+				<Label id="secondLbl" class="lblFrontText" text="Upptäck den vackra naturen i Kosterhavet och ta en promenad bland klapperstensfält och strandängar."></Label>
 			</View>
 		</View>
 		<Widget src="menu" name="widget"/>

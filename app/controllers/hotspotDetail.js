@@ -14,10 +14,13 @@ selectHotspotPics();
 
 var mapShowing = false;
 
+//-----------------------------------------------------------
+// Visar karta med sevärdheten och lederna den är kopplad till
+//-----------------------------------------------------------
 function showHotspotDetailMap(){	
-	var map = showHotspotOnMap(latitude, longitude, hotspotId);
+	var detmap = showHotspotOnMap(latitude, longitude, hotspotId);
 	
-	$.showHotspotMap.add(map);
+	$.showHotspotMap.add(detmap);
 	
 	if(mapShowing == false){
 		$.mapView.height = '40%';
@@ -29,7 +32,6 @@ function showHotspotDetailMap(){
 		mapShowing = false;
 	}
 }
-
 
 //-----------------------------------------------------------
 // Hämtar bilder för bildspelet
@@ -77,8 +79,12 @@ function selectHotspotPics() {
 	}
 }
 
+//-----------------------------------------------------------
+// Funktioner för att stänga sidan helt när man öppnar en annan
+//-----------------------------------------------------------
+
 $.hotspotWin.addEventListener('onblur', function(){
-	$.hotspotWin = null;
+	$.hotspotWin.close();
 });
 
 function closeHotspot(){

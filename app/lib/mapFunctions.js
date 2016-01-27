@@ -1,10 +1,9 @@
 Ti.include("collectionData.js");
 
-
 var markerSpecHotspotArray = [];
 var hotspotDetail;
 
-var hotspotClicked = 0;
+//var hotspotClicked = 0;
 
 //-----------------------------------------------------------
 // Hämtar trailsCollection
@@ -33,7 +32,7 @@ function showMap(maptype) {
 		setRegion(maptype);
 		displayTrailMarkers(maptype);
 		
-		return map;
+		return maptype;
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - showMap");
 	}
@@ -274,25 +273,6 @@ function getHotspotTrails(hotId){
 }
 
 //-----------------------------------------------------------
-// Öppnar hotspotDetail med info om vald hotspot
-//-----------------------------------------------------------
-function showHotspot(name) {
-	try {
-		var jsonObjHot = returnSpecificHotspotsByName(name);
-
-		var hotspotTxt = {
-			title : name,
-			infoTxt : jsonObjHot[0].infoTxt,
-			id : jsonObjHot[0].id
-		};
-
-		var hotspotDetail = Alloy.createController("hotspotDetail", hotspotTxt).getView().open();
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "MapFunctions - showHotspot");
-	}
-}
-
-//-----------------------------------------------------------
 // Visar markers för hotspots
 //-----------------------------------------------------------
 function displayAllMarkers() {
@@ -435,6 +415,7 @@ function removeAnnoSpot(anno, infotype) {
 	try {
 		for (var o = 0; o < infospotArray.length; o++) {
 			var type = infospotArray[o].name;
+			
 			if (anno == 'info' && infotype == type) {
 				map.removeAnnotation(infospotArray[o]);
 			}

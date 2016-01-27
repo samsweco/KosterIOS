@@ -9,22 +9,16 @@
 	<Collection src="infospotCoordinatesModel" />
 	
 	<NavigationWindow id="mapNav" platform="ios" navBarHidden="true">
-	<Window id="detailwin" exitOnClose="true">
-		<RightNavButton>
-			<Button id="btnShowPosition" image="/images/locationarrow.png" onClick="showUserPosition" />
-			
-		</RightNavButton>
-		<LeftNavButton>
-			<Button id="btnCloseWindow" onClick="closeMap">
-				Tillbaka
-			</Button>
-		</LeftNavButton>
-		
-		<View id="mapDetailView">	
-		</View>
-		
-		<Widget src="menu" name="widget"></Widget>
-		
-	</Window>
+		<Window id="detailwin" exitOnClose="true">
+			<RightNavButton>
+				<Button id="btnShowPosition" image="/images/locationarrow.png" onClick="showUserPosition" />
+			</RightNavButton>
+			<LeftNavButton>
+				<Button id="btnCloseWindow" onClick="closeMap">Tillbaka</Button>
+			</LeftNavButton>
+			<View id="mapDetailView"></View>
+			<Widget src="menu" name="widget"></Widget>
+
+		</Window>
 	</NavigationWindow>
 </Alloy>

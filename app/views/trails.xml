@@ -7,7 +7,7 @@
 	<Model src="letterModel" />
 	
 	<NavigationWindow id="trailNav" platform="ios" navBarHidden="true">
-	<Window id="trailWindow" title="Vandringsleder">
+	<Window id="trailWindow" title="Vandringsleder" onClose="closeTrailWindow">
 		
 	<View class="container" onClose="destroyModel">
 		<ScrollView class="headView" scrollType="vertical">

@@ -2,22 +2,10 @@
 	backgroundColor: 'white'
 }
 
-"font": {
-	fontFamily: 'Raleway-Medium'
-}
-
-"#mapWindow": {
-	backgroundColor: 'white'
-}
-
 "#mapView": {
 	top: 0,
 	height: '100%',
 	width: '100%'
-}
-
-"#selectIconView": {
-	layout: 'horizontal'
 }
 
 "#widgetView": {

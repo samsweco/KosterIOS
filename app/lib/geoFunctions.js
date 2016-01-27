@@ -1,5 +1,3 @@
-
-
 //-----------------------------------------------------------
 // Hämtar användarens position och startar location-event
 // för påminnelser om sevärdheter eller bokstavsjakt
@@ -164,7 +162,7 @@ function userIsNearHotspot() {
 }
 
 //-----------------------------------------------------------
-// På båtturen : kontrollerar om enheten är innanför en radie
+// Kontrollerar om enheten är innanför en radie
 // för en sevärdhet, sänder ut dialog om true
 //-----------------------------------------------------------
 function userOnBoatTrip() {
@@ -291,7 +289,7 @@ function playSound() {
 }
 
 //-----------------------------------------------------------
-// Lägger till de gröna plupparna på bokstavsjakt-kartan
+// Funktioner för att lägga till eller ta bort plupparna på bokstavsjakt-kartan
 //-----------------------------------------------------------
 function addClueZone() {
 	try {

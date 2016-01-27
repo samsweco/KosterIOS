@@ -9,19 +9,18 @@
 	<Model src="hotspotModel" />
 	
 	<NavigationWindow id="mapNav" platform="ios">
-	<Window id="mapWindow" title="Karta">
-		<RightNavButton>
-			<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMapMenu" />
-		</RightNavButton>
-	<View id="headMapView" class="container">
-		<View id="mapView"></View>
-		
-		<Widget src="menu" name="widget"></Widget>
-		
-		<View id="widgetView">
-			<Widget src="mapmenu" name="widget"></Widget>
-		</View>
-	</View>
-	</Window>
+		<Window id="mapWindow" title="Karta" onClose="closeBigMap">
+			<RightNavButton>
+				<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMapMenu" />
+			</RightNavButton>
+			<View id="headMapView" class="container">
+				<View id="mapView"></View>
+				<Widget src="menu" name="widget"></Widget>
+				<View id="widgetView">
+					<Widget src="mapmenu" name="widget"></Widget>
+				</View>
+			</View>
+		</Window>
 	</NavigationWindow>
+	
 </Alloy>

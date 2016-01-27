@@ -16,29 +16,7 @@ try {
 setRowData();
 
 //-----------------------------------------------------------
-// Visar info för valt item i listvyn
-//-----------------------------------------------------------
-function showinfoDetails(info) {
-	try {
-		var selectedInfo = info.row;
-		var args = {
-			id : selectedInfo.id,
-			name : selectedInfo.name,
-			infoTxt : selectedInfo.infoTxt,
-			link : selectedInfo.link,
-			img : selectedInfo.image,
-			desc : selectedInfo.desc
-		};
-
-		var infoDetail = Alloy.createController("infoDetail", args).getView();
-		infoDetail.open();
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Informationssidan");
-	}
-}
-
-//-----------------------------------------------------------
-// sätter alla items i listan
+// Sätter alla items i länklistan
 //-----------------------------------------------------------
 function setRowData() {
 	try {
@@ -141,7 +119,6 @@ function showRules(infTxt, linktitle){
 			layout : 'vertical',
 			top : '0dp',
 			backgroundColor : 'white'
-			// backButtonTitle : 'Tillbaka'
 		});
 		
 		var btnBack = Ti.UI.createButton({
@@ -150,7 +127,6 @@ function showRules(infTxt, linktitle){
 		btnBack.addEventListener('click', function(e) {
         	infoWindowRules.close();
     	});
-    	
     	infoWindowRules.leftNavButton = btnBack;
 
 		var infoScrollRules = Ti.UI.createScrollView({
@@ -202,6 +178,10 @@ function showRules(infTxt, linktitle){
 	}
 }
 
+//-----------------------------------------------------------
+// Funktioner för att stänga sidan helt när man öppnar en annan
+//-----------------------------------------------------------
+
 function closeInfoWindow(){
 	$.navInfoDetail.close();
 }
@@ -212,5 +192,5 @@ var cleanup = function() {
 	$.infoDetail = null;
 };
 
-$.infoDetail.addEventListener('close', cleanup);
+$.infoDetail.addEventListener('onclose', cleanup);
 

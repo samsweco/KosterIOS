@@ -3,14 +3,14 @@
 	<Collection src="letterModel" />
 
 	<NavigationWindow id="navInfoDetail" platform="ios" navBarHidden="true">
-	<Window id="infoDetail" exitOnClose="true">
+	<Window id="infoDetail" class="container"> <!-- onBlur="closeInfoWindow" -->
 		<LeftNavButton>
 			<Button id="btnCloseWindow" onClick="closeInfoWindow">
 				Tillbaka
 			</Button>
 		</LeftNavButton>
 		<View>
-		<ScrollView class="container" scrollType="vertical" showVerticalScrollIndicator="true">
+		<ScrollView id="infoDetailView" class="container" scrollType="vertical">
 			<View id="slideView">
 				<ImageView id="infoImg"></ImageView>
 			</View>

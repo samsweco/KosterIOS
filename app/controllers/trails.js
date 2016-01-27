@@ -2,9 +2,6 @@ Ti.include("collectionData.js");
 
 var args = arguments[0] || {};
 
-//-----------------------------------------------------------
-// Onload
-//-----------------------------------------------------------
 setRowData();
 
 //-----------------------------------------------------------
@@ -153,6 +150,13 @@ function showIcons(id) {
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsleder");
 	}
+}
+
+//-----------------------------------------------------------
+// Funktioner för att stänga sidan helt när man öppnar en annan
+//-----------------------------------------------------------
+function closeTrailWindow(){
+	$.trailWindow.close();
 }
 
 //-----------------------------------------------------------
