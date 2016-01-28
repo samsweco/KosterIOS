@@ -16,6 +16,13 @@ var lettersModel = Alloy.Models.letterModel;
 //-----------------------------------------------------------
 // Hämtar hotspotCollection
 //-----------------------------------------------------------
+function returnHotspots() {
+	hotspot_Collection.fetch();
+	var hotsJson = hotspot_Collection.toJSON();
+
+	return hotsJson;
+}
+
 function returnHotspotsToAlert() {
 	var hotspotColl = Alloy.Collections.hotspotModel;
 	hotspotColl.fetch({

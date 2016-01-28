@@ -1,0 +1,9 @@
+"Window": {
+	backgroundColor: 'white'
+}
+
+".headView": {
+	layout: 'vertical',
+	top: '0dp',
+	height: '93%'
+}

@@ -65,13 +65,26 @@ function showTrail(myId) {
 function showHotspotDet(hotId) {		
 	try {
 		var jsonObjHot = returnSpecificHotspotsByName(hotId);
+		var hotspotId;
+		var x;
+		var y;
+		
+		if(jsonObjHot[0].id == 32){
+			hotspotId = 42;
+			x = 58.893085;
+			y = 11.047972;
+		} else {
+			hotspotId = jsonObjHot[0].id;
+			x = jsonObjHot[0].xkoord;
+			y = jsonObjHot[0].ykoord;
+		}
 
 		var hotspotTxt = {
 			title : jsonObjHot[0].name,
 			infoTxt : jsonObjHot[0].infoTxt,
-			id : jsonObjHot[0].id,
-			x : jsonObjHot[0].xkoord,
-			y : jsonObjHot[0].ykoord
+			id : hotspotId,
+			x : x,
+			y : y
 		};
 
 		var hotDet = Alloy.createController("hotspotDetail", hotspotTxt).getView();

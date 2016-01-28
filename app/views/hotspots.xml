@@ -1,0 +1,22 @@
+<Alloy>
+	<Collection src="trailsModel" />
+	<Collection src="hotspotModel" />
+	<Collection src="infospot_trailsModel"/>
+	<Collection src="infospotCoordinatesModel"/>
+	<Collection src="letterModel" />
+	<Model src="letterModel" />
+	
+	<NavigationWindow id="hotspotNav" platform="ios" navBarHidden="true">
+	<Window id="hotspotWindow" onClose="closeHotWindow">
+		
+	<View class="container" onClose="destroyModel">
+		<ScrollView class="headView" scrollType="vertical">
+			<TableView id="hotspotTable" onClick="showHotspotDetailView">
+				<TableViewRow class="row"></TableViewRow>
+			</TableView>
+		</ScrollView>
+	</View>
+	<Widget src="menu" name="widget"></Widget>
+	</Window>
+	</NavigationWindow>
+</Alloy>

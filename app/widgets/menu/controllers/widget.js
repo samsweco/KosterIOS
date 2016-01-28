@@ -21,10 +21,12 @@ function navigate(e) {
 				var home = Alloy.createController('index').getView().open();
 				break;
 			}
-			// 			
-			// case hotspots_row : {
-				// break;
-			// }
+						
+			case "hotspots_row" : {
+				//Navigera till Sevärdheter
+				var hotspots = Alloy.createController('hotspots').getView().open();
+				break;
+			}
 			
 			case "trails_row" : {
 				//Navigera till Vandringsleder
