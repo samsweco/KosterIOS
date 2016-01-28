@@ -18,10 +18,10 @@
 				<ScrollableView id="slideShowHotspotDetail" showPagingControl="true"/>
 			</View>
 			<Label id="lblHotspotName"></Label>
-			<Label id="lblHotspotInfoTxt"></Label>
+			<Label id="lblHotspotInfoTxt" class="lblInfotxt"></Label>
 			
 			<View id="mapView">
-				<Button id="btnShowMap" onClick="showHotspotDetailMap" title="Visa sevärdhet på karta"></Button>
+				<Label id="lblHotspotMap" class="lblInfotxt" text="På kartan kan du se sevärdhetens position och vilka vandringsleder den ligger nära."></Label>
 				<View id="showHotspotMap"></View>
 			</View>
 		</ScrollView>

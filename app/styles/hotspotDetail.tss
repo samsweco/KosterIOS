@@ -32,18 +32,21 @@
 	color: '#FCAF17'
 }
 
-"#lblHotspotInfoTxt": {
+".lblInfotxt": {
 	left: '15dp',
 	top: '5dp',
-	right: '15dp',
+	right: '15dp'
+}
+
+"#lblHotspotInfoTxt": {
 	font: {
 		fontSize: '14dp',
 		fontFamily: 'Raleway-Light'
 	}
 }
 
-"#btnShowMap": {
-	top: '5dp',
+"#lblHotspotMap": {
+	color: '#FCAF17',
 	font: {
 		fontSize: '14dp',
 		fontFamily: 'Raleway-Medium'
@@ -51,14 +54,16 @@
 }
 
 "#showHotspotMap": {
-	height: 0,
+	height: '75%',
 	width: '95%',
-	top: '20%'
+	top: '10dp',
+	bottom: '10dp'
 }
 
 "#mapView": {
-	height: '10%',
+	height: '50%',
 	witdh: '90%',
 	top: '10dp',
-	backgroundColor: '#f5f5f5'
+	backgroundColor: '#f5f5f5',
+	layout: 'vertical'
 }

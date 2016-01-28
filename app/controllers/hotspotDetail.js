@@ -11,6 +11,7 @@ var latitude = args.x;
 var longitude = args.y;
 
 selectHotspotPics();
+showHotspotDetailMap();
 
 var mapShowing = false;
 
@@ -19,18 +20,7 @@ var mapShowing = false;
 //-----------------------------------------------------------
 function showHotspotDetailMap(){	
 	var detmap = showHotspotOnMap(latitude, longitude, hotspotId);
-	
 	$.showHotspotMap.add(detmap);
-	
-	if(mapShowing == false){
-		$.mapView.height = '40%';
-		$.showHotspotMap.height = '75%';
-		mapShowing = true;
-	}else{
-		$.mapView.height = '10%';
-		$.showHotspotMap.height = 0;
-		mapShowing = false;
-	}
 }
 
 //-----------------------------------------------------------
