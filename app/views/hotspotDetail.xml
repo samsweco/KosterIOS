@@ -9,6 +9,7 @@
 	<Window id="hotspotWin" onBlur="closeHotspot" class="container">
 		<LeftNavButton>
 			<Button id="btnCloseWindow" onClick="closeHotspot">
+				<!-- <Label id="backLbl" text="L('back_btns')"></Label> -->
 				Tillbaka
 			</Button>
 		</LeftNavButton>
@@ -21,7 +22,7 @@
 			<Label id="lblHotspotInfoTxt" class="lblInfotxt"></Label>
 			
 			<View id="mapView">
-				<Label id="lblHotspotMap" class="lblInfotxt" text="På kartan kan du se sevärdhetens position och vilka vandringsleder den ligger nära."></Label>
+				<Label id="lblHotspotMap" class="lblInfotxt" text="L('viewOnMap_lbl')"></Label>
 				<View id="showHotspotMap"></View>
 			</View>
 		</ScrollView>

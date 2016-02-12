@@ -12,7 +12,7 @@ setInteractiveViews();
 // Sätter label med rätt font som windowtitle
 //-----------------------------------------------------------
 var windowTitle = Ti.UI.createLabel({
-	text: "Bokstavsjakten",
+	text: String.format(L('interactive_row'), ''),
 	font: {
 		fontSize: '17dp',
 		fontFamily: 'Raleway-Medium'
@@ -343,7 +343,7 @@ function checkLetter(letterToCheck) {
 function setLabelText() {
 	try {
 	var found = fetchFoundLettersCol();
-	$.lblCollectedLetters.text = 'Bokstäver: ';
+	$.lblCollectedLetters.text = String.format(L('foundLetters_lbl'), '');
 
 	for (var i = 0; i < found.length; i++) {
 		$.lblCollectedLetters.text += found[i].letter;

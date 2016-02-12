@@ -8,7 +8,7 @@ setRowData();
 // Sätter label med rätt font som windowtitle
 //-----------------------------------------------------------
 var windowTitle = Ti.UI.createLabel({
-	text: "Vandringsleder",
+	text: String.format(L('hikes_row'), ''),
 	font: {
 		fontSize: '17dp',
 		fontFamily: 'Raleway-Medium'

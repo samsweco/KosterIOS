@@ -1,33 +1,33 @@
 <Alloy>
 	<View id="menuContainerView">
 		<View id="line"></View>
-			<Label id="lbl_menu_open" text="Öppna Meny" onClick="openMainMenu"></Label>
-			<Label id="lbl_menu_close" text="Stäng Meny" onClick="closeMainMenu"></Label>
+			<Label id="lbl_menu_open" text="L('openMenu_lbl')" onClick="openMainMenu"></Label>
+			<Label id="lbl_menu_close" text="L('closeMenu_lbl')" onClick="closeMainMenu"></Label>
 				<TableView id="table" onClick="navigate">
-                <TableViewRow title="Hem" id="home_row" class="tblRow"/>
-                <TableViewRow title="Information" id="info_row" class="tblRow"/>
-                <TableViewRow title="Båtresan" id="boat_row" class="tblRow">
+                <TableViewRow title="L('home_row')" id="home_row" class="tblRow"/>
+                <TableViewRow title="L('information_row')" id="info_row" class="tblRow"/>
+                <TableViewRow title="L('boattrip_row')" id="boat_row" class="tblRow">
                 <View class="switchView">
                 		<ImageView image="/images/sound.png"></ImageView>
-                		<Label class="lblSetGPSListener" text="Påminnelser"></Label>
+                		<Label class="lblSetGPSListener" text="L('reminder_lbl')"></Label>
 						<View class="switchClass">
 							<Switch id="geoSwitchBoat" class="switch" value="false" titleOn="På" titleOff="Av"></Switch>
 						</View>
 					</View>
 				</TableViewRow>
-                <TableViewRow title="Vandringsleder" id="trails_row" class="tblRow"/>
-                <TableViewRow title="Sevärdheter" id="hotspots_row"class="tblRow">
+                <TableViewRow title="L('hikes_row')" id="trails_row" class="tblRow"/>
+                <TableViewRow title="L('hotspot_row')" id="hotspots_row"class="tblRow">
                 	<View class="switchView">
                 		<ImageView image="/images/sound.png"></ImageView>
-                		<Label class="lblSetGPSListener" text="Påminnelser"></Label>
+                		<Label class="lblSetGPSListener" text="L('reminder_lbl')"></Label>
 						<View class="switchClass">
 							<Switch id="geoSwitchHotspot" class="switch" value="false" titleOn="På" titleOff="Av"></Switch>
 						</View>
 					</View>
                 </TableViewRow>
-                <TableViewRow title="Karta" id="map_row" class="tblRow"/>
-                <TableViewRow title="Bokstavsjakten" id="interactive_row" class="tblRow"/>
-                <TableViewRow title="Nyheter på Kosteröarna" id="newsfeed_row" class="tblRow"/>
+                <TableViewRow title="L('map_row')" id="map_row" class="tblRow"/>
+                <TableViewRow title="L('interactive_row')" id="interactive_row" class="tblRow"/>
+                <TableViewRow title="L('newsfeed_row')" id="newsfeed_row" class="tblRow"/>
         </TableView>
 	</View>
 </Alloy>

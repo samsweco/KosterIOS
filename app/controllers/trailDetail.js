@@ -18,7 +18,6 @@ try {
 selectTrailPics();
 LoadHotspotList();
 showIcons();
-changeLabel();
 
 //-----------------------------------------------------------
 // Kontrollerar vilken led man öppnat och sätter specifika 
@@ -27,7 +26,7 @@ changeLabel();
 if(args.title == 'Äventyrsslingan'){
 	$.btnSendTo.show();
 	$.btnSendTo.height = '20dp';
-	$.btnSendTo.title = 'Gå till bokstavsjakten!';
+	$.btnSendTo.title = String.format(L('goToGame_btn'), '');
 	
 	$.btnSendTo.addEventListener('click', function(){
 		var sendToInteractive = Alloy.createController("interactive").getView().open();
@@ -35,14 +34,14 @@ if(args.title == 'Äventyrsslingan'){
 } 
 if(args.title == 'Båtresan'){
 	var windowTitle = Ti.UI.createLabel({
-		text: "Båtresan",
+		text: String.format(L('boattrip_row'), ''),
 		font: {
 			fontSize: '17dp',
 			fontFamily: 'Raleway-Medium'
 		}
 	});
 	$.hikeDetailWin.titleControl = windowTitle;
-	$.btnShowOnMap.title = "Visa på karta";	
+	$.btnShowOnMap.title = String.format(L('goToDetailMapBoat_btn'), '');	
 } else {
 	var btnBack = Ti.UI.createButton({
 		title : 'Tillbaka'
@@ -52,7 +51,7 @@ if(args.title == 'Båtresan'){
     });
 	
 	$.hikeDetailWin.leftNavButton = btnBack;
-	$.btnShowOnMap.title = "Visa led på karta";
+	$.btnShowOnMap.title = String.format(L('goToDetailMap_btn'), '');
 }
 
 //-----------------------------------------------------------
@@ -235,21 +234,6 @@ function showIcons() {
 		}
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled-showIcons");
-	}
-}
-
-//-----------------------------------------------------------
-// Sätter text i en label utefter vilken led som visas
-//-----------------------------------------------------------
-function changeLabel(){
-	try {
-		if (args.title == "Båtleden") {
-			$.lblLangsVagen.text = "Det här kan du läsa om på båtresan:";
-		} else {
-			$.lblLangsVagen.text = "Det här kan du se längs vägen:";
-		}
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled");
 	}
 }
  

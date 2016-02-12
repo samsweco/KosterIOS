@@ -4,7 +4,7 @@
 	<Collection src="infospotCoordinatesModel" />
 	<View id="mapmenu">
 		<View class="lineView"></View>
-		<Label id="lblChoosePikto">Välj vilka informationspunkter du vill se:</Label>
+		<Label id="lblChoosePikto" text="L('choosePikto_lbl')"></Label>
 		<View id="selectIconView">
 			<Button id="btnShowFarjelage" class="btnChange" backgroundImage="/images/grayfarjelage.png" onClick="showFarglage"></Button>
 			<Button id="btnShowEldplats" class="btnChange" backgroundImage="/images/grayeldplats.png" onClick="showEldplats"></Button>
@@ -20,14 +20,14 @@
 		<View id="settingsView">
 			<View id="hotSwitchView" class="settingsHorizontalView">
 				<ImageView image="/images/hotspotflag.png"></ImageView>
-				<Label id="btnShowHotspots" text="Visa sevärdheter"></Label>
+				<Label id="btnShowHotspots" text="L('showHotspots_switch')"></Label>
 				<View id="v1">
 					<Switch id="hotspotSwitch" class="switch" value="false"></Switch>
 				</View>
 			</View>
 			<View id="myposSwitchView" class="settingsHorizontalView">
 				<ImageView image="/images/locationarrow.png"></ImageView>
-				<Label id="lblSetMypos" text="Visa min position"></Label>
+				<Label id="lblSetMypos" text="L('showPosition_switch')"></Label>
 				<View id="v3">
 					<Switch id="posSwitch" class="switch" value="false" titleOn="På" titleOff="Av"></Switch>
 				</View>	

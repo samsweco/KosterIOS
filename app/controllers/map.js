@@ -15,7 +15,7 @@ displayBigMap();
 // Sätter label med rätt font som windowtitle
 //-----------------------------------------------------------
 var windowTitle = Ti.UI.createLabel({
-	text: "Karta",
+	text: String.format(L('map_row'), ''),
 	font: {
 		fontSize: '17dp',
 		fontFamily: 'Raleway-Medium'

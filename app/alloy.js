@@ -8,6 +8,16 @@
 // accessible globally by attaching them to the `Alloy.Globals`
 // object. For example:
 
+
+if (Ti.Locale.currentLanguage == 'sv') {
+	Ti.App.Properties.setString('baseSavePath', Titanium.Filesystem.applicationDataDirectory + '/data/sv/');
+} else {
+	Ti.API.info(Ti.Locale.currentLanguage);	
+	Ti.App.Properties.setString('baseSavePath', Titanium.Filesystem.applicationDataDirectory + '/data/en/');
+}
+
+
+
 //-----------------------------------------------------------
 // Globala variabler
 //-----------------------------------------------------------

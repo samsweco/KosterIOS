@@ -8,7 +8,7 @@ setRowData();
 // Sätter label med rätt font som windowtitle
 //-----------------------------------------------------------
 var windowTitle = Ti.UI.createLabel({
-	text: "Sevärdheter",
+	text: String.format(L('hotspot_row'), ''),
 	font: {
 		fontSize: '17dp',
 		fontFamily: 'Raleway-Medium'

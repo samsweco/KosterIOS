@@ -3,7 +3,7 @@
 	<Collection src="letterModel" />
 
 	<NavigationWindow id="navInfoDetail" platform="ios" navBarHidden="true">
-	<Window id="infoDetail" class="container"> <!-- onBlur="closeInfoWindow" -->
+	<Window id="infoDetail" class="container">
 		<LeftNavButton>
 			<Button id="btnCloseWindow" onClick="closeInfoWindow">
 				Tillbaka
@@ -17,7 +17,7 @@
 			
 			<Label id="lblInfoTitle1"></Label>
 			<Label id="lblInfoText"></Label>
-			<Label id="lblLink" text="Läs mer via länkarna nedan:"></Label>
+			<Label id="lblLink" text="L('links_lbl')"></Label>
 			<View id="linkView">
 				<TableView id="tableView" onClick="getLink">
 					<TableViewRow class="row" onClick="getLink" />

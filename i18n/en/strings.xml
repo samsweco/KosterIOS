@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<string name="welcome_title">Engelska</string>
+    <string name="welcome_txt">Engelska</string>
+    <string name="back_btns">Back</string>
+    <string name="viewOnMap_lbl">Hotspot location</string>
+    <string name="links_lbl">Read more:</string>
+    <string name="scrollLeads_lbl">Scroll</string>
+    <string name="writeWord_lbl">Guess the word!</string>
+    <string name="wordClue_lbl">Hint: A floating jelly lump in the sea.</string>
+    <string name="sendWord_btn">Send the word</string>
+    <string name="sendLetter_btn">Send the letter</string>
+    <string name="nextClue_lbl">Click here if you can not find the letter.</string>
+    <string name="welcomeGame_txt">Welcome!</string>
+    <string name="gameFirstRow_lbl">Engelska</string>
+    <string name="gameSecondRow_lbl">Engelska</string>
+    <string name="gameThirdRow_lbl">Engelska</string>
+    <string name="gameFourthRow_lbl">Engelska</string>
+    <string name="gameFifthRow_lbl">Engelska</string>
+    <string name="startGame_btn">Start game!</string>
+    <string name="foundLetters_lbl">Letters: </string>
+    <string name="openMenu_lbl">Open menu</string>
+    <string name="closeMenu_lbl">Close menu</string>
+    <string name="home_row">Home</string>
+    <string name="information_row">Information</string>
+    <string name="boattrip_row">Boat trip</string>
+    <string name="hikes_row">Hike trails</string>
+    <string name="hotspot_row">Attractions</string>
+    <string name="map_row">Map</string>
+    <string name="interactive_row">Letter game</string>
+    <string name="newsfeed_row">Instagram feed</string>
+    <string name="reminder_lbl">Reminder</string>
+    <string name="goToGame_btn">Go to the letter game!</string>
+    <string name="goToDetailMapBoat_btn">Show on map</string>
+    <string name="goToDetailMap_btn">Show trail on map</string>
+    <string name="hotspotList_lbl">What you can see along the way:</string>
+    <string name="choosePikto_lbl">Choose information points you want to see:</string>
+    <string name="showHotspots_switch">Show attractions</string>
+    <string name="showPosition_switch">Show my position</string>
+    <string name=""></string>
+    <string name=""></string>
+    <string name=""></string>
+</resources>

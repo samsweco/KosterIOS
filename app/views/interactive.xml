@@ -16,28 +16,28 @@
 						<ScrollableView id="slides" scrollType="horizontal" showPagingControl="true"/>
 					</View>
 				</View>
-				<Label id="lblScroll" text="Scrolla mellan ledtrådarna"></Label>
+				<Label id="lblScroll" text="L('scrollLeads_lbl')"></Label>
 				<View id="lettersView">
 					<!-- Skriv in rätt ord -->
-					<Label id="wordClue" text="Skriv ordet du bildat av bokstäverna!"></Label>
-					<Label id="wordClueLbl" text="Ledtråd: En svävande geléklump i havet."></Label>
+					<Label id="wordClue" text="L('writeWord_lbl')"></Label>
+					<Label id="wordClueLbl" text="L('wordClue_lbl')"></Label>
 					<TextField id="txtLetter"/>
-					<Button id="sendWord" onClick="checkWord" title="Skicka ordet"></Button>
+					<Button id="sendWord" onClick="checkWord" title="L('sendWord_btn')"></Button>
 
 					<!-- Skriv in rätt bokstav -->
-					<Button id="sendOneLetter" onClick="sendLetter" title="Skicka bokstav"></Button>
+					<Button id="sendOneLetter" onClick="sendLetter" title="L('sendLetter_btn')"></Button>
 					<Label id="lblCollectedLetters"/>
-					<Button id="nextClue" onClick="toNextClue" title="Klicka här om du inte hittar bokstaven."></Button>
+					<Button id="nextClue" onClick="toNextClue" title="L('nextClue_lbl')"></Button>
 				</View>
 				<View id="hideView">
 					<!-- Välkomstvy -->
-					<Label id="lblWelcome" text="Välkommen till bokstavsjakten!"></Label>
-					<Label id="lblInfoText" text="Vandra äventyrslingan och leta efter de 9 bokstäverna som finns gömda längs leden!"></Label>
-					<Label class="label" text="Längs vägen kommer du få ledtrådar som hjälper dig finna bokstäverna."></Label>
-					<Label class="label" text="När du hittat alla bokstäver kan du försöka lista ut det hemliga ordet."></Label>
-					<Label class="label" text="Du kan se bokstävernas ungefärliga läge och nummer med hjälp av de ruda cirklarna. När du hittat en bokstav blir cirkeln för den bokstaven grön."></Label>
-					<Label class="label" text="Om du inte hittar bokstaven kan du få hjälp i appen genom att klicka på en knapp som ger dig den korrekta bokstaven. "></Label>
-					<Button id="btnStartQuiz" onClick="startInteractive" title="Starta bokstavsjakten!"></Button>
+					<Label id="lblWelcome" text="L('welcomeGame_txt')"></Label>
+					<Label id="lblInfoText" text="L('gameFirstRow_lbl')"></Label>
+					<Label class="label" text="L('gameSecondRow_lbl')"></Label>
+					<Label class="label" text="L('gameThirdRow_lbl')"></Label>
+					<Label class="label" text="L('gameFourthRow_lbl')"></Label>
+					<Label class="label" text="L('gameFifthRow_lbl')"></Label>
+					<Button id="btnStartQuiz" onClick="startInteractive" title="L('startGame_btn')"></Button>
 				</View>
 			</ScrollView>
 			<Widget src="menu" name="widget"/>

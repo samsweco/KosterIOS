@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<string name="welcome_title">Välkommen till Kosterhavet!</string>
+    <string name="welcome_txt">Upptäck den vackra naturen i Kosterhavet och ta en promenad bland klapperstensfält och strandängar.</string>
+    <string name="back_btns">Tillbaka</string>
+    <string name="viewOnMap_lbl">På kartan kan du se sevärdhetens position och vilka vandringsleder den ligger nära.</string>
+    <string name="links_lbl">Läs mer via länkarna nedan:</string>
+    <string name="scrollLeads_lbl">Scrolla mellan ledtrådarna</string>
+    <string name="writeWord_lbl">Skriv ordet du bildat av bokstäverna!</string>
+    <string name="wordClue_lbl">Ledtråd: En svävande geléklump i havet.</string>
+    <string name="sendWord_btn">Skicka ordet</string>
+    <string name="sendLetter_btn">Skicka bokstav</string>
+    <string name="nextClue_lbl">Klicka här om du inte hittar bokstaven.</string>
+    <string name="welcomeGame_txt">Välkommen till bokstavsjakten!</string>
+    <string name="gameFirstRow_lbl">Vandra äventyrslingan och leta efter de 9 bokstäverna som finns gömda längs leden!</string>
+    <string name="gameSecondRow_lbl">Längs vägen kommer du få ledtrådar som hjälper dig finna bokstäverna.</string>
+    <string name="gameThirdRow_lbl">När du hittat alla bokstäver kan du försöka lista ut det hemliga ordet.</string>
+    <string name="gameFourthRow_lbl">Du kan se bokstävernas ungefärliga läge och nummer med hjälp av de ruda cirklarna. När du hittat en bokstav blir cirkeln för den bokstaven grön.</string>
+    <string name="gameFifthRow_lbl">Om du inte hittar bokstaven kan du få hjälp i appen genom att klicka på en knapp som ger dig den korrekta bokstaven.</string>
+    <string name="startGame_btn">Starta bokstavsjakten!</string>
+    <string name="foundLetters_lbl">Bokstäver: </string>
+    <string name="openMenu_lbl">Öppna meny</string>
+    <string name="closeMenu_lbl">Stäng meny</string>
+    <string name="home_row">Hem</string>
+    <string name="information_row">Turistinformation</string>
+    <string name="boattrip_row">Båtresan</string>
+    <string name="hikes_row">Vandringsleder</string>
+    <string name="hotspot_row">Sevärdheter</string>
+    <string name="map_row">Karta</string>
+    <string name="interactive_row">Bokstavsjakten</string>
+    <string name="newsfeed_row">Nyheter på Kosteröarna</string>
+    <string name="reminder_lbl">Påminnelse</string>
+    <string name="goToGame_btn">Gå till bokstavsjakten!</string>
+    <string name="goToDetailMapBoat_btn">Visa på karta</string>
+    <string name="goToDetailMap_btn">Visa led på karta</string>
+    <string name="hotspotList_lbl">Det här kan du se längs vägen:</string>
+    <string name="choosePikto_lbl">Välj vilka informationspunkter du vill se:</string>
+    <string name="showHotspots_switch">Visa sevärdheter</string>
+    <string name="showPosition_switch">Visa min position</string>
+    <string name=""></string>
+    <string name=""></string>
+</resources>

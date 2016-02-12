@@ -25,7 +25,7 @@
 						<Label id="lblTrailInfo"></Label>
 					</View>
 					<Button id="btnSendTo"></Button>
-					<Label id="lblLangsVagen"></Label>
+					<Label id="lblLangsVagen" text="L('hotspotList_lbl')"></Label>
 					<View id="trail_hotspotView">
 						<TableView id="hotspotTable" onClick="showHotspotDetail" />
 					</View>
