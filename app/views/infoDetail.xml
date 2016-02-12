@@ -5,9 +5,7 @@
 	<NavigationWindow id="navInfoDetail" platform="ios" navBarHidden="true">
 	<Window id="infoDetail" class="container">
 		<LeftNavButton>
-			<Button id="btnCloseWindow" onClick="closeInfoWindow">
-				Tillbaka
-			</Button>
+			<Button id="btnCloseWindow" onClick="closeInfoWindow" image="/images/backarrow.png"></Button>
 		</LeftNavButton>
 		<View>
 		<ScrollView id="infoDetailView" class="container" scrollType="vertical">

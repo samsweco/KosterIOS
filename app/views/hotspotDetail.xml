@@ -8,10 +8,7 @@
 	
 	<Window id="hotspotWin" onBlur="closeHotspot" class="container">
 		<LeftNavButton>
-			<Button id="btnCloseWindow" onClick="closeHotspot">
-				<!-- <Label id="backLbl" text="L('back_btns')"></Label> -->
-				Tillbaka
-			</Button>
+			<Button id="btnCloseWindow" onClick="closeHotspot" image="/images/backarrow.png"></Button>
 		</LeftNavButton>
 		<View>
 		<ScrollView id="hotspotView" class="container" scrollType="vertical">

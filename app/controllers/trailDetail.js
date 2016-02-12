@@ -44,7 +44,7 @@ if(args.title == 'Båtresan'){
 	$.btnShowOnMap.title = String.format(L('goToDetailMapBoat_btn'), '');	
 } else {
 	var btnBack = Ti.UI.createButton({
-		title : 'Tillbaka'
+		image: "/images/backarrow.png"
 	});
 	btnBack.addEventListener('click', function(e) {
         $.trailDetailNav.close();

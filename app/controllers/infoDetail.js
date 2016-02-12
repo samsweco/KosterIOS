@@ -94,7 +94,7 @@ function openLink(link) {
 		var window = Titanium.UI.createWindow();
 
 		var btnUrlBack = Ti.UI.createButton({
-			title: 'Tillbaka'
+			image: '/images/backarrow.png'
 		});
 		btnUrlBack.addEventListener('click', function(e) {
         	window.close();
@@ -122,7 +122,7 @@ function showRules(infTxt, linktitle){
 		});
 		
 		var btnBack = Ti.UI.createButton({
-			title: 'Tillbaka'
+			image: '/images/backarrow.png'
 		});
 		btnBack.addEventListener('click', function(e) {
         	infoWindowRules.close();

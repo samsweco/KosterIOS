@@ -14,7 +14,7 @@
 				<Button id="btnShowPosition" image="/images/locationarrow.png" onClick="showUserPosition" />
 			</RightNavButton>
 			<LeftNavButton>
-				<Button id="btnCloseWindow" onClick="closeMap">Tillbaka</Button>
+				<Button id="btnCloseWindow" onClick="closeMap" image="/images/backarrow.png"></Button>
 			</LeftNavButton>
 			<View id="mapDetailView"></View>
 			<Widget src="menu" name="widget"></Widget>
