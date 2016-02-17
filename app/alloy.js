@@ -18,6 +18,41 @@ if (Ti.Locale.currentLanguage == 'sv') {
 
 
 
+var languageWindow = Ti.UI.createWindow({
+	backgroundColor: 'white',
+	layout: 'vertical'
+});
+
+var lbl = Ti.UI.createLabel({
+	text: 'Välj språk',
+	top: 30
+});
+var lblSwe = Ti.UI.createLabel({
+	text: 'Svenska'
+});
+var lblEng = Ti.UI.createLabel({
+	text: 'Engelska'
+});
+
+lblSwe.addEventListener('click', function(e){
+	languageWindow.close();
+});
+
+languageWindow.add(lbl);
+languageWindow.add(lblSwe);
+languageWindow.add(lblEng);
+languageWindow.open({
+	modal:true
+});
+
+
+
+
+
+
+
+
+
 //-----------------------------------------------------------
 // Globala variabler
 //-----------------------------------------------------------
