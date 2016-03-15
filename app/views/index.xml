@@ -11,9 +11,13 @@
 		<View class="headView">
 			<ImageView class="imgKoster" image="/images/kosterhavet_logga.png"/>
 			<View id="lblView">
-				<Label id="firstLbl" class="lblFrontText" text="L('welcome_title')"></Label>
-				<Label id="secondLbl" class="lblFrontText" text="L('welcome_txt')"></Label>
+				<Label id="firstLbl" class="lblFrontText"></Label> <!-- text="L('welcome_title')"></Label> -->
+				<Label id="secondLbl" class="lblFrontText"></Label> <!-- text="L('welcome_txt')"></Label> -->
 			</View>
+			
+			<Button id="sweLang" title="Svenska" onClick="changeLang"></Button>
+			<Button id="engLang" title="Engelska" onClick="changeLang"></Button>
+			
 		</View>
 		<Widget src="menu" name="widget"/>
 	</Window>

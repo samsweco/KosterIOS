@@ -9,47 +9,57 @@
 // object. For example:
 
 
-if (Ti.Locale.currentLanguage == 'sv') {
+// var swe = false;
+// var eng = false;
+// 
+// var languageWindow = Ti.UI.createWindow({
+	// backgroundColor: 'white',
+	// layout: 'vertical'
+// });
+// 
+// var lbl = Ti.UI.createLabel({
+	// text: 'Välj språk',
+	// top: 30
+// });
+// var lblSwe = Ti.UI.createLabel({
+	// text: 'Svenska'
+// });
+// var lblEng = Ti.UI.createLabel({
+	// text: 'Engelska'
+// });
+// 
+// lblSwe.addEventListener('click', function(e){
+	// swe = true;
+	// languageWindow.close();
+// });
+// 
+// lblEng.addEventListener('click', function(e){
+	// eng = true;
+	// languageWindow.close();
+// });
+// 
+// languageWindow.add(lbl);
+// languageWindow.add(lblSwe);
+// languageWindow.add(lblEng);
+// 
+// // Titanium.App.addEventListener('', function(){
+	// // languageWindow.open({
+		// // modal:true
+	// // });
+// // });
+// Titanium.App.addEventListener('open', function() { 
+     // alert("this is a message"); 
+// });
+
+
+var language= "";
+
+
+if (Ti.Locale.currentLanguage == 'sv') { 
 	Ti.App.Properties.setString('baseSavePath', Titanium.Filesystem.applicationDataDirectory + '/data/sv/');
 } else {
-	Ti.API.info(Ti.Locale.currentLanguage);	
 	Ti.App.Properties.setString('baseSavePath', Titanium.Filesystem.applicationDataDirectory + '/data/en/');
 }
-
-
-
-var languageWindow = Ti.UI.createWindow({
-	backgroundColor: 'white',
-	layout: 'vertical'
-});
-
-var lbl = Ti.UI.createLabel({
-	text: 'Välj språk',
-	top: 30
-});
-var lblSwe = Ti.UI.createLabel({
-	text: 'Svenska'
-});
-var lblEng = Ti.UI.createLabel({
-	text: 'Engelska'
-});
-
-lblSwe.addEventListener('click', function(e){
-	languageWindow.close();
-});
-
-languageWindow.add(lbl);
-languageWindow.add(lblSwe);
-languageWindow.add(lblEng);
-languageWindow.open({
-	modal:true
-});
-
-
-
-
-
-
 
 
 
