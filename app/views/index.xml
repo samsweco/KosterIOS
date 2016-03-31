@@ -15,8 +15,8 @@
 				<Label id="secondLbl" class="lblFrontText"></Label> <!-- text="L('welcome_txt')"></Label> -->
 			</View>
 			
-			<Button id="sweLang" title="Svenska" onClick="changeLang"></Button>
-			<Button id="engLang" title="Engelska" onClick="changeLang"></Button>
+			<Button id="svenska" title="Svenska" onClick="setLang"></Button>
+			<Button id="engelska" title="Engelska" onClick="setLang"></Button>
 			
 		</View>
 		<Widget src="menu" name="widget"/>

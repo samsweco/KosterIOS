@@ -4,11 +4,19 @@ var args = arguments[0] || {};
 
 setRowData();
 
+var titleWin;
+
+if(language == 'svenska'){
+	titleWin = 'Vandringsleder';
+} else {
+	titleWin = 'Hike trails';
+}
+
 //-----------------------------------------------------------
 // Sätter label med rätt font som windowtitle
 //-----------------------------------------------------------
 var windowTitle = Ti.UI.createLabel({
-	text: String.format(L('hikes_row'), ''),
+	text: titleWin,//String.format(L('hikes_row'), ''),
 	font: {
 		fontSize: '17dp',
 		fontFamily: 'Raleway-Medium'
@@ -61,10 +69,19 @@ function setRowData() {
 					font : {
 						fontSize : '14dp',
 						fontFamily : 'Raleway-Medium'
-					},
-					text : trailRows[i].name
+					}
+					//text : trailRows[i].name
 				});
-
+				
+				Ti.API.info('svenska: ' + trailRows[i].name);
+				if(language == 'svenska'){
+					Ti.API.info('svenska: ' + trailRows[i].name);
+					lblName.text = trailRows[i].name;
+				} else {
+					Ti.API.info('engelska: ' + trailRows[i].name_eng);
+					lblName.text = trailRows[i].name_eng;
+				}
+	
 				var lblDistance = Ti.UI.createLabel({
 					left : '5dp',
 					top : '0dp',

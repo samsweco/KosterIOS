@@ -42,7 +42,7 @@
                 <key>CFBundleLocalizations</key>
                 <array>
                     <string>en</string>
-                    <string>se</string>
+                    <string>sv</string>
                 </array>
             </dict>
         </plist>
