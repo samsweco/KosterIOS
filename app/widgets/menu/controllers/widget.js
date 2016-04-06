@@ -53,8 +53,10 @@ function navigate(e) {
 			 var args = {
 				 id : 8,
 				 title : 'Båtresan',
+				 titleEng : 'The boat trip',
 				 length : 10,
 				 infoTxt : 'Välkommen på båtturen mellan Strömstad och Koster. Turen är cirka 10 km lång och tar mellan 30 och 60 minuter. Under resan kommer du få lite information om Kosterhavet och livet där.',
+				 infoTxtEng : 'Join us on a boat trip between Strömstad and Koster. It is about 10 km and takes between 30 and 60 minutes. During the trip you will get a little information about Kosterhavet and what is living there.',
 				 area : 'Strömstad-Koster',
 				 zoomlat : '58.936458',
 				 zoomlon : '11.172279',

@@ -4,10 +4,17 @@ Ti.include("collectionData.js");
 var args = arguments[0] || {};
 
 try {
-	$.lblTrailName.text = args.title || 'Default Name';
+	if(language == 'svenska'){
+		$.lblTrailName.text = args.title || 'Default Name';
+		$.lblTrailInfo.text = args.infoTxt || 'Default infoText';
+	} else {
+		$.lblTrailName.text = args.titleEng || 'Default Name';
+		$.lblTrailInfo.text = args.infoTxtEng || 'Default infoText';
+	}
+	
 	$.lblTrailLength.text = args.length + " kilometer" || 'Default Length';
 	$.lblTrailArea.text = args.area || 'Default Color';
-	$.lblTrailInfo.text = args.infoTxt || 'Default infoText';
+	
 
 	var trailId = args.id;
 	globalTrailID = trailId;
@@ -93,7 +100,7 @@ function selectTrailPics() {
 			var lblImgTxt = Ti.UI.createLabel({
 				left : '3dp',
 				top : '0.5dp',
-				text : mediaObjJSON[i].img_txt,
+				// text : mediaObjJSON[i].img_txt,
 				color : 'white',
 				font : {
 					fontSize : 12,
@@ -102,6 +109,12 @@ function selectTrailPics() {
 					fontFamily: 'Raleway-Medium'
 				}
 			});
+			
+			if(language == 'svenska'){
+				lblImgTxt.text = picMediaJSON[i].img_txt;
+			} else {
+				lblImgTxt.text = picMediaJSON[i].img_txt_eng;
+			}
 
 			var backgroundView = Ti.UI.createView({
 				layout : 'vertical',
@@ -158,9 +171,16 @@ function LoadHotspotList() {
 				font : {
 					fontSize : '14dp',
 					fontFamily: 'Raleway-Medium'
-				},
-				text : tableRow[i].name
+				}
+				// text : tableRow[i].name
 			});
+			
+			
+			if(language == 'svenska'){
+				lblName.text = tableRow[i].name;
+			} else {
+				lblName.text = tableRow[i].engelsk_titel;
+			}
 
 			labelView.add(lblName);
 
@@ -199,7 +219,9 @@ function showHotspotDetail(e) {
 
 		var hotspotTxt = {
 			title : jsonObjHot[0].name,
+			titleEng : jsonObjHot[0].engelsk_titel,
 			infoTxt : jsonObjHot[0].infoTxt,
+			infoTxtEng : jsonObjHot[0].engelsk_beskrivning,
 			id : hotspotId,
 			x : x,
 			y : y

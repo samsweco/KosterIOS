@@ -3,8 +3,14 @@ Ti.include("collectionData.js");
 
 var args = arguments[0] || {};
 
-$.lblHotspotName.text = args.title || "Name";
-$.lblHotspotInfoTxt.text = args.infoTxt || "Info";
+if(language == 'svenska'){
+	$.lblHotspotName.text = args.title || "Name";
+	$.lblHotspotInfoTxt.text = args.infoTxt || "Info";
+} else {
+	$.lblHotspotName.text = args.titleEng || "Name";
+	$.lblHotspotInfoTxt.text = args.infoTxtEng || "Info";
+}
+
 var hotspotId = args.id || "Id";
 var picId = args.filename || "filename";
 var latitude = args.x;
@@ -41,7 +47,7 @@ function selectHotspotPics() {
 			var lblImgTxt = Ti.UI.createLabel({
 				left : '3dp',
 				top : '0dp',
-				text : picMediaJSON[i].img_txt,
+				// text : picMediaJSON[i].img_txt,
 				color : 'white',
 				font : {
 					fontSize : '12dp',
@@ -50,6 +56,12 @@ function selectHotspotPics() {
 					fontFamily: 'Raleway-Medium'
 				}
 			});
+			
+			if(language == 'svenska'){
+				lblImgTxt.text = picMediaJSON[i].img_txt;
+			} else {
+				lblImgTxt.text = picMediaJSON[i].img_txt_eng;
+			}
 
 			var backgroundView = Ti.UI.createView({
 				layout : 'vertical',

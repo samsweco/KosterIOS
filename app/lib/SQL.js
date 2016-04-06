@@ -11,7 +11,7 @@ try {
 	var getInfospotsByTrailId = 'SELECT * FROM infospotCoordinatesModel join infospot_trailsModel on infospot_trailsModel.infospotID = infospotCoordinatesModel.infospotID where trailsID ="';
 	var getImgsByHotspotId = 'SELECT * FROM mediaModel WHERE hotspot_id = "';
 
-	var getUrlsByInfoId = 'SELECT * from info_urlModel WHERE info_id ="';
+	var getUrlsByInfoId = 'SELECT * from info_urlModel WHERE infoID ="';
 	var getUrlById = 'SELECT * from info_urlModel WHERE id ="';
 	var getInfoById = 'SELECT * from infoModel where id = "';
 

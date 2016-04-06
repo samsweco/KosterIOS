@@ -72,15 +72,6 @@ function setRowData() {
 					}
 					//text : trailRows[i].name
 				});
-				
-				Ti.API.info('svenska: ' + trailRows[i].name);
-				if(language == 'svenska'){
-					Ti.API.info('svenska: ' + trailRows[i].name);
-					lblName.text = trailRows[i].name;
-				} else {
-					Ti.API.info('engelska: ' + trailRows[i].name_eng);
-					lblName.text = trailRows[i].name_eng;
-				}
 	
 				var lblDistance = Ti.UI.createLabel({
 					left : '5dp',
@@ -88,8 +79,8 @@ function setRowData() {
 					font : {
 						fontSize : '11dp',
 						fontFamily : 'Raleway-Light'
-					},
-					text : 'Sträcka : ' + trailRows[i].length + " km"
+					}
+					// text : 'Sträcka : ' + trailRows[i].length + " km"				
 				});
 
 				var lblArea = Ti.UI.createLabel({
@@ -101,6 +92,17 @@ function setRowData() {
 					},
 					text : trailRows[i].area
 				});
+				
+				
+				Ti.API.info('svenska: ' + trailRows[i].name);
+				if(language == 'svenska'){
+					lblName.text = trailRows[i].name;
+					lblDistance.text = 'Sträcka : ' + trailRows[i].length + " km";
+				} else {
+					lblName.text = trailRows[i].name_eng;
+					lblDistance.text = 'Distance : ' + trailRows[i].length + " km";
+				}
+				
 
 				var iconView = showIcons(trailRows[i].id);
 
@@ -132,8 +134,10 @@ function showTrailDetails(e) {
 		var args = {
 			id : id,
 			title : trailJsonObj[0].name,
+			titleEng : trailJsonObj[0].name_eng,
 			length : trailJsonObj[0].length,
 			infoTxt : trailJsonObj[0].infoTxt,
+			infoTxtEng : trailJsonObj[0].infoTxt_eng,
 			area : trailJsonObj[0].area,
 			zoomlat : trailJsonObj[0].zoomLat,
 			zoomlon : trailJsonObj[0].zoomLon,

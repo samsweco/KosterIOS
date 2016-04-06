@@ -72,9 +72,15 @@ function setRowData() {
 					font : {
 						fontSize : '14dp',
 						fontFamily : 'Raleway-Medium'
-					},
-					text : hotspotRows[i].name
+					}
+					// text : hotspotRows[i].name
 				});
+				
+				if(language == 'svenska'){
+					lblName.text = hotspotRows[i].name;
+				} else {
+					lblName.text = hotspotRows[i].engelsk_titel;
+				}
 
 				labelView.add(lblName);
 
@@ -112,7 +118,9 @@ function showHotspotDetailView(e) {
 
 		var hotspotTxt = {
 			title : jsonObjHot[0].name,
+			titleEng : jsonObjHot[0].engelsk_titel,
 			infoTxt : jsonObjHot[0].infoTxt,
+			infoTxtEng : jsonObjHot[0].engelsk_beskrivning,
 			id : hotspotId,
 			x : x,
 			y : y

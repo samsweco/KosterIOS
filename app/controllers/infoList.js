@@ -25,7 +25,9 @@ function showinfoDetails(info) {
 		var selectedInfo = info.row;
 		var args = {
 			name : selectedInfo.name,
+			nameEng : selectedInfo.name_eng,
 			infoTxt : selectedInfo.infoTxt,
+			infoTxtEng : selectedInfo.infoTxt_eng,
 			link : selectedInfo.link,
 			img : selectedInfo.image,
 			desc : selectedInfo.desc
@@ -77,9 +79,15 @@ function setRowData() {
 				font : {
 					fontSize : '14dp',
 					fontFamily: 'Raleway-Medium'
-				},
-				text : rows[i].name
+				}
+				// text : rows[i].name
 			});
+			
+			if(language == 'svenska'){
+				lblName.text = rows[i].name;
+			} else {
+				lblName.text = rows[i].name_eng;
+			}
 
 			labelView.add(lblName);
 
@@ -105,7 +113,9 @@ function getInfoDetails(e) {
 
 		var infoText = {
 			name : infoObjJSON[0].name,
+			nameEng : infoObjJSON[0].name_eng,
 			infoTxt : infoObjJSON[0].infoTxt,
+			infoTxtEng : infoObjJSON[0].infoTxt_eng,
 			id : id,
 			img : infoObjJSON[0].cover_img,
 			link : infoObjJSON[0].url,

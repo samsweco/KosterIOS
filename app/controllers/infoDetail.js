@@ -4,9 +4,15 @@ Ti.include("collectionData.js");
 var args = arguments[0] || {};
 
 try {
-	$.lblInfoTitle1.text = args.name || "Title";
+	if(language == 'svenska'){
+		$.lblInfoTitle1.text = args.name || "Title";
+		$.lblInfoText.text = args.infoTxt;
+	} else {
+		$.lblInfoTitle1.text = args.nameEng || "Title";
+		$.lblInfoText.text = args.infoTxtEng;
+	}
+	
 	$.infoImg.image = "/images/" + args.img;
-	$.lblInfoText.text = args.infoTxt;
 	var id = args.id;
 
 } catch(e) {
@@ -19,7 +25,7 @@ setRowData();
 // Sätter alla items i länklistan
 //-----------------------------------------------------------
 function setRowData() {
-	try {
+	// try {
 		var tableViewData = [];
 		var urlList = returnUrlByInfoId(id);
 
@@ -38,9 +44,15 @@ function setRowData() {
 				font : {
 					fontSize : '13dp',
 				},
-				color : '#0098C3',
-				text : urlList[i].linkname
+				color : '#0098C3'
+				// text : urlList[i].linkname
 			});
+			
+			if(language == 'svenska'){
+				linkName.text = urlList[i].linkname;
+			} else {
+				linkName.text = urlList[i].linkname_eng;
+			}
 
 			row.add(linkName);
 			tableViewData.push(row);
@@ -55,39 +67,47 @@ function setRowData() {
 			$.tableView.height = 0;
 		}
 
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Informationssidan");
-	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Informationssidan");
+	// }
 }
 
 //-----------------------------------------------------------
 // Hämtar all info som ska läsas in i listan
 //-----------------------------------------------------------
 function getLink(e) {
-	try {
+	// try {
 		var rowId = e.rowData.id;
 		
 		var urlById = returnUrlById(rowId);
 		
+		var txt;
+		var titl; 
+		
+		if(language == 'svenska'){
+			txt = urlById[0].url;
+			titl = urlById[0].linkname;
+		} else {
+			txt = urlById[0].url_eng;
+			titl = urlById[0].linkname_eng;
+		}
+		
 		if(rowId != 3 && rowId != 4){			
-			var web = urlById[0].url;
-			openLink(web); 
-		} else if(rowId == 3 || rowId == 4){
-			var txt = urlById[0].url;
-			var titl = urlById[0].linkname; 
+			openLink(txt); 
+		} else if(rowId == 3 || rowId == 4){			
 			showRules(txt, titl);
 		} 	
 			
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Informationssidan");
-	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Informationssidan");
+	// }
 }
 
 //-----------------------------------------------------------
 // Öppnar url'en i en webView.
 //-----------------------------------------------------------
 function openLink(link) {
-	try {
+	// try {
 		var webview = Titanium.UI.createWebView({
 			url : link
 		});
@@ -105,9 +125,9 @@ function openLink(link) {
 		window.add(webview);
 		$.navInfoDetail.openWindow(window);
 
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Informationssidan");
-	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Informationssidan");
+	// }
 }
 
 //-----------------------------------------------------------
