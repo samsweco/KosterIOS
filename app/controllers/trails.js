@@ -6,6 +6,8 @@ setRowData();
 
 var titleWin;
 
+Ti.API.info('trails.js : ' +  language);
+
 if(language == 'svenska'){
 	titleWin = 'Vandringsleder';
 } else {
@@ -127,7 +129,7 @@ function setRowData() {
 // Öppnar trail detail med args för den valda leden
 //-----------------------------------------------------------
 function showTrailDetails(e) {
-	try {
+	// try {
 		var id = e.rowData.id;
 		var trailJsonObj = returnSpecificTrailById(id);
 
@@ -147,9 +149,9 @@ function showTrailDetails(e) {
 
 		var trailDetail = Alloy.createController("trailDetail", args).getView();
 		$.trailNav.openWindow(trailDetail);
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsleder");
-	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsleder");
+	// }
 }
 
 //-----------------------------------------------------------

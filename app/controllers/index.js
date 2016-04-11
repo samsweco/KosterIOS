@@ -16,11 +16,11 @@ function setTexts(){
 	// setTxt('welcome_title');
 }
 
-function setLang(e){
-	var lang = e.source.id;
-	language = lang;
-	setTexts();
-}
+// function setLang(e){
+	// var lang = e.source.id;
+	// language = lang;
+	// setTexts();
+// }
 
 // function setTxt(txt){
 // 	

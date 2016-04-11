@@ -111,9 +111,9 @@ function selectTrailPics() {
 			});
 			
 			if(language == 'svenska'){
-				lblImgTxt.text = picMediaJSON[i].img_txt;
+				lblImgTxt.text = mediaObjJSON[i].img_txt;
 			} else {
-				lblImgTxt.text = picMediaJSON[i].img_txt_eng;
+				lblImgTxt.text = mediaObjJSON[i].img_txt_eng;
 			}
 
 			var backgroundView = Ti.UI.createView({

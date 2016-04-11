@@ -52,17 +52,20 @@
 // });
 
 
-var language= "";
+var language = "";
+
+Ti.API.info('currentLanguage : ' + Ti.Locale.currentLanguage);
 
 
-if (Ti.Locale.currentLanguage == 'sv') { 
+if (Ti.Locale.currentLanguage == 'sv-SE') { 
 	Ti.App.Properties.setString('baseSavePath', Titanium.Filesystem.applicationDataDirectory + '/data/sv/');
-	language = 'svenska';
+	language = 'svenska';	
 } else {
 	Ti.App.Properties.setString('baseSavePath', Titanium.Filesystem.applicationDataDirectory + '/data/en/');
 	language = 'engelska';
 }
 
+Ti.API.info('app.js : ' +  language);
 
 
 //-----------------------------------------------------------

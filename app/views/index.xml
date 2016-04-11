@@ -14,10 +14,10 @@
 				<Label id="firstLbl" class="lblFrontText"></Label> <!-- text="L('welcome_title')"></Label> -->
 				<Label id="secondLbl" class="lblFrontText"></Label> <!-- text="L('welcome_txt')"></Label> -->
 			</View>
-			
+			<!-- 
 			<Button id="svenska" title="Svenska" onClick="setLang"></Button>
 			<Button id="engelska" title="Engelska" onClick="setLang"></Button>
-			
+			 -->
 		</View>
 		<Widget src="menu" name="widget"/>
 	</Window>
