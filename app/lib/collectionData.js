@@ -2,6 +2,7 @@ Ti.include('SQL.js');
 
 var info_urlCollection = Alloy.Collections.info_urlModel;
 var info_Collection = Alloy.Collections.infoModel;
+var entrys_Collection = Alloy.Collections.entrys;
 var media_Collection = Alloy.Collections.mediaModel;
 var trail_Collection = Alloy.Collections.trailsModel;
 var infoCoord_Collection = Alloy.Collections.infospotCoordinatesModel;
@@ -158,6 +159,14 @@ function returnSpecificInfo(infoSpecId) {
 	return infoJson;
 }
 
+function returnEntrysImages(){
+	entrys_Collection.fetch({
+		query : 'SELECT filename FROM entrys'
+	});
+	
+	var enrtyJson = entrys_Collection.toJSON();
+	return enrtyJson;
+}
 
 //-----------------------------------------------------------
 // media
