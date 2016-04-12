@@ -3,7 +3,7 @@
 	bottom: 0,
 	backgroundColor: 'white',
 	opacity: 0.9,
-	height: '180dp',
+	height: '150dp',
 	width: '100%'
 }
 

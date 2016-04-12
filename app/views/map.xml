@@ -9,7 +9,7 @@
 	<Model src="hotspotModel" />
 	
 	<NavigationWindow id="mapNav" platform="ios">
-		<Window id="mapWindow" onBlur="closeBigMap">
+		<Window id="mapWindow" onClose="closeBigMap">
 			<RightNavButton>
 				<Button id="btnShowMenu" image="/images/hamburger.png" onClick="showMapMenu" />
 			</RightNavButton>

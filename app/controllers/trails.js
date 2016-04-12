@@ -6,8 +6,6 @@ setRowData();
 
 var titleWin;
 
-Ti.API.info('trails.js : ' +  language);
-
 if(language == 'svenska'){
 	titleWin = 'Vandringsleder';
 } else {
@@ -95,8 +93,6 @@ function setRowData() {
 					text : trailRows[i].area
 				});
 				
-				
-				Ti.API.info('svenska: ' + trailRows[i].name);
 				if(language == 'svenska'){
 					lblName.text = trailRows[i].name;
 					lblDistance.text = 'Sträcka : ' + trailRows[i].length + " km";

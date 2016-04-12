@@ -53,7 +53,9 @@ function showHotspotDetailMap(hotId) {
 
 		var hotspotTxt = {
 			title : jsonObjHot[0].name,
+			titleEng : jsonObjHot[0].engelsk_titel,
 			infoTxt : jsonObjHot[0].infoTxt,
+			infoTxtEng : jsonObjHot[0].engelsk_beskrivning,
 			id : jsonObjHot[0].id,
 			x : jsonObjHot[0].xkoord,
 			y : jsonObjHot[0].ykoord

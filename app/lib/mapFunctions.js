@@ -202,7 +202,7 @@ function displayTrailMarkers(maptype) {
 				id : trailJson[i].name,
 				latitude : trailJson[i].pinLat,
 				longitude : trailJson[i].pinLon,
-				title : trailJson[i].name,
+				//title : trailJson[i].name,
 				subtitle : trailJson[i].area + ', ' + trailJson[i].length + ' km',
 				rightButton : '/images/arrow.png',
 				centerOffset : {
@@ -214,6 +214,12 @@ function displayTrailMarkers(maptype) {
 					fontStyle : 'Raleway-Light'
 				}
 			});
+			
+			if(language == 'svenska'){
+				markerAnnotation.title = trailJson[i].name;
+			} else {
+				markerAnnotation.title = trailJson[i].name_eng;
+			}
 			
 			if(trailJson[i].name != 'Båtresan'){
 				markerAnnotation.image = '/images/pin-' + trailJson[i].pincolor + '.png';
@@ -294,8 +300,8 @@ function displayAllMarkers() {
 				id : hotJson[u].name,
 				latitude : hotJson[u].xkoord,
 				longitude : hotJson[u].ykoord,
-				title : hotJson[u].name,
-				subtitle : 'Läs mer om ' + hotJson[u].name + ' här!',
+				// title : hotJson[u].name,
+				// subtitle : 'Läs mer om ' + hotJson[u].name + ' här!',			
 				image : '/images/hot-icon-azure.png',
 				centerOffset : {
 					x : -3,
@@ -304,6 +310,14 @@ function displayAllMarkers() {
 				rightButton : '/images/arrow.png',
 				name : 'hotspot'
 			});
+			
+			if(language == 'svenska'){
+				markerHotspot.title = hotJson[u].name;
+				markerHotspot.subtitle = 'Läs mer om ' + hotJson[u].name + ' här!';
+			} else {
+				markerHotspot.title = hotJson[u].engelsk_titel;
+				markerHotspot.subtitle = 'Read more about ' + hotJson[u].engelsk_titel + ' here!';
+			}
 
 			markerHotspotArray.push(markerHotspot);
 		}
@@ -375,12 +389,20 @@ function displaySpecificMarkers(id, maptype) {
 				id : specificHotspots[u].name,
 				latitude : specificHotspots[u].xkoord,
 				longitude : specificHotspots[u].ykoord,
-				title : specificHotspots[u].name,
-				subtitle : 'Läs mer om ' + specificHotspots[u].name + ' här!',
+				// title : specificHotspots[u].name,
+				// subtitle : 'Läs mer om ' + specificHotspots[u].name + ' här!',			
 				image : '/images/hot-icon-azure.png',
 				rightButton : '/images/arrow.png',
 				name : 'hotspot'
 			});
+			
+			if(language == 'svenska'){
+				markerSpecificHotspot.title = specificHotspots[u].name;
+				markerSpecificHotspot.subtitle = 'Läs mer om ' + specificHotspots[u].name + ' här!';
+			} else {
+				markerSpecificHotspot.title = specificHotspots[u].engelsk_titel;
+				markerSpecificHotspot.subtitle = 'Read more about ' + specificHotspots[u].engelsk_titel + ' here!';
+			}
 
 			markerSpecHotspotArray.push(markerSpecificHotspot);
 		}

@@ -44,8 +44,10 @@ function showTrail(myId) {
 		var args = {
 			id : jsonObjTrail[0].id,
 			title : myId,
+			titleEng : jsonObjTrail[0].name_eng,
 			length : jsonObjTrail[0].length,
 			infoTxt : jsonObjTrail[0].infoTxt,
+			infoTxtEng : jsonObjTrail[0].infoTxt_eng,
 			area : jsonObjTrail[0].area,
 			color : jsonObjTrail[0].color,
 			zoomlat : jsonObjTrail[0].zoomLat,
@@ -81,7 +83,9 @@ function showHotspotDet(hotId) {
 
 		var hotspotTxt = {
 			title : jsonObjHot[0].name,
+			titleEng : jsonObjHot[0].engelsk_titel,
 			infoTxt : jsonObjHot[0].infoTxt,
+			infoTxtEng : jsonObjHot[0].engelsk_beskrivning,
 			id : hotspotId,
 			x : x,
 			y : y
