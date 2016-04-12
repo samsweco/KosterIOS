@@ -1,20 +1,20 @@
 Ti.include('/geoFunctions.js');
 $.koster.open();
 
-var infoVisible = false;
-setTexts();
+// var infoVisible = false;
+// setTexts();
 
-function setTexts(){
-	if(language == 'svenska'){
-		$.firstLbl.text = 'Välkommen till Kosterhavet!';
-		$.secondLbl.text = 'Upptäck den vackra naturen i Kosterhavet och ta en promenad bland klapperstensfält och strandängar.';
-	} else {
-		$.firstLbl.text = 'Welcome to Kosterhavet!';
-		$.secondLbl.text = 'Discover the beautiful nature of Kosterhavet and take a walk among the rubble fields and beach meadows.';
-	}
-	
-	// setTxt('welcome_title');
-}
+// function setTexts(){
+	// if(language == 'svenska'){
+		// $.firstLbl.text = 'Välkommen till Kosterhavet!';
+		// $.secondLbl.text = 'Upptäck den vackra naturen i Kosterhavet och ta en promenad bland klapperstensfält och strandängar.';
+	// } else {
+		// $.firstLbl.text = 'Welcome to Kosterhavet!';
+		// $.secondLbl.text = 'Discover the beautiful nature of Kosterhavet and take a walk among the rubble fields and beach meadows.';
+	// }
+// 	
+	// // setTxt('welcome_title');
+// }
 
 // function setLang(e){
 	// var lang = e.source.id;

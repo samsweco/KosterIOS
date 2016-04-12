@@ -11,8 +11,8 @@
 		<View class="headView">
 			<ImageView class="imgKoster" image="/images/kosterhavet_logga.png"/>
 			<View id="lblView">
-				<Label id="firstLbl" class="lblFrontText"></Label> <!-- text="L('welcome_title')"></Label> -->
-				<Label id="secondLbl" class="lblFrontText"></Label> <!-- text="L('welcome_txt')"></Label> -->
+				<Label id="firstLbl" class="lblFrontText" text="L('welcome_title')"></Label> -->
+				<Label id="secondLbl" class="lblFrontText" text="L('welcome_txt')"></Label> -->
 			</View>
 			<!-- 
 			<Button id="svenska" title="Svenska" onClick="setLang"></Button>

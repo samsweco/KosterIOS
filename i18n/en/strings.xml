@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-	<string name="welcome_title">Engelska</string>
-    <string name="welcome_txt">Engelska</string>
+	<string name="welcome_title">Welcome to Kosterhavet!</string>
+    <string name="welcome_txt">Discover the beautiful nature of Kosterhavet and take a walk among the rubble fields and beach meadows.</string>
     <string name="back_btns">Back</string>
     <string name="viewOnMap_lbl">Location of the attraction</string>
     <string name="links_lbl">Read more:</string>
