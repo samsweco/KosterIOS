@@ -25,7 +25,7 @@ setRowData();
 // Sätter alla items i länklistan
 //-----------------------------------------------------------
 function setRowData() {
-	// try {
+	try {
 		var tableViewData = [];
 		var urlList = returnUrlByInfoId(id);
 
@@ -67,16 +67,16 @@ function setRowData() {
 			$.tableView.height = 0;
 		}
 
-	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Informationssidan");
-	// }
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Informationssidan");
+	}
 }
 
 //-----------------------------------------------------------
 // Hämtar all info som ska läsas in i listan
 //-----------------------------------------------------------
 function getLink(e) {
-	// try {
+	try {
 		var rowId = e.rowData.id;
 		
 		var urlById = returnUrlById(rowId);
@@ -98,16 +98,16 @@ function getLink(e) {
 			showRules(txt, titl);
 		} 	
 			
-	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Informationssidan");
-	// }
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Informationssidan");
+	}
 }
 
 //-----------------------------------------------------------
 // Öppnar url'en i en webView.
 //-----------------------------------------------------------
 function openLink(link) {
-	// try {
+	try {
 		var webview = Titanium.UI.createWebView({
 			url : link
 		});
@@ -125,9 +125,9 @@ function openLink(link) {
 		window.add(webview);
 		$.navInfoDetail.openWindow(window);
 
-	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Informationssidan");
-	// }
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Informationssidan");
+	}
 }
 
 //-----------------------------------------------------------
