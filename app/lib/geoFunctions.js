@@ -269,7 +269,7 @@ function userIsNearLetter() {
 	}
 }
 
-function alertLetter(clue, id) {
+function alertLetter(clue, id, clue_eng) {
 	var letterMessage = Ti.UI.createAlertDialog({
 		// title : 'Du närmar dig bokstav nummer ' + id + '!',		
 		// buttonNames : ['Gå till bokstavsjakten', 'Stäng'],	
