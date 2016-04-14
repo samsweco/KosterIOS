@@ -47,18 +47,31 @@ function showUserPosition(){
 //-----------------------------------------------------------
 // Öppnar hotspotDetail med info om vald hotspot
 //-----------------------------------------------------------
-function showHotspotDetailMap(hotId) {		
+function showHotspotfromDetailMap(hotId) {		
 	try {
 		var jsonObjHot = returnSpecificHotspotsByName(hotId);
+		var hotspotId;
+		var x;
+		var y;
+		
+		if(jsonObjHot[0].id == 32){
+			hotspotId = 42;
+			x = 58.893085;
+			y = 11.047972;
+		} else {
+			hotspotId = jsonObjHot[0].id;
+			x = jsonObjHot[0].xkoord;
+			y = jsonObjHot[0].ykoord;
+		}
 
 		var hotspotTxt = {
 			title : jsonObjHot[0].name,
 			titleEng : jsonObjHot[0].engelsk_titel,
 			infoTxt : jsonObjHot[0].infoTxt,
 			infoTxtEng : jsonObjHot[0].engelsk_beskrivning,
-			id : jsonObjHot[0].id,
-			x : jsonObjHot[0].xkoord,
-			y : jsonObjHot[0].ykoord
+			id : hotspotId,
+			x : x,
+			y : y
 		};
 
 		var hotDet = Alloy.createController("hotspotDetail", hotspotTxt).getView();
@@ -76,7 +89,7 @@ function showHotspotDetailMap(hotId) {
 var evtLists = function(evt){
 	try {
 		if (evt.clicksource == 'rightButton') {
-			showHotspotDetailMap(evt.annotation.id);
+			showHotspotfromDetailMap(evt.annotation.id);
 		}
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Kartfunktioner");

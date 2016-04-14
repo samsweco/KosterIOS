@@ -83,11 +83,22 @@ function zoomMapTrail() {
 }
 
 //-----------------------------------------------------------
+// Sorterar bilderna i ordning
+//-----------------------------------------------------------
+function sortByName(a, b) {
+	var x = a.img_order;
+    var y = b.img_order;
+    
+    return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+}
+
+//-----------------------------------------------------------
 // Hämtar bilder till bildspel för den valda vandringsleder
 //-----------------------------------------------------------
 function selectTrailPics() {
 	try {
 		var mediaObjJSON = returnSpecificTrailPics(trailId);
+		mediaObjJSON.sort(sortByName);
 		
 		for (var i = 0; i < mediaObjJSON.length; i++) {
 			var img_view = Ti.UI.createImageView({

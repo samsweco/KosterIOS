@@ -20,8 +20,17 @@ $.hotspotWindow.titleControl = windowTitle;
 // Sorterar sevärdheterna i bokstavsordning
 //-----------------------------------------------------------
 function sortByName(a, b) {
-    var x = a.name.toLowerCase();
-    var y = b.name.toLowerCase();
+	var x;
+    var y;
+	
+	if(language == 'svenska'){
+		x = a.name.toLowerCase();
+    	y = b.name.toLowerCase();
+	} else {
+		x = a.engelsk_titel.toLowerCase();
+    	y = b.engelsk_titel.toLowerCase();
+	}
+    
     return ((x < y) ? -1 : ((x > y) ? 1 : 0));
 }
 
@@ -29,7 +38,7 @@ function sortByName(a, b) {
 // Läser in data till alla listitems
 //-----------------------------------------------------------
 function setRowData() {
-	try {
+	// try {
 		var tableViewData = [];
 		var hotspotRows = returnHotspots();
 		
@@ -91,9 +100,9 @@ function setRowData() {
 			}
 		}
 		$.hotspotTable.data = tableViewData;
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsleder");
-	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Hotspots");
+	// }
 }
 
 //-----------------------------------------------------------

@@ -8,8 +8,6 @@ displayMap();
 setInteractiveViews();
 checkIfStarted();
 
-Ti.API.info('interactive : ' + language);
-
 //-----------------------------------------------------------
 // Sätter label med rätt font som windowtitle
 //-----------------------------------------------------------
@@ -26,7 +24,7 @@ $.interactiveWindow.titleControl = windowTitle;
 // Visar kartan med de olika sevärdheterna och ledtrådsplupparna
 //-----------------------------------------------------------
 function displayMap() {
-	// try {
+	try {
 		$.showFamilyTrail.add(showDetailMap(interactiveMap, 7, 'Äventyrsslingan', 'purple'));
 		addClueZone();
 		displaySpecificMarkers(7, interactiveMap);
@@ -36,9 +34,9 @@ function displayMap() {
 				showHotspot(evt.annotation.id);
 			}
 		});
-	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
-	// }
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
+	}
 }
 
 //-----------------------------------------------------------
