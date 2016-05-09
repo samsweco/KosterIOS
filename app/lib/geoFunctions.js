@@ -150,7 +150,7 @@ function userIsNearHotspot() {
 				var radius = hotspotsToLoop[h].radie;
 
 				if (isInsideRadius(hotlat, hotlon, radius)) {
-					alertOnHotspot(hotspotsToLoop[h].name, hotspotsToLoop[h].infoTxt, hotspotsToLoop[h].id, hotspotsToLoop[h].engelsk_beskrivning, hotspotsToLoop[h].engelsk_titel);
+					alertOnHotspot(hotspotsToLoop[h].name, hotspotsToLoop[h].infoTxt, hotspotsToLoop[h].id, hotspotsToLoop[h].engelsk_beskrivning, hotspotsToLoop[h].engelsk_titel, hotlan, hotlon);
 					setHotspotAlerted(hotspotsToLoop[h].id);
 				}
 			}
@@ -167,9 +167,7 @@ function userIsNearHotspot() {
 //-----------------------------------------------------------
 function userOnBoatTrip() {
 	try {
-		var boatdialog = Ti.UI.createAlertDialog({
-			// buttonNames : ['Läs mer', 'Stäng']	
-		});
+		var boatdialog = Ti.UI.createAlertDialog();
 		
 		if(language == 'svenska'){
 			boatdialog.buttonNames = ['Läs mer', 'Stäng'];
@@ -187,10 +185,10 @@ function userOnBoatTrip() {
 				var bradius = boatHotspots[b].radie;
 
 				if (isInsideRadius(blat, blon, bradius)) {
-					alertOnHotspot(boatHotspots[b].name, boatHotspots[b].infoTxt, boatHotspots[b].id, boatHotspots[b].engelsk_beskrivning, boatHotspots[b].engelsk_titel);
+					alertOnHotspot(boatHotspots[b].name, boatHotspots[b].infoTxt, boatHotspots[b].id, boatHotspots[b].engelsk_beskrivning, boatHotspots[b].engelsk_titel, blat, blon);
 					boatHotspots[b].alerted = 1;
-
 					alertedArray.push(boatTripHotspots[b].name);
+					
 					if (alertedArray.length == 8) {
 						Alloy.Globals.stopBoatGPS();
 					}
@@ -202,7 +200,7 @@ function userOnBoatTrip() {
 	}
 }
 
-function alertOnHotspot(hottitle, infoText, hotid, engtxt, engtitle) {
+function alertOnHotspot(hottitle, infoText, hotid, engtxt, engtitle, x, y) {
 	try {
 		var dialog = Ti.UI.createAlertDialog({
 			// message : 'Nu börjar du närma dig ' + hottitle + '!',
@@ -224,7 +222,9 @@ function alertOnHotspot(hottitle, infoText, hotid, engtxt, engtitle) {
 					titleEng : engtitle,
 					infoTxt : infoText,
 					infoTxtEng : engtxt,
-					id : hotid
+					id : hotid,
+					x : x,
+					y : y
 				};
 
 				var hotspotDetails = Alloy.createController("hotspotDetail", hotspotTxt).getView();
