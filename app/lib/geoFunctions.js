@@ -68,7 +68,7 @@ Alloy.Globals.stopBoatGPS = stopBoatGPS;
 // Hämtar enhetens position och kontrollerar mot punkter
 //-----------------------------------------------------------
 function setUserPosition(userCoordinates, type) {
-	try {
+	// try {
 		gLat = userCoordinates.latitude;
 		gLon = userCoordinates.longitude;
 
@@ -80,9 +80,9 @@ function setUserPosition(userCoordinates, type) {
 			userOnBoatTrip();
 		}
 
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - set userPosition");
-	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - set userPosition");
+	// }
 }
 
 function currentLocationFinder(type) {
@@ -140,7 +140,7 @@ function isInsideRadius(latti, lonni, rad) {
 // sänder ut dialog om true
 //-----------------------------------------------------------
 function userIsNearHotspot() {
-	try {
+	// try {
 		var hotspotsToLoop = returnHotspotsToAlert();
 
 		for (var h = 0; h < hotspotsToLoop.length; h++) {
@@ -150,15 +150,16 @@ function userIsNearHotspot() {
 				var radius = hotspotsToLoop[h].radie;
 
 				if (isInsideRadius(hotlat, hotlon, radius)) {
-					alertOnHotspot(hotspotsToLoop[h].name, hotspotsToLoop[h].infoTxt, hotspotsToLoop[h].id, hotspotsToLoop[h].engelsk_beskrivning, hotspotsToLoop[h].engelsk_titel, hotlan, hotlon);
+					alertOnHotspot(hotspotsToLoop[h].name, hotspotsToLoop[h].infoTxt, hotspotsToLoop[h].id, hotspotsToLoop[h].engelsk_beskrivning, hotspotsToLoop[h].engelsk_titel, hotlat, hotlon);
+					// hotspotsToLoop[h].alerted = 1;
 					setHotspotAlerted(hotspotsToLoop[h].id);
 				}
 			}
 		}
 
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - nearHotspot");
-	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - nearHotspot");
+	// }
 }
 
 //-----------------------------------------------------------
@@ -201,7 +202,7 @@ function userOnBoatTrip() {
 }
 
 function alertOnHotspot(hottitle, infoText, hotid, engtxt, engtitle, x, y) {
-	try {
+	// try {
 		var dialog = Ti.UI.createAlertDialog({
 			// message : 'Nu börjar du närma dig ' + hottitle + '!',
 			// buttonNames : ['Läs mer', 'Stäng']	
@@ -227,16 +228,16 @@ function alertOnHotspot(hottitle, infoText, hotid, engtxt, engtitle, x, y) {
 					y : y
 				};
 
-				var hotspotDetails = Alloy.createController("hotspotDetail", hotspotTxt).getView();
-				Alloy.CFG.tabs.activeTab.open(hotspotDetails);
+				var hotspotDetails = Alloy.createController("hotspotDetail", hotspotTxt).getView().open();
+				// Alloy.CFG.tabs.activeTab.open(hotspotDetails);
 			}
 		});
 
 		dialog.show();
 		playSound();
-	} catch(e) {
-		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - alerthot");
-	}
+	// } catch(e) {
+		// newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - alerthot");
+	// }
 }
 
 //-----------------------------------------------------------

@@ -11,7 +11,7 @@ var jsonfile_Collection = Alloy.Collections.jsonFilesModel;
 var letter_Collection = Alloy.Collections.letterModel;
 var hotspottrail_Collection = Alloy.Collections.hotspot_trailsModel;
 
-var hotspotsModel = Alloy.Models.hotspotModel;
+// var hotspotsModel = Alloy.Models.hotspotModel;
 var lettersModel = Alloy.Models.letterModel;
 
 //-----------------------------------------------------------
@@ -34,13 +34,17 @@ function returnHotspotsToAlert() {
 }
 
 function setHotspotAlerted(id) {
+	Ti.API.info('hotspotsModel 1');
+	var hotspotsModel = Alloy.Models.hotspotModel;
+	
 	hotspotsModel.fetch({
 		'id' : id
 	});
-
+	Ti.API.info('hotspotsModel 2');
 	hotspotsModel.set({
 		'alerted' : 1
 	});
+	
 	hotspotsModel.save();
 }
 
@@ -60,7 +64,6 @@ function setLetterOne(fId, fLetter){
 	lettersModel.fetch({
 		'id' : fId
 	});
-
 	lettersModel.set({
 		'found' : 1
 	});
@@ -72,11 +75,11 @@ function setLetterZero(letterId) {
 	lettersModel.fetch({
 		'id' : letterId
 	});
-
 	lettersModel.set({
 		'found' : 0,
 		'alerted' : 0
 	});
+	
 	lettersModel.save();
 }
 
@@ -84,10 +87,10 @@ function setAlertedOne(letterId) {
 	lettersModel.fetch({
 		'id' : letterId
 	});
-
 	lettersModel.set({
 		'alerted' : 1
 	});
+	
 	lettersModel.save();
 }
 

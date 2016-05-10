@@ -38,7 +38,7 @@ function sortByName(a, b) {
 // Läser in data till alla listitems
 //-----------------------------------------------------------
 function setRowData() {
-	// try {
+	try {
 		var tableViewData = [];
 		var hotspotRows = returnHotspots();
 		
@@ -100,9 +100,9 @@ function setRowData() {
 			}
 		}
 		$.hotspotTable.data = tableViewData;
-	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Hotspots");
-	// }
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Hotspots");
+	}
 }
 
 //-----------------------------------------------------------
