@@ -6,8 +6,9 @@
 	<Collection src="trailsModel"/>
 	<Collection src="letterModel"/>
 	<Model src="letterModel"/>
+	<Model src="hotspotModel" />
 	
-	<Window id="koster" class="container" backgroundImage="/images/front.png" onBlur="closeWindow">
+	<Window id="koster" class="container" backgroundImage="/images/front.png">
 		<View class="headView">
 			<ImageView class="imgKoster" image="/images/kosterhavet_logga.png"/>
 			<View id="lblView">

@@ -39,8 +39,7 @@ opacity : 0.95,
 }
 
 '.tblRow' : {	
-	height : '40dp',
-	selectionStyle : 'none'
+	height : '40dp'
 }
 
 "#hotspots_row":{

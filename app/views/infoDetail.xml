@@ -1,6 +1,7 @@
 <Alloy>
 	<Collection src="info_urlModel"></Collection>
-	<Collection src="letterModel" />
+	<Model src="hotspotModel" />
+	<Model src="letterModel" />
 
 	<NavigationWindow id="navInfoDetail" platform="ios" navBarHidden="true">
 	<Window id="infoDetail" class="container">

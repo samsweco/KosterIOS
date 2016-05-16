@@ -5,6 +5,7 @@
 	<Collection src="infospotCoordinatesModel"/>
 	<Collection src="letterModel" />
 	<Model src="letterModel" />
+	<Model src="hotspotModel" />
 	
 	<NavigationWindow id="hotspotNav" platform="ios" navBarHidden="true">
 	<Window id="hotspotWindow" onClose="closeHotWindow">

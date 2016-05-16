@@ -2,11 +2,12 @@
 	<Collection src="mediaModel" />
 	<Collection src="hotspotModel"></Collection>
 	<Model src="letterModel" />
+	<Model src="hotspotModel" />
 	<Collection src="letterModel" />
 	<Collection src="hotspot_trailsModel" />
 	<Collection src="jsonFilesModel"></Collection>
 	
-	<Window id="hotspotWin" onBlur="closeHotspot" class="container">
+	<Window id="hotspotWin" class="container">
 		<LeftNavButton>
 			<Button id="btnCloseWindow" onClick="closeHotspot" image="/images/backarrow.png"></Button>
 		</LeftNavButton>

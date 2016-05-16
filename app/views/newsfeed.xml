@@ -1,4 +1,6 @@
 <Alloy>
+	<Model src="letterModel" />
+	<Model src="hotspotModel" />
 	
 	<Window id="newsfeedWindow" navBarHidden="false" onClose="closeFeedWindow">
 		

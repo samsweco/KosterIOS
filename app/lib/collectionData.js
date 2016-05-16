@@ -11,7 +11,7 @@ var jsonfile_Collection = Alloy.Collections.jsonFilesModel;
 var letter_Collection = Alloy.Collections.letterModel;
 var hotspottrail_Collection = Alloy.Collections.hotspot_trailsModel;
 
-// var hotspotsModel = Alloy.Models.hotspotModel;
+var hotspotsModel = Alloy.Models.hotspotModel;
 var lettersModel = Alloy.Models.letterModel;
 
 //-----------------------------------------------------------
@@ -33,16 +33,12 @@ function returnHotspotsToAlert() {
 	return hotspotColl.toJSON();
 }
 
-function setHotspotAlerted(id) {
-	Ti.API.info('hotspotsModel 1');
-	var hotspotsModel = Alloy.Models.hotspotModel;
-	
+function setHotspotAlerted(hid) {
 	hotspotsModel.fetch({
-		'id' : id
+		id : hid
 	});
-	Ti.API.info('hotspotsModel 2');
 	hotspotsModel.set({
-		'alerted' : 1
+		alerted : 1
 	});
 	
 	hotspotsModel.save();
@@ -62,10 +58,10 @@ function returnBoatHotspots() {
 //-----------------------------------------------------------
 function setLetterOne(fId, fLetter){
 	lettersModel.fetch({
-		'id' : fId
+		id : fId
 	});
 	lettersModel.set({
-		'found' : 1
+		found : 1
 	});
 	
 	lettersModel.save();

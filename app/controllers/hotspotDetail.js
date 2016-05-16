@@ -84,11 +84,6 @@ function selectHotspotPics() {
 //-----------------------------------------------------------
 // Funktioner för att stänga sidan helt när man öppnar en annan
 //-----------------------------------------------------------
-
-$.hotspotWin.addEventListener('onblur', function(){
-	$.hotspotWin.close();
-});
-
 function closeHotspot(){
 	$.hotspotWin.close();
 }

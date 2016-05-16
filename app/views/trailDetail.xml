@@ -4,6 +4,7 @@
 	<Collection src="infospotCoordinatesModel" />
 	<Collection src="letterModel" />
 	<Model src="letterModel" />
+	<Model src="hotspotModel" />
 	
 	<NavigationWindow id="trailDetailNav" platform="ios" navBarHidden="true">
 		<Window id="hikeDetailWin" exitOnClose="true" onClose="closeTrdWindow">

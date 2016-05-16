@@ -1,4 +1,6 @@
 <Alloy>
+	<!-- <Model src="hotspotModel" /> -->
+	
 	<View id="menuContainerView">
 		<View id="line"></View>
 			<Label id="lbl_menu_open" text="L('openMenu_lbl')" onClick="openMainMenu"></Label>
