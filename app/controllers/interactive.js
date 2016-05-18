@@ -206,26 +206,25 @@ function setView() {
 //-----------------------------------------------------------
 function checkIfStarted() {
 	try {
-	var started = fetchFoundLettersCol();
-	var next_id = started.length;
-
-	if (next_id > 0 && next_id < 9) {
-		setView();
-		foundLetterId = next_id + 1;
-		$.slides.currentPage = foundLetterId - 1;
-
-		interactiveMap.removeAllAnnotations();
-		displaySpecificMarkers(7, interactiveMap);
-		getSpecificIconsForTrail(7, interactiveMap);
-		addSpecificClueZone(foundLetterId);
-	} else if (started.length == 9) {
-		setLabelText();
-		setLastView();
-	}
+		var started = fetchFoundLettersCol();
+		var next_id = started.length;
+	
+		if (next_id > 0 && next_id < 9) {
+			setView();
+			foundLetterId = next_id + 1;
+			$.slides.currentPage = foundLetterId - 1;
+	
+			interactiveMap.removeAllAnnotations();
+			displaySpecificMarkers(7, interactiveMap);
+			getSpecificIconsForTrail(7, interactiveMap);
+			addSpecificClueZone(foundLetterId);
+		} else if (started.length == 9) {
+			setLabelText();
+			setLastView();
+		}
 	} catch(e) {
-	newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 	}
-
 }
 
 //-----------------------------------------------------------

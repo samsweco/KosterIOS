@@ -7,29 +7,33 @@
 			<Label id="lbl_menu_close" text="L('closeMenu_lbl')" onClick="closeMainMenu"></Label>
 				<TableView id="table" onClick="navigate">
                 <TableViewRow title="L('home_row')" id="home_row" class="tblRow"/>
-                <TableViewRow title="L('information_row')" id="info_row" class="tblRow"/>
                 <TableViewRow title="L('boattrip_row')" id="boat_row" class="tblRow">
-                <View class="switchView">
-                		<ImageView image="/images/sound.png"></ImageView>
-                		<Label class="lblSetGPSListener" text="L('reminder_lbl')"></Label>
+	                <View class="switchView">
+	            		<ImageView class="rowSoundImg" image="/images/sound.png"></ImageView>
+	            		<!-- <Label class="lblSetGPSListener" text="L('reminder_lblHot')"></Label> -->
 						<View class="switchClass">
 							<Switch id="geoSwitchBoat" class="switch" value="false" titleOn="På" titleOff="Av"></Switch>
 						</View>
 					</View>
 				</TableViewRow>
-                <TableViewRow title="L('hikes_row')" id="trails_row" class="tblRow"/>
-                <TableViewRow title="L('hotspot_row')" id="hotspots_row"class="tblRow">
+				<TableViewRow title="L('hotspot_row')" id="hotspots_row"class="tblRow">
                 	<View class="switchView">
-                		<ImageView image="/images/sound.png"></ImageView>
-                		<Label class="lblSetGPSListener" text="L('reminder_lbl')"></Label>
+                		<ImageView class="rowSoundImg" image="/images/sound.png"></ImageView>
+                		<!-- <Label class="lblSetGPSListener" text="L('reminder_lblHot')"></Label> -->
 						<View class="switchClass">
 							<Switch id="geoSwitchHotspot" class="switch" value="false" titleOn="På" titleOff="Av"></Switch>
 						</View>
 					</View>
                 </TableViewRow>
+                <TableViewRow title="L('hikes_row')" id="trails_row" class="tblRow"/>
                 <TableViewRow title="L('map_row')" id="map_row" class="tblRow"/>
                 <TableViewRow title="L('interactive_row')" id="interactive_row" class="tblRow"/>
+                <TableViewRow title="L('information_row')" id="info_row" class="tblRow"/>
                 <TableViewRow title="L('newsfeed_row')" id="newsfeed_row" class="tblRow"/>
+                <TableViewRow id="sound_row" class="tblRow">
+                	<ImageView id="bottomSoundImg" image="/images/sound.png"></ImageView>
+                	<Label class="lblSetGPSListener" text="L('reminder_lblHot')"></Label>
+                </TableViewRow>
         </TableView>
 	</View>
 </Alloy>

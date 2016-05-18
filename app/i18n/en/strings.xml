@@ -28,8 +28,9 @@
     <string name="hotspot_row">Attractions</string>
     <string name="map_row">Map</string>
     <string name="interactive_row">Letter game</string>
-    <string name="newsfeed_row">Instagram feed</string>
+    <string name="newsfeed_row">Kosterhavet on Instagram</string>
     <string name="reminder_lbl">Reminder</string>
+    <string name="reminder_lblHot"> = Reminder when you're close to an attraction</string>
     <string name="goToGame_btn">Go to the letter game!</string>
     <string name="goToDetailMapBoat_btn">Show on map</string>
     <string name="goToDetailMap_btn">Show trail on map</string>
