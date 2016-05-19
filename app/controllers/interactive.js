@@ -492,11 +492,14 @@ Titanium.App.addEventListener('onclose', function() {
 // Sparar till found 0 och tömmer bokstäverna så man kan spela igen
 //-----------------------------------------------------------
 function startOver() {
-	var col = fetchFoundLettersCol();
 	try {
+		var col = fetchFoundLettersCol();
+		
 		for (var i = 0; i < col.length; i++) {;
 			setLetterZero(col[i].id);
 		}
+		
+		foundLetterId = 1;
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - startOver");
 	}
