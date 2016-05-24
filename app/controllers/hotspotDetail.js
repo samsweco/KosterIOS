@@ -47,7 +47,6 @@ function selectHotspotPics() {
 			var lblImgTxt = Ti.UI.createLabel({
 				left : '3dp',
 				top : '0dp',
-				// text : picMediaJSON[i].img_txt,
 				color : 'white',
 				font : {
 					fontSize : '12dp',
@@ -85,6 +84,7 @@ function selectHotspotPics() {
 // Funktioner för att stänga sidan helt när man öppnar en annan
 //-----------------------------------------------------------
 function closeHotspot(){
-	$.hotspotWin.close();
+	//$.hotspotWin.close();
+	$.hotspotDetailNav.close();
 }
 

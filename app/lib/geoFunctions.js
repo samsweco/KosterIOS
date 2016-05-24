@@ -210,7 +210,7 @@ function alertOnHotspot(hottitle, infoText, hotid, engtxt, engtitle, x, y) {
 			dialog.message = 'You are approaching ' + hottitle + '!';
 			dialog.buttonNames = ['Read more', 'Close'];
 		}
-
+		
 		dialog.addEventListener('click', function(e) {
 			if (e.index == 0) {
 				var hotspotTxt = {
@@ -220,13 +220,14 @@ function alertOnHotspot(hottitle, infoText, hotid, engtxt, engtitle, x, y) {
 					infoTxtEng : engtxt,
 					id : hotid,
 					x : x,
-					y : y
+					y : y,
+					fromAlert : true
 				};
-
+				
 				var hotspotDetails = Alloy.createController("hotspotDetail", hotspotTxt).getView().open();
 			}
 		});
-
+		
 		dialog.show();
 		playSound();
 	} catch(e) {
