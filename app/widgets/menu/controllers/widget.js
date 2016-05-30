@@ -120,10 +120,17 @@ $.geoSwitchBoat.addEventListener('change', function() {
 });
 
 //-----------------------------------------------------------
-// Kontrollerar om man redan slagit på GPS 
+// Kontrollerar om man redan slagit på GPS och ändrar 
+// switch'arna till true 
 //-----------------------------------------------------------
 if(hotspotGPS){
 	$.geoSwitchHotspot.value = true;
 } else {
 	$.geoSwitchHotspot.value = false;
+}
+
+if(boatGPS){
+	$.geoSwitchBoat.value = true;
+} else {
+	$.geoSwitchBoat.value = false;
 }
