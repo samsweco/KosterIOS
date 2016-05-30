@@ -1,6 +1,4 @@
 <Alloy>
-	<!-- <Model src="hotspotModel" /> -->
-	
 	<View id="menuContainerView">
 		<View id="line"></View>
 			<Label id="lbl_menu_open" text="L('openMenu_lbl')" onClick="openMainMenu"></Label>
@@ -10,7 +8,6 @@
                 <TableViewRow title="L('boattrip_row')" id="boat_row" class="tblRow">
 	                <View class="switchView">
 	            		<ImageView class="rowSoundImg" image="/images/sound.png"></ImageView>
-	            		<!-- <Label class="lblSetGPSListener" text="L('reminder_lblHot')"></Label> -->
 						<View class="switchClass">
 							<Switch id="geoSwitchBoat" class="switch" value="false" titleOn="På" titleOff="Av"></Switch>
 						</View>
@@ -19,7 +16,6 @@
 				<TableViewRow title="L('hotspot_row')" id="hotspots_row"class="tblRow">
                 	<View class="switchView">
                 		<ImageView class="rowSoundImg" image="/images/sound.png"></ImageView>
-                		<!-- <Label class="lblSetGPSListener" text="L('reminder_lblHot')"></Label> -->
 						<View class="switchClass">
 							<Switch id="geoSwitchHotspot" class="switch" value="false" titleOn="På" titleOff="Av"></Switch>
 						</View>

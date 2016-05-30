@@ -19,7 +19,6 @@
 					</View>
 					<Label id="lblHotspotName"></Label>
 					<Label id="lblHotspotInfoTxt" class="lblInfotxt"></Label>
-					
 					<View id="mapView">
 						<Label id="lblHotspotMap" class="lblInfotxt" text="L('viewOnMap_lbl')"></Label>
 						<View id="showHotspotMap"></View>

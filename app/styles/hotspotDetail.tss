@@ -53,13 +53,6 @@
 	}
 }
 
-// "#backLbl": {
-	// font: {
-		// fontSize: '14dp',
-		// fontFamily: 'Raleway-Medium'
-	// }
-// }
-
 "#showHotspotMap": {
 	height: '75%',
 	width: '95%',

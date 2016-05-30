@@ -3,10 +3,7 @@
 	<Model src="hotspotModel" />
 	
 	<Window id="newsfeedWindow" navBarHidden="false" onClose="closeFeedWindow">
-		
 		<View id="newsfeedView" class="container"></View>
 		<Widget src="menu" name="widget"></Widget>
-		
 	</Window>
-	
 </Alloy>

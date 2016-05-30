@@ -18,7 +18,6 @@
 			</LeftNavButton>
 			<View id="mapDetailView"></View>
 			<Widget src="menu" name="widget"></Widget>
-
 		</Window>
 	</NavigationWindow>
 </Alloy>

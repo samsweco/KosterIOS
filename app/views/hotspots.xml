@@ -8,16 +8,15 @@
 	<Model src="hotspotModel" />
 	
 	<NavigationWindow id="hotspotNav" platform="ios" navBarHidden="true">
-	<Window id="hotspotWindow" onClose="closeHotWindow">
-		
-	<View class="container" onClose="destroyModel">
-		<ScrollView class="headView" scrollType="vertical">
-			<TableView id="hotspotTable" onClick="showHotspotDetailView">
-				<TableViewRow class="row"></TableViewRow>
-			</TableView>
-		</ScrollView>
-	</View>
-	<Widget src="menu" name="widget"></Widget>
-	</Window>
+		<Window id="hotspotWindow" onClose="closeHotWindow">
+			<View class="container" onClose="destroyModel">
+				<ScrollView class="headView" scrollType="vertical">
+					<TableView id="hotspotTable" onClick="showHotspotDetailView">
+						<TableViewRow class="row"></TableViewRow>
+					</TableView>
+				</ScrollView>
+			</View>
+			<Widget src="menu" name="widget"></Widget>
+		</Window>
 	</NavigationWindow>
 </Alloy>

@@ -84,7 +84,6 @@ function selectHotspotPics() {
 // Funktioner för att stänga sidan helt när man öppnar en annan
 //-----------------------------------------------------------
 function closeHotspot(){
-	//$.hotspotWin.close();
 	$.hotspotDetailNav.close();
 }
 

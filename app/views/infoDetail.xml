@@ -4,27 +4,27 @@
 	<Model src="letterModel" />
 
 	<NavigationWindow id="navInfoDetail" platform="ios" navBarHidden="true">
-	<Window id="infoDetail" class="container">
-		<LeftNavButton>
-			<Button id="btnCloseWindow" onClick="closeInfoWindow" image="/images/backarrow.png"></Button>
-		</LeftNavButton>
-		<View>
-		<ScrollView id="infoDetailView" class="container" scrollType="vertical">
-			<View id="slideView">
-				<ImageView id="infoImg"></ImageView>
+		<Window id="infoDetail" class="container">
+			<LeftNavButton>
+				<Button id="btnCloseWindow" onClick="closeInfoWindow" image="/images/backarrow.png"></Button>
+			</LeftNavButton>
+			<View>
+				<ScrollView id="infoDetailView" class="container" scrollType="vertical">
+					<View id="slideView">
+						<ImageView id="infoImg"></ImageView>
+					</View>
+					
+					<Label id="lblInfoTitle1"></Label>
+					<Label id="lblInfoText"></Label>
+					<Label id="lblLink" text="L('links_lbl')"></Label>
+					<View id="linkView">
+						<TableView id="tableView" onClick="getLink">
+							<TableViewRow class="row" onClick="getLink" />
+						</TableView>
+					</View>
+				</ScrollView>
+				<Widget src="menu" name="widget"></Widget>
 			</View>
-			
-			<Label id="lblInfoTitle1"></Label>
-			<Label id="lblInfoText"></Label>
-			<Label id="lblLink" text="L('links_lbl')"></Label>
-			<View id="linkView">
-				<TableView id="tableView" onClick="getLink">
-					<TableViewRow class="row" onClick="getLink" />
-				</TableView>
-			</View>
-		</ScrollView>
-		<Widget src="menu" name="widget"></Widget>
-		</View>
-	</Window>
+		</Window>
 	</NavigationWindow>
 </Alloy>

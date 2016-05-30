@@ -36,22 +36,10 @@
 	width: Titanium.UI.SIZE
 }
 
-"#v2": {
-	right: '15dp',
-	height: '30dp',
-	width: Titanium.UI.SIZE
-}
-
 "#v3": {
 	right: '15dp',
 	height: '30dp',
 	width: Titanium.UI.SIZE
-}
-
-"#geoSwitch":{
-	right: '15dp',
-	height: Titanium.UI.FILL,
-	width: Titanium.UI.FILL
 }
 
 "#posSwitch":{
@@ -75,7 +63,6 @@
 	top: '5dp',
 	left: '20dp',
 	font: {
-		//fontSize: 13,
 		fontFamily: 'Raleway-Medium'
 	}
 }
@@ -93,13 +80,6 @@
 }
 
 "#lblSetMypos": {
-	left: '5dp',
-	font: {
-		fontFamily: 'Raleway-Medium'
-	}
-}
-
-"#lblSetGPS": {
 	left: '5dp',
 	font: {
 		fontFamily: 'Raleway-Medium'

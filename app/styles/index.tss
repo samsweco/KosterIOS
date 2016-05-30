@@ -34,5 +34,3 @@
 	right: '10%',
 	layout: 'vertical'
 }
-
- //String.format(L('aboutTitleLbl'),'')

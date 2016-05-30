@@ -299,9 +299,7 @@ function displayAllMarkers() {
 			var markerHotspot = MapModule.createAnnotation({
 				id : hotJson[u].name,
 				latitude : hotJson[u].xkoord,
-				longitude : hotJson[u].ykoord,
-				// title : hotJson[u].name,
-				// subtitle : 'Läs mer om ' + hotJson[u].name + ' här!',			
+				longitude : hotJson[u].ykoord,			
 				image : '/images/hot-icon-azure.png',
 				centerOffset : {
 					x : -3,
@@ -388,9 +386,7 @@ function displaySpecificMarkers(id, maptype) {
 			var markerSpecificHotspot = MapModule.createAnnotation({
 				id : specificHotspots[u].name,
 				latitude : specificHotspots[u].xkoord,
-				longitude : specificHotspots[u].ykoord,
-				// title : specificHotspots[u].name,
-				// subtitle : 'Läs mer om ' + specificHotspots[u].name + ' här!',			
+				longitude : specificHotspots[u].ykoord,		
 				image : '/images/hot-icon-azure.png',
 				rightButton : '/images/arrow.png',
 				name : 'hotspot'

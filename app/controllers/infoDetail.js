@@ -45,7 +45,6 @@ function setRowData() {
 					fontSize : '13dp',
 				},
 				color : '#0098C3'
-				// text : urlList[i].linkname
 			});
 			
 			if(language == 'svenska'){

@@ -82,7 +82,6 @@ function setRowData() {
 						fontSize : '14dp',
 						fontFamily : 'Raleway-Medium'
 					}
-					// text : hotspotRows[i].name
 				});
 				
 				if(language == 'svenska'){

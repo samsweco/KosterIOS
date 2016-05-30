@@ -80,7 +80,6 @@ function setRowData() {
 					fontSize : '14dp',
 					fontFamily: 'Raleway-Medium'
 				}
-				// text : rows[i].name
 			});
 			
 			if(language == 'svenska'){

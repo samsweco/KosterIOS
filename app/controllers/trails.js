@@ -16,7 +16,7 @@ if(language == 'svenska'){
 // Sätter label med rätt font som windowtitle
 //-----------------------------------------------------------
 var windowTitle = Ti.UI.createLabel({
-	text: titleWin,//String.format(L('hikes_row'), ''),
+	text: titleWin,
 	font: {
 		fontSize: '17dp',
 		fontFamily: 'Raleway-Medium'
@@ -70,7 +70,6 @@ function setRowData() {
 						fontSize : '14dp',
 						fontFamily : 'Raleway-Medium'
 					}
-					//text : trailRows[i].name
 				});
 	
 				var lblDistance = Ti.UI.createLabel({
@@ -79,8 +78,7 @@ function setRowData() {
 					font : {
 						fontSize : '11dp',
 						fontFamily : 'Raleway-Light'
-					}
-					// text : 'Sträcka : ' + trailRows[i].length + " km"				
+					}				
 				});
 
 				var lblArea = Ti.UI.createLabel({
@@ -115,6 +113,7 @@ function setRowData() {
 				tableViewData.push(row);
 			}
 		}
+		
 		$.table.data = tableViewData;
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsleder");
@@ -125,7 +124,7 @@ function setRowData() {
 // Öppnar trail detail med args för den valda leden
 //-----------------------------------------------------------
 function showTrailDetails(e) {
-	// try {
+	try {
 		var id = e.rowData.id;
 		var trailJsonObj = returnSpecificTrailById(id);
 
@@ -145,9 +144,9 @@ function showTrailDetails(e) {
 
 		var trailDetail = Alloy.createController("trailDetail", args).getView();
 		$.trailNav.openWindow(trailDetail);
-	// } catch(e) {
-		// newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsleder");
-	// }
+	} catch(e) {
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsleder");
+	}
 }
 
 //-----------------------------------------------------------

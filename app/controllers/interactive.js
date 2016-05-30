@@ -96,7 +96,6 @@ function setInteractiveViews() {
 			var clueTitle = Ti.UI.createLabel({
 				top : '10dp',
 				left : '0dp',
-				//text : 'Ledtråd ' + (i + 1),
 				color : '#FCAF17',
 				font : {
 					fontSize : '16dp',
@@ -107,7 +106,6 @@ function setInteractiveViews() {
 			var clueTxt = Ti.UI.createLabel({
 				top : '5dp',
 				left : '0dp',
-				//text : letterJSON[i].clue,
 				color : 'black',
 				font : {
 					fontSize : '14dp',
@@ -150,8 +148,6 @@ function startInteractive() {
 	try {
 		if (!Ti.Geolocation.locationServicesEnabled) {
 			var alertDialog = Ti.UI.createAlertDialog({
-				// title : 'Påminnelser',
-				// message : 'Tillåt appen att se din position för att kunna få påminnelser när du närmar dig en bokstav! Gå in på platstjänster i dina inställningar.',
 				buttonNames : ['OK']
 			});
 			
@@ -184,19 +180,18 @@ function startInteractive() {
 //-----------------------------------------------------------
 function setView() {
 	try {
-	setLabelText();
-	$.lblScroll.show();
-	$.lblScroll.heigh = Ti.UI.SIZE;
-	$.clueSlideView.height = '25%';
-	$.clueSlideView.show();
-	$.lettersView.height = Ti.UI.SIZE;
-	$.lettersView.show();
-	$.hideView.hide();
-	$.hideView.height = 0;
+		setLabelText();
+		$.lblScroll.show();
+		$.lblScroll.heigh = Ti.UI.SIZE;
+		$.clueSlideView.height = '25%';
+		$.clueSlideView.show();
+		$.lettersView.height = Ti.UI.SIZE;
+		$.lettersView.show();
+		$.hideView.hide();
+		$.hideView.height = 0;
 	} catch(e) {
-	newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 	}
-
 }
 
 //-----------------------------------------------------------
@@ -263,10 +258,7 @@ function setLastView() {
 //-----------------------------------------------------------
 function toNextClue() {
 	try {
-		var nextDialog = Ti.UI.createAlertDialog({
-			// message : 'Visa försvunnen bokstav?',
-			// buttonNames : ['Ja, visa!', 'Stäng']		
-		});
+		var nextDialog = Ti.UI.createAlertDialog();
 		
 		if(language == 'svenska'){
 			nextDialog.message = 'Visa försvunnen bokstav?';
@@ -287,10 +279,7 @@ function toNextClue() {
 					$.txtLetter.value = '';
 					$.txtLetter.value = lostLetter;
 				} else {
-					var errorDialog = Ti.UI.createAlertDialog({
-						// message : 'Du har redan hittat alla bokstäver. Starta om appen och testa igen!',
-						// buttonNames : ['Stäng']					
-					});
+					var errorDialog = Ti.UI.createAlertDialog();
 					
 					if(language == 'svenska'){
 						errorDialog.message = 'Du har redan hittat alla bokstäver. Starta om appen och testa igen!';
@@ -299,14 +288,11 @@ function toNextClue() {
 						errorDialog.message = 'You have already found all the letters. Restart the app and try again!';
 						errorDialog.buttonNames = ['Close'];
 					}
-
 				}
-
 			}
 		});
 
 		nextDialog.show();
-
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 	}
@@ -391,32 +377,32 @@ function checkLetter(letterToCheck) {
 //-----------------------------------------------------------
 function setLabelText() {
 	try {
-	var found = fetchFoundLettersCol();
-	$.lblCollectedLetters.text = String.format(L('foundLetters_lbl'), '');
-
-	for (var i = 0; i < found.length; i++) {
-		$.lblCollectedLetters.text += found[i].letter;
-
-		if (found[i].id == 9) {
-			$.wordClue.show();
-			$.wordClue.height = Ti.UI.SIZE;
-			$.wordClueLbl.show();
-			$.wordClueLbl.height = Ti.UI.SIZE;
-			$.sendWord.show();
-			$.sendWord.height = '40dp';
-			$.txtLetter.value = '';
-
-			$.clueSlideView.height = 0;
-			$.sendOneLetter.height = 0;
-			$.sendOneLetter.hide();
-			$.nextClue.hide();
-			$.nextClue.height = 0;
-			$.lblScroll.hide();
-			$.lblScroll.height = 0;
+		var found = fetchFoundLettersCol();
+		$.lblCollectedLetters.text = String.format(L('foundLetters_lbl'), '');
+	
+		for (var i = 0; i < found.length; i++) {
+			$.lblCollectedLetters.text += found[i].letter;
+	
+			if (found[i].id == 9) {
+				$.wordClue.show();
+				$.wordClue.height = Ti.UI.SIZE;
+				$.wordClueLbl.show();
+				$.wordClueLbl.height = Ti.UI.SIZE;
+				$.sendWord.show();
+				$.sendWord.height = '40dp';
+				$.txtLetter.value = '';
+	
+				$.clueSlideView.height = 0;
+				$.sendOneLetter.height = 0;
+				$.sendOneLetter.hide();
+				$.nextClue.hide();
+				$.nextClue.height = 0;
+				$.lblScroll.hide();
+				$.lblScroll.height = 0;
+			}
 		}
-	}
 	} catch(e) {
-	newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
+		newError("Något gick fel när sidan skulle laddas, prova igen!", "Bokstavsjakten");
 	}
 }
 
@@ -429,10 +415,7 @@ function checkWord() {
 		var bigword = check.toUpperCase();
 		var checkword = bigword.split(" ", 1);
 
-		var alertDialog = Ti.UI.createAlertDialog({
-			// buttonNames : ['Stäng'],
-			// title : "Fel ord"
-		});
+		var alertDialog = Ti.UI.createAlertDialog();
 		
 		if(language == 'svenska'){
 			alertDialog.buttonNames = ['Stäng'];
@@ -460,7 +443,6 @@ function checkWord() {
 				$.lblCollectedLetters.text = 'Good job! You found the right word!';
 			}
 
-			// $.lblCollectedLetters.text = 'Bra jobbat! Du hittade det rätta ordet!';			
 			$.lblCollectedLetters.fontFamily = 'Raleway-Medium';
 			$.lblCollectedLetters.fontSize = '16dp';
 
@@ -504,16 +486,3 @@ function startOver() {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "geoFunctions - startOver");
 	}
 }
-
-// //-----------------------------------------------------------
-// // Funktion för att stänga och rensa sida när man stänger sidan
-// //
-// // SKA VI HA DETTA? STÄNGER AV JAKTEN ISF JU??
-// //-----------------------------------------------------------
-// var cleanup = function() {
-// $.destroy();
-// $.off();
-// $.interactiveWin = null;
-// };
-//
-// $.interactiveWin.addEventListener('close', cleanup);

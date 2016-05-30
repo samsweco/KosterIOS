@@ -76,7 +76,6 @@ function zoomMapTrail() {
 		
 		var mapDetail = Alloy.createController("mapDetail", trail).getView();
 		$.trailDetailNav.openWindow(mapDetail);
-		
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Vandringsled - zoomMapTrail");
 	}	
@@ -111,7 +110,6 @@ function selectTrailPics() {
 			var lblImgTxt = Ti.UI.createLabel({
 				left : '3dp',
 				top : '0.5dp',
-				// text : mediaObjJSON[i].img_txt,
 				color : 'white',
 				font : {
 					fontSize : 12,
@@ -183,7 +181,6 @@ function LoadHotspotList() {
 					fontSize : '14dp',
 					fontFamily: 'Raleway-Medium'
 				}
-				// text : tableRow[i].name
 			});
 			
 			
