@@ -54,12 +54,6 @@ function setRowData() {
 					hasChild : true
 				});
 
-				var listItem = Ti.UI.createView({
-					layout : 'vertical',
-					height : Ti.UI.SIZE,
-					width : Ti.UI.FILL,
-				});
-
 				var img = Ti.UI.createImageView({
 					height : '70dp',
 					width : '115dp',
@@ -98,6 +92,7 @@ function setRowData() {
 				tableViewData.push(row);
 			}
 		}
+		
 		$.hotspotTable.data = tableViewData;
 	} catch(e) {
 		newError("Något gick fel när sidan skulle laddas, prova igen!", "Hotspots");

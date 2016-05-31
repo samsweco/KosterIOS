@@ -154,14 +154,14 @@ function LoadHotspotList() {
 			var row = Ti.UI.createTableViewRow({
 				id : tableRow[i].name,
 				layout : 'horizontal',
-				height : '90dp',
+				height : '85dp',
 				top : '0dp',
 				hasChild : true
 			});
 
 			var img = Ti.UI.createImageView({
-				height : '70dp',
-				width : '115dp',
+				height : '65dp',
+				width : '110dp',
 				image : '/images/' + tableRow[i].cover_pic,
 				left : '15dp',
 				top : '10dp'
@@ -182,7 +182,6 @@ function LoadHotspotList() {
 					fontFamily: 'Raleway-Medium'
 				}
 			});
-			
 			
 			if(language == 'svenska'){
 				lblName.text = tableRow[i].name;

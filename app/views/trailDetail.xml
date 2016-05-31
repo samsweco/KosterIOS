@@ -28,7 +28,9 @@
 					<Button id="btnSendTo"></Button>
 					<Label id="lblLangsVagen" text="L('hotspotList_lbl')"></Label>
 					<View id="trail_hotspotView">
-						<TableView id="hotspotTable" onClick="showHotspotDetail" />
+						<TableView id="hotspotTable" onClick="showHotspotDetail"> 
+							<TableViewRow class="row"></TableViewRow>	
+						</TableView>
 					</View>
 				</ScrollView>
 				<Widget src="menu" name="widget"></Widget>
