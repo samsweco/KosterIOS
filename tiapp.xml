@@ -2,7 +2,7 @@
 <ti:app xmlns:ti="http://ti.appcelerator.org">
     <id>com.kostervandring.ios</id>
     <name>Kosterhavet</name>
-    <version>1.1</version>
+    <version>1.2</version>
     <publisher>Sweco</publisher>
     <url>http://www.sweco.se</url>
     <description>Kostervandring </description>
